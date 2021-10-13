@@ -1,4 +1,3 @@
-import './style.css'; 
 //use factories to create list items
 //create separate lists by category/project (defaut on first entry)
 // - users can create new projects, choose which project to assign a task to    
@@ -33,24 +32,30 @@ import './style.css';
 //      5. if task is already completed, toggle back to active task list
 // 4. Assign priority
 
+import './style.css'; 
 
-// import './Users/Caroline/the-odin-project/Practice/odin-js-module/to-do-list/style.css';
- 
 const content = document.getElementById('content-div');
 
-//App title
+//title
 const title = document.createElement('h1');
 title.id = 'title-div';
 title.textContent = 'Can-Do List';
 content.appendChild(title);
 
-//Button to add new task
+//default category
+const category1 = document.createElement('h2');
+category1.classList.add('category-name');
+category1.textContent = 'Main List';
+content.appendChild(category1);
+
+//new-task-btn
 const addTaskBtn = document.createElement('button');
 addTaskBtn.id = 'add-task-btn';
 addTaskBtn.textContent = 'Add Task';
-content.appendChild('addTaskBtn');
+content.appendChild(addTaskBtn);
+addTaskBtn.addEventListener('click', () => console.log('add task'));
 
-//          a. event listener to trigger add-task module
+
 //        -default category title (click to edit?)
 //        -task
 //          -name

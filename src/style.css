@@ -1,4 +1,10 @@
-h1 {
+* {
     margin: auto;
-    color: red;
+    text-align: center;
+}
+button {
+    margin: auto;
+}
+h1 {
+    text-align: center;
 }
