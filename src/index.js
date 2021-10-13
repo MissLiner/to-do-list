@@ -32,7 +32,7 @@
 //      5. if task is already completed, toggle back to active task list
 // 4. Assign priority
 
-
+import './style.css';
 
 const content = document.getElementById('content-div');
 
