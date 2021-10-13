@@ -1,3 +1,4 @@
+import './style.css'; 
 //use factories to create list items
 //create separate lists by category/project (defaut on first entry)
 // - users can create new projects, choose which project to assign a task to    
@@ -32,8 +33,9 @@
 //      5. if task is already completed, toggle back to active task list
 // 4. Assign priority
 
-import './style.css';
 
+// import './Users/Caroline/the-odin-project/Practice/odin-js-module/to-do-list/style.css';
+ 
 const content = document.getElementById('content-div');
 
 //App title
