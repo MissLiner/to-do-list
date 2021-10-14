@@ -10,7 +10,23 @@
 //      7. add new task to screen
 //      8. hide create-task pop-up window
 
-//factory function to add tasks
-const taskFactory = (action) => {
-    
+//        -task
+//          -name
+//          -description
+//          -category?
+//          -due date
+//          -priority
+//          -notes
+//          -checkbox
+
+//import { taskList } from "./task-list";
+import { newTaskForm } from ".";
+
+addNewTask = () => {
+    taskList.unshift(FormData(newTaskForm));
+    console.log(taskList);
+}
+export {
+    taskList,
+    addNewTask,
 }
