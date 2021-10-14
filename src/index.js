@@ -73,6 +73,12 @@ newTaskForm.appendChild(priorityLabel);
 const notesField = document.createElement('input');
 notesField.id = 'notes-field';
 newTaskForm.appendChild(notesField);
+const submitTaskBtn = document.createElement('input');
+submitTaskBtn.id = 'submit-task-btn';
+submitTaskBtn.type = 'button'; 
+submitTaskBtn.value = 'Submit';
+newTaskForm.appendChild(submitTaskBtn);
+submitTaskBtn.addEventListener('click', () => console.log('submitted task'));
 
 //        -task
 //          -name
