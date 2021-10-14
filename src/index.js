@@ -13,17 +13,7 @@
 
 //MODULES:
 
-// 2. create-task
-//      -POP-UP window form
-//      -active task array to hold tasks
-//      1. assign or create category
-//      2. enter name & description
-//      3. assign due date
-//      4. choose priority level
-//      5. add notes
-//      6. add completion status
-//      7. add new task to screen
-//      8. hide create-task pop-up window
+
 // 3. complete-task
 //      1. change task status to completed
 //      2. change text and formatting to show it is completed
@@ -55,8 +45,35 @@ addTaskBtn.textContent = 'Add Task';
 content.appendChild(addTaskBtn);
 addTaskBtn.addEventListener('click', () => console.log('add task'));
 
+//new task pop-up
+const newTaskForm = document.createElement('form');
+newTaskForm.id = 'new-task-form';
+content.appendChild(newTaskForm);
+const nameField = document.createElement('input');
+nameField.id = 'name-field';
+newTaskForm.appendChild(nameField);
+const descField = document.createElement('input');
+descField.id = 'desc-field';
+newTaskForm.appendChild(descField);
+const categoryField = document.createElement('input');
+categoryField.id = 'category-field';
+newTaskForm.appendChild(categoryField);
+//add dropdown datalist to category later
+const dueDateField = document.createElement('input');
+dueDateField.id = 'due-date-field';
+dueDateField.type = 'date';
+newTaskForm.appendChild(dueDateField);
+const priorityField = document.createElement('select');
+priorityField.id = 'priority-field';
+newTaskForm.appendChild(priorityField);
+const priorityLabel = document.createElement('label');
+priorityLabel.id = 'priority-label';
+priorityLabel.htmlFor = 'priority-field';
+newTaskForm.appendChild(priorityLabel);
+const notesField = document.createElement('input');
+notesField.id = 'notes-field';
+newTaskForm.appendChild(notesField);
 
-//        -default category title (click to edit?)
 //        -task
 //          -name
 //          -description
@@ -65,12 +82,5 @@ addTaskBtn.addEventListener('click', () => console.log('add task'));
 //          -priority
 //          -notes
 //          -checkbox
-//      3. Hidden add-task pop-up
-//          -name
-//          -description
-//          -category?
-//          -due date
-//          -priority
-//          -notes
 //      4. event listener on checkboxes to trigger complete-task module
 
