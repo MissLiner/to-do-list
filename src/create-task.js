@@ -19,14 +19,16 @@
 //          -notes
 //          -checkbox
 
-//import { taskList } from "./task-list";
-import { newTaskForm } from ".";
+import { taskList } from "./task-list";
+import { newTaskForm } from "./task-list.js";
 
-addNewTask = () => {
-    taskList.unshift(FormData(newTaskForm));
-    console.log(taskList);
+function addNewTask() {
+    const taskList1 = [];
+    let newTask = new FormData(newTaskForm);
+    taskList1.unshift(newTask);
+    console.log(taskList1);
 }
+
 export {
-    taskList,
-    addNewTask,
+    addNewTask, 
 }
