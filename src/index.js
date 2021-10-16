@@ -25,72 +25,29 @@
 import { addNewTask } from './create-task';
 import './style.css'; 
 
-    const content = document.getElementById('content-div');
-    
-    //title
-    const title = document.createElement('h1');
-    title.id = 'title-div';
-    title.textContent = 'Can-Do List';
-    content.appendChild(title);
-    
-    //default category
-    const category1 = document.createElement('h2');
-    category1.classList.add('category-name');
-    category1.textContent = 'Main List';
-    content.appendChild(category1);
-    
-    //new-task-btn
-    const addTaskBtn = document.createElement('button');
-    addTaskBtn.id = 'add-task-btn';
-    addTaskBtn.textContent = 'Add Task';
-    content.appendChild(addTaskBtn);
-    addTaskBtn.addEventListener('click', () => console.log('add task'));
-    
-    //new task pop-up
-    const newTaskForm = document.createElement('form');
-    newTaskForm.id = 'new-task-form';
-    content.appendChild(newTaskForm);
-    const nameField = document.createElement('input');
-    nameField.name = 'name';
-    newTaskForm.appendChild(nameField);
-    const descField = document.createElement('input');
-    descField.name = 'description';
-    newTaskForm.appendChild(descField);
-    const categoryField = document.createElement('input');
-    categoryField.name = 'category';
-    newTaskForm.appendChild(categoryField);
-    //add dropdown datalist to category later
-    const dueDateField = document.createElement('input');
-    dueDateField.name = 'duedate';
-    dueDateField.type = 'date';
-    newTaskForm.appendChild(dueDateField);
-    const priorityField = document.createElement('select');
-    priorityField.name = 'priority';
-    newTaskForm.appendChild(priorityField);
-    const priorityLabel = document.createElement('label');
-    priorityLabel.id = 'priority-label';
-    priorityLabel.htmlFor = 'priority-field';
-    newTaskForm.appendChild(priorityLabel);
-    const notesField = document.createElement('input');
-    notesField.name = 'notes';
-    newTaskForm.appendChild(notesField);
-    const submitTaskBtn = document.createElement('input');
-    submitTaskBtn.id = 'submit-task-btn';
-    submitTaskBtn.type = 'button'; 
-    submitTaskBtn.value = 'Submit';
-    newTaskForm.appendChild(submitTaskBtn);
-
 const taskList = [
-    // {
-    //     name: 'name',
-    //     description: 'description',
-    //     category: 'category',
-    //     due: 'due date',
-    //     priority: 'priority',
-    //     notes: 'notes',
-    //     status: 'status',
-    // }
+    {
+        name: 'name',
+        description: 'description',
+        category: 'category',
+        due: 'due date',
+        priority: 'priority',
+        notes: 'notes',
+        status: 'status',
+    }
 ];
+
+const content = document.getElementById('content-div');
+const newTaskBtn = document.getElementById('new-task-btn');
+const submitTaskBtn = document.getElementById('submit-task-btn');
+
+//default category
+const category1 = document.createElement('h2');
+category1.classList.add('category-name');
+category1.textContent = 'Main List';
+content.prepend(category1);
+
+newTaskBtn.addEventListener('click', () => console.log('add task'));
 
 submitTaskBtn.addEventListener('click', () => addNewTask());
 
@@ -98,6 +55,50 @@ submitTaskBtn.addEventListener('click', () => addNewTask());
 // event listener on checkboxes to trigger complete-task module
 
 export {
-    newTaskForm,
     taskList,
 }
+
+//title
+// const title = document.createElement('h1');
+// title.id = 'title-div';
+// title.textContent = 'Can-Do List';
+// content.appendChild(title);
+//new-task-btn
+// const addTaskBtn = document.createElement('button');
+// addTaskBtn.id = 'add-task-btn';
+// addTaskBtn.textContent = 'Add Task';
+// content.appendChild(addTaskBtn);
+//new task pop-up
+// const newTaskForm = document.createElement('form');
+// newTaskForm.id = 'new-task-form';
+// content.appendChild(newTaskForm);
+// const nameField = document.createElement('input');
+// addTaskField(nameField);
+// nameField.name = 'name';
+// newTaskForm.appendChild(nameField);
+// const descField = document.createElement('input');
+// descField.name = 'description';
+// newTaskForm.appendChild(descField);
+// const categoryField = document.createElement('input');
+// categoryField.name = 'category';
+// newTaskForm.appendChild(categoryField);
+// //add dropdown datalist to category later
+// const dueDateField = document.createElement('input');
+// dueDateField.name = 'duedate';
+// dueDateField.type = 'date';
+// newTaskForm.appendChild(dueDateField);
+// const priorityField = document.createElement('select');
+// priorityField.name = 'priority';
+// newTaskForm.appendChild(priorityField);
+// const priorityLabel = document.createElement('label');
+// priorityLabel.id = 'priority-label';
+// priorityLabel.htmlFor = 'priority-field';
+// newTaskForm.appendChild(priorityLabel);
+// const notesField = document.createElement('input');
+// notesField.name = 'notes';
+// newTaskForm.appendChild(notesField);
+// const submitTaskBtn = document.createElement('input');
+// submitTaskBtn.id = 'submit-task-btn';
+// submitTaskBtn.type = 'button'; 
+// submitTaskBtn.value = 'Submit';
+// newTaskForm.appendChild(submitTaskBtn);

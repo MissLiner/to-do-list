@@ -19,12 +19,13 @@
 //          -notes
 //          -checkbox
 
-import { taskList } from "./task-list";
-import { newTaskForm } from "./task-list.js";
+import { taskList } from "./task-list"; 
+//import { newTaskForm } from "./task-list.js";
 
 function addNewTask() {
     const taskList1 = [];
-    let newTask = new FormData(newTaskForm);
+    let taskForm = document.getElementById('new-task-form');
+    let newTask = new FormData(taskForm);
     taskList1.unshift(newTask);
     console.log(taskList1);
 }
