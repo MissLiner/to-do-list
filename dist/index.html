@@ -9,8 +9,20 @@
   </head>
 
   <body>
-      <h1></h1>
-      <div id="content-div"></div>
+      <h1>Can-Do List</h1>
+      <div id="content-div">
+        <button id="new-task-btn">Add Task</button>
+      </div>
+      <form id="new-task-form">
+        <label>Task Name:<input id="name-field" name="name"></label>
+        <label>Description:<input id="desc-field" name="description"></label>
+        <label>Category:<input id="category-field" name="category"></label>
+        <label>Priority:<input id="priority-field" name="priority"></label>
+        <label>Due:<input id="duedate-field" name="duedate" type="date"></label>
+        <label>Priority:<input id="priority-field" name="priority"></label>
+        <label>Notes:<input id="notes-field" name="notes"></label>
+        <input id="submit-task-btn" type="button" value="submit">
+      </form>
   </body>
 
 </html>
