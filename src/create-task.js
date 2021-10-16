@@ -20,7 +20,18 @@
 //          -checkbox
 
 import { taskList } from "./task-list"; 
-//import { newTaskForm } from "./task-list.js";
+
+const newTaskForm = document.getElementById('new-task-form');
+
+newTaskForm.addEventListener('submit', () => {
+    event.preventDefault();
+    let newTask = {};
+    let taskFormData = new FormData(newTaskForm);
+    for (let key of taskFormData.keys()) {
+        newTask[key] = taskFormData.get(key);
+    }
+    console.log(newTask);
+})
 
 function addNewTask() {
     const taskList1 = [];

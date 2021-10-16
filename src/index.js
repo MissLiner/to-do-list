@@ -41,6 +41,7 @@ const content = document.getElementById('content-div');
 const newTaskBtn = document.getElementById('new-task-btn');
 const submitTaskBtn = document.getElementById('submit-task-btn');
 
+
 //default category
 const category1 = document.createElement('h2');
 category1.classList.add('category-name');
@@ -49,7 +50,16 @@ content.prepend(category1);
 
 newTaskBtn.addEventListener('click', () => console.log('add task'));
 
-submitTaskBtn.addEventListener('click', () => addNewTask());
+const newTaskForm = document.getElementById('new-task-form');
+newTaskForm.addEventListener('submit', () => {
+    event.preventDefault();
+    let newTask = {};
+    let taskFormData = new FormData(newTaskForm);
+    for (let key of taskFormData.keys()) {
+        newTask[key] = taskFormData.get(key);
+    }
+    console.log(newTask);
+})
 
 // add check boxes to complete tasks
 // event listener on checkboxes to trigger complete-task module
