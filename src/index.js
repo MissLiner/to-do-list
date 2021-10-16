@@ -37,12 +37,15 @@ category1.classList.add('category-name');
 category1.textContent = 'Main List';
 content.prepend(category1);
 
-newTaskBtn.addEventListener('click', () => console.log('add task'));
+newTaskBtn.addEventListener('click', () => {
+    newTaskForm.classList.remove('hidden');
+});
 
 const newTaskForm = document.getElementById('new-task-form');
 newTaskForm.addEventListener('submit', () => {
     event.preventDefault();
     addNewTaskObjectToList();
+    newTaskForm.classList.add('hidden');
     console.log(taskList);
 })
 
