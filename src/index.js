@@ -22,27 +22,16 @@
 //      5. if task is already completed, toggle back to active task list
 // 4. Assign priority
 
-import { addNewTask } from './create-task';
 import './style.css'; 
+import { addNewTaskObjectToList } from './create-task';
 
-// const taskList = [
-//     {
-//         name: 'name',
-//         description: 'description',
-//         category: 'category',
-//         due: 'due date',
-//         priority: 'priority',
-//         notes: 'notes',
-//         status: 'status',
-//     }
-// ];
+const taskList = [];
 
 const content = document.getElementById('content-div');
 const newTaskBtn = document.getElementById('new-task-btn');
 const submitTaskBtn = document.getElementById('submit-task-btn');
 
-
-//default category
+//default category (should I move to HTML?)
 const category1 = document.createElement('h2');
 category1.classList.add('category-name');
 category1.textContent = 'Main List';
@@ -51,6 +40,12 @@ content.prepend(category1);
 newTaskBtn.addEventListener('click', () => console.log('add task'));
 
 const newTaskForm = document.getElementById('new-task-form');
+newTaskForm.addEventListener('submit', () => {
+    event.preventDefault();
+    addNewTaskObjectToList();
+    console.log(taskList);
+})
+
 // newTaskForm.addEventListener('submit', () => {
 //     event.preventDefault();
 //     let newTask = {};
@@ -65,6 +60,7 @@ const newTaskForm = document.getElementById('new-task-form');
 // event listener on checkboxes to trigger complete-task module
 
 export {
+    taskList,
 }
 
 //title

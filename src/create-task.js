@@ -19,11 +19,9 @@
 //          -notes
 //          -checkbox
 
-//import { taskList } from "./task-list"; 
+import { taskList } from "./index.js"; 
 
 const newTaskForm = document.getElementById('new-task-form');
-
-const taskList = [];
 
 function addNewTaskObjectToList() {
     let newTask = {};
@@ -34,12 +32,8 @@ function addNewTaskObjectToList() {
     taskList.unshift(newTask);
 }
 
-newTaskForm.addEventListener('submit', () => {
-    event.preventDefault();
-    addNewTaskObjectToList();
-    console.log(taskList);
-})
+
 
 export {
-    
+    addNewTaskObjectToList,
 }
