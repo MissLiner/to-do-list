@@ -19,28 +19,27 @@
 //          -notes
 //          -checkbox
 
-import { taskList } from "./task-list"; 
+//import { taskList } from "./task-list"; 
 
 const newTaskForm = document.getElementById('new-task-form');
 
-newTaskForm.addEventListener('submit', () => {
-    event.preventDefault();
+const taskList = [];
+
+function addNewTaskObjectToList() {
     let newTask = {};
     let taskFormData = new FormData(newTaskForm);
     for (let key of taskFormData.keys()) {
         newTask[key] = taskFormData.get(key);
     }
-    console.log(newTask);
-})
-
-function addNewTask() {
-    const taskList1 = [];
-    let taskForm = document.getElementById('new-task-form');
-    let newTask = new FormData(taskForm);
-    taskList1.unshift(newTask);
-    console.log(taskList1);
+    taskList.unshift(newTask);
 }
 
+newTaskForm.addEventListener('submit', () => {
+    event.preventDefault();
+    addNewTaskObjectToList();
+    console.log(taskList);
+})
+
 export {
-    addNewTask, 
+    
 }

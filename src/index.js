@@ -25,17 +25,17 @@
 import { addNewTask } from './create-task';
 import './style.css'; 
 
-const taskList = [
-    {
-        name: 'name',
-        description: 'description',
-        category: 'category',
-        due: 'due date',
-        priority: 'priority',
-        notes: 'notes',
-        status: 'status',
-    }
-];
+// const taskList = [
+//     {
+//         name: 'name',
+//         description: 'description',
+//         category: 'category',
+//         due: 'due date',
+//         priority: 'priority',
+//         notes: 'notes',
+//         status: 'status',
+//     }
+// ];
 
 const content = document.getElementById('content-div');
 const newTaskBtn = document.getElementById('new-task-btn');
@@ -51,21 +51,20 @@ content.prepend(category1);
 newTaskBtn.addEventListener('click', () => console.log('add task'));
 
 const newTaskForm = document.getElementById('new-task-form');
-newTaskForm.addEventListener('submit', () => {
-    event.preventDefault();
-    let newTask = {};
-    let taskFormData = new FormData(newTaskForm);
-    for (let key of taskFormData.keys()) {
-        newTask[key] = taskFormData.get(key);
-    }
-    console.log(newTask);
-})
+// newTaskForm.addEventListener('submit', () => {
+//     event.preventDefault();
+//     let newTask = {};
+//     let taskFormData = new FormData(newTaskForm);
+//     for (let key of taskFormData.keys()) {
+//         newTask[key] = taskFormData.get(key);
+//     }
+//     console.log(newTask);
+// })
 
 // add check boxes to complete tasks
 // event listener on checkboxes to trigger complete-task module
 
 export {
-    taskList,
 }
 
 //title
