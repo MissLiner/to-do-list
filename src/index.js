@@ -31,6 +31,10 @@ const content = document.getElementById('content-div');
 const newTaskBtn = document.getElementById('new-task-btn');
 const submitTaskBtn = document.getElementById('submit-task-btn');
 
+(function getListFromStorage() {
+    JSON.parse(window.localStorage.getItem('taskList'));
+})()
+
 //default category (should I move to HTML?)
 const category1 = document.createElement('h2');
 category1.classList.add('category-name');
@@ -47,17 +51,8 @@ newTaskForm.addEventListener('submit', () => {
     addNewTaskObjectToList();
     newTaskForm.classList.add('hidden');
     console.log(taskList);
+    window.localStorage.setItem('taskList', JSON.stringify(taskList));
 })
-
-// newTaskForm.addEventListener('submit', () => {
-//     event.preventDefault();
-//     let newTask = {};
-//     let taskFormData = new FormData(newTaskForm);
-//     for (let key of taskFormData.keys()) {
-//         newTask[key] = taskFormData.get(key);
-//     }
-//     console.log(newTask);
-// })
 
 // add check boxes to complete tasks
 // event listener on checkboxes to trigger complete-task module
