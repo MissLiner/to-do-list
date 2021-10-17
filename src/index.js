@@ -32,7 +32,10 @@ const newTaskBtn = document.getElementById('new-task-btn');
 const submitTaskBtn = document.getElementById('submit-task-btn');
 
 (function getListFromStorage() {
-    JSON.parse(window.localStorage.getItem('taskList'));
+    if (localStorage.getItem('taskList')) {
+        let storedList = JSON.parse(window.localStorage.getItem('taskList'));
+        taskList.push(storedList);
+    }
 })()
 
 //default category (should I move to HTML?)
