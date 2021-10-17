@@ -22,12 +22,12 @@ const content = document.getElementById('content-div');
 const newTaskBtn = document.getElementById('new-task-btn');
 const submitTaskBtn = document.getElementById('submit-task-btn');
 
-// (function getListFromStorage() {
-//     if (localStorage.getItem('taskList')) {
-//         let storedList = JSON.parse(window.localStorage.getItem('taskList'));
-//         taskList = storedList;
-//     }
-// })()
+(function getListFromStorage() {
+    if (localStorage.getItem('taskList')) {
+        let storedList = JSON.parse(window.localStorage.getItem('taskList'));
+        taskList = storedList;
+    }
+})()
 
 //display list
 function displayTasks() {
@@ -36,7 +36,7 @@ function displayTasks() {
         for (let i = 0; i < taskList.length; i++) {
             let taskDiv = document.createElement('div');
             taskDiv.classList.add('task-div');
-            //for (let x = 0; x < taskList[i].length; x++) {
+
             for (let key in taskList[i]) {
                 let taskSubDiv = document.createElement('div');
                 taskSubDiv.classList.add('task-sub-div');
@@ -60,7 +60,7 @@ newTaskForm.addEventListener('submit', () => {
     newTaskForm.classList.add('hidden');
     console.log(taskList);
     displayTasks();
-    //window.localStorage.setItem('taskList', JSON.stringify(taskList));
+    window.localStorage.setItem('taskList', JSON.stringify(taskList));
 })
 
 // add check boxes to complete tasks
