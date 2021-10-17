@@ -11,33 +11,43 @@
 // 3. expand single task to view and edit details
 // 4. delete task
 
-//MODULES:
-
-
-
 // 4. Assign priority
 
 import './style.css'; 
 import { addNewTaskObjectToList } from './create-task';
 
-const taskList = [];
+let taskList = [];
 
 const content = document.getElementById('content-div');
 const newTaskBtn = document.getElementById('new-task-btn');
 const submitTaskBtn = document.getElementById('submit-task-btn');
 
-(function getListFromStorage() {
-    if (localStorage.getItem('taskList')) {
-        let storedList = JSON.parse(window.localStorage.getItem('taskList'));
-        taskList.push(storedList);
-    }
-})()
+// (function getListFromStorage() {
+//     if (localStorage.getItem('taskList')) {
+//         let storedList = JSON.parse(window.localStorage.getItem('taskList'));
+//         taskList = storedList;
+//     }
+// })()
 
-//default category (should I move to HTML?)
-const category1 = document.createElement('h2');
-category1.classList.add('category-name');
-category1.textContent = 'Main List';
-content.prepend(category1);
+//display list
+function displayTasks() {
+    if (taskList) {
+        console.log(taskList);
+        for (let i = 0; i < taskList.length; i++) {
+            let taskDiv = document.createElement('div');
+            taskDiv.classList.add('task-div');
+            //for (let x = 0; x < taskList[i].length; x++) {
+            for (let key in taskList[i]) {
+                let taskSubDiv = document.createElement('div');
+                taskSubDiv.classList.add('task-sub-div');
+                taskSubDiv.textContent = taskList[i][key];
+                taskDiv.appendChild(taskSubDiv);
+            }
+            content.appendChild(taskDiv);
+        }
+    }
+}
+displayTasks();
 
 newTaskBtn.addEventListener('click', () => {
     newTaskForm.classList.remove('hidden');
@@ -49,7 +59,8 @@ newTaskForm.addEventListener('submit', () => {
     addNewTaskObjectToList();
     newTaskForm.classList.add('hidden');
     console.log(taskList);
-    window.localStorage.setItem('taskList', JSON.stringify(taskList));
+    displayTasks();
+    //window.localStorage.setItem('taskList', JSON.stringify(taskList));
 })
 
 // add check boxes to complete tasks
@@ -58,6 +69,12 @@ newTaskForm.addEventListener('submit', () => {
 export {
     taskList,
 }
+
+//default category (should I move to HTML?)
+// const category1 = document.createElement('h2');
+// category1.classList.add('category-name');
+// category1.textContent = 'Main List';
+// content.prepend(category1);
 
 //title
 // const title = document.createElement('h1');
