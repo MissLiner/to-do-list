@@ -4,11 +4,22 @@
 }
 button {
     margin: auto;
+    margin-bottom: 20px;
 }
 h1 {
+    padding: 20px;
     text-align: center;
 }
 
 .hidden {
     display: none;
+}
+
+.task-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.task-sub-div {
+    width:auto;
 }
