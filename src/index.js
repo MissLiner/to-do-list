@@ -19,6 +19,7 @@ let taskList = [];
 const content = document.getElementById('content-div');
 const newTaskBtn = document.getElementById('new-task-btn');
 const submitTaskBtn = document.getElementById('submit-task-btn');
+const clearStorageBtn = document.getElementById('clear-storage-btn');
 
 (function getListFromStorage() {
     if (localStorage.getItem('taskList')) {
@@ -71,7 +72,6 @@ newTaskForm.addEventListener('submit', () => {
     newTaskForm.classList.add('hidden');
     console.log(taskList);
     displayTasks();
-    window.localStorage.setItem('taskList', JSON.stringify(taskList));
 })
 
 //delete task
@@ -86,10 +86,15 @@ document.querySelectorAll('.delete-btn').forEach(button => {
     })
 })
 
-function deleteTask() {
-    taskList.removeChild(this);
-}
+//store task list
+document.addEventListener('click', () => {
+    window.localStorage.setItem('taskList', JSON.stringify(taskList));
+})
 
+//clear local storage
+clearStorageBtn.addEventListener('click', () => {
+    localStorage.clear();
+})
 
 // add check boxes to complete tasks
 // event listener on checkboxes to trigger complete-task module
