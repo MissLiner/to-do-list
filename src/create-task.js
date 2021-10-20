@@ -29,6 +29,9 @@ function addNewTaskObjectToList() {
     for (let key of taskFormData.keys()) {
         newTask[key] = taskFormData.get(key);
     }
+    newTask.index = Date.now();
+    newTask.status = 'active';
+    console.log(newTask.index);
     taskList.unshift(newTask);
 }
 

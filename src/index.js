@@ -35,23 +35,26 @@ function displayTasks() {
     if (taskList) {
         console.log(taskList);
         for (let i = 0; i < taskList.length; i++) {
-            let taskDiv = document.createElement('div');
-            taskDiv.classList.add('task-div');
-            let taskCheckbox = document.createElement('input');
-            taskCheckbox.type = 'checkbox';
-            taskDiv.appendChild(taskCheckbox);
+            if (taskList[i].status === 'active') {
+                let taskDiv = document.createElement('div');
+                taskDiv.classList.add('task-div');
+                let taskCheckbox = document.createElement('input');
+                taskCheckbox.type = 'checkbox';
+                taskDiv.appendChild(taskCheckbox);
 
-            for (let key in taskList[i]) {
-                let taskSubDiv = document.createElement('div');
-                taskSubDiv.classList.add('task-sub-div');
-                taskSubDiv.textContent = taskList[i][key];
-                taskDiv.appendChild(taskSubDiv);
+                for (let key in taskList[i]) {
+                    let taskSubDiv = document.createElement('div');
+                    taskSubDiv.classList.add('task-sub-div');
+                    taskSubDiv.textContent = taskList[i][key];
+                    taskDiv.appendChild(taskSubDiv);
+                }
+                let deleteBtn = document.createElement('button');
+                deleteBtn.classList.add('delete-btn');
+                deleteBtn.value = taskList[i].index;
+                deleteBtn.insertAdjacentHTML('beforeend', '<i class="far fa-trash-alt"></i>' );
+                taskDiv.appendChild(deleteBtn);
+                content.appendChild(taskDiv);
             }
-            let deleteBtn = document.createElement('button');
-            deleteBtn.classList.add = 'delete-btn';
-            deleteBtn.insertAdjacentHTML('beforeend', '<i class="far fa-trash-alt"></i>' )
-            taskDiv.appendChild(deleteBtn);
-            content.appendChild(taskDiv);
         }
     }
 }
@@ -73,8 +76,13 @@ newTaskForm.addEventListener('submit', () => {
 
 //delete task
 document.querySelectorAll('.delete-btn').forEach(button => {
-    button.addEventListener('click', event => {
-        taskList.removeChild(this.parentElement);
+    button.addEventListener('click', () => {
+        taskList.forEach(task => {
+            if (task.index == button.value) {
+                task.status = 'deleted';
+            }
+        })
+        displayTasks();
     })
 })
 
