@@ -1,8 +1,6 @@
 //use factories to create list items
 //create separate lists by category/project (defaut on first entry)
 // - users can create new projects, choose which project to assign a task to    
-//properties for each item -title, description, dueDate, priority. You might also want to include notes or even a checklist.)
-//use local storage to save projects and tasks between sessions
 //use date-fns to format dates and times
 
 //UI:
@@ -31,11 +29,17 @@ const submitTaskBtn = document.getElementById('submit-task-btn');
 
 //display list
 function displayTasks() {
+    while (content.firstChild) {
+        content.removeChild(content.firstChild);
+    } 
     if (taskList) {
         console.log(taskList);
         for (let i = 0; i < taskList.length; i++) {
             let taskDiv = document.createElement('div');
             taskDiv.classList.add('task-div');
+            let taskCheckbox = document.createElement('input');
+            taskCheckbox.type = 'checkbox';
+            taskDiv.appendChild(taskCheckbox);
 
             for (let key in taskList[i]) {
                 let taskSubDiv = document.createElement('div');
@@ -43,6 +47,10 @@ function displayTasks() {
                 taskSubDiv.textContent = taskList[i][key];
                 taskDiv.appendChild(taskSubDiv);
             }
+            let deleteBtn = document.createElement('button');
+            deleteBtn.classList.add = 'delete-btn';
+            deleteBtn.insertAdjacentHTML('beforeend', '<i class="far fa-trash-alt"></i>' )
+            taskDiv.appendChild(deleteBtn);
             content.appendChild(taskDiv);
         }
     }
@@ -62,6 +70,18 @@ newTaskForm.addEventListener('submit', () => {
     displayTasks();
     window.localStorage.setItem('taskList', JSON.stringify(taskList));
 })
+
+//delete task
+document.querySelectorAll('.delete-btn').forEach(button => {
+    button.addEventListener('click', event => {
+        taskList.removeChild(this.parentElement);
+    })
+})
+
+function deleteTask() {
+    taskList.removeChild(this);
+}
+
 
 // add check boxes to complete tasks
 // event listener on checkboxes to trigger complete-task module

@@ -2,9 +2,9 @@
     margin: auto;
     text-align: center;
 }
-button {
+#new-task-btn {
     margin: auto;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 h1 {
     padding: 20px;
@@ -17,9 +17,13 @@ h1 {
 
 .task-div {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    /* width: max-content; */
 }
 
-.task-sub-div {
-    width:auto;
-}
+/* .task-sub-div {
+} */
+
+/* #delete-btn {
+    
+} */
