@@ -28,6 +28,8 @@ const clearStorageBtn = document.getElementById('hello');
     }
 })()
 
+
+
 //display list
 function displayTasks() {
     while (content.firstChild) {
@@ -43,12 +45,23 @@ function displayTasks() {
                 taskCheckbox.type = 'checkbox';
                 taskDiv.appendChild(taskCheckbox);
 
-                for (let key in taskList[i]) {
+                function createTaskSubDiv(key) {
                     let taskSubDiv = document.createElement('div');
                     taskSubDiv.classList.add('task-sub-div');
                     taskSubDiv.textContent = taskList[i][key];
                     taskDiv.appendChild(taskSubDiv);
                 }
+
+                createTaskSubDiv('name');
+                createTaskSubDiv('duedate');
+                createTaskSubDiv('category');
+
+                // for (let key in taskList[i]) {
+                //     let taskSubDiv = document.createElement('div');
+                //     taskSubDiv.classList.add('task-sub-div');
+                //     taskSubDiv.textContent = taskList[i][key];
+                //     taskDiv.appendChild(taskSubDiv);
+                // }
                 let deleteBtn = document.createElement('button');
                 deleteBtn.classList.add('delete-btn');
                 deleteBtn.value = taskList[i].index;
@@ -61,6 +74,11 @@ function displayTasks() {
 }
 displayTasks();
 
+function storeTaskList() {
+    window.localStorage.clear();
+    window.localStorage.setItem('taskList', JSON.stringify(taskList));
+}
+
 newTaskBtn.addEventListener('click', () => {
     newTaskForm.classList.remove('hidden');
 });
@@ -71,6 +89,7 @@ newTaskForm.addEventListener('submit', () => {
     addNewTaskObjectToList();
     newTaskForm.classList.add('hidden');
     console.log(taskList);
+    storeTaskList();
     displayTasks();
 })
 
@@ -82,15 +101,11 @@ document.querySelectorAll('.delete-btn').forEach(button => {
                 task.status = 'deleted';
             }
         })
+        storeTaskList();
         displayTasks();
     })
 })
 
-//store task list
-document.addEventListener('click', () => {
-    localStorage.clear();
-    window.localStorage.setItem('taskList', JSON.stringify(taskList));
-})
 
 //clear local storage
 clearStorageBtn.addEventListener('click', () => {
