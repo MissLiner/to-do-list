@@ -19,7 +19,7 @@ let taskList = [];
 const content = document.getElementById('content-div');
 const newTaskBtn = document.getElementById('new-task-btn');
 const submitTaskBtn = document.getElementById('submit-task-btn');
-const clearStorageBtn = document.getElementById('clear-storage-btn');
+const clearStorageBtn = document.getElementById('hello');
 
 (function getListFromStorage() {
     if (localStorage.getItem('taskList')) {
@@ -88,6 +88,7 @@ document.querySelectorAll('.delete-btn').forEach(button => {
 
 //store task list
 document.addEventListener('click', () => {
+    localStorage.clear();
     window.localStorage.setItem('taskList', JSON.stringify(taskList));
 })
 
