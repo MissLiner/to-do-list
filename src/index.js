@@ -18,9 +18,7 @@ let taskList = [];
 
 const content = document.getElementById('content-div');
 const newTaskBtn = document.getElementById('new-task-btn');
-const submitTaskBtn = document.getElementById('submit-task-btn');
 const clearStorageBtn = document.getElementById('clear-storage-btn');
-const taskCheckboxes = document.querySelectorAll('.task-checkbox');
 
 (function getListFromStorage() {
     if (localStorage.getItem('taskList')) {
@@ -108,8 +106,7 @@ clearStorageBtn.addEventListener('click', () => {
 })
 
 // event listener on checkboxes to trigger complete-task module
-//taskCheckboxes.forEach(box =>
-for (let box of taskCheckboxes) {
+document.querySelectorAll('.task-checkbox').forEach((box) => {
     box.addEventListener('change', () => {
         taskList.forEach(task => {
             if (task.index == box.value) {
@@ -119,7 +116,7 @@ for (let box of taskCheckboxes) {
         storeTaskList();
         displayTasks();
     })
-}
+})
 
 
 export {
