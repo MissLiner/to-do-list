@@ -12,14 +12,17 @@
 // 4. Assign priority
 
 import './style.css'; 
-import { addNewTaskObjectToList } from './create-task';
+import { addNewTaskToList, changeTaskStatus } from './task_logic';
+import { displayTasks } from './task_DOM'
 
 let taskList = [];
 
 const content = document.getElementById('content-div');
 const newTaskBtn = document.getElementById('new-task-btn');
 const clearStorageBtn = document.getElementById('clear-storage-btn');
+const newTaskForm = document.getElementById('new-task-form');
 
+//localStorage
 (function getListFromStorage() {
     if (localStorage.getItem('taskList')) {
         let storedList = JSON.parse(window.localStorage.getItem('taskList'));
@@ -27,78 +30,37 @@ const clearStorageBtn = document.getElementById('clear-storage-btn');
     }
 })()
 
-//display list
-function displayTasks() {
-    while (content.firstChild) {
-        content.removeChild(content.firstChild);
-    } 
-    if (taskList) {
-        console.log(taskList);
-        for (let i = 0; i < taskList.length; i++) {
-            if (taskList[i].status === 'active') {
-                let taskDiv = document.createElement('div');
-                taskDiv.classList.add('task-div');
-                let taskCheckbox = document.createElement('input');
-                taskCheckbox.type = 'checkbox';
-                taskCheckbox.classList.add('task-checkbox');
-                taskCheckbox.value = taskList[i].index;
-                taskDiv.appendChild(taskCheckbox);
-
-                function createTaskSubDiv(key) {
-                    let taskSubDiv = document.createElement('div');
-                    taskSubDiv.classList.add('task-sub-div');
-                    taskSubDiv.textContent = taskList[i][key];
-                    taskDiv.appendChild(taskSubDiv);
-                }
-
-                createTaskSubDiv('name');
-                createTaskSubDiv('duedate');
-                createTaskSubDiv('category');
-
-                let deleteBtn = document.createElement('button');
-                deleteBtn.classList.add('delete-btn');
-                deleteBtn.value = taskList[i].index;
-                deleteBtn.insertAdjacentHTML('beforeend', '<i class="far fa-trash-alt"></i>' );
-                taskDiv.appendChild(deleteBtn);
-                content.appendChild(taskDiv);
-            }
-        }
-    }
-}
-displayTasks();
-
 function storeTaskList() {
     window.localStorage.clear();
     window.localStorage.setItem('taskList', JSON.stringify(taskList));
 }
 
+//display - tasks
+displayTasks();
+
+//display - new task form
 newTaskBtn.addEventListener('click', () => {
     newTaskForm.classList.remove('hidden');
 });
 
-const newTaskForm = document.getElementById('new-task-form');
+//task - add new task
 newTaskForm.addEventListener('submit', () => {
     event.preventDefault();
-    addNewTaskObjectToList();
     newTaskForm.classList.add('hidden');
-    console.log(taskList);
+
+    addNewTaskToList();
     storeTaskList();
     displayTasks();
 })
 
-//delete task
+//task - delete task
 document.querySelectorAll('.delete-btn').forEach(button => {
     button.addEventListener('click', () => {
-        taskList.forEach(task => {
-            if (task.index == button.value) {
-                task.status = 'deleted';
-            }
-        })
+        changeTaskStatus(button, 'deleted');
         storeTaskList();
         displayTasks();
     })
 })
-
 
 //clear local storage
 clearStorageBtn.addEventListener('click', () => {
@@ -121,6 +83,7 @@ document.querySelectorAll('.task-checkbox').forEach((box) => {
 
 export {
     taskList,
+    content
 }
 
 //default category (should I move to HTML?)

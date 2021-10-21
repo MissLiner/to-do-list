@@ -23,7 +23,7 @@ import { taskList } from "./index.js";
 
 const newTaskForm = document.getElementById('new-task-form');
 
-function addNewTaskObjectToList() {
+function addNewTaskToList() {
     let newTask = {};
     let taskFormData = new FormData(newTaskForm);
     for (let key of taskFormData.keys()) {
@@ -35,8 +35,26 @@ function addNewTaskObjectToList() {
     taskList.unshift(newTask);
 }
 
+function changeTaskStatus(trigger, newStatus) {
+    taskList.forEach(task => {
+        if (task.index == trigger.value) {
+            task.status = newStatus;
+        }
+    })
+}
+
+// 3. complete-task
+//      1. change task status to completed
+//      2. change text and formatting to show it is completed
+//      3. create completed task list 
+//      4. remove completed task from active task list
+//      5. if task is already completed, toggle back to active task list
+function completeTask() {
+    taskList
+}
 
 
 export {
-    addNewTaskObjectToList,
+    addNewTaskToList,
+    changeTaskStatus
 }
