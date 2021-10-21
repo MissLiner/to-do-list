@@ -1,7 +1,7 @@
 import { content , taskList } from './index.js';
 
 
-function displayTasks() {
+function displayActiveTasks() {
     (function clearTaskDisplay() {
         while (content.firstChild) {
             content.removeChild(content.firstChild);
@@ -41,6 +41,17 @@ function displayTasks() {
                 createTaskSubDiv('category');
                 createDeleteBtn();
 
+                switch(taskList[i].priority) {
+                    case '1':
+                        taskDiv.style.color = 'red';
+                    case '2':
+                        taskDiv.style.color = 'orange';
+                    case '3':
+                        taskDiv.style.color = 'green';
+                    case '4':
+                        taskDiv.style.color = 'blue';
+                }
+
                 content.appendChild(taskDiv);
             }
         }
@@ -48,5 +59,5 @@ function displayTasks() {
 }
 
 export {
-    displayTasks
+    displayActiveTasks
 }

@@ -31,7 +31,6 @@ function addNewTaskToList() {
     }
     newTask.index = Date.now();
     newTask.status = 'active';
-    console.log(newTask.index);
     taskList.unshift(newTask);
 }
 
