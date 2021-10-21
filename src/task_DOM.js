@@ -1,14 +1,22 @@
 import { content , taskList } from './index.js';
 
 
+
 function displayActiveTasks() {
     (function clearTaskDisplay() {
         while (content.firstChild) {
             content.removeChild(content.firstChild);
         } 
     })()
+    function setCategoryTitle(category) {
+        document.getElementById('category-title').textContent = category;
+    }
 
     if (taskList) {
+        setCategoryTitle('All Active');
+        function createCategoryList(category) {
+
+        }
         for (let i = 0; i < taskList.length; i++) {
             if (taskList[i].status === 'active') {
                 function createCheckbox() {
@@ -61,6 +69,7 @@ function displayActiveTasks() {
         }
     }
 }
+
 
 export {
     displayActiveTasks
