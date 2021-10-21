@@ -44,15 +44,19 @@ function displayActiveTasks() {
                 switch(taskList[i].priority) {
                     case '1':
                         taskDiv.style.color = 'red';
+                        break;
                     case '2':
                         taskDiv.style.color = 'orange';
+                        break;
                     case '3':
                         taskDiv.style.color = 'green';
+                        break;
                     case '4':
                         taskDiv.style.color = 'blue';
                 }
 
                 content.appendChild(taskDiv);
+                console.table(taskList);
             }
         }
     }
