@@ -22,7 +22,7 @@ const newTaskBtn = document.getElementById('new-task-btn');
 const clearStorageBtn = document.getElementById('clear-storage-btn');
 const newTaskForm = document.getElementById('new-task-form');
 
-//localStorage
+//local storage - retrieve
 (function getListFromStorage() {
     if (localStorage.getItem('taskList')) {
         let storedList = JSON.parse(window.localStorage.getItem('taskList'));
@@ -30,10 +30,16 @@ const newTaskForm = document.getElementById('new-task-form');
     }
 })()
 
+//local storage - store
 function storeTaskList() {
     window.localStorage.clear();
     window.localStorage.setItem('taskList', JSON.stringify(taskList));
 }
+
+//local storage - clear
+clearStorageBtn.addEventListener('click', () => {
+    localStorage.clear();
+})
 
 //display - tasks
 displayTasks();
@@ -43,7 +49,7 @@ newTaskBtn.addEventListener('click', () => {
     newTaskForm.classList.remove('hidden');
 });
 
-//task - add new task
+//task listener - add new task
 newTaskForm.addEventListener('submit', () => {
     event.preventDefault();
     newTaskForm.classList.add('hidden');
@@ -53,7 +59,7 @@ newTaskForm.addEventListener('submit', () => {
     displayTasks();
 })
 
-//task - delete task
+//task listener - delete task
 document.querySelectorAll('.delete-btn').forEach(button => {
     button.addEventListener('click', () => {
         changeTaskStatus(button, 'deleted');
@@ -62,24 +68,14 @@ document.querySelectorAll('.delete-btn').forEach(button => {
     })
 })
 
-//clear local storage
-clearStorageBtn.addEventListener('click', () => {
-    localStorage.clear();
-})
-
-// event listener on checkboxes to trigger complete-task module
+//task listener - complete task
 document.querySelectorAll('.task-checkbox').forEach((box) => {
     box.addEventListener('change', () => {
-        taskList.forEach(task => {
-            if (task.index == box.value) {
-                task.status = 'complete';
-            }
-        })
+        changeTaskStatus(box, 'complete');
         storeTaskList();
         displayTasks();
     })
 })
-
 
 export {
     taskList,
