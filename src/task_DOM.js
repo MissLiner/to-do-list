@@ -70,14 +70,16 @@ function displayActiveTasks() {
                                 taskDiv.style.color = 'blue';
                         }
                     }
-
                     categoryDiv.appendChild(taskDiv);
-                    console.table(taskList);
                 }
             }
         }
-        addTasksToCategory(status, category);
+        addTasksToCategory(property, category);
+        content.appendChild(categoryDiv);
     }
+    createCategoryDiv('status', 'active');
+    createCategoryDiv('status', 'complete');
+    createCategoryDiv('status', 'deleted');
 }}
 
 
