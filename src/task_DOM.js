@@ -66,8 +66,6 @@ function displayActiveTasks() {
                             case '3':
                                 taskDiv.style.color = 'green';
                                 break;
-                            case '4':
-                                taskDiv.style.color = 'blue';
                         }
                     }
                     categoryDiv.appendChild(taskDiv);
