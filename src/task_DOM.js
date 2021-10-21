@@ -2,27 +2,27 @@ import { content , taskList } from './index.js';
 
 
 
-function displayActiveTasks() {
-    if (taskList) {
+function displayActiveTasks(property) {
     (function clearTaskDisplay() {
         while (content.firstChild) {
             content.removeChild(content.firstChild);
         } 
     })()
 
-    function createCategoryDiv(property, category) {
+    if (taskList) {
+    function createCategoryDiv(category) {
         const categoryDiv = document.createElement('div');
-        categoryDiv.classList.add = 'category-div';
+        categoryDiv.classList.add('category-div');
     
-        function addCategoryTitle(text) {
+        function addCategoryTitle(category) {
             const categoryTitle = document.createElement('h2');
-            categoryTitle.classList.add = 'category-title';
-            categoryTitle.textContent = text;
+            categoryTitle.classList.add('category-title');
+            categoryTitle.textContent = category;
             categoryDiv.appendChild(categoryTitle);
-        }
+        } 
         addCategoryTitle(category);
 
-        function addTasksToCategory(property, category) {
+        function addTasksToCategory(property) {
             for (let i = 0; i < taskList.length; i++) {
                 if (taskList[i][property] === category) {
                     function createCheckbox() {
@@ -72,12 +72,28 @@ function displayActiveTasks() {
                 }
             }
         }
-        addTasksToCategory(property, category);
+        addTasksToCategory(property);
         content.appendChild(categoryDiv);
     }
-    createCategoryDiv('status', 'active');
-    createCategoryDiv('status', 'complete');
-    createCategoryDiv('status', 'deleted');
+
+
+    const uniqueCategoryValues = [];
+    (function addValues() {
+        function onlyUnique(value, index, self) {
+            return self.indexOf(value) === index;
+        }
+        const categoryValues = [];
+        for (let i=0; i<=taskList.length; i++) {
+            categoryValues.push(taskList[i][property]);
+        }
+        uniqueCategoryValues.push(categoryValues.filter(onlyUnique));
+    })()
+    
+    uniqueCategoryValues.forEach(value => createCategoryDiv(value));
+    
+    // createCategoryDiv('status', 'active');
+    // createCategoryDiv('status', 'complete');
+    // createCategoryDiv('status', 'deleted');
 }}
 
 

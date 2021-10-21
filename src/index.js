@@ -42,7 +42,7 @@ clearStorageBtn.addEventListener('click', () => {
 })
 
 //display - tasks
-displayActiveTasks();
+displayActiveTasks('status');
 
 //display - new task form
 newTaskBtn.addEventListener('click', () => {
@@ -56,7 +56,7 @@ newTaskForm.addEventListener('submit', () => {
 
     addNewTaskToList();
     storeTaskList();
-    displayActiveTasks();
+    displayActiveTasks('status');
 })
 
 //task listener - delete task
@@ -64,7 +64,7 @@ document.querySelectorAll('.delete-btn').forEach(button => {
     button.addEventListener('click', () => {
         changeTaskStatus(button, 'deleted');
         storeTaskList();
-        displayActiveTasks();
+        displayActiveTasks('status');
     })
 })
 
@@ -73,7 +73,7 @@ document.querySelectorAll('.task-checkbox').forEach((box) => {
     box.addEventListener('change', () => {
         changeTaskStatus(box, 'complete');
         storeTaskList();
-        displayActiveTasks();
+        displayActiveTasks('status');
     })
 })
 
