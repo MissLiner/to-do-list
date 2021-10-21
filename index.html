@@ -20,7 +20,12 @@
         <label>Description:<input id="desc-field" name="description"></label>
         <label>Category:<input id="category-field" name="category"></label>
         <label>Due:<input id="duedate-field" name="duedate" type="date"></label>
-        <label>Priority:<input id="priority-field" name="priority"></label>
+        <label>Priority Level:<select id="priority-field" name="priority">
+            <option value="1">High</option>
+            <option value="2">Medium</option>
+            <option value="3">Low</option>
+          </select>
+        </label>
         <label>Notes:<input id="notes-field" name="notes"></label>
         <input id="submit-task-btn" type="submit" value="submit">
       </form>
