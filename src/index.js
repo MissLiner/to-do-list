@@ -19,7 +19,8 @@ let taskList = [];
 const content = document.getElementById('content-div');
 const newTaskBtn = document.getElementById('new-task-btn');
 const submitTaskBtn = document.getElementById('submit-task-btn');
-const clearStorageBtn = document.getElementById('hello');
+const clearStorageBtn = document.getElementById('clear-storage-btn');
+const taskCheckboxes = document.querySelectorAll('.task-checkbox');
 
 (function getListFromStorage() {
     if (localStorage.getItem('taskList')) {
@@ -27,8 +28,6 @@ const clearStorageBtn = document.getElementById('hello');
         taskList = storedList;
     }
 })()
-
-
 
 //display list
 function displayTasks() {
@@ -43,6 +42,8 @@ function displayTasks() {
                 taskDiv.classList.add('task-div');
                 let taskCheckbox = document.createElement('input');
                 taskCheckbox.type = 'checkbox';
+                taskCheckbox.classList.add('task-checkbox');
+                taskCheckbox.value = taskList[i].index;
                 taskDiv.appendChild(taskCheckbox);
 
                 function createTaskSubDiv(key) {
@@ -56,12 +57,6 @@ function displayTasks() {
                 createTaskSubDiv('duedate');
                 createTaskSubDiv('category');
 
-                // for (let key in taskList[i]) {
-                //     let taskSubDiv = document.createElement('div');
-                //     taskSubDiv.classList.add('task-sub-div');
-                //     taskSubDiv.textContent = taskList[i][key];
-                //     taskDiv.appendChild(taskSubDiv);
-                // }
                 let deleteBtn = document.createElement('button');
                 deleteBtn.classList.add('delete-btn');
                 deleteBtn.value = taskList[i].index;
@@ -112,8 +107,20 @@ clearStorageBtn.addEventListener('click', () => {
     localStorage.clear();
 })
 
-// add check boxes to complete tasks
 // event listener on checkboxes to trigger complete-task module
+//taskCheckboxes.forEach(box =>
+for (let box of taskCheckboxes) {
+    box.addEventListener('change', () => {
+        taskList.forEach(task => {
+            if (task.index == box.value) {
+                task.status = 'complete';
+            }
+        })
+        storeTaskList();
+        displayTasks();
+    })
+}
+
 
 export {
     taskList,

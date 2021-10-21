@@ -7,3 +7,6 @@
 
 import { taskList } from "./index.js";
 
+function completeTask() {
+    taskList
+}
