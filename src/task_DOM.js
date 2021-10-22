@@ -1,8 +1,7 @@
 import { content , taskList } from './index.js';
 
 
-
-function displayActiveTasks(property) {
+function displayTasks(property) {
     (function clearTaskDisplay() {
         while (content.firstChild) {
             content.removeChild(content.firstChild);
@@ -92,5 +91,5 @@ function displayActiveTasks(property) {
 
 
 export {
-    displayActiveTasks
+    displayTasks
 }

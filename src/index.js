@@ -13,7 +13,7 @@
 
 import './style.css'; 
 import { addNewTaskToList, changeTaskStatus } from './task_logic';
-import { displayActiveTasks } from './task_DOM'
+import { displayTasks } from './task_DOM'
 
 let taskList = [];
 
@@ -43,7 +43,7 @@ clearStorageBtn.addEventListener('click', () => {
 })
 
 //display - tasks
-displayActiveTasks('status');
+displayTasks('status');
 
 //display - new task form
 newTaskBtn.addEventListener('click', () => {
@@ -57,7 +57,7 @@ newTaskForm.addEventListener('submit', () => {
 
     addNewTaskToList();
     storeTaskList();
-    displayActiveTasks('status');
+    displayTasks('status');
 })
 
 //task listener - delete task
@@ -65,7 +65,7 @@ document.querySelectorAll('.delete-btn').forEach(button => {
     button.addEventListener('click', () => {
         changeTaskStatus(button, 'deleted');
         storeTaskList();
-        displayActiveTasks('status');
+        displayTasks('status');
     })
 })
 
@@ -74,7 +74,7 @@ document.querySelectorAll('.task-checkbox').forEach((box) => {
     box.addEventListener('change', () => {
         changeTaskStatus(box, 'complete');
         storeTaskList();
-        displayActiveTasks('status');
+        displayTasks('status');
     })
 })
 
