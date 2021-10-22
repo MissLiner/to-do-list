@@ -78,6 +78,16 @@ document.querySelectorAll('.task-checkbox').forEach((box) => {
     })
 })
 
+//task listener - change view
+document.getElementById('view-btn-div').addEventListener('click', () => {
+    if (event.target === document.getElementById('priority-view-btn')) {
+        displayTasks('priority');
+    }
+    if (event.target === document.getElementById('all-view-btn')) {
+        displayTasks('status');
+    }
+})
+
 export {
     taskList,
     content
