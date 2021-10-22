@@ -63,7 +63,7 @@ newTaskForm.addEventListener('submit', () => {
 //task listener - delete task
 document.querySelectorAll('.delete-btn').forEach(button => {
     button.addEventListener('click', () => {
-        changeTaskStatus(button, 'deleted');
+        changeTaskStatus(button, 'Deleted');
         storeTaskList();
         displayTasks('status');
     })
@@ -72,7 +72,7 @@ document.querySelectorAll('.delete-btn').forEach(button => {
 //task listener - complete task
 document.querySelectorAll('.task-checkbox').forEach((box) => {
     box.addEventListener('change', () => {
-        changeTaskStatus(box, 'complete');
+        changeTaskStatus(box, 'Complete');
         storeTaskList();
         displayTasks('status');
     })

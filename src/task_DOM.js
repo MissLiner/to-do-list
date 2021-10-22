@@ -54,7 +54,7 @@ function displayTasks(property) {
                         createTaskSubDiv('category');
                         createDeleteBtn();
 
-                        if (category === 'active') {
+                        if (taskList[i].status === 'Active') {
                             switch(taskList[i].priority) {
                                 case 'High':
                                     taskDiv.style.color = 'red';

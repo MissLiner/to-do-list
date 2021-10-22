@@ -30,7 +30,7 @@ function addNewTaskToList() {
         newTask[key] = taskFormData.get(key);
     }
     newTask.index = Date.now();
-    newTask.status = 'active';
+    newTask.status = 'Active';
     taskList.unshift(newTask);
 }
 
