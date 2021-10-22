@@ -56,13 +56,13 @@ function displayTasks(property) {
 
                         if (category === 'active') {
                             switch(taskList[i].priority) {
-                                case 'high':
+                                case 'High':
                                     taskDiv.style.color = 'red';
                                     break;
-                                case 'medium':
+                                case 'Medium':
                                     taskDiv.style.color = 'orange';
                                     break;
-                                case 'low':
+                                case 'Low':
                                     taskDiv.style.color = 'green';
                                     break;
                             }

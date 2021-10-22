@@ -21,9 +21,9 @@
         <label>Category:<input id="category-field" name="category"></label>
         <label>Due:<input id="duedate-field" name="duedate" type="date"></label>
         <label>Priority Level:<select id="priority-field" name="priority">
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
           </select>
         </label>
         <label>Notes:<input id="notes-field" name="notes"></label>
@@ -31,8 +31,13 @@
       </form>
 
       <div id="view-btn-div">
-        <input type="button" id="priority-view-btn" class="view-btn" value="Priority View">
-        <input type="button" id="all-view-btn" class="view-btn" value="All Tasks View">
+        <label>View by:<select id="view-menu">
+          <option value="status">Status</option>
+          <option value="priority">Priority</option>
+          <option value="category">Category</option>
+        </select>
+        <!-- <input type="button" id="priority-view-btn" class="view-btn" value="Priority View">
+        <input type="button" id="all-view-btn" class="view-btn" value="All Tasks View"> -->
       </div>
   </body>
 
