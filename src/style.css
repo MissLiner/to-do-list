@@ -29,3 +29,8 @@ h1 {
     margin-top: 10px;
     margin-bottom: 20px;
 }
+#view-btn-div {
+    position: absolute;
+    left: 0;
+    top: 40px;
+}
