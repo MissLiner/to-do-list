@@ -75,25 +75,19 @@ function displayActiveTasks(property) {
         addTasksToCategory(property);
         content.appendChild(categoryDiv);
     }
+    //create category lists for different views
+    let propertyValues = [];
 
+    function getUniqueValues(arr, prop) {
+        const allValues = [];
+        for (let i = 0; i < arr.length; i++) {
+            allValues.push(arr[i][prop]);
+        }
+        propertyValues = [...new Set(allValues)];
+    }
+    getUniqueValues(taskList, property);
 
-    const uniqueCategoryValues = [];
-    (function addValues() {
-        function onlyUnique(value, index, self) {
-            return self.indexOf(value) === index;
-        }
-        const categoryValues = [];
-        for (let i=0; i<=taskList.length; i++) {
-            categoryValues.push(taskList[i][property]);
-        }
-        uniqueCategoryValues.push(categoryValues.filter(onlyUnique));
-    })()
-    
-    uniqueCategoryValues.forEach(value => createCategoryDiv(value));
-    
-    // createCategoryDiv('status', 'active');
-    // createCategoryDiv('status', 'complete');
-    // createCategoryDiv('status', 'deleted');
+    propertyValues.forEach(value => createCategoryDiv(value));
 }}
 
 

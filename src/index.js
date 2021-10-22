@@ -27,6 +27,7 @@ const newTaskForm = document.getElementById('new-task-form');
     if (localStorage.getItem('taskList')) {
         let storedList = JSON.parse(window.localStorage.getItem('taskList'));
         taskList = storedList;
+        console.table(taskList);
     }
 })()
 
