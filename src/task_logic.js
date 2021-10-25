@@ -32,6 +32,7 @@ function addNewTaskToList() {
     newTask.index = Date.now();
     newTask.status = 'Active';
     taskList.unshift(newTask);
+    newTaskForm.reset();
 }
 
 function changeTaskStatus(trigger, newStatus) {
