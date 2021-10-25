@@ -12,12 +12,11 @@
 // 4. Assign priority
 
 import './style.css'; 
-import { addNewTaskToList, changeTaskStatus } from './task_logic';
+//import { addNewTaskToList, changeTaskStatus } from './task_logic';
 import { displayTasks } from './task_DOM'
-import { loadEventListeners } from './event_listeners';
+//import { loadEventListeners } from './event_listeners';
 
 let taskList = [];
-
 const content = document.getElementById('content-div');
 
 //local storage - retrieve
@@ -30,8 +29,6 @@ const content = document.getElementById('content-div');
 })()
 
 displayTasks('status');
-
-loadEventListeners();
 
 export {
     taskList,

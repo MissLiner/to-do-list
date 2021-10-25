@@ -22,7 +22,7 @@ function loadEventListeners() {
     //display - new task form
     newTaskBtn.addEventListener('click', () => {
         if (newTaskForm.classList.contains('hidden')) {
-        newTaskForm.classList.remove('hidden');
+            newTaskForm.classList.remove('hidden');
         }
         else {
             newTaskForm.classList.add('hidden')
