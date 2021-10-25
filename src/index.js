@@ -14,6 +14,7 @@
 import './style.css'; 
 import { addNewTaskToList, changeTaskStatus } from './task_logic';
 import { displayTasks } from './task_DOM'
+import { loadEventListeners } from './event_listeners';
 
 let taskList = [];
 
@@ -28,12 +29,9 @@ const content = document.getElementById('content-div');
     }
 })()
 
-//display - tasks
 displayTasks('status');
 
-
-
-
+loadEventListeners();
 
 export {
     taskList,

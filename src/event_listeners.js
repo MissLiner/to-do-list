@@ -1,9 +1,13 @@
+import { addNewTaskToList, changeTaskStatus } from './task_logic';
+import { displayTasks } from './task_DOM'
+import { taskList } from './index'
+
 function loadEventListeners() {
 
     const newTaskBtn = document.getElementById('new-task-btn');
     const clearStorageBtn = document.getElementById('clear-storage-btn');
     const newTaskForm = document.getElementById('new-task-form');
-    
+
     //local storage - store
     function storeTaskList() {
         window.localStorage.clear();
