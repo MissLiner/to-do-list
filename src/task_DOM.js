@@ -1,5 +1,5 @@
 import { content , taskList } from './index.js';
-import { loadEventListeners } from './event_listeners';
+import { loadTaskListeners } from './event_listeners';
 
 
 function displayTasks(property) {
@@ -89,7 +89,7 @@ function displayTasks(property) {
 
         propertyValues.forEach(value => createCategoryDiv(value));
     }
-    loadEventListeners();
+    loadTaskListeners();
 }
 
 

@@ -1,19 +1,12 @@
-import { addNewTaskToList, changeTaskStatus, deleteTask } from './task_logic';
+import { addNewTaskToList, changeTaskStatus, deleteTask, storeTaskList } from './task_logic';
 import { displayTasks } from './task_DOM'
 import { taskList } from './index'
 
-function loadEventListeners() {
-
+function loadBaseListeners() {
     const newTaskBtn = document.getElementById('new-task-btn');
     const clearStorageBtn = document.getElementById('clear-storage-btn');
     const newTaskForm = document.getElementById('new-task-form');
     const viewMenu = document.getElementById('view-menu');
-
-    //local storage - store
-    function storeTaskList() {
-        window.localStorage.clear();
-        window.localStorage.setItem('taskList', JSON.stringify(taskList));
-    }
 
     //local storage - clear
     clearStorageBtn.addEventListener('click', () => {
@@ -39,15 +32,31 @@ function loadEventListeners() {
         storeTaskList();
         displayTasks(viewMenu.value);
     })
+}
+
+function loadTaskListeners() {
+    const viewMenu = document.getElementById('view-menu');
 
     //task listener - delete task
     document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener('click', () => {
-            deleteTask(button.value);
-            storeTaskList();
-            displayTasks(viewMenu.value);
+            const deleteDialog = document.getElementById('delete-dialog');
+            deleteDialog.classList.remove('hidden');
+
+            document.getElementById('abort-delete-btn').addEventListener('click', () => {
+                deleteDialog.classList.add('hidden');
+            })
+
+            document.getElementById('confirm-delete-btn').addEventListener('click', () => {
+                deleteTask(button.value);
+                storeTaskList();
+                displayTasks(viewMenu.value);
+                deleteDialog.classList.add('hidden');
+            })
+
         })
     })
+
 
     //task listener - complete task
     document.querySelectorAll('.task-checkbox').forEach((box) => {
@@ -64,5 +73,6 @@ function loadEventListeners() {
     })
 }
 export {
-    loadEventListeners,
+    loadBaseListeners,
+    loadTaskListeners,
 }

@@ -11,6 +11,7 @@
 
 // 4. Assign priority
 
+import { loadBaseListeners } from './event_listeners';
 import './style.css'; 
 //import { addNewTaskToList, changeTaskStatus } from './task_logic';
 import { displayTasks } from './task_DOM'
@@ -29,6 +30,7 @@ const content = document.getElementById('content-div');
     }
 })()
 
+loadBaseListeners();
 displayTasks('status');
 
 export {

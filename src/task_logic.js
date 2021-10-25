@@ -21,7 +21,14 @@
 
 import { taskList } from "./index.js"; 
 
+
 const newTaskForm = document.getElementById('new-task-form');
+
+//local storage - store
+function storeTaskList() {
+    window.localStorage.clear();
+    window.localStorage.setItem('taskList', JSON.stringify(taskList));
+}
 
 function addNewTaskToList() {
     let newTask = {};
@@ -32,6 +39,7 @@ function addNewTaskToList() {
     newTask.index = Date.now();
     newTask.status = 'Active';
     taskList.unshift(newTask);
+    storeTaskList()
     newTaskForm.reset();
 }
 
@@ -41,6 +49,7 @@ function changeTaskStatus(trigger, newStatus) {
             task.status = newStatus;
         }
     })
+    storeTaskList()
 }
 
 function deleteTask(value) {
@@ -50,7 +59,9 @@ function deleteTask(value) {
             taskList.splice(a, 1);
         }
     })
+    storeTaskList()
 }
+
 
 // 3. complete-task
 //      1. change task status to completed
@@ -67,4 +78,5 @@ export {
     addNewTaskToList,
     changeTaskStatus,
     deleteTask,
+    storeTaskList,
 }

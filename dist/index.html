@@ -11,10 +11,20 @@
 
   <body>
       <h1>Can-Do List</h1>
-      <h2 id="category-title"></h2>
       <button type="button" id="new-task-btn">Add New Task</button>
+
       <div id="content-div"></div>
+
+      <div id="view-btn-div">
+        <label>View by:<select id="view-menu">
+          <option value="status">Status</option>
+          <option value="priority">Priority</option>
+          <option value="category">Category</option>
+        </select>
+      </div>
+
       <button id="clear-storage-btn">Delete All Tasks</button>
+
       <form id="new-task-form" class="hidden">
         <label>Task Name:<input id="name-field" name="name"></label>
         <label>Description:<input id="desc-field" name="description"></label>
@@ -30,15 +40,13 @@
         <input id="submit-task-btn" type="submit" value="submit">
       </form>
 
-      <div id="view-btn-div">
-        <label>View by:<select id="view-menu">
-          <option value="status">Status</option>
-          <option value="priority">Priority</option>
-          <option value="category">Category</option>
-        </select>
-        <!-- <input type="button" id="priority-view-btn" class="view-btn" value="Priority View">
-        <input type="button" id="all-view-btn" class="view-btn" value="All Tasks View"> -->
+      <div id="delete-dialog" class="hidden">
+        <p>Are you sure you want to permanently delete this task?</p>
+        <button id="abort-delete-btn" class="delete-dialog-btn">Oops, no</button>
+        <button id="confirm-delete-btn" class="delete-dialog-btn">Yes, please!</button>
       </div>
+
+
   </body>
 
 </html>
