@@ -7,6 +7,7 @@ function loadEventListeners() {
     const newTaskBtn = document.getElementById('new-task-btn');
     const clearStorageBtn = document.getElementById('clear-storage-btn');
     const newTaskForm = document.getElementById('new-task-form');
+    const viewMenu = document.getElementById('view-menu');
 
     //local storage - store
     function storeTaskList() {
@@ -36,7 +37,7 @@ function loadEventListeners() {
 
         addNewTaskToList();
         storeTaskList();
-        displayTasks('status');
+        displayTasks(viewMenu.value);
     })
 
     //task listener - delete task
@@ -44,7 +45,7 @@ function loadEventListeners() {
         button.addEventListener('click', () => {
             changeTaskStatus(button, 'Deleted');
             storeTaskList();
-            displayTasks('status');
+            displayTasks(viewMenu.value);
         })
     })
 
@@ -53,13 +54,13 @@ function loadEventListeners() {
         box.addEventListener('change', () => {
             changeTaskStatus(box, 'Complete');
             storeTaskList();
-            displayTasks(document.getElementById('view-menu').value);
+            displayTasks(viewMenu.value);
         })
     })
 
     //task listener - change view
-    document.getElementById('view-menu').addEventListener('change', () => {
-        displayTasks(event.target.value);
+    viewMenu.addEventListener('change', () => {
+        displayTasks(viewMenu.value);
     })
 }
 export {
