@@ -14,6 +14,7 @@
 import './style.css'; 
 //import { addNewTaskToList, changeTaskStatus } from './task_logic';
 import { displayTasks } from './task_DOM'
+//import { taskList } from './task_logic'
 //import { loadEventListeners } from './event_listeners';
 
 let taskList = [];

@@ -1,4 +1,4 @@
-import { addNewTaskToList, changeTaskStatus } from './task_logic';
+import { addNewTaskToList, changeTaskStatus, deleteTask } from './task_logic';
 import { displayTasks } from './task_DOM'
 import { taskList } from './index'
 
@@ -43,7 +43,7 @@ function loadEventListeners() {
     //task listener - delete task
     document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener('click', () => {
-            changeTaskStatus(button, 'Deleted');
+            deleteTask(button.value);
             storeTaskList();
             displayTasks(viewMenu.value);
         })

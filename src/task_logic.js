@@ -43,6 +43,15 @@ function changeTaskStatus(trigger, newStatus) {
     })
 }
 
+function deleteTask(value) {
+    taskList.forEach(task => {
+        if (task.index == value) {
+            let a = taskList.findIndex(object => object.index === value.index);
+            taskList.splice(a, 1);
+        }
+    })
+}
+
 // 3. complete-task
 //      1. change task status to completed
 //      2. change text and formatting to show it is completed
@@ -56,5 +65,6 @@ function completeTask() {
 
 export {
     addNewTaskToList,
-    changeTaskStatus
+    changeTaskStatus,
+    deleteTask,
 }
