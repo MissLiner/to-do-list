@@ -110,7 +110,6 @@ function createDropdown(arr, elementID) {
     })
 }
 
-
 export {
     displayTasks,
     createDropdown,

@@ -1,4 +1,4 @@
-import { addItemToArray, addNewTaskToList, changeTaskStatus, deleteTask, storeTaskList } from './task_logic';
+import { addItemToArray, addNewTaskToList, changeTaskStatus, deleteTask, storeLists } from './task_logic';
 import { createDropdown, displayTasks } from './task_DOM'
 import { categories, projects } from './index'
 
@@ -72,7 +72,7 @@ function loadBaseListeners() {
         newTaskForm.classList.add('hidden');
 
         addNewTaskToList();
-        storeTaskList();
+        storeLists();
         displayTasks(viewMenu.value);
     })
 }
@@ -95,7 +95,7 @@ function loadTaskListeners() {
 
     document.getElementById('confirm-delete-btn').addEventListener('click', () => {
         deleteTask(currentTask);
-        storeTaskList();
+        storeLists();
         displayTasks(viewMenu.value);
         deleteDialog.classList.add('hidden');
     })
@@ -104,7 +104,7 @@ function loadTaskListeners() {
     document.querySelectorAll('.task-checkbox').forEach((box) => {
         box.addEventListener('change', () => {
             changeTaskStatus(box, 'Complete');
-            storeTaskList();
+            storeLists();
             displayTasks(viewMenu.value);
         })
     })

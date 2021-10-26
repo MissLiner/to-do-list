@@ -30,6 +30,14 @@ const content = document.getElementById('content-div');
         taskList = storedList;
         console.table(taskList);
     }
+    if (localStorage.getItem('categories')) {
+        let storedList = JSON.parse(window.localStorage.getItem('categories'));
+        categories = storedList;
+    }
+    if (localStorage.getItem('projects')) {
+        let storedList = JSON.parse(window.localStorage.getItem('projects'));
+        projects = storedList;
+    }
 })()
 
 loadBaseListeners();

@@ -19,15 +19,17 @@
 //          -notes
 //          -checkbox
 
-import { taskList, categories, projects } from "./index.js"; 
+import { taskList } from "./index.js"; 
 
 
 const newTaskForm = document.getElementById('new-task-form');
 
 //local storage - store
-function storeTaskList() {
+function storeLists() {
     window.localStorage.clear();
     window.localStorage.setItem('taskList', JSON.stringify(taskList));
+    window.localStorage.setItem('categories', JSON.stringify(taskList));
+    window.localStorage.setItem('projects', JSON.stringify(taskList));
 }
 
 function addNewTaskToList() {
@@ -39,7 +41,7 @@ function addNewTaskToList() {
     newTask.index = Date.now();
     newTask.status = 'Active';
     taskList.unshift(newTask);
-    storeTaskList()
+    storeLists()
     newTaskForm.reset();
 }
 
@@ -49,7 +51,7 @@ function changeTaskStatus(trigger, newStatus) {
             task.status = newStatus;
         }
     })
-    storeTaskList()
+    storeLists()
 }
 
 function deleteTask(value) {
@@ -59,12 +61,13 @@ function deleteTask(value) {
             taskList.splice(a, 1);
         }
     })
-    storeTaskList()
+    storeLists()
 }
 
 function addItemToArray(item, arr) {
     arr.push(item);
     arr.sort();
+    storeLists();
 }
 
 
@@ -84,6 +87,6 @@ export {
     addNewTaskToList,
     changeTaskStatus,
     deleteTask,
-    storeTaskList,
+    storeLists,
     addItemToArray,
 }
