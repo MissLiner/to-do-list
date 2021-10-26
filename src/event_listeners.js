@@ -4,14 +4,8 @@ import { categories, projects } from './index'
 
 function loadBaseListeners() {
     const newTaskBtn = document.getElementById('new-task-btn');
-    const clearStorageBtn = document.getElementById('clear-storage-btn');
     const newTaskForm = document.getElementById('new-task-form');
     const viewMenu = document.getElementById('view-menu');
-
-    //local storage - clear
-    clearStorageBtn.addEventListener('click', () => {
-        localStorage.clear();
-    })
 
     //display - new task form
     newTaskBtn.addEventListener('click', () => {
