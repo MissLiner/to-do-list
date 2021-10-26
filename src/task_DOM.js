@@ -87,7 +87,9 @@ function displayTasks(property) {
                         createTaskSubDiv('category');
                         createExpandBtn();
                         createDeleteBtn();
+                        taskDiv.appendChild(taskBasicDiv);
                         createDetails(taskList[i]);
+                        categoryDiv.appendChild(taskDiv);
 
                         if (taskList[i].status === 'Active') {
                             switch(taskList[i].priority) {
@@ -102,8 +104,6 @@ function displayTasks(property) {
                                     break;
                             }
                         }
-                        taskDiv.appendChild(taskBasicDiv);
-                        categoryDiv.appendChild(taskDiv);
                     }
                 }
             }
