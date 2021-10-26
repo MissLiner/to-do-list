@@ -30,6 +30,7 @@ function displayTasks(property) {
                             taskCheckbox.type = 'checkbox';
                             taskCheckbox.classList.add('task-checkbox');
                             taskCheckbox.value = taskList[i].index;
+                            taskCheckbox.title = 'Complete';
                             taskDiv.appendChild(taskCheckbox);
                         }
                         function createTaskSubDiv(key) {
@@ -38,21 +39,32 @@ function displayTasks(property) {
                             taskSubDiv.textContent = taskList[i][key];
                             taskDiv.appendChild(taskSubDiv);
                         }
+                        function createExpandBtn() {
+                            const expandBtn = document.createElement('button');
+                            expandBtn.classList.add('expand-btn');
+                            expandBtn.value = taskList[i].index;
+                            expandBtn.title = 'Expand';
+                            expandBtn.insertAdjacentHTML('beforeend', '<i class="fas fa-angle-down"></i>');
+                            taskDiv.appendChild(expandBtn);
+                        }
                         function createDeleteBtn() {
                             const deleteBtn = document.createElement('button');
                             deleteBtn.classList.add('delete-btn');
                             deleteBtn.value = taskList[i].index;
+                            deleteBtn.title = 'Delete';
                             deleteBtn.insertAdjacentHTML('beforeend', '<i class="far fa-trash-alt"></i>' );
                             taskDiv.appendChild(deleteBtn);
                         }
 
                         const taskDiv = document.createElement('div');
                         taskDiv.classList.add('task-div');
+                        taskDiv.id = taskList[i].index;
 
                         createCheckbox();
                         createTaskSubDiv('name');
                         createTaskSubDiv('duedate');
                         createTaskSubDiv('category');
+                        createExpandBtn();
                         createDeleteBtn();
 
                         if (taskList[i].status === 'Active') {
@@ -111,7 +123,23 @@ function createDropdown(arr, elementID) {
     })
 }
 
+function expandTask(task) {
+    const parentDiv = document.getElementById(task.index);
+    const taskDetailDiv = document.createElement('div');
+
+    function createSubDiv(key) {
+        let subDiv = document.createElement('div');
+        subDiv.classList.add('detail-sub-div');
+        subDiv.textContent = key + ': ' + task[key];
+        taskDetailDiv.appendChild(subDiv);
+    }
+
+    createSubDiv('description');
+    parentDiv.appendChild(taskDetailDiv);
+}
+
 export {
     displayTasks,
     createDropdown,
+    expandTask,
 }
