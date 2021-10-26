@@ -13,12 +13,14 @@
 
 import { loadBaseListeners } from './event_listeners';
 import './style.css'; 
-//import { addNewTaskToList, changeTaskStatus } from './task_logic';
-import { displayTasks } from './task_DOM'
-//import { taskList } from './task_logic'
-//import { loadEventListeners } from './event_listeners';
+import { displayTasks } from './task_DOM';
+import { createDropdown } from './task_DOM';
+
 
 let taskList = [];
+let categories = ['Home', 'Work', 'Self-Care', 'Pets', 'Kids'];
+let projects = [];
+
 const content = document.getElementById('content-div');
 
 //local storage - retrieve
@@ -32,10 +34,12 @@ const content = document.getElementById('content-div');
 
 loadBaseListeners();
 displayTasks('status');
+createDropdown(categories, 'category-field');
 
 export {
     taskList,
-    content
+    content,
+    categories,
 }
 
 //default category (should I move to HTML?)

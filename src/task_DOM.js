@@ -92,7 +92,20 @@ function displayTasks(property) {
     loadTaskListeners();
 }
 
+function createDropdown(arr, elementID) {
+    const mainField = document.getElementById(elementID);
+    arr.forEach(item => {
+        const option = document.createElement('option');
+        option.class = 'dropdown-item';
+        option.value = item;
+        option.textContent = item;
+        mainField.appendChild(option);
+
+    })
+}
+
 
 export {
-    displayTasks
+    displayTasks,
+    createDropdown,
 }
