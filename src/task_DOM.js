@@ -94,6 +94,12 @@ function displayTasks(property) {
 
 function createDropdown(arr, elementID) {
     const mainField = document.getElementById(elementID);
+    (function clearDropdown() {
+        while (mainField.childElementCount > 2) {
+            mainField.removeChild(mainField.lastChild);
+        } 
+    })()
+
     arr.forEach(item => {
         const option = document.createElement('option');
         option.class = 'dropdown-item';

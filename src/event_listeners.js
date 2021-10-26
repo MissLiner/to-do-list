@@ -35,8 +35,8 @@ function loadBaseListeners() {
     document.getElementById('add-category-btn').addEventListener('click', () => {
         const newItem = document.getElementById('add-category-input').value;
         addItemToArray(newItem, categories);
-        addCategoryForm.classList.add('hidden');
         createDropdown(categories, 'category-field');
+        addCategoryForm.classList.add('hidden');
 })
 
 
