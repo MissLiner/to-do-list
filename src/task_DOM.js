@@ -84,6 +84,7 @@ function displayTasks(property) {
                 allValues.push(arr[i][prop]);
             }
             propertyValues = [...new Set(allValues)];
+            propertyValues = propertyValues.sort();
         }
         getUniqueValues(taskList, property);
 
