@@ -19,7 +19,7 @@ import { createDropdown } from './task_DOM';
 
 let taskList = [];
 let categories = ['Home', 'Work', 'Self-Care', 'Pets', 'Kids'];
-let projects = [];
+let projects = ['Update kitchen', 'AB anxiety'];
 
 const content = document.getElementById('content-div');
 
@@ -35,6 +35,7 @@ const content = document.getElementById('content-div');
 loadBaseListeners();
 displayTasks('status');
 createDropdown(categories, 'category-field');
+createDropdown(projects, 'project-field');
 
 export {
     taskList,
