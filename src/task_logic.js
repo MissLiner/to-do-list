@@ -19,7 +19,7 @@
 //          -notes
 //          -checkbox
 
-import { taskList } from "./index.js"; 
+import { taskList, categories, projects } from "./index.js"; 
 
 
 const newTaskForm = document.getElementById('new-task-form');
@@ -28,8 +28,8 @@ const newTaskForm = document.getElementById('new-task-form');
 function storeLists() {
     window.localStorage.clear();
     window.localStorage.setItem('taskList', JSON.stringify(taskList));
-    window.localStorage.setItem('categories', JSON.stringify(taskList));
-    window.localStorage.setItem('projects', JSON.stringify(taskList));
+    window.localStorage.setItem('categories', JSON.stringify(categories));
+    window.localStorage.setItem('projects', JSON.stringify(projects));
 }
 
 function addNewTaskToList() {

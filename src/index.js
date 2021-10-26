@@ -26,17 +26,17 @@ const content = document.getElementById('content-div');
 //local storage - retrieve
 (function getListFromStorage() {
     if (localStorage.getItem('taskList')) {
-        let storedList = JSON.parse(window.localStorage.getItem('taskList'));
-        taskList = storedList;
+        let storedTasks = JSON.parse(window.localStorage.getItem('taskList'));
+        taskList = storedTasks;
         console.table(taskList);
     }
     if (localStorage.getItem('categories')) {
-        let storedList = JSON.parse(window.localStorage.getItem('categories'));
-        categories = storedList;
+        let storedCats = JSON.parse(window.localStorage.getItem('categories'));
+        categories = storedCats;
     }
     if (localStorage.getItem('projects')) {
-        let storedList = JSON.parse(window.localStorage.getItem('projects'));
-        projects = storedList;
+        let storedProjects = JSON.parse(window.localStorage.getItem('projects'));
+        projects = storedProjects;
     }
 })()
 
