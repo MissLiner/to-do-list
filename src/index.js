@@ -41,6 +41,7 @@ export {
     taskList,
     content,
     categories,
+    projects,
 }
 
 //default category (should I move to HTML?)

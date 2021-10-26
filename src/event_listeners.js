@@ -1,6 +1,6 @@
-import { addNewTaskToList, changeTaskStatus, deleteTask, storeTaskList } from './task_logic';
-import { displayTasks } from './task_DOM'
-import { taskList } from './index'
+import { addItemToArray, addNewTaskToList, changeTaskStatus, deleteTask, storeTaskList } from './task_logic';
+import { createDropdown, displayTasks } from './task_DOM'
+import { categories, projects } from './index'
 
 function loadBaseListeners() {
     const newTaskBtn = document.getElementById('new-task-btn');
@@ -22,6 +22,49 @@ function loadBaseListeners() {
             newTaskForm.classList.add('hidden')
         }
     });
+
+    //add new category
+    const categoryInput = document.getElementById('category-field');
+    const addCategoryForm = document.getElementById('add-category-form')
+    categoryInput.addEventListener('change', () => {
+        if (categoryInput.value === 'add-new') {
+            document.getElementById('add-category-form').classList.remove('hidden');
+        }
+    })
+
+    document.getElementById('add-category-btn').addEventListener('click', () => {
+        const newItem = document.getElementById('add-category-input').value;
+        addItemToArray(newItem, categories);
+        addCategoryForm.classList.add('hidden');
+        createDropdown(categories, 'category-field');
+})
+
+
+    // document.querySelectorAll('.add-btn').forEach(button => {
+    //     button.addEventListener('click', () => {
+    //         const newItemName = button.name;
+    //         const newItem = document.getElementById(newItemName).value;
+    //         const arr = JSON.parse(button.name);
+    //         //const arr = eval(arrString);
+    //         addItemToArray(newItem, arr);
+    //     })
+    // })
+    //add new project
+    const projectInput = document.getElementById('project-field');
+    const addProjectForm = document.getElementById('add-project-form')
+
+    projectInput.addEventListener('change', () => {
+        if (projectInput.value == 'Add new') {
+            addProjectForm.classList.remove('hidden');
+        }
+    })
+
+    document.getElementById('add-project-btn').addEventListener('click', () => {
+            const newItem = document.getElementById('add-project-input').value;
+            addItemToArray(newItem, projects);
+            addProjectForm.classList.add('hidden');
+            createDropdown(projects, 'project-field');
+    })
 
     //task listener - add new task
     newTaskForm.addEventListener('submit', () => {

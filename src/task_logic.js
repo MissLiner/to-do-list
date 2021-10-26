@@ -19,7 +19,7 @@
 //          -notes
 //          -checkbox
 
-import { taskList, categories } from "./index.js"; 
+import { taskList, categories, projects } from "./index.js"; 
 
 
 const newTaskForm = document.getElementById('new-task-form');
@@ -62,10 +62,11 @@ function deleteTask(value) {
     storeTaskList()
 }
 
-function createCategory(category) {
-    categories.push(category);
-    categories.sort();
+function addItemToArray(item, arr) {
+    arr.push(item);
+    arr.sort();
 }
+
 
 
 // 3. complete-task
@@ -84,5 +85,5 @@ export {
     changeTaskStatus,
     deleteTask,
     storeTaskList,
-    createCategory,
+    addItemToArray,
 }
