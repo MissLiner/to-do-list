@@ -36,27 +36,26 @@ function loadBaseListeners() {
 
 function loadTaskListeners() {
     const viewMenu = document.getElementById('view-menu');
+    const deleteDialog = document.getElementById('delete-dialog');
+    let currentTask;
 
     //task listener - delete task
     document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener('click', () => {
-            const deleteDialog = document.getElementById('delete-dialog');
             deleteDialog.classList.remove('hidden');
-
-            document.getElementById('abort-delete-btn').addEventListener('click', () => {
-                deleteDialog.classList.add('hidden');
-            })
-
-            document.getElementById('confirm-delete-btn').addEventListener('click', () => {
-                deleteTask(button.value);
-                storeTaskList();
-                displayTasks(viewMenu.value);
-                deleteDialog.classList.add('hidden');
-            })
-
+            currentTask = button.value;
         })
     })
+    document.getElementById('abort-delete-btn').addEventListener('click', () => {
+        deleteDialog.classList.add('hidden');
+    })
 
+    document.getElementById('confirm-delete-btn').addEventListener('click', () => {
+        deleteTask(currentTask);
+        storeTaskList();
+        displayTasks(viewMenu.value);
+        deleteDialog.classList.add('hidden');
+    })
 
     //task listener - complete task
     document.querySelectorAll('.task-checkbox').forEach((box) => {
