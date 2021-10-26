@@ -31,13 +31,13 @@ function displayTasks(property) {
                             taskCheckbox.classList.add('task-checkbox');
                             taskCheckbox.value = taskList[i].index;
                             taskCheckbox.title = 'Complete';
-                            taskDiv.appendChild(taskCheckbox);
+                            taskBasicDiv.appendChild(taskCheckbox);
                         }
                         function createTaskSubDiv(key) {
                             let taskSubDiv = document.createElement('div');
                             taskSubDiv.classList.add('task-sub-div');
                             taskSubDiv.textContent = taskList[i][key];
-                            taskDiv.appendChild(taskSubDiv);
+                            taskBasicDiv.appendChild(taskSubDiv);
                         }
                         function createExpandBtn() {
                             const expandBtn = document.createElement('button');
@@ -45,7 +45,7 @@ function displayTasks(property) {
                             expandBtn.value = taskList[i].index;
                             expandBtn.title = 'Expand';
                             expandBtn.insertAdjacentHTML('beforeend', '<i class="fas fa-angle-down"></i>');
-                            taskDiv.appendChild(expandBtn);
+                            taskBasicDiv.appendChild(expandBtn);
                         }
                         function createDeleteBtn() {
                             const deleteBtn = document.createElement('button');
@@ -53,12 +53,29 @@ function displayTasks(property) {
                             deleteBtn.value = taskList[i].index;
                             deleteBtn.title = 'Delete';
                             deleteBtn.insertAdjacentHTML('beforeend', '<i class="far fa-trash-alt"></i>' );
-                            taskDiv.appendChild(deleteBtn);
+                            taskBasicDiv.appendChild(deleteBtn);
+                        }
+                        function createDetails() {
+                            const taskDetailDiv = document.createElement('div');
+                        
+                            function createSubDiv(key) {
+                                let subDiv = document.createElement('div');
+                                subDiv.classList.add('detail-sub-div');
+                                subDiv.textContent = key + ': ' + taskList[i][key];
+                                taskDetailDiv.appendChild(subDiv);
+                            }
+                        
+                            createSubDiv('description');
+                            taskDiv.appendChild(taskDetailDiv);
                         }
 
                         const taskDiv = document.createElement('div');
+                        const taskBasicDiv = document.createElement('div');
+
                         taskDiv.classList.add('task-div');
                         taskDiv.id = taskList[i].index;
+
+                        taskBasicDiv.classList.add('task-basic-div');
 
                         createCheckbox();
                         createTaskSubDiv('name');
@@ -66,6 +83,7 @@ function displayTasks(property) {
                         createTaskSubDiv('category');
                         createExpandBtn();
                         createDeleteBtn();
+                        createDetails(taskList[i]);
 
                         if (taskList[i].status === 'Active') {
                             switch(taskList[i].priority) {
@@ -80,10 +98,12 @@ function displayTasks(property) {
                                     break;
                             }
                         }
+                        taskDiv.appendChild(taskBasicDiv);
                         categoryDiv.appendChild(taskDiv);
                     }
                 }
             }
+
             addTasksToCategory(property);
             content.appendChild(categoryDiv);
         }
@@ -105,6 +125,8 @@ function displayTasks(property) {
     loadTaskListeners();
 }
 
+
+
 function createDropdown(arr, elementID) {
     const mainField = document.getElementById(elementID);
     (function clearDropdown() {
@@ -123,23 +145,9 @@ function createDropdown(arr, elementID) {
     })
 }
 
-function expandTask(task) {
-    const parentDiv = document.getElementById(task.index);
-    const taskDetailDiv = document.createElement('div');
 
-    function createSubDiv(key) {
-        let subDiv = document.createElement('div');
-        subDiv.classList.add('detail-sub-div');
-        subDiv.textContent = key + ': ' + task[key];
-        taskDetailDiv.appendChild(subDiv);
-    }
-
-    createSubDiv('description');
-    parentDiv.appendChild(taskDetailDiv);
-}
 
 export {
     displayTasks,
     createDropdown,
-    expandTask,
 }

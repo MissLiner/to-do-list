@@ -17,7 +17,7 @@ h1 {
 .hidden {
     display: none;
 }
-.task-div {
+.task-basic-div {
     display: flex;
     width: 500px;
 }

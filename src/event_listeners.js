@@ -1,5 +1,5 @@
 import { addItemToArray, addNewTaskToList, changeTaskStatus, deleteTask, storeLists } from './task_logic';
-import { createDropdown, displayTasks, expandTask } from './task_DOM'
+import { createDropdown, displayTasks } from './task_DOM'
 import { categories, projects, taskList } from './index'
 
 function loadBaseListeners() {
