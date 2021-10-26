@@ -66,6 +66,10 @@ function displayTasks(property) {
                             }
                         
                             createSubDiv('description');
+                            createSubDiv('category');
+                            createSubDiv('priority');
+                            createSubDiv('project');
+                            createSubDiv('notes');
                             taskDiv.appendChild(taskDetailDiv);
                         }
 
