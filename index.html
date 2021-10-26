@@ -20,6 +20,8 @@
           <option value="status">Status</option>
           <option value="priority">Priority</option>
           <option value="category">Category</option>
+          <option value="project">Project</option>
+          <option value="duedate">Due Date</option>
         </select>
       </div>
 
@@ -28,8 +30,14 @@
       <form id="new-task-form" class="hidden">
         <label>Task Name:<input id="name-field" name="name"></label>
         <label>Description:<input id="desc-field" name="description"></label>
-        <label>Category:<select id="category-field" name="category"></select></label>
-        <label>Project:<select id="project-field" name="project"></select></label>
+        <label>Category:<select id="category-field" name="category">
+          <option value="None" selected>None</option>
+          <option id="add-category" value="add-new">Add new</option>
+        </select></label>
+        <label>Project:<select id="project-field" name="project">
+          <option value="None" selected>None</option>
+          <option id="add-project" value="Add new">Add new</option>
+        </select></label>
         <label>Due:<input id="duedate-field" name="duedate" type="date"></label>
         <label>Priority Level:<select id="priority-field" name="priority">
             <option value="High">High</option>
@@ -40,6 +48,16 @@
         <label>Notes:<input id="notes-field" name="notes"></label>
         <input id="submit-task-btn" type="submit" value="submit">
       </form>
+
+      <div id="add-category-form" class="hidden">
+        <label>New category:<input id="add-category-input"></label>
+        <button id="add-category-btn" class="add-btn">Add</button>
+      </div>
+
+      <div id="add-project-form" class="hidden">
+        <label>New project:<input id="add-project-input"></label>
+        <button id="add-project-btn" class="add-btn">Add</button>
+      </div>
 
       <div id="delete-dialog" class="hidden">
         <p>Are you sure you want to permanently delete this task?</p>
