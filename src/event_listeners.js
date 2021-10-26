@@ -60,7 +60,7 @@ function loadBaseListeners() {
             createDropdown(projects, 'project-field');
     })
 
-    //task listener - add new task
+    //ADD NEW TASK
     newTaskForm.addEventListener('submit', () => {
         event.preventDefault();
         newTaskForm.classList.add('hidden');
@@ -83,6 +83,7 @@ function loadTaskListeners() {
             taskList.forEach(task => {
                 if (task.index == button.value) {
                     selectedTask = task;
+                    
                 }
             })
             expandTask(selectedTask);

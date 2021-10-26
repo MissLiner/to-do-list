@@ -35,7 +35,7 @@ function displayTasks(property) {
                         }
                         function createTaskSubDiv(key) {
                             let taskSubDiv = document.createElement('div');
-                            taskSubDiv.classList.add('task-sub-div');
+                            taskSubDiv.classList.add('task-subdiv');
                             taskSubDiv.textContent = taskList[i][key];
                             taskBasicDiv.appendChild(taskSubDiv);
                         }
@@ -57,10 +57,11 @@ function displayTasks(property) {
                         }
                         function createDetails() {
                             const taskDetailDiv = document.createElement('div');
+                            taskDetailDiv.classList.add('task-detail-div', 'hidden');
                         
                             function createSubDiv(key) {
                                 let subDiv = document.createElement('div');
-                                subDiv.classList.add('detail-sub-div');
+                                subDiv.classList.add('task-detail-subdiv');
                                 subDiv.textContent = key + ': ' + taskList[i][key];
                                 taskDetailDiv.appendChild(subDiv);
                             }

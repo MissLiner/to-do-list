@@ -21,7 +21,15 @@ h1 {
     display: flex;
     width: 500px;
 }
-.task-sub-div {
+.task-detail-div {
+    display: flex;
+    width: 500px;
+}
+.task-detail-subdiv {
+    display: flex;
+    width: 500px;
+}
+.task-subdiv {
     flex: 1 1 0;
 }
 #clear-storage-btn {
