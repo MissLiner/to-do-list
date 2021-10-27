@@ -13,6 +13,7 @@ function displayTasks(property) {
         function createCategoryDiv(category) {
             const categoryDiv = document.createElement('div');
             categoryDiv.classList.add('category-div');
+            content.appendChild(categoryDiv);
         
             function addCategoryTitle(category) {
                 const categoryTitle = document.createElement('h2');
@@ -24,6 +25,22 @@ function displayTasks(property) {
 
             function addTasksToCategory(property) {
                 for (let i = 0; i < taskList.length; i++) {
+                    const taskDiv = document.createElement('div');
+                    const taskBasicDiv = document.createElement('div');
+                    categoryDiv.appendChild(taskDiv);
+                    taskDiv.appendChild(taskBasicDiv);
+
+                    taskDiv.classList.add('task-div');
+                    taskDiv.id = taskList[i].index;
+
+                    taskBasicDiv.classList.add('task-basic-div');
+
+                    const taskDetailDiv = document.createElement('div');
+                    taskDetailDiv.value = taskList[i].index;
+                    taskDetailDiv.classList.add('task-detail-div');
+                    taskDetailDiv.style = 'display:none';
+                    taskDiv.appendChild(taskDetailDiv);
+
                     if (taskList[i][property] === category) {
                         function createCheckbox() {
                             const taskCheckbox = document.createElement('input');
@@ -56,10 +73,7 @@ function displayTasks(property) {
                             taskBasicDiv.appendChild(deleteBtn);
                         }
                         function createDetails() {
-                            const taskDetailDiv = document.createElement('div');
-                            taskDetailDiv.value = taskList[i].index;
-                            taskDetailDiv.classList.add('task-detail-div');
-                            taskDetailDiv.style = 'display:none';
+
                         
                             function createSubDiv(key) {
                                 let keySubDiv = document.createElement('div');
@@ -67,16 +81,21 @@ function displayTasks(property) {
                                 keySubDiv.textContent = `${key}: `;
                                 taskDetailDiv.appendChild(keySubDiv);
 
-                                if (key === 'priority') {
-                                    createDropdown(priorities, taskList[i].index, 0);
-                                }
+
 
                                 let subDiv = document.createElement('div');
                                 subDiv.classList.add('task-detail-subdiv');
-                                subDiv.contentEditable = 'true';
-                                subDiv.textContent = taskList[i][key];
-                                taskDetailDiv.appendChild(subDiv);
-                                
+                                if (key === 'priority') {
+                                    subDiv.id = 'priority' + i;
+                                    taskDetailDiv.appendChild(subDiv);
+                                    createDropdown(priorities, 'priority' + i, 0);
+                                }
+                                else {
+                                    subDiv.contentEditable = 'true';
+                                    subDiv.textContent = taskList[i][key];
+                                    taskDetailDiv.appendChild(subDiv);
+                                }
+
                             }
                         
                             createSubDiv('description');
@@ -84,16 +103,10 @@ function displayTasks(property) {
                             createSubDiv('priority');
                             createSubDiv('project');
                             createSubDiv('notes');
-                            taskDiv.appendChild(taskDetailDiv);
+
                         }
 
-                        const taskDiv = document.createElement('div');
-                        const taskBasicDiv = document.createElement('div');
 
-                        taskDiv.classList.add('task-div');
-                        taskDiv.id = taskList[i].index;
-
-                        taskBasicDiv.classList.add('task-basic-div');
 
                         createCheckbox();
                         createTaskSubDiv('name');
@@ -101,9 +114,9 @@ function displayTasks(property) {
                         createTaskSubDiv('category');
                         createExpandBtn();
                         createDeleteBtn();
-                        taskDiv.appendChild(taskBasicDiv);
+
                         createDetails(taskList[i]);
-                        categoryDiv.appendChild(taskDiv);
+
 
                         if (taskList[i].status === 'Active') {
                             switch(taskList[i].priority) {
@@ -123,7 +136,7 @@ function displayTasks(property) {
             }
 
             addTasksToCategory(property);
-            content.appendChild(categoryDiv);
+
         }
         //create category lists for different views
         let propertyValues = [];
@@ -148,10 +161,10 @@ function displayTasks(property) {
 function createDropdown(arr, elementID, ignoreNum) {
     const mainField = document.getElementById(elementID);
     (function clearDropdown() {
-        if (mainField.childElementCount !== 'null') {
-            while (mainField.childElementCount > ignoreNum) {
-                mainField.removeChild(mainField.lastChild);
-            } 
+        if (mainField.childElementCount) {
+        while (mainField.childElementCount > ignoreNum) {
+            mainField.removeChild(mainField.lastChild);
+        } 
         }
     })()
 
