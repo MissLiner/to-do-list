@@ -26,19 +26,20 @@ function displayTasks(property) {
             function addTasksToCategory(property) {
                 for (let i = 0; i < taskList.length; i++) {
                     const taskDiv = document.createElement('div');
-                    const taskBasicDiv = document.createElement('div');
-                    categoryDiv.appendChild(taskDiv);
-                    taskDiv.appendChild(taskBasicDiv);
-
                     taskDiv.classList.add('task-div');
                     taskDiv.id = taskList[i].index;
 
+                    const taskBasicDiv = document.createElement('div');
                     taskBasicDiv.classList.add('task-basic-div');
+
 
                     const taskDetailDiv = document.createElement('div');
                     taskDetailDiv.value = taskList[i].index;
                     taskDetailDiv.classList.add('task-detail-div');
                     taskDetailDiv.style = 'display:none';
+                                        
+                    categoryDiv.appendChild(taskDiv);
+                    taskDiv.appendChild(taskBasicDiv);
                     taskDiv.appendChild(taskDetailDiv);
 
                     if (taskList[i][property] === category) {
@@ -73,8 +74,6 @@ function displayTasks(property) {
                             taskBasicDiv.appendChild(deleteBtn);
                         }
                         function createDetails() {
-
-                        
                             function createSubDiv(key) {
                                 let keySubDiv = document.createElement('div');
                                 keySubDiv.classList.add('key-detail-subdiv');
@@ -83,14 +82,16 @@ function displayTasks(property) {
 
 
 
-                                let subDiv = document.createElement('div');
-                                subDiv.classList.add('task-detail-subdiv');
                                 if (key === 'priority') {
+                                    let subDiv = document.createElement('select');
                                     subDiv.id = 'priority' + i;
+                                    subDiv.classList.add('task-detail-dropdown');
                                     taskDetailDiv.appendChild(subDiv);
                                     createDropdown(priorities, 'priority' + i, 0);
                                 }
                                 else {
+                                    let subDiv = document.createElement('div');
+                                    subDiv.classList.add('task-detail-subdiv');
                                     subDiv.contentEditable = 'true';
                                     subDiv.textContent = taskList[i][key];
                                     taskDetailDiv.appendChild(subDiv);
