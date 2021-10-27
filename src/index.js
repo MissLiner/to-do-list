@@ -20,6 +20,7 @@ import { createDropdown } from './task_DOM';
 let taskList = [];
 let categories = ['Home', 'Work', 'Self-Care', 'Pets', 'Kids'];
 let projects = ['Update kitchen', 'AB anxiety'];
+let priorities = ['1-High', '2-Medium', '3-Low'];
 
 const content = document.getElementById('content-div');
 
@@ -49,6 +50,7 @@ export {
     taskList,
     content,
     categories,
+    priorities,
     projects,
 }
 

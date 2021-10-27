@@ -1,4 +1,4 @@
-import { content , taskList } from './index.js';
+import { content , taskList, priorities } from './index.js';
 import { loadTaskListeners } from './event_listeners';
 
 
@@ -62,10 +62,21 @@ function displayTasks(property) {
                             taskDetailDiv.style = 'display:none';
                         
                             function createSubDiv(key) {
+                                let keySubDiv = document.createElement('div');
+                                keySubDiv.classList.add('key-detail-subdiv');
+                                keySubDiv.textContent = `${key}: `;
+                                taskDetailDiv.appendChild(keySubDiv);
+
+                                if (key === 'priority') {
+                                    createDropdown(priorities, taskList[i].index, 0);
+                                }
+
                                 let subDiv = document.createElement('div');
                                 subDiv.classList.add('task-detail-subdiv');
-                                subDiv.textContent = key + ': ' + taskList[i][key];
+                                subDiv.contentEditable = 'true';
+                                subDiv.textContent = taskList[i][key];
                                 taskDetailDiv.appendChild(subDiv);
+                                
                             }
                         
                             createSubDiv('description');
@@ -134,12 +145,14 @@ function displayTasks(property) {
 
 
 
-function createDropdown(arr, elementID) {
+function createDropdown(arr, elementID, ignoreNum) {
     const mainField = document.getElementById(elementID);
     (function clearDropdown() {
-        while (mainField.childElementCount > 2) {
-            mainField.removeChild(mainField.lastChild);
-        } 
+        if (mainField.childElementCount !== 'null') {
+            while (mainField.childElementCount > ignoreNum) {
+                mainField.removeChild(mainField.lastChild);
+            } 
+        }
     })()
 
     arr.forEach(item => {

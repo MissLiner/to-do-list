@@ -29,7 +29,7 @@ function loadBaseListeners() {
     document.getElementById('add-category-btn').addEventListener('click', () => {
         const newItem = document.getElementById('add-category-input').value;
         addItemToArray(newItem, categories);
-        createDropdown(categories, 'category-field');
+        createDropdown(categories, 'category-field', 2);
         addCategoryForm.classList.add('hidden');
 })
 
@@ -57,7 +57,7 @@ function loadBaseListeners() {
             const newItem = document.getElementById('add-project-input').value;
             addItemToArray(newItem, projects);
             addProjectForm.classList.add('hidden');
-            createDropdown(projects, 'project-field');
+            createDropdown(projects, 'project-field', 2);
     })
 
     //ADD NEW TASK
@@ -88,6 +88,15 @@ function loadTaskListeners() {
             })
         })
     })
+
+    //EDIT TASK
+    document.querySelectorAll('.task-detail-subdiv').forEach(div => {
+        div.addEventListener('input', () => {
+            storeLists();
+        })
+    })
+
+    //document.querySelectorAll('.task-detail-subdiv')
 
     //DELETE TASK
     document.querySelectorAll('.delete-btn').forEach(button => {
