@@ -57,7 +57,9 @@ function displayTasks(property) {
                         }
                         function createDetails() {
                             const taskDetailDiv = document.createElement('div');
-                            taskDetailDiv.classList.add('task-detail-div', 'hidden');
+                            taskDetailDiv.value = taskList[i].index;
+                            taskDetailDiv.classList.add('task-detail-div');
+                            taskDetailDiv.style = 'display:none';
                         
                             function createSubDiv(key) {
                                 let subDiv = document.createElement('div');

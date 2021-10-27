@@ -74,19 +74,18 @@ function loadBaseListeners() {
 function loadTaskListeners() {
     const viewMenu = document.getElementById('view-menu');
     const deleteDialog = document.getElementById('delete-dialog');
+    const taskDetailDivs = document.querySelectorAll('.task-detail-div');
     let currentTask;
 
     //EXPAND TASK
     document.querySelectorAll('.expand-btn').forEach(button => {
         button.addEventListener('click', () => {
-            let selectedTask;
-            taskList.forEach(task => {
-                if (task.index == button.value) {
-                    selectedTask = task;
-                    
+            taskDetailDivs.forEach(div => {
+                if (div.value == button.value && div.style.display === 'none') {
+                    div.style = 'display: flex';
                 }
+                else div.style = 'display: none';
             })
-            expandTask(selectedTask);
         })
     })
 
