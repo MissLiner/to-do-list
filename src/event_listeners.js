@@ -133,8 +133,6 @@ function loadTaskListeners() {
         button.addEventListener('click', () => {
             deleteDialog.classList.remove('hidden');
             currentTask = button.value;
-            console.table(taskList, ['index'])
-            console.log(currentTask);
         })
     })
 

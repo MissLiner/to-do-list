@@ -22,6 +22,7 @@ function addNewTaskToList() {
     newTask.index = Date.now();
     newTask.status = 'Active';
     taskList.unshift(newTask);
+    //taskList.sort();
     storeLists()
     newTaskForm.reset();
 }
@@ -33,10 +34,7 @@ function addItemToArray(item, arr) {
 }
 
 // 3. complete-task
-//      1. change task status to completed
 //      2. change text and formatting to show it is completed
-//      3. create completed task list 
-//      4. remove completed task from active task list
 //      5. if task is already completed, toggle back to active task list
 function changeTaskStatus(trigger, newStatus) {
     taskList.forEach(task => {
@@ -57,7 +55,6 @@ function deleteTask(value) {
     taskList.forEach(task => {
         if (task.index == value) {
             let a = taskList.findIndex(object => object.index == value);
-            console.log(a);
             taskList.splice(a, 1);
         }
     })

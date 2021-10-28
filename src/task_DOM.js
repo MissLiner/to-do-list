@@ -53,7 +53,9 @@ function displayTasks(property) {
                         }
                         function createTaskSubDiv(key) {
                             let taskSubDiv = document.createElement('div');
-                            taskSubDiv.classList.add('task-subdiv');
+                            //taskSubDiv.id = `task-${key}`;
+                            taskSubDiv.classList.add('task-subdiv', `task-${key}`);
+                            taskSubDiv.contentEditable = 'true';
                             taskSubDiv.textContent = taskList[i][key];
                             taskBasicDiv.appendChild(taskSubDiv);
                         }

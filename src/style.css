@@ -36,6 +36,9 @@ h1 {
 .task-description-input {
     grid-area: b;
 }
+.task-name {
+    font-weight: bold;
+}
 .notes-label {
     grid-area: i;
 }
