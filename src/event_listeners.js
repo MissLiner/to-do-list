@@ -120,13 +120,13 @@ function loadTaskListeners() {
     })
 
     //SAVE CHANGES TO TASK
-    document.querySelectorAll('.task-detail-subdiv').forEach(div => {
-        div.addEventListener('change', () => {
-            console.log('jj');
-            changeTaskStatus(div, input.value);
-            storeLists();
-        })
-    })
+    // document.querySelectorAll('.task-detail-subdiv').forEach(div => {
+    //     div.addEventListener('input', () => {
+    //         console.log('jj');
+    //         changeTaskStatus(div, input.value);
+    //         storeLists();
+    //     })
+    // })
 
     //DELETE TASK
     document.querySelectorAll('.delete-btn').forEach(button => {

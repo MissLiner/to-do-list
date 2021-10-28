@@ -76,7 +76,8 @@ function displayTasks(property) {
                         function createDetails() {
                             function createSubDiv(key) {
                                 let keySubDiv = document.createElement('div');
-                                keySubDiv.classList.add('key-detail-subdiv');
+                                keySubDiv.id = key;
+                                keySubDiv.classList.add('key-detail-subdiv', 'task-detail-child');
                                 keySubDiv.textContent = `${key}: `;
                                 taskDetailDiv.appendChild(keySubDiv);
 
@@ -84,7 +85,7 @@ function displayTasks(property) {
                                     let subDiv = document.createElement('select');
                                     subDiv.id = categ + i;
                                     subDiv.value = taskNumber;
-                                    subDiv.classList.add('task-detail-dropdown', `task-${categ}-field`);
+                                    subDiv.classList.add('task-detail-dropdown', `task-${categ}-select`, 'task-detail-child');
                                     taskDetailDiv.appendChild(subDiv);
                                     createDropdown(arr, categ + i);
                                     
@@ -109,7 +110,7 @@ function displayTasks(property) {
                                 }
                                 else {
                                     let subDiv = document.createElement('div');
-                                    subDiv.classList.add('task-detail-subdiv');
+                                    subDiv.classList.add('task-detail-subdiv', 'task-detail-child', `task-${key}-input`);
                                     subDiv.contentEditable = 'true';
                                     subDiv.textContent = 'hello' + taskList[i][key];
                                     taskDetailDiv.appendChild(subDiv);

@@ -22,13 +22,31 @@ h1 {
     width: 500px;
 }
 .task-detail-div {
-    display: flex;
+    display: grid !important;
+    /* grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1 1 1; */
+    grid-template:
+    "a a b b b b"
+    "c d e f g h"
+    "i i j j j j";
     width: 500px;
 }
-.task-detail-subdiv {
-    /* display: flex; */
-    width: 30px;
+#description {
+    grid-area: a;
 }
+.task-description-input {
+    grid-area: b;
+}
+#notes {
+    grid-area: i;
+}
+.task-notes-input {
+    grid-area: j;
+}
+/* .task-detail-child {
+    /* display: grid; */
+    /* width: 30px; */
+/* } */
 .task-subdiv {
     flex: 1 1 0;
 }
