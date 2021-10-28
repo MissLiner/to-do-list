@@ -1,6 +1,5 @@
-import { content , taskList, priorities } from './index.js';
+import { content , taskList, priorities, categories, projects } from './index.js';
 import { loadTaskListeners } from './event_listeners';
-
 
 function displayTasks(property) {
     (function clearTaskDisplay() {
@@ -20,7 +19,8 @@ function displayTasks(property) {
                 categoryTitle.classList.add('category-title');
                 categoryTitle.textContent = category;
                 categoryDiv.appendChild(categoryTitle);
-            } 
+            }
+
             addCategoryTitle(category);
 
             function addTasksToCategory(property) {
@@ -31,7 +31,6 @@ function displayTasks(property) {
 
                     const taskBasicDiv = document.createElement('div');
                     taskBasicDiv.classList.add('task-basic-div');
-
 
                     const taskDetailDiv = document.createElement('div');
                     taskDetailDiv.value = taskList[i].index;
@@ -80,19 +79,29 @@ function displayTasks(property) {
                                 keySubDiv.textContent = `${key}: `;
                                 taskDetailDiv.appendChild(keySubDiv);
 
-
-
-                                if (key === 'priority') {
+                                function createDetailDropDown(categ, arr) {
                                     let subDiv = document.createElement('select');
-                                    subDiv.id = 'priority' + i;
+                                    subDiv.id = categ + i;
                                     subDiv.classList.add('task-detail-dropdown');
                                     taskDetailDiv.appendChild(subDiv);
-                                    createDropdown(priorities, 'priority' + i, 0);
+                                    createDropdown(arr, categ + i, 0);
+                                    
                                     Array.from(subDiv.options).forEach(option => {
-                                        if (option.value == taskList[i].priority) {
+                                        if (option.value == taskList[i][categ]) {
+                                            console.log('hi');
                                             subDiv.selectedIndex = option.index;
                                         }
                                     })
+                                }
+
+                                if (key === 'priority') {
+                                    createDetailDropDown(key, priorities);
+                                }
+                                if (key === 'category') {
+                                    createDetailDropDown(key, categories);
+                                }
+                                if (key === 'project') {
+                                    createDetailDropDown(key, projects);
                                 }
                                 else {
                                     let subDiv = document.createElement('div');
@@ -101,7 +110,6 @@ function displayTasks(property) {
                                     subDiv.textContent = taskList[i][key];
                                     taskDetailDiv.appendChild(subDiv);
                                 }
-
                             }
                         
                             createSubDiv('description');
@@ -109,10 +117,7 @@ function displayTasks(property) {
                             createSubDiv('priority');
                             createSubDiv('project');
                             createSubDiv('notes');
-
                         }
-
-
 
                         createCheckbox();
                         createTaskSubDiv('name');
@@ -122,7 +127,6 @@ function displayTasks(property) {
                         createDeleteBtn();
 
                         createDetails(taskList[i]);
-
 
                         if (taskList[i].status === 'Active') {
                             switch(taskList[i].priority) {
@@ -140,10 +144,9 @@ function displayTasks(property) {
                     }
                 }
             }
-
             addTasksToCategory(property);
-
         }
+
         //create category lists for different views
         let propertyValues = [];
 
@@ -162,8 +165,6 @@ function displayTasks(property) {
     loadTaskListeners();
 }
 
-
-
 function createDropdown(arr, elementID, ignoreNum) {
     const mainField = document.getElementById(elementID);
     (function clearDropdown() {
@@ -173,18 +174,19 @@ function createDropdown(arr, elementID, ignoreNum) {
         } 
         }
     })()
-
-    arr.forEach(item => {
-        const option = document.createElement('option');
-        option.class = 'dropdown-item';
-        option.value = item;
-        option.textContent = item;
-        mainField.appendChild(option);
-
-    })
+    const options = ['None', 'Add new'];
+    function createOptions(arr) {
+        arr.forEach(item => {
+            const option = document.createElement('option');
+            option.class = 'dropdown-item';
+            option.value = item;
+            option.textContent = item;
+            mainField.appendChild(option);
+        })
+    }
+        createOptions(options);
+        createOptions(arr);
 }
-
-
 
 export {
     displayTasks,
