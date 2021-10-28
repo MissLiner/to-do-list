@@ -56,7 +56,8 @@ function completeTask(trigger) {
 function deleteTask(value) {
     taskList.forEach(task => {
         if (task.index == value) {
-            let a = taskList.findIndex(object => object.index === value.index);
+            let a = taskList.findIndex(object => object.index == value);
+            console.log(a);
             taskList.splice(a, 1);
         }
     })

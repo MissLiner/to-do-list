@@ -1,6 +1,6 @@
 import { addItemToArray, addNewTaskToList, completeTask, changeTaskStatus, deleteTask, storeLists } from './task_logic';
 import { createDropdown, displayTasks } from './task_DOM'
-import { categories, projects } from './index'
+import { taskList, categories, projects } from './index'
 
 function loadBaseListeners() {
     const newTaskBtn = document.getElementById('new-task-btn');
@@ -133,14 +133,17 @@ function loadTaskListeners() {
         button.addEventListener('click', () => {
             deleteDialog.classList.remove('hidden');
             currentTask = button.value;
+            console.table(taskList, ['index'])
+            console.log(currentTask);
         })
     })
 
-    document.getElementById('abort-delete-btn').addEventListener('click', () => {
+    document.getElementById('abort-del-btn').addEventListener('click', () => {
         deleteDialog.classList.add('hidden');
     })
 
-    document.getElementById('confirm-delete-btn').addEventListener('click', () => {
+    document.getElementById('confirm-del-btn').addEventListener('click', () => {
+        console.log(currentTask);
         deleteTask(currentTask);
         storeLists();
         displayTasks(viewMenu.value);
@@ -151,9 +154,6 @@ function loadTaskListeners() {
     document.querySelectorAll('.task-checkbox').forEach(box => {
         box.addEventListener('change', () => {
             completeTask(box);
-            // changeTaskStatus(box, 'Complete');
-            // storeLists();
-            // displayTasks(viewMenu.value);
         })
     })
 
