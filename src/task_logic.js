@@ -25,6 +25,18 @@ function addNewTaskToList() {
     newTaskForm.reset();
 }
 
+function addItemToArray(item, arr) {
+    arr.push(item);
+    arr.sort();
+    storeLists();
+}
+
+// 3. complete-task
+//      1. change task status to completed
+//      2. change text and formatting to show it is completed
+//      3. create completed task list 
+//      4. remove completed task from active task list
+//      5. if task is already completed, toggle back to active task list
 function changeTaskStatus(trigger, newStatus) {
     taskList.forEach(task => {
         if (task.index == trigger.value) {
@@ -32,6 +44,12 @@ function changeTaskStatus(trigger, newStatus) {
         }
     })
     storeLists()
+}
+
+function completeTask(elem) {
+    changeTaskStatus(elem, 'Complete');
+    storeLists();
+    displayTasks(viewMenu.value);
 }
 
 function deleteTask(value) {
@@ -44,28 +62,9 @@ function deleteTask(value) {
     storeLists()
 }
 
-function addItemToArray(item, arr) {
-    arr.push(item);
-    arr.sort();
-    storeLists();
-}
-
-
-
-// 3. complete-task
-//      1. change task status to completed
-//      2. change text and formatting to show it is completed
-//      3. create completed task list 
-//      4. remove completed task from active task list
-//      5. if task is already completed, toggle back to active task list
-function completeTask() {
-    taskList
-}
-
-
 export {
     addNewTaskToList,
-    changeTaskStatus,
+    completeTask,
     deleteTask,
     storeLists,
     addItemToArray,

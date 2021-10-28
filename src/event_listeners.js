@@ -1,4 +1,4 @@
-import { addItemToArray, addNewTaskToList, changeTaskStatus, deleteTask, storeLists } from './task_logic';
+import { addItemToArray, addNewTaskToList, completeTask, deleteTask, storeLists } from './task_logic';
 import { createDropdown, displayTasks } from './task_DOM'
 import { categories, projects } from './index'
 
@@ -19,17 +19,23 @@ function loadBaseListeners() {
 
     //ADD NEW CATEGORY
     const categoryInput = document.getElementById('category-field');
-    const addCategoryForm = document.getElementById('add-category-form')
+    
+    const addCategoryForm = document.getElementById('add-category-form');
+
     categoryInput.addEventListener('change', () => {
         if (categoryInput.value === 'add-new') {
-            document.getElementById('add-category-form').classList.remove('hidden');
+            addCategoryForm.classList.remove('hidden');
         }
     })
 
     document.getElementById('add-category-btn').addEventListener('click', () => {
         const newItem = document.getElementById('add-category-input').value;
+        const categoryInputs = document.querySelectorAll('.task-category-field');
         addItemToArray(newItem, categories);
         createDropdown(categories, 'category-field');
+        categoryInputs.forEach((input) => {
+            createDropdown(categories, input.id);
+        })
         addCategoryForm.classList.add('hidden');
 })
 
@@ -61,11 +67,24 @@ function loadBaseListeners() {
     })
 }
 
+
 function loadTaskListeners() {
     const viewMenu = document.getElementById('view-menu');
     const deleteDialog = document.getElementById('delete-dialog');
     const taskDetailDivs = document.querySelectorAll('.task-detail-div');
     let currentTask;
+
+    const categoryInputs = document.querySelectorAll('.task-category-field');
+    const addCategoryForm = document.getElementById('add-category-form')
+    
+    categoryInputs.forEach(input => {
+        input.addEventListener('change', () => {
+            console.log('hi');
+            if (input.value === 'Add new') {
+                addCategoryForm.classList.remove('hidden');
+            }
+        })
+    })
 
     //EXPAND TASK
     document.querySelectorAll('.expand-btn').forEach(button => {
@@ -93,7 +112,7 @@ function loadTaskListeners() {
             currentTask = button.value;
         })
     })
-    
+
     document.getElementById('abort-delete-btn').addEventListener('click', () => {
         deleteDialog.classList.add('hidden');
     })
@@ -108,9 +127,10 @@ function loadTaskListeners() {
     //COMPLETE TASK
     document.querySelectorAll('.task-checkbox').forEach((box) => {
         box.addEventListener('change', () => {
-            changeTaskStatus(box, 'Complete');
-            storeLists();
-            displayTasks(viewMenu.value);
+            completeTask(box);
+            // changeTaskStatus(box, 'Complete');
+            // storeLists();
+            // displayTasks(viewMenu.value);
         })
     })
 
