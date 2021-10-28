@@ -41,10 +41,9 @@ h1 {
 .task-notes-input {
     grid-area: j;
 }
-/* .task-detail-child {
-    /* display: grid; */
-    /* width: 30px; */
-/* } */
+.task-detail-child {
+    color: black !important;
+}
 .task-subdiv {
     flex: 1 1 0;
 }
