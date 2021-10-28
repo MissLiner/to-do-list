@@ -54,7 +54,7 @@ function loadBaseListeners() {
     document.getElementById('add-project-btn').addEventListener('click', () => {
             const newItem = document.getElementById('add-project-input').value;
             const projectInputs = document.querySelectorAll('.task-project-field');
-            
+
             addItemToArray(newItem, projects);
             addProjectForm.classList.add('hidden');
             createDropdown(projects, 'project-field');
@@ -89,16 +89,17 @@ function loadTaskListeners() {
     
     categoryInputs.forEach(input => {
         input.addEventListener('change', () => {
-            console.log('hi');
             if (input.value === 'Add new') {
                 addCategoryForm.classList.remove('hidden');
+            }
+            else {
+
             }
         })
     })
 
     projectInputs.forEach(input => {
         input.addEventListener('change', () => {
-            console.log('hi');
             if (input.value === 'Add new') {
                 addProjectForm.classList.remove('hidden');
             }
@@ -108,8 +109,9 @@ function loadTaskListeners() {
     //EXPAND TASK
     document.querySelectorAll('.expand-btn').forEach(button => {
         button.addEventListener('click', () => {
+            currentTask = button.value;
             taskDetailDivs.forEach(div => {
-                if (div.value == button.value && div.style.display === 'none') {
+                if (div.classList.contains(button.value) && div.style.display === 'none') {
                     div.style = 'display: flex';
                 }
                 else div.style = 'display: none';
@@ -119,7 +121,9 @@ function loadTaskListeners() {
 
     //SAVE CHANGES TO TASK
     document.querySelectorAll('.task-detail-subdiv').forEach(div => {
-        div.addEventListener('input', () => {
+        div.addEventListener('change', () => {
+            console.log('jj');
+            changeTaskStatus(div, input.value);
             storeLists();
         })
     })

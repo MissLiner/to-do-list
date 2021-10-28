@@ -26,8 +26,8 @@ h1 {
     width: 500px;
 }
 .task-detail-subdiv {
-    display: flex;
-    width: 500px;
+    /* display: flex; */
+    width: 30px;
 }
 .task-subdiv {
     flex: 1 1 0;
