@@ -33,7 +33,7 @@ function loadBaseListeners() {
         const categoryInputs = document.querySelectorAll('.task-category-field');
         addItemToArray(newItem, categories);
         createDropdown(categories, 'category-field');
-        categoryInputs.forEach((input) => {
+        categoryInputs.forEach(input => {
             createDropdown(categories, input.id);
         })
         addCategoryForm.classList.add('hidden');
@@ -41,7 +41,9 @@ function loadBaseListeners() {
 
     //ADD NEW PROJECT
     const projectInput = document.getElementById('project-field');
-    const addProjectForm = document.getElementById('add-project-form')
+
+    const addProjectForm = document.getElementById('add-project-form');
+
 
     projectInput.addEventListener('change', () => {
         if (projectInput.value == 'Add new') {
@@ -51,9 +53,14 @@ function loadBaseListeners() {
 
     document.getElementById('add-project-btn').addEventListener('click', () => {
             const newItem = document.getElementById('add-project-input').value;
+            const projectInputs = document.querySelectorAll('.task-project-field');
+            
             addItemToArray(newItem, projects);
             addProjectForm.classList.add('hidden');
             createDropdown(projects, 'project-field');
+            projectInputs.forEach(input => {
+                createDropdown(projects, input.id);
+            })
     })
 
     //ADD NEW TASK
@@ -76,12 +83,24 @@ function loadTaskListeners() {
 
     const categoryInputs = document.querySelectorAll('.task-category-field');
     const addCategoryForm = document.getElementById('add-category-form')
+
+    const projectInputs = document.querySelectorAll('.task-project-field');
+    const addProjectForm = document.getElementById('add-project-form')
     
     categoryInputs.forEach(input => {
         input.addEventListener('change', () => {
             console.log('hi');
             if (input.value === 'Add new') {
                 addCategoryForm.classList.remove('hidden');
+            }
+        })
+    })
+
+    projectInputs.forEach(input => {
+        input.addEventListener('change', () => {
+            console.log('hi');
+            if (input.value === 'Add new') {
+                addProjectForm.classList.remove('hidden');
             }
         })
     })
