@@ -88,6 +88,11 @@ function displayTasks(property) {
                                     subDiv.classList.add('task-detail-dropdown');
                                     taskDetailDiv.appendChild(subDiv);
                                     createDropdown(priorities, 'priority' + i, 0);
+                                    Array.from(subDiv.options).forEach(option => {
+                                        if (option.value == taskList[i].priority) {
+                                            subDiv.selectedIndex = option.index;
+                                        }
+                                    })
                                 }
                                 else {
                                     let subDiv = document.createElement('div');
