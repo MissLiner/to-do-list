@@ -46,8 +46,8 @@ function displayTasks(property) {
                         function createCheckbox() {
                             const taskCheckbox = document.createElement('input');
                             taskCheckbox.type = 'checkbox';
-                            taskCheckbox.classList.add('task-checkbox', taskNumber);
-                            //taskCheckbox.value = taskList[i].index;
+                            taskCheckbox.classList.add('task-checkbox');
+                            taskCheckbox.value = taskList[i].index;
                             taskCheckbox.title = 'Complete';
                             taskBasicDiv.appendChild(taskCheckbox);
                         }

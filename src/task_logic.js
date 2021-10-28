@@ -1,5 +1,6 @@
 
 import { taskList, categories, projects } from "./index.js"; 
+import { displayTasks } from "./task_DOM.js";
 
 
 const newTaskForm = document.getElementById('new-task-form');
@@ -46,10 +47,10 @@ function changeTaskStatus(trigger, newStatus) {
     storeLists()
 }
 
-function completeTask(elem) {
-    changeTaskStatus(elem, 'Complete');
+function completeTask(trigger) {
+    changeTaskStatus(trigger, 'Complete');
     storeLists();
-    displayTasks(viewMenu.value);
+    displayTasks(document.getElementById('view-menu').value);
 }
 
 function deleteTask(value) {
@@ -64,6 +65,7 @@ function deleteTask(value) {
 
 export {
     addNewTaskToList,
+    changeTaskStatus,
     completeTask,
     deleteTask,
     storeLists,
