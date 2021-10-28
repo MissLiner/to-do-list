@@ -23,21 +23,19 @@ h1 {
 }
 .task-detail-div {
     display: grid !important;
-    /* grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1 1 1; */
     grid-template:
     "a a b b b b"
     "c d e f g h"
     "i i j j j j";
     width: 500px;
 }
-#description {
+.description-label {
     grid-area: a;
 }
 .task-description-input {
     grid-area: b;
 }
-#notes {
+.notes-label {
     grid-area: i;
 }
 .task-notes-input {

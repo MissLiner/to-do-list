@@ -112,9 +112,9 @@ function loadTaskListeners() {
             currentTask = button.value;
             taskDetailDivs.forEach(div => {
                 if (div.classList.contains(button.value) && div.style.display === 'none') {
-                    div.style = 'display: flex';
+                    div.style = 'display: grid';
                 }
-                else div.style = 'display: none';
+                else div.style = 'display: none !important';
             })
         })
     })

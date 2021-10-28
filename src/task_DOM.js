@@ -36,7 +36,7 @@ function displayTasks(property) {
                     const taskDetailDiv = document.createElement('div');
                     //taskDetailDiv.value = taskList[i].index;
                     taskDetailDiv.classList.add('task-detail-div', taskNumber);
-                    taskDetailDiv.style = 'display:none';
+                    taskDetailDiv.style = 'display:none !important';
                                         
                     categoryDiv.appendChild(taskDiv);
                     taskDiv.appendChild(taskBasicDiv);
@@ -77,7 +77,7 @@ function displayTasks(property) {
                             function createSubDiv(key) {
                                 let keySubDiv = document.createElement('div');
                                 keySubDiv.id = key;
-                                keySubDiv.classList.add('key-detail-subdiv', 'task-detail-child');
+                                keySubDiv.classList.add('key-detail-subdiv', 'task-detail-child', `${key}-label`);
                                 keySubDiv.textContent = `${key}: `;
                                 taskDetailDiv.appendChild(keySubDiv);
 
