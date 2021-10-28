@@ -1,13 +1,13 @@
 import { addItemToArray, addNewTaskToList, changeTaskStatus, deleteTask, storeLists } from './task_logic';
 import { createDropdown, displayTasks } from './task_DOM'
-import { categories, projects, taskList } from './index'
+import { categories, projects } from './index'
 
 function loadBaseListeners() {
     const newTaskBtn = document.getElementById('new-task-btn');
     const newTaskForm = document.getElementById('new-task-form');
     const viewMenu = document.getElementById('view-menu');
 
-    //display - new task form
+    //OPEN NEW TASK FORM
     newTaskBtn.addEventListener('click', () => {
         if (newTaskForm.classList.contains('hidden')) {
             newTaskForm.classList.remove('hidden');
@@ -17,7 +17,7 @@ function loadBaseListeners() {
         }
     });
 
-    //add new category
+    //ADD NEW CATEGORY
     const categoryInput = document.getElementById('category-field');
     const addCategoryForm = document.getElementById('add-category-form')
     categoryInput.addEventListener('change', () => {
@@ -33,17 +33,7 @@ function loadBaseListeners() {
         addCategoryForm.classList.add('hidden');
 })
 
-
-    // document.querySelectorAll('.add-btn').forEach(button => {
-    //     button.addEventListener('click', () => {
-    //         const newItemName = button.name;
-    //         const newItem = document.getElementById(newItemName).value;
-    //         const arr = JSON.parse(button.name);
-    //         //const arr = eval(arrString);
-    //         addItemToArray(newItem, arr);
-    //     })
-    // })
-    //add new project
+    //ADD NEW PROJECT
     const projectInput = document.getElementById('project-field');
     const addProjectForm = document.getElementById('add-project-form')
 
@@ -89,14 +79,12 @@ function loadTaskListeners() {
         })
     })
 
-    //EDIT TASK
+    //SAVE CHANGES TO TASK
     document.querySelectorAll('.task-detail-subdiv').forEach(div => {
         div.addEventListener('input', () => {
             storeLists();
         })
     })
-
-    //document.querySelectorAll('.task-detail-subdiv')
 
     //DELETE TASK
     document.querySelectorAll('.delete-btn').forEach(button => {
@@ -105,6 +93,7 @@ function loadTaskListeners() {
             currentTask = button.value;
         })
     })
+    
     document.getElementById('abort-delete-btn').addEventListener('click', () => {
         deleteDialog.classList.add('hidden');
     })
@@ -125,7 +114,7 @@ function loadTaskListeners() {
         })
     })
 
-    //task listener - change view
+    //CHANGE VIEW
     viewMenu.addEventListener('change', () => {
         displayTasks(viewMenu.value);
     })
