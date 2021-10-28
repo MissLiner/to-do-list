@@ -84,7 +84,7 @@ function displayTasks(property) {
                                     subDiv.id = categ + i;
                                     subDiv.classList.add('task-detail-dropdown');
                                     taskDetailDiv.appendChild(subDiv);
-                                    createDropdown(arr, categ + i, 0);
+                                    createDropdown(arr, categ + i);
                                     
                                     Array.from(subDiv.options).forEach(option => {
                                         if (option.value == taskList[i][categ]) {
@@ -165,14 +165,12 @@ function displayTasks(property) {
     loadTaskListeners();
 }
 
-function createDropdown(arr, elementID, ignoreNum) {
+function createDropdown(arr, elementID) {
     const mainField = document.getElementById(elementID);
     (function clearDropdown() {
-        if (mainField.childElementCount) {
-        while (mainField.childElementCount > ignoreNum) {
-            mainField.removeChild(mainField.lastChild);
+        while (mainField.firstChild) {
+            mainField.removeChild(mainField.firstChild);
         } 
-        }
     })()
     const options = ['None', 'Add new'];
     function createOptions(arr) {

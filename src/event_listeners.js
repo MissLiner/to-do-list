@@ -29,7 +29,7 @@ function loadBaseListeners() {
     document.getElementById('add-category-btn').addEventListener('click', () => {
         const newItem = document.getElementById('add-category-input').value;
         addItemToArray(newItem, categories);
-        createDropdown(categories, 'category-field', 2);
+        createDropdown(categories, 'category-field');
         addCategoryForm.classList.add('hidden');
 })
 
@@ -57,7 +57,7 @@ function loadBaseListeners() {
             const newItem = document.getElementById('add-project-input').value;
             addItemToArray(newItem, projects);
             addProjectForm.classList.add('hidden');
-            createDropdown(projects, 'project-field', 2);
+            createDropdown(projects, 'project-field');
     })
 
     //ADD NEW TASK
