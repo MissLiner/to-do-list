@@ -1,5 +1,6 @@
 import { content , taskList, priorities, categories, projects } from './index.js';
 import { loadTaskListeners } from './event_listeners';
+import  formatRelative  from 'date-fns/formatRelative'
 
 function displayTasks(property) {
     (function clearTaskDisplay() {
@@ -56,7 +57,15 @@ function displayTasks(property) {
                             //taskSubDiv.id = `task-${key}`;
                             taskSubDiv.classList.add('task-subdiv', `task-${key}`);
                             taskSubDiv.contentEditable = 'true';
-                            taskSubDiv.textContent = taskList[i][key];
+                            if (key === 'duedate') {
+                                let today = new Date();
+                                let dateDue = new Date(parse(taskList[i].duedate), 1)
+                                taskSubDiv.textContent = formatRelative(dateDue, today.getDate());
+                            }
+                            else {
+                                taskSubDiv.textContent = taskList[i][key];
+                            }
+                            
                             taskBasicDiv.appendChild(taskSubDiv);
                         }
                         function createExpandBtn() {
