@@ -16,9 +16,10 @@ function loadBaseListeners() {
     function show(element) {
         element.classList.remove('hidden');
     }
-    //OPEN NEW TASK FORM
+    //ADD NEW TASK
     const newTaskBtn = getEl('new-task-btn');
     const newTaskForm = getEl('new-task-form');
+    const cancelNewTaskBtn = getEl('cancel-new-task-btn');
 
     newTaskBtn.addEventListener('click', () => {
         if (newTaskForm.classList.contains('hidden')) {
@@ -28,6 +29,17 @@ function loadBaseListeners() {
             hide(newTaskForm);
         }
     });
+
+    newTaskForm.addEventListener('submit', () => {
+        event.preventDefault();
+        hide(newTaskForm);
+
+        addNewTaskToList();
+        storeLists();
+        displayTasks(viewOptions.value);
+    })
+
+    cancelNewTaskBtn.addEventListener('click', () => hide(newTaskForm));
 
     //ADD NEW CATEGORY
     const categoryInput = getEl('category-field');
@@ -86,15 +98,7 @@ function loadBaseListeners() {
         hide(addProjectForm);
     })
 
-    //ADD NEW TASK
-    newTaskForm.addEventListener('submit', () => {
-        event.preventDefault();
-        hide(newTaskForm);
 
-        addNewTaskToList();
-        storeLists();
-        displayTasks(viewOptions.value);
-    })
        
     //CHANGE VIEW
     const viewOptions = getEl('view-options');
