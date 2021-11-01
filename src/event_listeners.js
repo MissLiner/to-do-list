@@ -16,6 +16,10 @@ function loadBaseListeners() {
     function show(element) {
         element.classList.remove('hidden');
     }
+    function hideAndClear(form) {
+        hide(form);
+        form.reset();
+    }
     //ADD NEW TASK
     const newTaskBtn = getEl('new-task-btn');
     const newTaskForm = getEl('new-task-form');
@@ -26,20 +30,19 @@ function loadBaseListeners() {
             newTaskForm.classList.remove('hidden');
         }
         else {
-            hide(newTaskForm);
+            hideAndClear(newTaskForm);
         }
     });
 
     newTaskForm.addEventListener('submit', () => {
         event.preventDefault();
-        hide(newTaskForm);
 
         addNewTaskToList();
-        storeLists();
+        hideAndClear(newTaskForm);
         displayTasks(viewOptions.value);
     })
 
-    cancelNewTaskBtn.addEventListener('click', () => hide(newTaskForm));
+    cancelNewTaskBtn.addEventListener('click', () => hideAndClear(newTaskForm));
 
     //ADD NEW CATEGORY
     const categoryInput = getEl('category-field');

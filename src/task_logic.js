@@ -24,7 +24,6 @@ function addNewTaskToList() {
     taskList.unshift(newTask);
     //taskList.sort();
     storeLists()
-    newTaskForm.reset();
 }
 
 function addItemToArray(item, arr) {
