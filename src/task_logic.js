@@ -58,7 +58,6 @@ function deleteTask(value) {
             taskList.splice(a, 1);
         }
     })
-    storeLists()
 }
 
 export {
