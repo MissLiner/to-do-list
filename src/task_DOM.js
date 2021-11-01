@@ -1,6 +1,7 @@
 import { content , taskList, priorities, categories, projects } from './index.js';
 import { loadTaskListeners } from './event_listeners';
-import  formatRelative  from 'date-fns/formatRelative'
+import  formatRelative  from 'date-fns/formatRelative';
+import parseISO from 'date-fns/parseISO';
 
 function displayTasks(property) {
     (function clearTaskDisplay() {
@@ -57,10 +58,11 @@ function displayTasks(property) {
                             //taskSubDiv.id = `task-${key}`;
                             taskSubDiv.classList.add('task-subdiv', `task-${key}`);
                             taskSubDiv.contentEditable = 'true';
-                            if (key === 'duedate') {
-                                let today = new Date();
-                                let dateDue = new Date(parse(taskList[i].duedate), 1)
-                                taskSubDiv.textContent = formatRelative(dateDue, today.getDate());
+                            if (key === 'duedate' && taskList[i].duedate) {
+                                let currentDay = new Date();
+                                let dateDue = new Date(parseISO(taskList[i].duedate))
+                                let output = formatRelative(dateDue, currentDay);
+                                taskSubDiv.textContent = output.slice(0, -12);
                             }
                             else {
                                 taskSubDiv.textContent = taskList[i][key];
