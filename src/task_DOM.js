@@ -35,6 +35,9 @@ function displayTasks(property) {
                     taskDiv.classList.add('task-div', taskNumber);
                     if (taskList[i]['status'] == 'Complete') {
                         taskDiv.classList.add('complete');
+                        if (document.getElementById('view-completed-btn').textContent == 'Show Completed Tasks') {
+                            taskDiv.classList.add('hidden');
+                        }
                     }
                     //taskDiv.id = taskList[i].index;
 

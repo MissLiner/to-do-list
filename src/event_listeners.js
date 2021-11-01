@@ -5,7 +5,7 @@ import { taskList, categories, projects } from './index'
 function loadBaseListeners() {
     const newTaskBtn = document.getElementById('new-task-btn');
     const newTaskForm = document.getElementById('new-task-form');
-    const viewMenu = document.getElementById('view-menu');
+    const viewOptions = document.getElementById('view-options');
 
     //OPEN NEW TASK FORM
     newTaskBtn.addEventListener('click', () => {
@@ -70,13 +70,13 @@ function loadBaseListeners() {
 
         addNewTaskToList();
         storeLists();
-        displayTasks(viewMenu.value);
+        displayTasks(viewOptions.value);
     })
 }
 
 
 function loadTaskListeners() {
-    const viewMenu = document.getElementById('view-menu');
+    const viewOptions = document.getElementById('view-options');
     const viewCompletedBtn = document.getElementById('view-completed-btn');
     const deleteDialog = document.getElementById('delete-dialog');
     const completeDivs = document.querySelectorAll('.complete');
@@ -146,7 +146,7 @@ function loadTaskListeners() {
         console.log(currentTask);
         deleteTask(currentTask);
         storeLists();
-        displayTasks(viewMenu.value);
+        displayTasks(viewOptions.value);
         deleteDialog.classList.add('hidden');
     })
 
@@ -158,8 +158,8 @@ function loadTaskListeners() {
     })
 
     //CHANGE VIEW
-    viewMenu.addEventListener('change', () => {
-        displayTasks(viewMenu.value);
+    viewOptions.addEventListener('change', () => {
+        displayTasks(viewOptions.value);
     })
 
     viewCompletedBtn.addEventListener('click', ()=> {
