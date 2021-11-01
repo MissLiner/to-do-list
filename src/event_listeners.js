@@ -10,6 +10,12 @@ function loadBaseListeners() {
     function queryAll(selector) {
         return document.querySelectorAll(selector);
     }
+    function hide(element) {
+        element.classList.add('hidden');
+    }
+    function show(element) {
+        element.classList.remove('hidden');
+    }
     //OPEN NEW TASK FORM
     const newTaskBtn = getEl('new-task-btn');
     const newTaskForm = getEl('new-task-form');
@@ -19,7 +25,7 @@ function loadBaseListeners() {
             newTaskForm.classList.remove('hidden');
         }
         else {
-            newTaskForm.classList.add('hidden')
+            hide(newTaskForm);
         }
     });
 
@@ -36,13 +42,14 @@ function loadBaseListeners() {
 
     addCategoryBtn.addEventListener('click', () => {
         const newItem = getEl('add-category-input').value;
-        const categoryInputs = queryAll('.task-category-field');
+        const categoryInputs = queryAll('.task-category-select');
+
         addItemToArray(newItem, categories);
-        createDropdown(categories, 'category-field');
+        //createDropdown(categories, 'category-field');
         categoryInputs.forEach(input => {
             createDropdown(categories, input.id);
         })
-        addCategoryForm.classList.add('hidden');
+        hide(addCategoryForm);
 })
 
     //ADD NEW PROJECT
@@ -62,7 +69,7 @@ function loadBaseListeners() {
             const projectInputs = queryAll('.task-project-field');
 
             addItemToArray(newItem, projects);
-            addProjectForm.classList.add('hidden');
+            hide(addProjectForm);
             createDropdown(projects, 'project-field');
             projectInputs.forEach(input => {
                 createDropdown(projects, input.id);
@@ -72,7 +79,7 @@ function loadBaseListeners() {
     //ADD NEW TASK
     newTaskForm.addEventListener('submit', () => {
         event.preventDefault();
-        newTaskForm.classList.add('hidden');
+        hide(newTaskForm);
 
         addNewTaskToList();
         storeLists();
@@ -100,7 +107,7 @@ function loadBaseListeners() {
                 completeDiv.classList.remove('hidden');
             }
             else {
-                completeDiv.classList.add('hidden');
+                hide(completeDiv);
             }
         })
     })
@@ -114,11 +121,17 @@ function loadTaskListeners() {
     function queryAll(selector) {
         return document.querySelectorAll(selector);
     }
+    function hide(element) {
+        element.classList.add('hidden');
+    }
+    function show(element) {
+        element.classList.remove('hidden');
+    }
 
     let currentTask;
 
     //ADD CATEGORY
-    const categoryInputs = queryAll('.task-category-field');
+    const categoryInputs = queryAll('.task-category-select');
     const addCategoryForm = getEl('add-category-form')
 
     categoryInputs.forEach(input => {
@@ -170,16 +183,15 @@ function loadTaskListeners() {
     })
 
     getEl('abort-del-btn').addEventListener('click', () => {
-        deleteDialog.classList.add('hidden');
+        hide(deleteDialog);
     })
 
     const viewOptions = getEl('view-options');
     getEl('confirm-del-btn').addEventListener('click', () => {
-        console.log(currentTask);
         deleteTask(currentTask);
         storeLists();
         displayTasks(viewOptions.value);
-        deleteDialog.classList.add('hidden');
+        hide(deleteDialog);
     })
 
     //COMPLETE TASK

@@ -42,14 +42,7 @@ function completeTask(trigger) {
             task.status = 'Complete';
         }
     })
-    //storeLists()
 }
-
-// function completeTask(trigger) {
-//     changeTaskStatus(trigger, 'Complete');
-//     storeLists();
-//     displayTasks(document.getElementById('view-menu').value);
-// }
 
 function deleteTask(value) {
     taskList.forEach(task => {
