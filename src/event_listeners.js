@@ -33,6 +33,9 @@ function loadBaseListeners() {
     const categoryInput = getEl('category-field');
     const addCategoryForm = getEl('add-category-form');
     const addCategoryBtn = getEl('add-category-btn');
+    const cancelAddCatBtn = getEl('cancel-add-cat-btn');
+    const addCategoryInput = getEl('add-category-input');
+
 
     categoryInput.addEventListener('change', () => {
         if (categoryInput.value === 'add-new') {
@@ -41,22 +44,26 @@ function loadBaseListeners() {
     })
 
     addCategoryBtn.addEventListener('click', () => {
-        const newItem = getEl('add-category-input').value;
+        const newItem = addCategoryInput.value;
         const categoryInputs = queryAll('.task-category-select');
 
         addItemToArray(newItem, categories);
-        //createDropdown(categories, 'category-field');
         categoryInputs.forEach(input => {
             createDropdown(categories, input.id);
         })
+        addCategoryInput.textContent = '';
         hide(addCategoryForm);
-})
+    })
+    cancelAddCatBtn.addEventListener('click', () => {
+        addCategoryInput.value = '';
+        hide(addCategoryForm);
+    })
 
     //ADD NEW PROJECT
     const projectInput = getEl('project-field');
-
     const addProjectForm = getEl('add-project-form');
-
+    const addProjectBtn = getEl('add-project-btn');
+    const cancelAddProjBtn = getEl('cancel-add-proj-btn');
 
     projectInput.addEventListener('change', () => {
         if (projectInput.value == 'Add new') {
@@ -64,7 +71,7 @@ function loadBaseListeners() {
         }
     })
 
-    getEl('add-project-btn').addEventListener('click', () => {
+    addProjectBtn.addEventListener('click', () => {
             const newItem = getEl('add-project-input').value;
             const projectInputs = queryAll('.task-project-field');
 
@@ -74,6 +81,9 @@ function loadBaseListeners() {
             projectInputs.forEach(input => {
                 createDropdown(projects, input.id);
             })
+    })
+    cancelAddProjBtn.addEventListener('click', () => {
+        hide(addProjectForm);
     })
 
     //ADD NEW TASK
