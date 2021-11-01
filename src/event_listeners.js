@@ -6,6 +6,8 @@ function loadBaseListeners() {
     const newTaskBtn = document.getElementById('new-task-btn');
     const newTaskForm = document.getElementById('new-task-form');
     const viewOptions = document.getElementById('view-options');
+    const viewCompletedBtn = document.getElementById('view-completed-btn');
+
 
     //OPEN NEW TASK FORM
     newTaskBtn.addEventListener('click', () => {
@@ -72,14 +74,34 @@ function loadBaseListeners() {
         storeLists();
         displayTasks(viewOptions.value);
     })
+       //CHANGE VIEW
+       viewOptions.addEventListener('change', () => {
+        displayTasks(viewOptions.value);
+    })
+
+    viewCompletedBtn.addEventListener('click', ()=> {
+        if (viewCompletedBtn.textContent == 'Show Completed Tasks') {
+            viewCompletedBtn.textContent = 'Hide Completed Tasks';
+        }
+        else {
+            viewCompletedBtn.textContent = 'Show Completed Tasks';
+        }
+        const completeDivs = document.querySelectorAll('.complete');
+        completeDivs.forEach(completeDiv => {
+            if (completeDiv.classList.contains('hidden')) {
+                completeDiv.classList.remove('hidden');
+            }
+            else {
+                completeDiv.classList.add('hidden');
+            }
+        })
+    })
 }
 
 
 function loadTaskListeners() {
     const viewOptions = document.getElementById('view-options');
-    const viewCompletedBtn = document.getElementById('view-completed-btn');
     const deleteDialog = document.getElementById('delete-dialog');
-    const completeDivs = document.querySelectorAll('.complete');
     const taskDetailDivs = document.querySelectorAll('.task-detail-div');
     let currentTask;
 
@@ -121,15 +143,6 @@ function loadTaskListeners() {
         })
     })
 
-    //SAVE CHANGES TO TASK
-    // document.querySelectorAll('.task-detail-subdiv').forEach(div => {
-    //     div.addEventListener('input', () => {
-    //         console.log('jj');
-    //         changeTaskStatus(div, input.value);
-    //         storeLists();
-    //     })
-    // })
-
     //DELETE TASK
     document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener('click', () => {
@@ -157,28 +170,7 @@ function loadTaskListeners() {
         })
     })
 
-    //CHANGE VIEW
-    viewOptions.addEventListener('change', () => {
-        displayTasks(viewOptions.value);
-    })
-
-    viewCompletedBtn.addEventListener('click', ()=> {
-        if (viewCompletedBtn.textContent == 'Show Completed Tasks') {
-            viewCompletedBtn.textContent = 'Hide Completed Tasks';
-        }
-        else {
-            viewCompletedBtn.textContent = 'Show Completed Tasks';
-        }
-        
-        completeDivs.forEach(completeDiv => {
-            if (completeDiv.classList.contains('hidden')) {
-                completeDiv.classList.remove('hidden');
-            }
-            else {
-                completeDiv.classList.add('hidden');
-            }
-        })
-    })
+ 
 }
 export {
     loadBaseListeners,
