@@ -1,6 +1,6 @@
-import { addItemToArray, addNewTaskToList, completeTask, changeTaskStatus, deleteTask, storeLists } from './task_logic';
+import { addItemToArray, addNewTaskToList, completeTask, deleteTask, storeLists } from './task_logic';
 import { createDropdown, displayTasks } from './task_DOM'
-import { taskList, categories, projects } from './index'
+import { categories, projects } from './index'
 
 function loadBaseListeners() {
     function getEl(id) {
@@ -186,6 +186,8 @@ function loadTaskListeners() {
     queryAll('.task-checkbox').forEach(box => {
         box.addEventListener('change', () => {
             completeTask(box);
+            storeLists();
+            displayTasks(viewOptions.value);
         })
     })
 

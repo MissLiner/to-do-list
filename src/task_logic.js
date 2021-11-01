@@ -36,20 +36,20 @@ function addItemToArray(item, arr) {
 // 3. complete-task
 //      2. change text and formatting to show it is completed
 //      5. if task is already completed, toggle back to active task list
-function changeTaskStatus(trigger, newStatus) {
+function completeTask(trigger) {
     taskList.forEach(task => {
         if (task.index == trigger.value) {
-            task.status = newStatus;
+            task.status = 'Complete';
         }
     })
-    storeLists()
+    //storeLists()
 }
 
-function completeTask(trigger) {
-    changeTaskStatus(trigger, 'Complete');
-    storeLists();
-    displayTasks(document.getElementById('view-menu').value);
-}
+// function completeTask(trigger) {
+//     changeTaskStatus(trigger, 'Complete');
+//     storeLists();
+//     displayTasks(document.getElementById('view-menu').value);
+// }
 
 function deleteTask(value) {
     taskList.forEach(task => {
@@ -63,7 +63,6 @@ function deleteTask(value) {
 
 export {
     addNewTaskToList,
-    changeTaskStatus,
     completeTask,
     deleteTask,
     storeLists,
