@@ -77,7 +77,9 @@ function loadBaseListeners() {
 
 function loadTaskListeners() {
     const viewMenu = document.getElementById('view-menu');
+    const viewCompletedBtn = document.getElementById('view-completed-btn');
     const deleteDialog = document.getElementById('delete-dialog');
+    const completeDivs = document.querySelectorAll('.complete');
     const taskDetailDivs = document.querySelectorAll('.task-detail-div');
     let currentTask;
 
@@ -158,6 +160,24 @@ function loadTaskListeners() {
     //CHANGE VIEW
     viewMenu.addEventListener('change', () => {
         displayTasks(viewMenu.value);
+    })
+
+    viewCompletedBtn.addEventListener('click', ()=> {
+        if (viewCompletedBtn.textContent == 'Show Completed Tasks') {
+            viewCompletedBtn.textContent = 'Hide Completed Tasks';
+        }
+        else {
+            viewCompletedBtn.textContent = 'Show Completed Tasks';
+        }
+        
+        completeDivs.forEach(completeDiv => {
+            if (completeDiv.classList.contains('hidden')) {
+                completeDiv.classList.remove('hidden');
+            }
+            else {
+                completeDiv.classList.add('hidden');
+            }
+        })
     })
 }
 export {

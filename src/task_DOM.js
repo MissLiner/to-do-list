@@ -19,6 +19,9 @@ function displayTasks(property) {
             function addCategoryTitle(category) {
                 const categoryTitle = document.createElement('h2');
                 categoryTitle.classList.add('category-title');
+                if (category == 'Complete') {
+                    categoryTitle.classList.add('complete');
+                }
                 categoryTitle.textContent = category;
                 categoryDiv.appendChild(categoryTitle);
             }
@@ -30,6 +33,9 @@ function displayTasks(property) {
                     const taskNumber = taskList[i].index;
                     const taskDiv = document.createElement('div');
                     taskDiv.classList.add('task-div', taskNumber);
+                    if (taskList[i]['status'] == 'Complete') {
+                        taskDiv.classList.add('complete');
+                    }
                     //taskDiv.id = taskList[i].index;
 
                     const taskBasicDiv = document.createElement('div');

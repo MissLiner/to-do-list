@@ -15,15 +15,18 @@
 
       <div id="content-div"></div>
 
-      <div id="view-btn-div">
-        <label>View by:<select id="view-menu">
+      <div id="view-div">
+        <label id="view-menu" class="view-element">View by:<select >
           <option value="status">Status</option>
           <option value="priority">Priority</option>
           <option value="category">Category</option>
           <option value="project">Project</option>
           <option value="duedate">Due Date</option>
         </select>
+
+        <button id="view-completed-btn" class="view-element">Hide Completed Tasks</button>
       </div>
+
 
       <form id="new-task-form" class="hidden">
         <label>Task Name:<input id="name-field" name="name"></label>
