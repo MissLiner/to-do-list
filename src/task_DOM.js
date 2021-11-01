@@ -63,7 +63,7 @@ function displayTasks(property) {
                             let taskSubDiv = document.createElement('div');
                             //taskSubDiv.id = `task-${key}`;
                             taskSubDiv.classList.add('task-subdiv', `task-${key}`);
-                            taskSubDiv.contentEditable = 'true';
+                            //taskSubDiv.contentEditable = 'true';
                             if (key === 'duedate' && taskList[i].duedate) {
                                 let currentDay = new Date();
                                 let dateDue = new Date(parseISO(taskList[i].duedate))
@@ -146,7 +146,6 @@ function displayTasks(property) {
                         createCheckbox();
                         createTaskSubDiv('name');
                         createTaskSubDiv('duedate');
-                        createTaskSubDiv('category');
                         createExpandBtn();
                         createDeleteBtn();
 
