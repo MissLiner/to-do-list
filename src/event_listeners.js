@@ -163,13 +163,16 @@ function loadTaskListeners() {
     })
 
     //ADD PROJECT
-    const projectInputs = queryAll('.task-project-field');
+    const projectInputs = queryAll('.task-project-select');
     const addProjectForm = getEl('add-project-form')
 
     projectInputs.forEach(input => {
         input.addEventListener('change', () => {
             if (input.value === 'Add new') {
                 show(addProjectForm);
+            }
+            else {
+                updateTask(input, 'project');
             }
         })
     })
