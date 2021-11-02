@@ -65,9 +65,14 @@ function displayTasks(property) {
                         function createTaskSubDiv(key) {
                             let taskSubDiv = document.createElement('div');
                             //taskSubDiv.id = `task-${key}`;
-                            taskSubDiv.classList.add('task-subdiv', `task-${key}`);
-                            //taskSubDiv.contentEditable = 'true';
+                            taskSubDiv.classList.add('task-subdiv', `task-${key}`, taskNumber);
                             if (key === 'duedate' && taskList[i].duedate) {
+                                const editDateDiv = document.createElement('input');
+                                editDateDiv.type = 'date';
+                                editDateDiv.value = taskList[i].duedate;
+                                editDateDiv.classList.add('edit-date-div', taskNumber, 'hidden');
+                                taskBasicDiv.appendChild(editDateDiv);
+
                                 let currentDay = new Date();
                                 let dateDue = new Date(parseISO(taskList[i].duedate))
                                 let output = formatRelative(dateDue, currentDay);

@@ -179,10 +179,28 @@ function loadTaskListeners() {
 
     //EXPAND TASK
     const taskDetailDivs = queryAll('.task-detail-div');
+    const taskSubdivs = queryAll('.task-subdiv');
+    const taskDateDivs = queryAll('task-duedate');
+    const editDateDivs = queryAll('.edit-date-div');
 
     queryAll('.expand-btn').forEach(button => {
         button.addEventListener('click', () => {
             currentTask = button.value;
+            taskSubdivs.forEach(div => {
+                if (div.classList.contains(currentTask)) {
+                    div.contentEditable = 'true';
+                }
+            })
+            taskDateDivs.forEach(div => {
+                if (div.classList.contains(currentTask)) {
+                    hide(div);
+                } 
+            })
+            editDateDivs.forEach(div => {
+                if (div.classList.contains(currentTask)) {
+                    show(div);
+                }
+            })
             taskDetailDivs.forEach(div => {
                 if (div.classList.contains(button.value) && div.style.display === 'none') {
                     div.style = 'display: grid';
