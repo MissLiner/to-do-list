@@ -53,7 +53,7 @@ function loadBaseListeners() {
 
 
     categoryInput.addEventListener('change', () => {
-        if (categoryInput.value === 'add-new') {
+        if (categoryInput.value === 'Add new') {
             addCategoryForm.classList.remove('hidden');
         }
     })
