@@ -6,11 +6,10 @@ import { displayTasks } from "./task_DOM.js";
 const newTaskForm = document.getElementById('new-task-form');
 
 //local storage - store
-function storeLists() {
-    window.localStorage.clear();
-    window.localStorage.setItem('taskList', JSON.stringify(taskList));
-    window.localStorage.setItem('categories', JSON.stringify(categories));
-    window.localStorage.setItem('projects', JSON.stringify(projects));
+
+function storeList(item) {
+    console.log(item.title);
+    window.localStorage.setItem(item.title, JSON.stringify(item));
 }
 
 function addNewTaskToList() {
@@ -23,13 +22,13 @@ function addNewTaskToList() {
     newTask.status = 'Active';
     taskList.unshift(newTask);
     //taskList.sort();
-    storeLists()
+    storeList(taskList);
 }
 
 function addItemToArray(item, arr) {
     arr.push(item);
     arr.sort();
-    storeLists();
+    storeList(arr);
 }
 
 // 3. complete-task
@@ -56,6 +55,6 @@ export {
     addNewTaskToList,
     completeTask,
     deleteTask,
-    storeLists,
+    storeList,
     addItemToArray,
 }
