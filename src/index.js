@@ -21,15 +21,18 @@ const content = document.getElementById('content-div');
     if (localStorage.getItem('taskList')) {
         let storedTasks = JSON.parse(window.localStorage.getItem('taskList'));
         taskList = storedTasks;
+        taskList.title = 'taskList';
         console.table(taskList);
     }
     if (localStorage.getItem('categories')) {
         let storedCats = JSON.parse(window.localStorage.getItem('categories'));
         categories = storedCats;
+        categories.title = 'categories';
     }
     if (localStorage.getItem('projects')) {
         let storedProjects = JSON.parse(window.localStorage.getItem('projects'));
         projects = storedProjects;
+        projects.title = 'projects';
     }
 })()
 

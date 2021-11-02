@@ -106,7 +106,7 @@ function displayTasks(property) {
                                 function createDetailDropDown(categ, arr) {
                                     let subDiv = document.createElement('select');
                                     subDiv.id = arr.title + i;
-                                    //subDiv.value = taskNumber;
+                                    subDiv.value = taskNumber;
                                     subDiv.classList.add('task-detail-dropdown', `task-${categ}-select`, 'task-detail-child');
                                     taskDetailDiv.appendChild(subDiv);
                                     createDropdown(arr, arr.title + i);

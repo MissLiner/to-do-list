@@ -42,9 +42,9 @@ function completeTask(trigger) {
     taskList.forEach(task => {
         if (task.index == trigger.value) {
             task.status = 'Complete';
+            storeList(taskList);
         }
     })
-    storeList(taskList);
 }
 
 function deleteTask(value) {
