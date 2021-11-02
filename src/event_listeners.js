@@ -1,4 +1,4 @@
-import { addItemToArray, addNewTaskToList, completeTask, deleteTask, storeList } from './task_logic';
+import { addItemToArray, addNewTaskToList, completeTask, deleteTask, updateTask } from './task_logic';
 import { createDropdown, displayTasks } from './task_DOM'
 import { categories, projects } from './index'
 
@@ -27,7 +27,7 @@ function loadBaseListeners() {
 
     newTaskBtn.addEventListener('click', () => {
         if (newTaskForm.classList.contains('hidden')) {
-            newTaskForm.classList.remove('hidden');
+            show(newTaskForm);
         }
         else {
             hideAndClear(newTaskForm);
@@ -54,7 +54,7 @@ function loadBaseListeners() {
 
     categoryInput.addEventListener('change', () => {
         if (categoryInput.value === 'Add new') {
-            addCategoryForm.classList.remove('hidden');
+            show(addCategoryForm);
         }
     })
 
@@ -82,7 +82,7 @@ function loadBaseListeners() {
 
     projectInput.addEventListener('change', () => {
         if (projectInput.value == 'Add new') {
-            addProjectForm.classList.remove('hidden');
+            show(addProjectForm);
         }
     })
 
@@ -121,7 +121,7 @@ function loadBaseListeners() {
         const completeDivs = queryAll('.complete');
         completeDivs.forEach(completeDiv => {
             if (completeDiv.classList.contains('hidden')) {
-                completeDiv.classList.remove('hidden');
+                show(completeDiv);
             }
             else {
                 hide(completeDiv);
@@ -154,10 +154,10 @@ function loadTaskListeners() {
     categoryInputs.forEach(input => {
         input.addEventListener('change', () => {
             if (input.value === 'Add new') {
-                addCategoryForm.classList.remove('hidden');
+                show(addCategoryForm);
             }
             else {
-
+                updateTask(input, 'category');
             }
         })
     })
@@ -169,7 +169,7 @@ function loadTaskListeners() {
     projectInputs.forEach(input => {
         input.addEventListener('change', () => {
             if (input.value === 'Add new') {
-                addProjectForm.classList.remove('hidden');
+                show(addProjectForm);
             }
         })
     })
@@ -194,7 +194,7 @@ function loadTaskListeners() {
 
     queryAll('.delete-btn').forEach(button => {
         button.addEventListener('click', () => {
-            deleteDialog.classList.remove('hidden');
+            show(deleteDialog);
             currentTask = button.value;
         })
     })

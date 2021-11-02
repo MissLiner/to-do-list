@@ -31,8 +31,13 @@ function addItemToArray(item, arr) {
     storeList(arr);
 }
 
-function updateTask(trigger, task) {
-
+function updateTask(trigger, property) {
+    taskList.forEach(task => {
+        if (trigger.classList.contains(task.index)) {
+            task[property] = trigger.value;
+            storeList(taskList);
+        }
+    })
 }
 
 // 3. complete-task
@@ -63,4 +68,5 @@ export {
     deleteTask,
     storeList,
     addItemToArray,
+    updateTask,
 }
