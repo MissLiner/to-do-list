@@ -105,11 +105,11 @@ function displayTasks(property) {
 
                                 function createDetailDropDown(categ, arr) {
                                     let subDiv = document.createElement('select');
-                                    subDiv.id = categ + i;
-                                    subDiv.value = taskNumber;
+                                    subDiv.id = arr.title + i;
+                                    //subDiv.value = taskNumber;
                                     subDiv.classList.add('task-detail-dropdown', `task-${categ}-select`, 'task-detail-child');
                                     taskDetailDiv.appendChild(subDiv);
-                                    createDropdown(arr, categ + i);
+                                    createDropdown(arr, arr.title + i);
                                     
                                     Array.from(subDiv.options).forEach(option => {
                                         if (option.value == taskList[i][categ]) {
@@ -210,6 +210,13 @@ function createDropdown(arr, elementID) {
     }
         createOptions(options);
         createOptions(arr);
+        // let currentIndex;
+        // taskList.forEach((task, i) => {
+        //     if (i == elementID.match(/(\d+)/)) {
+        //         currentIndex = i;
+        //     }
+        // })
+        // mainField.selectedIndex = taskList[currentIndex];
 }
 
 export {

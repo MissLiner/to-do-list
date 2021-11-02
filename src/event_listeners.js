@@ -206,7 +206,6 @@ function loadTaskListeners() {
     const viewOptions = getEl('view-options');
     getEl('confirm-del-btn').addEventListener('click', () => {
         deleteTask(currentTask);
-        storeList(taskList);
         displayTasks(viewOptions.value);
         hide(deleteDialog);
     })
@@ -215,7 +214,6 @@ function loadTaskListeners() {
     queryAll('.task-checkbox').forEach(box => {
         box.addEventListener('change', () => {
             completeTask(box);
-            storeList(taskList);
             displayTasks(viewOptions.value);
         })
     })

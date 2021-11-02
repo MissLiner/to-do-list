@@ -31,6 +31,10 @@ function addItemToArray(item, arr) {
     storeList(arr);
 }
 
+function updateTask(trigger, task) {
+
+}
+
 // 3. complete-task
 //      2. change text and formatting to show it is completed
 //      5. if task is already completed, toggle back to active task list
@@ -40,6 +44,7 @@ function completeTask(trigger) {
             task.status = 'Complete';
         }
     })
+    storeList(taskList);
 }
 
 function deleteTask(value) {
@@ -49,6 +54,7 @@ function deleteTask(value) {
             taskList.splice(a, 1);
         }
     })
+    storeList(taskList);
 }
 
 export {
