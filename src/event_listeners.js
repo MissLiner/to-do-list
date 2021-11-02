@@ -88,7 +88,7 @@ function loadBaseListeners() {
 
     addProjectBtn.addEventListener('click', () => {
             const newItem = getEl('add-project-input').value;
-            const projectInputs = queryAll('.task-project-field');
+            const projectInputs = queryAll('.task-project-select');
 
             addItemToArray(newItem, projects);
             hide(addProjectForm);
