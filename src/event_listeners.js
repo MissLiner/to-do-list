@@ -180,7 +180,7 @@ function loadTaskListeners() {
     //EXPAND TASK
     const taskDetailDivs = queryAll('.task-detail-div');
     const taskSubdivs = queryAll('.task-subdiv');
-    const taskDateDivs = queryAll('task-duedate');
+    const taskDateDivs = queryAll('.task-duedate');
     const editDateDivs = queryAll('.edit-date-div');
 
     queryAll('.expand-btn').forEach(button => {
