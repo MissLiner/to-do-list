@@ -62,6 +62,10 @@ function deleteTask(value) {
     storeList(taskList);
 }
 
+function editCategories() {
+    
+}
+
 export {
     addNewTaskToList,
     completeTask,

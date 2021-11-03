@@ -59,6 +59,9 @@ function displayTasks(property) {
                             taskCheckbox.classList.add('task-checkbox');
                             taskCheckbox.value = taskList[i].index;
                             taskCheckbox.title = 'Complete';
+                            if (taskList[i].status == 'Complete') {
+                                taskCheckbox.checked = 'true';
+                            }
                             taskBasicDiv.appendChild(taskCheckbox);
                         }
                         function createTaskSubDiv(key) {
