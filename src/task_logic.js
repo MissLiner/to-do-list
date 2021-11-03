@@ -8,7 +8,6 @@ const newTaskForm = document.getElementById('new-task-form');
 //local storage - store
 
 function storeList(item) {
-    console.log(item.title);
     window.localStorage.setItem(item.title, JSON.stringify(item));
 }
 
@@ -63,7 +62,7 @@ function deleteTask(value) {
 }
 
 function editCategories() {
-    
+
 }
 
 export {

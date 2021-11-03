@@ -30,6 +30,7 @@ function displayTasks(property) {
 
             function addTasksToCategory(property) {
                 for (let i = 0; i < taskList.length; i++) {
+                    if (taskList[i][property] == category) {
                     const taskNumber = taskList[i].index;
                     const taskDiv = document.createElement('div');
                     taskDiv.classList.add('task-div', taskNumber);
@@ -39,13 +40,11 @@ function displayTasks(property) {
                             taskDiv.classList.add('hidden');
                         }
                     }
-                    //taskDiv.id = taskList[i].index;
 
                     const taskBasicDiv = document.createElement('div');
                     taskBasicDiv.classList.add('task-basic-div', taskNumber);
 
                     const taskDetailDiv = document.createElement('div');
-                    //taskDetailDiv.value = taskList[i].index;
                     taskDetailDiv.classList.add('task-detail-div', taskNumber);
                                         
                     categoryDiv.appendChild(taskDiv);
@@ -181,7 +180,9 @@ function displayTasks(property) {
                     }
                 }
             }
+            }
             addTasksToCategory(property);
+        
         }
 
         //create category lists for different views
