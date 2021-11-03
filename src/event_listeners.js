@@ -22,6 +22,35 @@ function loadBaseListeners() {
         form.reset();
     }
 
+    //MENU BAR
+    const menuBar = getEl('menu-bar');
+    const editBtn = getEl('edit-btn');
+    const editMenu = getEl('edit-menu');
+    const sortBtn = getEl('sort-btn');
+    const sortMenu = getEl('sort-menu');
+    const helpBtn = getEl('help-btn');
+
+    function toggleHidden(elem) {
+        if (elem.classList.contains('hidden')) {
+            elem.classList.remove('hidden');
+        }
+        else (elem.classList.add('hidden'));
+    }
+
+    menuBar.addEventListener('click', () => {
+        if (event.target === editBtn) {
+            toggleHidden(editMenu);
+        }
+        if (event.target === sortBtn) {
+            toggleHidden(sortMenu);
+        }
+        if (event.target === helpBtn) {
+            alert('Help you?!? I\'m barely keeping my own shit together. Sorry buddy!')
+        }
+    })
+
+
+
     //ADD NEW TASK
     const newTaskBtn = getEl('new-task-btn');
     const newTaskForm = getEl('new-task-form');
@@ -102,8 +131,6 @@ function loadBaseListeners() {
     cancelAddProjBtn.addEventListener('click', () => {
         hide(addProjectForm);
     })
-
-
        
     //CHANGE VIEW
     const viewOptions = getEl('view-options');
