@@ -24,8 +24,8 @@
         </label>
         
         <div class="menu">
-          <button class="menu-btn">Edit</button>
-          <div class="dropdown hidden">
+          <button id="edit-btn" class="menu-btn">Edit</button>
+          <div id="edit-menu" class="dropdown hidden">
             <button class="dropdown-btn">Categories</button>
             <button class="dropdown-btn">Projects</button>
             <button class="dropdown-btn">Priority Levels</button>
@@ -37,16 +37,15 @@
         <button id="new-task-btn" class="menu-btn">New Task</button>
 
         <div class="menu">
-          <button class="menu-btn">Sort</button>
-          <div class="dropdown hidden">
-            <button class="dropdown-btn">by Duedate</button>
+          <button id="sort-btn" class="menu-btn">Sort</button>
+          <div id="sort-menu" class="dropdown hidden">
             <button class="dropdown-btn">by Duedate</button>
             <button class="dropdown-btn">by Priority Level</button>
             <button class="dropdown-btn">A to Z</button>
             <button class="dropdown-btn">Z to A</button>
           </div>
         </div>
-        <button class="menu-btn">Help</button>
+        <button id="help-btn" class="menu-btn">Help</button>
       </div>
 
       <div id="content-div"></div>
