@@ -13,7 +13,15 @@
       <h1>Can-Do List</h1>
 
       <div id="menu-bar">
-        <button class="menu-button">View</button>
+        <!-- <button id="view-menu" class="menu-button">View</button> -->
+          <label>View: <select id="view-options">
+            <option value="status">Status</option>
+            <option value="priority">Priority</option>
+            <option value="category">Category</option>
+            <option value="project">Project</option>
+            <option value="duedate">Due Date</option>
+          </select>
+        </label>
         <button class="menu-button">Edit</button>
         <button id="new-task-btn" class="menu-button">New Task</button>
         <button class="menu-button">Sort</button>
@@ -23,13 +31,6 @@
       <div id="content-div"></div>
 
       <div id="view-div">
-        <label id="view-menu" class="view-element">View by:<select id="view-options">
-          <option value="status">Status</option>
-          <option value="priority">Priority</option>
-          <option value="category">Category</option>
-          <option value="project">Project</option>
-          <option value="duedate">Due Date</option>
-        </select>
 
         <button id="view-completed-btn" class="view-element">Hide Completed Tasks</button>
       </div>
