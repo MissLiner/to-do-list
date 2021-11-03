@@ -96,6 +96,10 @@ h1 {
     z-index: 5;
 }
 #new-task-btn {
+    background-color: teal;
+    border: 6px !important;
+    border-color: turquoise;
+    color:rgb(253, 194, 0);
     font-size: larger;
 }
 #view-div {
