@@ -18,6 +18,9 @@ h1 {
     border: none;
     background: transparent;
 }
+.dropdown {
+    float: left;
+}
 .hidden {
     display: none;
 }
@@ -37,11 +40,27 @@ h1 {
 .description-label {
     grid-area: a;
 }
-.menu-button {
+.dropdown {
+    background-color:steelblue;
+    margin-top: 5px;
+    padding: 5px 5px 5px 5px;
+}
+.dropdown-btn {
+    background-color:steelblue;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 5px 0px 5px 0px;
+    width: 100%;
+}
+.menu-btn {
     background-color: steelblue;
     border: none;
     color: white;
     font-size: large;
+    height: 40px;
+    margin-top: 0px;
+    top: 0px;
 }
 .task-description-input {
     grid-area: b;
@@ -70,8 +89,11 @@ h1 {
     color: white;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    height: 40px;
     padding: 5px 0px 5px 0px;
+    position: relative;
     width: 100%;
+    z-index: 5;
 }
 #new-task-btn {
     font-size: larger;
@@ -80,4 +102,7 @@ h1 {
     position: absolute;
     left: 40px;
     top: 300px;
+}
+#view-label #view-options {
+    height: 20px;
 }
