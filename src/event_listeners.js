@@ -253,12 +253,37 @@ function loadTaskListeners() {
     })
 
     //EDIT TASK
+    const taskBasicDivs = queryAll('.task-basic-div');
     const taskSubDivs = queryAll('.task-subdiv');
+
+    function colorCode(input, div) {
+        switch(input.value) {
+            case '1-High':
+                div.style.color = 'red';
+                break;
+            case '2-Medium':
+                div.style.color = 'orange';
+                break;
+            case '3-Low':
+                div.style.color = 'green';
+                break;
+        }
+    }
 
     taskSubDivs.forEach(subdiv => {
         subdiv.addEventListener('change', () => {
             let property = subdiv.dataset.property;
             updateTask(subdiv, property);
+            
+            let currentBasicDiv;
+            taskBasicDivs.forEach(div => {
+                if (div.classList.contains(currentTask)) {
+                    currentBasicDiv = div;
+                }
+            })
+            if (subdiv.dataset.property == 'priority') {
+                colorCode(subdiv, currentBasicDiv);
+            }
         })
     })
 
