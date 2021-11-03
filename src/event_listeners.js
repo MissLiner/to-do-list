@@ -1,6 +1,6 @@
 import { addItemToArray, addNewTaskToList, completeTask, deleteTask, updateTask } from './task_logic';
 import { createDropdown, displayTasks } from './task_DOM'
-import { categories, projects } from './index'
+import { categories, projects, taskList } from './index'
 
 function loadBaseListeners() {
     function getEl(id) {
@@ -202,21 +202,53 @@ function loadTaskListeners() {
         taskDetailDivs.forEach(div => {
             if (div.classList.contains(currentTask)) {
                 const children = div.childNodes;
-                for (let child in children) {
+                children.forEach(child => {
                     show(child);
-                }
+                })
             }
-            // if (div.classList.contains(button.value) && div.style.display === 'none') {
-            //     div.style = 'display: grid';
-            // }
-            // else div.style = 'display: none !important';
+        })
+    }
+
+    function collapseTask() {
+        taskNameDivs.forEach(div => {
+            if (div.classList.contains(currentTask)) {
+                div.contentEditable = 'false';
+            }
+        })
+        taskDateDivs.forEach(div => {
+            if (div.classList.contains(currentTask)) {
+                show(div);
+            } 
+        })
+        editDateDivs.forEach(div => {
+            if (div.classList.contains(currentTask)) {
+                hide(div);
+            }
+        })
+        taskDetailDivs.forEach(div => {
+            if (div.classList.contains(currentTask)) {
+                const children = div.childNodes;
+                children.forEach(child => {
+                    hide(child);
+                })
+            }
         })
     }
 
     queryAll('.expand-btn').forEach(button => {
         button.addEventListener('click', () => {
-            currentTask = button.value;
-            expandTask();
+            if (button.value == currentTask) {
+                collapseTask();
+                currentTask = 'none';
+            }
+            else {
+                taskList.forEach(task => {
+                    currentTask = task.index;
+                    collapseTask();
+                })
+                currentTask = button.value;
+                expandTask();
+            }
         })
     })
 
