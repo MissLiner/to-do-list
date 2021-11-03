@@ -1,6 +1,8 @@
 import { addItemToArray, addNewTaskToList, completeTask, deleteTask, updateTask } from './task_logic';
 import { createDropdown, displayTasks } from './task_DOM'
 import { categories, projects, taskList } from './index'
+import  formatRelative  from 'date-fns/formatRelative';
+import parseISO from 'date-fns/parseISO';
 
 function loadBaseListeners() {
     function getEl(id) {
@@ -270,6 +272,13 @@ function loadTaskListeners() {
         }
     }
 
+    function updateDay(input, div) {
+        let currentDay = new Date();
+        let dateDue = new Date(parseISO(input.value))
+        let output = formatRelative(dateDue, currentDay);
+        div.textContent = output.slice(0, -12);
+    }
+
     taskSubDivs.forEach(subdiv => {
         subdiv.addEventListener('change', () => {
             let property = subdiv.dataset.property;
@@ -283,6 +292,16 @@ function loadTaskListeners() {
             })
             if (subdiv.dataset.property == 'priority') {
                 colorCode(subdiv, currentBasicDiv);
+            }
+
+            let currentDateDiv;
+            taskDateDivs.forEach(div => {
+                if (div.classList.contains(currentTask)) {
+                    currentDateDiv = div;
+                }
+            })
+            if (subdiv.dataset.property == 'duedate') {
+                updateDay(subdiv, currentDateDiv);
             }
         })
     })
