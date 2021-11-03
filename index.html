@@ -14,7 +14,7 @@
 
       <div id="menu-bar">
         <!-- <button id="view-menu" class="menu-button">View</button> -->
-          <label>View: <select id="view-options">
+          <label id="view-label" class="menu-btn">View: <select id="view-options" class="menu-btn">
             <option value="status">Status</option>
             <option value="priority">Priority</option>
             <option value="category">Category</option>
@@ -22,10 +22,31 @@
             <option value="duedate">Due Date</option>
           </select>
         </label>
-        <button class="menu-button">Edit</button>
-        <button id="new-task-btn" class="menu-button">New Task</button>
-        <button class="menu-button">Sort</button>
-        <button class="menu-button">Help</button>
+        
+        <div class="menu">
+          <button class="menu-btn">Edit</button>
+          <div class="dropdown hidden">
+            <button class="dropdown-btn">Categories</button>
+            <button class="dropdown-btn">Projects</button>
+            <button class="dropdown-btn">Priority Levels</button>
+            <button class="dropdown-btn">Statuses</button>
+            <button class="dropdown-btn">List Title</button>
+          </div>
+        </div>
+
+        <button id="new-task-btn" class="menu-btn">New Task</button>
+
+        <div class="menu">
+          <button class="menu-btn">Sort</button>
+          <div class="dropdown hidden">
+            <button class="dropdown-btn">by Duedate</button>
+            <button class="dropdown-btn">by Duedate</button>
+            <button class="dropdown-btn">by Priority Level</button>
+            <button class="dropdown-btn">A to Z</button>
+            <button class="dropdown-btn">Z to A</button>
+          </div>
+        </div>
+        <button class="menu-btn">Help</button>
       </div>
 
       <div id="content-div"></div>
