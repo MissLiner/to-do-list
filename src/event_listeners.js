@@ -11,15 +11,11 @@ function loadBaseListeners() {
     function queryAll(selector) {
         return document.querySelectorAll(selector);
     }
-    function hide(element) {
-        element.classList.add('hidden');
-    }
-    function show(element) {
-        element.classList.remove('hidden');
-    }
-    function hideAndClear(form) {
-        hide(form);
-        form.reset();
+    function toggleHidden(elem) {
+        if (elem.classList.contains('hidden')) {
+            elem.classList.remove('hidden');
+        }
+        else (elem.classList.add('hidden'));
     }
 
     //MENU BAR
@@ -29,13 +25,6 @@ function loadBaseListeners() {
     const sortBtn = getEl('sort-btn');
     const sortMenu = getEl('sort-menu');
     const helpBtn = getEl('help-btn');
-
-    function toggleHidden(elem) {
-        if (elem.classList.contains('hidden')) {
-            elem.classList.remove('hidden');
-        }
-        else (elem.classList.add('hidden'));
-    }
 
     menuBar.addEventListener('click', () => {
         if (event.target === editBtn) {
@@ -49,31 +38,29 @@ function loadBaseListeners() {
         }
     })
 
-
-
     //ADD NEW TASK
     const newTaskBtn = getEl('new-task-btn');
     const newTaskForm = getEl('new-task-form');
     const cancelNewTaskBtn = getEl('cancel-new-task-btn');
 
     newTaskBtn.addEventListener('click', () => {
-        if (newTaskForm.classList.contains('hidden')) {
-            show(newTaskForm);
-        }
-        else {
-            hideAndClear(newTaskForm);
-        }
+        toggleHidden(newTaskForm);
+        clear(newTaskForm);
     });
 
     newTaskForm.addEventListener('submit', () => {
         event.preventDefault();
 
         addNewTaskToList();
-        hideAndClear(newTaskForm);
+        toggleHidden(newTaskForm);
+        clear(newTaskForm);
         displayTasks(viewOptions.value);
     })
 
-    cancelNewTaskBtn.addEventListener('click', () => hideAndClear(newTaskForm));
+    cancelNewTaskBtn.addEventListener('click', () => {
+        toggleHidden(newTaskForm);
+        newTaskForm.reset();
+    })
 
     //ADD NEW CATEGORY
     const categoryInput = getEl('category-field');
@@ -85,7 +72,7 @@ function loadBaseListeners() {
 
     categoryInput.addEventListener('change', () => {
         if (categoryInput.value === 'Add new') {
-            show(addCategoryForm);
+            toggleHidden(addCategoryForm);
         }
     })
 
@@ -98,11 +85,11 @@ function loadBaseListeners() {
             createDropdown(categories, input.id);
         })
         addCategoryInput.textContent = '';
-        hide(addCategoryForm);
+        toggleHidden(addCategoryForm);
     })
     cancelAddCatBtn.addEventListener('click', () => {
         addCategoryInput.value = '';
-        hide(addCategoryForm);
+        toggleHidden(addCategoryForm);
     })
 
     //ADD NEW PROJECT
@@ -113,7 +100,7 @@ function loadBaseListeners() {
 
     projectInput.addEventListener('change', () => {
         if (projectInput.value == 'Add new') {
-            show(addProjectForm);
+            toggleHidden(addProjectForm);
         }
     })
 
@@ -122,14 +109,14 @@ function loadBaseListeners() {
             const projectInputs = queryAll('.task-project-select');
 
             addItemToArray(newItem, projects);
-            hide(addProjectForm);
+            toggleHidden(addProjectForm);
             createDropdown(projects, 'project-field');
             projectInputs.forEach(input => {
                 createDropdown(projects, input.id);
             })
     })
     cancelAddProjBtn.addEventListener('click', () => {
-        hide(addProjectForm);
+        toggleHidden(addProjectForm);
     })
        
     //CHANGE VIEW
@@ -149,12 +136,7 @@ function loadBaseListeners() {
         }
         const completeDivs = queryAll('.complete');
         completeDivs.forEach(completeDiv => {
-            if (completeDiv.classList.contains('hidden')) {
-                show(completeDiv);
-            }
-            else {
-                hide(completeDiv);
-            }
+            toggleHidden(completeDiv);
         })
     })
 }
@@ -167,11 +149,11 @@ function loadTaskListeners() {
     function queryAll(selector) {
         return document.querySelectorAll(selector);
     }
-    function hide(element) {
-        element.classList.add('hidden');
-    }
-    function show(element) {
-        element.classList.remove('hidden');
+    function toggleHidden(elem) {
+        if (elem.classList.contains('hidden')) {
+            elem.classList.remove('hidden');
+        }
+        else (elem.classList.add('hidden'));
     }
 
     let currentTask;
@@ -183,7 +165,7 @@ function loadTaskListeners() {
     categoryInputs.forEach(input => {
         input.addEventListener('change', () => {
             if (input.value === 'Add new') {
-                show(addCategoryForm);
+                toggleHidden(addCategoryForm);
             }
             else {
                 updateTask(input, 'category');
@@ -198,7 +180,7 @@ function loadTaskListeners() {
     projectInputs.forEach(input => {
         input.addEventListener('change', () => {
             if (input.value === 'Add new') {
-                show(addProjectForm);
+                toggleHidden(addProjectForm);
             }
             else {
                 updateTask(input, 'project');
@@ -206,13 +188,13 @@ function loadTaskListeners() {
         })
     })
 
-    //EXPAND TASK
+    //EXPAND/COLLAPSE TASK
     const taskDetailDivs = queryAll('.task-detail-div');
     const taskNameDivs = queryAll('.task-name');
     const taskDateDivs = queryAll('.task-duedate');
     const editDateDivs = queryAll('.edit-date-div');
 
-    function expandTask() {
+    function toggleTask() {
         taskNameDivs.forEach(div => {
             if (div.classList.contains(currentTask)) {
                 div.contentEditable = 'true';
@@ -220,45 +202,19 @@ function loadTaskListeners() {
         })
         taskDateDivs.forEach(div => {
             if (div.classList.contains(currentTask)) {
-                hide(div);
+                toggleHidden(div);
             } 
         })
         editDateDivs.forEach(div => {
             if (div.classList.contains(currentTask)) {
-                show(div);
+                toggleHidden(div);
             }
         })
         taskDetailDivs.forEach(div => {
             if (div.classList.contains(currentTask)) {
                 const children = div.childNodes;
                 children.forEach(child => {
-                    show(child);
-                })
-            }
-        })
-    }
-
-    function collapseTask() {
-        taskNameDivs.forEach(div => {
-            if (div.classList.contains(currentTask)) {
-                div.contentEditable = 'false';
-            }
-        })
-        taskDateDivs.forEach(div => {
-            if (div.classList.contains(currentTask)) {
-                show(div);
-            } 
-        })
-        editDateDivs.forEach(div => {
-            if (div.classList.contains(currentTask)) {
-                hide(div);
-            }
-        })
-        taskDetailDivs.forEach(div => {
-            if (div.classList.contains(currentTask)) {
-                const children = div.childNodes;
-                children.forEach(child => {
-                    hide(child);
+                    toggleHidden(child);
                 })
             }
         })
@@ -267,16 +223,13 @@ function loadTaskListeners() {
     queryAll('.expand-btn').forEach(button => {
         button.addEventListener('click', () => {
             if (button.value == currentTask) {
-                collapseTask();
+                toggleTask();
                 currentTask = 'none';
             }
             else {
-                taskList.forEach(task => {
-                    currentTask = task.index;
-                    collapseTask();
-                })
+                toggleTask();
                 currentTask = button.value;
-                expandTask();
+                toggleTask();
             }
         })
     })
@@ -338,20 +291,20 @@ function loadTaskListeners() {
 
     queryAll('.delete-btn').forEach(button => {
         button.addEventListener('click', () => {
-            show(deleteDialog);
+            toggleHidden(deleteDialog);
             currentTask = button.value;
         })
     })
 
     getEl('abort-del-btn').addEventListener('click', () => {
-        hide(deleteDialog);
+        toggleHidden(deleteDialog);
     })
 
     const viewOptions = getEl('view-options');
     getEl('confirm-del-btn').addEventListener('click', () => {
         deleteTask(currentTask);
         displayTasks(viewOptions.value);
-        hide(deleteDialog);
+        toggleHidden(deleteDialog);
     })
 
     //COMPLETE TASK
