@@ -252,6 +252,16 @@ function loadTaskListeners() {
         })
     })
 
+    //EDIT TASK
+    const taskSubDivs = queryAll('.task-subdiv');
+
+    taskSubDivs.forEach(subdiv => {
+        subdiv.addEventListener('change', () => {
+            let property = subdiv.dataset.property;
+            updateTask(subdiv, property);
+        })
+    })
+
     //DELETE TASK
     const deleteDialog = getEl('delete-dialog');
 
