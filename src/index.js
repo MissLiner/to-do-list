@@ -42,6 +42,21 @@ displayTasks('status');
 createDropdown(categories, 'category-field');
 createDropdown(projects, 'project-field');
 
+(function setDate() {
+    const newTaskDate = document.getElementById('duedate-field');
+    const today = new Date();
+    let DD = today.getDate();
+    let MM = today.getMonth() + 1;
+
+    if (DD <10) {
+        DD = '0' + DD;
+    }
+    if (MM < 10) {
+        MM = '0' + MM;
+    }
+    newTaskDate.defaultValue = today.getFullYear() + '-' + MM + '-' + DD;
+})()
+
 export {
     taskList,
     content,

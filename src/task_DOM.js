@@ -66,7 +66,7 @@ function displayTasks(property) {
                             let taskSubDiv = document.createElement('div');
                             //taskSubDiv.id = `task-${key}`;
                             taskSubDiv.classList.add('task-subdiv', `task-${key}`, taskNumber);
-                            if (key === 'duedate' && taskList[i].duedate) {
+                            if (key === 'duedate') {
                                 const editDateDiv = document.createElement('input');
                                 editDateDiv.type = 'date';
                                 editDateDiv.value = taskList[i].duedate;
