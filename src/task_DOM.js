@@ -47,7 +47,7 @@ function displayTasks(property) {
                     const taskDetailDiv = document.createElement('div');
                     //taskDetailDiv.value = taskList[i].index;
                     taskDetailDiv.classList.add('task-detail-div', taskNumber);
-                    taskDetailDiv.style = 'display:none !important';
+                    //taskDetailDiv.style = 'display:none !important';
                                         
                     categoryDiv.appendChild(taskDiv);
                     taskDiv.appendChild(taskBasicDiv);
@@ -104,7 +104,7 @@ function displayTasks(property) {
                             function createSubDiv(key) {
                                 let keySubDiv = document.createElement('div');
                                 keySubDiv.id = key;
-                                keySubDiv.classList.add('key-detail-subdiv', 'task-detail-child', `${key}-label`);
+                                keySubDiv.classList.add('key-detail-subdiv', 'task-detail-child', `${key}-label`, 'hidden');
                                 keySubDiv.textContent = `${key}: `;
                                 taskDetailDiv.appendChild(keySubDiv);
 
@@ -112,7 +112,7 @@ function displayTasks(property) {
                                     let subDiv = document.createElement('select');
                                     subDiv.id = arr.title + i;
                                     subDiv.value = taskNumber;
-                                    subDiv.classList.add('task-detail-dropdown', `task-${categ}-select`, 'task-detail-child', taskNumber);
+                                    subDiv.classList.add('task-detail-dropdown', `task-${categ}-select`, 'task-detail-child', taskNumber, 'hidden');
                                     taskDetailDiv.appendChild(subDiv);
                                     createDropdown(arr, arr.title + i);
                                     
@@ -137,7 +137,7 @@ function displayTasks(property) {
                                 }
                                 else {
                                     let subDiv = document.createElement('div');
-                                    subDiv.classList.add('task-detail-subdiv', 'task-detail-child', `task-${key}-input`);
+                                    subDiv.classList.add('task-detail-subdiv', 'task-detail-child', `task-${key}-input`, 'hidden');
                                     subDiv.contentEditable = 'true';
                                     subDiv.textContent = 'hello' + taskList[i][key];
                                     taskDetailDiv.appendChild(subDiv);
