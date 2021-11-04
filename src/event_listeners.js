@@ -1,5 +1,5 @@
-import { addItemToArray, addNewTaskToList, completeTask, deleteTask, updateTask } from './task_logic';
-import { createDropdown, displayTasks, createEditList } from './task_DOM'
+import { addItemToArr, removeItemFromArr, addNewTaskToList, completeTask, deleteTask, updateTask } from './task_logic';
+import { createDropdown, displayTasks, createEditList, currentArr } from './task_DOM'
 import { categories, projects, taskList } from './index'
 import  formatRelative  from 'date-fns/formatRelative';
 import parseISO from 'date-fns/parseISO';
@@ -63,6 +63,22 @@ function loadBaseListeners() {
         toggleHidden(editDiv);
     })
 
+    //DELETE LIST ITEM
+    const listItems = queryAll('.list-item');
+
+    editDiv.addEventListener('click', (e) =>{
+        let item = e.target.parentNode.dataset.index;
+        removeItemFromArr(item, currentArr);
+        createEditList(currentArr);
+        displayTasks(viewOptions.value);
+        // if (e.target.classList.contains('delete-btn')) {
+        //     removeItemFromArr(e.target.dataset)
+            // listItems.forEach(item => {
+            //     //if (item.dataset.index == e.target.dataset.index)
+            // })
+        //}
+    })
+
     //ADD NEW TASK
     const newTaskBtn = getEl('new-task-btn');
     const newTaskForm = getEl('new-task-form');
@@ -105,7 +121,7 @@ function loadBaseListeners() {
         const newItem = addCategoryInput.value;
         const categorySelects = queryAll('.task-category-select');
 
-        addItemToArray(newItem, categories);
+        addItemToArr(newItem, categories);
         categorySelects.forEach(select => {
             createDropdown(categories, select.id);
         })
@@ -135,7 +151,7 @@ function loadBaseListeners() {
             const newItem = getEl('add-project-input').value;
             const projectSelects = queryAll('.task-project-select');
 
-            addItemToArray(newItem, projects);
+            addItemToArr(newItem, projects);
             toggleHidden(addProjectForm);
             createDropdown(projects, 'project-field');
             projectSelects.forEach(select => {

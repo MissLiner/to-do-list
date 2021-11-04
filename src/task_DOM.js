@@ -231,6 +231,7 @@ function createDropdown(arr, elementID) {
     createOptions(arr);
 }
 
+let currentArr;
 function createEditList(trigger) {
     const editDiv = document.getElementById('edit-div');
 
@@ -271,24 +272,26 @@ function createEditList(trigger) {
 
     switch(trigger.id) {
         case 'edit-cat-btn':
-            createList(categories);
+            currentArr = categories;
             break;
         case 'edit-proj-btn':
-            createList(projects);
+            currentArr = projects;
             break;
         case 'edit-prior-btn':
-            createList(priorities);
+            currentArr = priorities;
             break;
         case 'edit-stat-btn':
-            createList(statuses);
+            currentArr = statuses;
             break;
-        case 'edit-list-btn':
-            break;
+        // case 'edit-list-btn':
+        //     break;
     }
+    createList(currentArr);
 }
 
 export {
     displayTasks,
     createDropdown,
     createEditList,
+    currentArr,
 }

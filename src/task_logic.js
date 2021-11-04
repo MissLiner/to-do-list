@@ -24,10 +24,19 @@ function addNewTaskToList() {
     storeList(taskList);
 }
 
-function addItemToArray(item, arr) {
+function addItemToArr(item, arr) {
     arr.push(item);
     arr.sort();
     storeList(arr);
+}
+
+function removeItemFromArr(item, arr) {
+    arr.forEach(value => {
+        if (value == item) {
+            let a = arr.findIndex(object => object == value)
+            arr.splice(a, 1);
+        }
+    })
 }
 
 function updateTask(trigger, property) {
@@ -70,6 +79,7 @@ export {
     completeTask,
     deleteTask,
     storeList,
-    addItemToArray,
+    addItemToArr,
+    removeItemFromArr,
     updateTask,
 }
