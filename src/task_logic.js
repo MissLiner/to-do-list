@@ -37,6 +37,7 @@ function removeItemFromArr(item, arr) {
             arr.splice(a, 1);
         }
     })
+    storeList(arr);
 }
 
 function updateTask(trigger, property) {
