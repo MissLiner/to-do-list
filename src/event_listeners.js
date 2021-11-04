@@ -27,18 +27,34 @@ function loadBaseListeners() {
     const sortBtn = getEl('sort-btn');
     const sortMenu = getEl('sort-menu');
     const helpBtn = getEl('help-btn');
+    //const dropdowns = queryAll('.dropdown');
+
+    // function toggleListener(menu) {
+    //     if (!menu.classList.contains('hidden')) {
+    //         window.addEventListener('click', (e) => {
+    //             if (e.target !== menu) {
+    //                 menu.classList.add('hidden');
+    //                 window.removeEventListener('click', e);
+    //             }
+    //         })
+    //     }
+    // }
 
     menuBar.addEventListener('click', (e) => {
         if (e.target === editBtn) {
             toggleHidden(editMenu);
+            //toggleListener(editMenu);
         }
         if (e.target === sortBtn) {
             toggleHidden(sortMenu);
+            //toggleListener(sortMenu);
         }
         if (e.target === helpBtn) {
             alert('Help you?!? I\'m barely keeping my own shit together. Sorry buddy!')
         }
     })
+
+
 
     //EDIT LISTS
     editMenu.addEventListener('click', (e) => {
