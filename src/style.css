@@ -1,4 +1,5 @@
 * {
+    background-color: #D8EEFE;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: auto;
     text-align: center;
@@ -79,10 +80,7 @@ h1 {
 .task-subdiv {
     flex: 1 1 0;
 }
-#clear-storage-btn {
-    bottom: 0;
-    position: absolute;
-}
+
 #menu-bar {
     background-color:steelblue;
     color: white;
@@ -103,14 +101,21 @@ h1 {
     border-radius: 50%;
     width: 100%;
 }
-#view-div {
+#view-completed-btn {
+    background-color: white;
+    right: 60px;
     position: absolute;
-    left: 30px;
-    top: 30px;
+    top: 40px;
 }
 #view-label {
     width: 80px;
 }
 #view-label #view-options {
     height: 20px;
+}
+#view-options {
+    /* background-color: steelblue;
+    border: none;
+    color: white; */
+    font-size: 14px;
 }

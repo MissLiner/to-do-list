@@ -45,7 +45,7 @@ function loadBaseListeners() {
 
     newTaskBtn.addEventListener('click', () => {
         toggleHidden(newTaskForm);
-        clear(newTaskForm);
+        newTaskForm.reset();
     });
 
     newTaskForm.addEventListener('submit', () => {
@@ -53,7 +53,7 @@ function loadBaseListeners() {
 
         addNewTaskToList();
         toggleHidden(newTaskForm);
-        clear(newTaskForm);
+        newTaskForm.reset();
         displayTasks(viewOptions.value);
     })
 
