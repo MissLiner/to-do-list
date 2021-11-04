@@ -27,7 +27,7 @@ function loadBaseListeners() {
     const sortBtn = getEl('sort-btn');
     const sortMenu = getEl('sort-menu');
     const helpBtn = getEl('help-btn');
-    //const dropdowns = queryAll('.dropdown');
+    const dropdowns = queryAll('.dropdown');
 
     // function toggleListener(menu) {
     //     if (!menu.classList.contains('hidden')) {
@@ -54,11 +54,13 @@ function loadBaseListeners() {
         }
     })
 
-
-
     //EDIT LISTS
+    const editDiv = getEl('edit-div');
+
     editMenu.addEventListener('click', (e) => {
         createEditList(e.target);
+        toggleHidden(editMenu);
+        toggleHidden(editDiv);
     })
 
     //ADD NEW TASK

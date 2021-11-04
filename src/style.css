@@ -8,15 +8,15 @@ h1 {
     padding-top: 20px;
     text-align: center;
 }
+h2 {
+    margin-bottom: 20px;
+}
 input, select{
     background-color: white;
 }
 
 .category-div {
     padding-bottom: 10px;
-}
-.category-title {
-    padding-bottom: 5px;
 }
 .delete-btn {
     border: none;
@@ -56,6 +56,9 @@ input, select{
 .hidden {
     display: none;
 }
+.list-child {
+    background-color: white;
+}
 .menu {
     background-color: transparent;
     margin: unset;
@@ -70,6 +73,15 @@ input, select{
 }
 .notes-label {
     grid-area: i;
+}
+.pop-up {
+    background-color: white;
+    border: solid;
+    padding: 20px;
+    position: absolute;
+    width:70%;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 .task-basic-div {
     display: flex;

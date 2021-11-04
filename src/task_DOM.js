@@ -237,21 +237,35 @@ function createEditList(trigger) {
     while (editDiv.firstChild) {
         editDiv.removeChild(editDiv.firstChild);
     }
-    const listTitle = document.createElement('h3');
+    const listTitle = document.createElement('h2');
     listTitle.id = 'list-title';
+    listTitle.classList.add('list-child');
     editDiv.appendChild(listTitle);
 
     const list = document.createElement('ul');
     list.id = 'list';
+    list.classList.add('list-child');
     editDiv.appendChild(list);
+
+    function addDeleteBtn(element, item) {
+        const deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('delete-btn');
+        deleteBtn.setAttribute('data-index', item);
+        deleteBtn.title = 'Delete';
+        deleteBtn.insertAdjacentHTML('beforeend', '<i class="far fa-trash-alt fa-lg"></i>' );
+        element.appendChild(deleteBtn);
+    }
 
     function createList(arr) {
         listTitle.textContent = arr.title;
         arr.forEach(item => {
             const listItem = document.createElement('li');
-            listItem.classList.add('list-item');
-            listItem.textContent = item;
             list.appendChild(listItem);
+            listItem.setAttribute('data-index', item);
+            //figure out how to connect delete button to task and list element
+            listItem.classList.add('list-item', 'list-child');
+            listItem.textContent = item;
+            addDeleteBtn(listItem, item);
         })
     }
 
