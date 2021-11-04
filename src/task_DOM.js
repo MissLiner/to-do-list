@@ -91,7 +91,7 @@ function displayTasks(property) {
                             expandBtn.classList.add('expand-btn');
                             expandBtn.value = taskNumber;
                             expandBtn.title = 'Expand';
-                            expandBtn.insertAdjacentHTML('beforeend', '<i class="fas fa-angle-down"></i>');
+                            expandBtn.insertAdjacentHTML('beforeend', '<i class="fas fa-caret-square-down fa-lg"></i>');
                             taskBasicDiv.appendChild(expandBtn);
                         }
                         function createDeleteBtn() {
@@ -99,7 +99,7 @@ function displayTasks(property) {
                             deleteBtn.classList.add('delete-btn');
                             deleteBtn.value = taskNumber;
                             deleteBtn.title = 'Delete';
-                            deleteBtn.insertAdjacentHTML('beforeend', '<i class="far fa-trash-alt"></i>' );
+                            deleteBtn.insertAdjacentHTML('beforeend', '<i class="far fa-trash-alt fa-lg"></i>' );
                             taskBasicDiv.appendChild(deleteBtn);
                         }
                         function createDetails() {

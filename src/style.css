@@ -36,6 +36,16 @@ input, select{
     padding: 5px 0px 5px 0px;
     width: 100%;
 }
+.expand-btn {
+    border: none;
+    
+}
+.fa-caret-square-down {
+    color:steelblue;
+}
+.fa-trash-alt {
+    color:steelblue;
+}
 .form-btn {
     background-color: white;
 }
@@ -61,7 +71,6 @@ input, select{
     grid-area: b;
 }
 .task-detail-div {
-    background-color: lightgray;
     display: grid !important;
     grid-template:
     "a a b b b b"
