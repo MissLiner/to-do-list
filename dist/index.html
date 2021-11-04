@@ -10,90 +10,110 @@
   </head>
 
   <body>
-      <h1>Can-Do List</h1>
+    <h1>Can-Do List</h1>
 
-      <div id="menu-bar">
-          <label id="view-label" class="menu-btn">View by: <select id="view-options" class="menu-btn">
-            <option value="status">Status</option>
-            <option value="priority">Priority</option>
-            <option value="category">Category</option>
-            <option value="project">Project</option>
-            <option value="duedate">Due Date</option>
-          </select>
-        </label>
+    <button id="view-completed-btn" class="view-element">Hide Completed Tasks</button>
+
+    <div id="menu-bar">
+      <label id="view-label" class="menu-btn">View by: 
+        <select id="view-options" class="menu-btn">
+          <option value="status">Status</option>
+          <option value="priority">Priority</option>
+          <option value="category">Category</option>
+          <option value="project">Project</option>
+          <option value="duedate">Due Date</option>
+        </select>
+      </label>
+      
+      <div class="menu">
+        <button id="edit-btn" class="menu-btn">Edit</button>
         
-        <div class="menu">
-          <button id="edit-btn" class="menu-btn">Edit</button>
-          <div id="edit-menu" class="dropdown hidden">
-            <button class="dropdown-btn">Categories</button>
-            <button class="dropdown-btn">Projects</button>
-            <button class="dropdown-btn">Priority Levels</button>
-            <button class="dropdown-btn">Statuses</button>
-            <button class="dropdown-btn">List Title</button>
-          </div>
+        <div id="edit-menu" class="dropdown hidden">
+          <button id="edit-cat-btn" class="dropdown-btn">Categories</button>
+          <button id="edit-proj-btn" class="dropdown-btn">Projects</button>
+          <button id="edit-prior-btn" class="dropdown-btn">Priority Levels</button>
+          <button id="edit-stat-btn" class="dropdown-btn">Statuses</button>
+          <button id="edit-list-btn" class="dropdown-btn">List Title</button>
         </div>
-
-        <button id="new-task-btn" class="menu-btn">New Task</button>
-
-        <div class="menu">
-          <button id="sort-btn" class="menu-btn">Sort</button>
-          <div id="sort-menu" class="dropdown hidden">
-            <button class="dropdown-btn">by Duedate</button>
-            <button class="dropdown-btn">by Priority Level</button>
-            <button class="dropdown-btn">A to Z</button>
-            <button class="dropdown-btn">Z to A</button>
-          </div>
-        </div>
-        <button id="help-btn" class="menu-btn">Help</button>
       </div>
 
-      <div id="content-div"></div>
+      <button id="new-task-btn" class="menu-btn">New Task</button>
 
-      <button id="view-completed-btn" class="view-element">Hide Completed Tasks</button>
+      <div class="menu">
+        <button id="sort-btn" class="menu-btn">Sort</button>
 
+        <div id="sort-menu" class="dropdown hidden">
+          <button class="dropdown-btn">by Duedate</button>
+          <button class="dropdown-btn">by Priority Level</button>
+          <button class="dropdown-btn">A to Z</button>
+          <button class="dropdown-btn">Z to A</button>
+        </div>
+      </div>
 
-      <form id="new-task-form" class="hidden">
-        <label>Task Name:<input id="name-field" name="name"></label>
-        <label>Description:<input id="desc-field" name="description"></label>
-        <label>Category:<select id="category-select" class="category-select" name="category">
-          <option value="None" selected>None</option>
-          <option id="add-category" value="Add new">Add new</option>
-        </select></label>
-        <label>Project:<select id="project-select" class="project-select" name="project">
+      <button id="help-btn" class="menu-btn">Help</button>
+    </div>
+
+    <div id="content-div"></div>
+
+    <form id="new-task-form" class="hidden">
+      <label>Task Name:
+        <input id="name-field" name="name">
+      </label>
+      <label>Description:
+        <input id="desc-field" name="description">
+      </label>
+      <label>Category:
+          <select id="category-select" class="category-select" name="category">
+            <option value="None" selected>None</option>
+            <option id="add-category" value="Add new">Add new</option>
+          </select>
+      </label>
+      <label>Project:
+        <select id="project-select" class="project-select" name="project">
           <option value="None" selected>None</option>
           <option id="add-project" value="Add new">Add new</option>
-        </select></label>
-        <label>Due:<input id="duedate-select" name="duedate" type="date"></label>
-        <label>Priority Level:<select id="priority-select" name="priority">
-            <option value="1-High">1-High</option>
-            <option value="2-Medium">2-Medium</option>
-            <option value="3-Low">3-Low</option>
-          </select>
-        </label>
-        <label>Notes:<input id="notes-field" name="notes"></label>
-        <input id="submit-task-btn" class="form-btn" type="submit" value="submit">
-        <button id="cancel-new-task-btn" class="form-btn" type="button">Cancel</button>
-      </form>
+        </select>
+      </label>
+      <label>Due:
+        <input id="duedate-select" name="duedate" type="date">
+      </label>
+      <label>Priority Level:
+        <select id="priority-select" name="priority">
+          <option value="1-High">1-High</option>
+          <option value="2-Medium">2-Medium</option>
+          <option value="3-Low">3-Low</option>
+        </select>
+      </label>
+      <label>Notes:
+        <input id="notes-field" name="notes">
+      </label>
+      <input id="submit-task-btn" class="form-btn" type="submit" value="Add Task">
+      <input id="cancel-new-task-btn" class="form-btn" type="button" value="Cancel">
+    </form>
 
-      <div id="add-category-form" class="hidden">
-        <label>New category:<input id="add-category-field"></label>
-        <button id="add-category-btn" class="form-btn">Add</button>
-        <button id="cancel-add-cat-btn" class="form-btn">Cancel</button>
-      </div>
+    <div id="add-category-form" class="hidden">
+      <label>New category:
+        <input id="add-category-field">
+      </label>
 
-      <div id="add-project-form" class="hidden">
-        <label>New project:<input id="add-project-field"></label>
-        <button id="add-project-btn" class="form-btn">Add</button>
-        <button id="cancel-add-proj-btn" class="form-btn">Cancel</button>
-      </div>
+      <button id="add-category-btn" class="form-btn">Add Category</button>
+      <button id="cancel-add-cat-btn" class="form-btn">Cancel</button>
+    </div>
 
-      <div id="delete-dialog" class="hidden">
-        <p>Are you sure you want to permanently delete this task?</p>
-        <button id="cancel-del-btn" class="del-dialog-btn form-btn" value="Oops, no">Oops, no</button>
-        <button id="confirm-del-btn" class="del-dialog-btn form-btn">Yes, please!</button>
-      </div>
+    <div id="add-project-form" class="hidden">
+      <label>New project:
+        <input id="add-project-field">
+      </label>
 
+      <button id="add-project-btn" class="form-btn">Add Project</button>
+      <button id="cancel-add-proj-btn" class="form-btn">Cancel</button>
+    </div>
 
+    <div id="delete-dialog" class="hidden">
+      <p>Are you sure you want to permanently delete this task?</p>
+
+      <button id="cancel-del-btn" class="del-dialog-btn form-btn">Oops, no</button>
+      <button id="confirm-del-btn" class="del-dialog-btn form-btn">Yes, please!</button>
+    </div>
   </body>
-
 </html>
