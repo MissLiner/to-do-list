@@ -84,9 +84,11 @@ function loadBaseListeners() {
         categoryInputs.forEach(input => {
             createDropdown(categories, input.id);
         })
-        addCategoryInput.textContent = '';
+        updateTask(addCategoryBtn, )
+        addCategoryInput.value = '';
         toggleHidden(addCategoryForm);
     })
+
     cancelAddCatBtn.addEventListener('click', () => {
         addCategoryInput.value = '';
         toggleHidden(addCategoryForm);
@@ -196,22 +198,22 @@ function loadTaskListeners() {
 
     function toggleTask() {
         taskNameDivs.forEach(div => {
-            if (div.classList.contains(currentTask)) {
+            if (div.dataset.index == currentTask) {
                 div.contentEditable = 'true';
             }
         })
         taskDateDivs.forEach(div => {
-            if (div.classList.contains(currentTask)) {
+            if (div.dataset.index == currentTask) {
                 toggleHidden(div);
             } 
         })
         editDateDivs.forEach(div => {
-            if (div.classList.contains(currentTask)) {
+            if (div.dataset.index == currentTask) {
                 toggleHidden(div);
             }
         })
         taskDetailDivs.forEach(div => {
-            if (div.classList.contains(currentTask)) {
+            if (div.dataset.index == currentTask) {
                 const children = div.childNodes;
                 children.forEach(child => {
                     toggleHidden(child);
@@ -222,13 +224,13 @@ function loadTaskListeners() {
 
     queryAll('.expand-btn').forEach(button => {
         button.addEventListener('click', () => {
-            if (button.value == currentTask) {
+            if (button.dataset.index == currentTask) {
                 toggleTask();
                 currentTask = 'none';
             }
             else {
                 toggleTask();
-                currentTask = button.value;
+                currentTask = button.dataset.index;
                 toggleTask();
             }
         })
@@ -269,12 +271,12 @@ function loadTaskListeners() {
             let property = subdiv.dataset.property;
 
             taskBasicDivs.forEach(div => {
-                if (div.classList.contains(currentTask)) {
+                if (div.dataset.index == currentTask) {
                     currentBasicDiv = div;
                 }
             })
             taskDateDivs.forEach(div => {
-                if (div.classList.contains(currentTask)) {
+                if (div.dataset.index == currentTask) {
                     currentDateDiv = div;
                 }
             })
@@ -294,7 +296,7 @@ function loadTaskListeners() {
     queryAll('.delete-btn').forEach(button => {
         button.addEventListener('click', () => {
             toggleHidden(deleteDialog);
-            currentTask = button.value;
+            currentTask = button.dataset.index;
         })
     })
 

@@ -32,7 +32,7 @@ function addItemToArray(item, arr) {
 
 function updateTask(trigger, property) {
     taskList.forEach(task => {
-        if (trigger.classList.contains(task.index)) {
+        if (trigger.dataset.index == task.index) {
             task[property] = trigger.value;
             storeList(taskList);
         }
@@ -44,7 +44,7 @@ function updateTask(trigger, property) {
 //      5. if task is already completed, toggle back to active task list
 function completeTask(trigger) {
     taskList.forEach(task => {
-        if (task.index == trigger.value) {
+        if (trigger.dataset.index == task.index) {
             task.status = 'Complete';
             storeList(taskList);
         }
