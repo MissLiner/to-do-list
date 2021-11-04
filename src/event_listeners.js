@@ -141,6 +141,17 @@ function loadBaseListeners() {
             toggleHidden(completeDiv);
         })
     })
+    //DELETE FORM
+    const cancelDelBtn = getEl('cancel-del-btn');
+    const confirmDelBtn = getEl('confirm-del-btn');
+    const deleteDialog = getEl('delete-dialog');
+
+    cancelDelBtn.addEventListener('click', () => {
+        toggleHidden(deleteDialog);
+    })
+    confirmDelBtn.addEventListener('click', () => {
+        toggleHidden(deleteDialog);
+    })
 }
 
 
@@ -237,6 +248,7 @@ function loadTaskListeners() {
     })
 
     //EDIT TASK
+    const viewOptions = getEl('view-options');
     const taskBasicDivs = queryAll('.task-basic-div');
     const taskSubDivs = queryAll('.task-subdiv');
     let currentBasicDiv;
@@ -292,6 +304,7 @@ function loadTaskListeners() {
 
     //DELETE TASK
     const deleteDialog = getEl('delete-dialog');
+    const confirmDelBtn = getEl('confirm-del-btn');
 
     queryAll('.delete-btn').forEach(button => {
         button.addEventListener('click', () => {
@@ -300,15 +313,9 @@ function loadTaskListeners() {
         })
     })
 
-    getEl('abort-del-btn').addEventListener('click', () => {
-        toggleHidden(deleteDialog);
-    })
-
-    const viewOptions = getEl('view-options');
-    getEl('confirm-del-btn').addEventListener('click', () => {
+    confirmDelBtn.addEventListener('click', () => {
         deleteTask(currentTask);
         displayTasks(viewOptions.value);
-        toggleHidden(deleteDialog);
     })
 
     //COMPLETE TASK
