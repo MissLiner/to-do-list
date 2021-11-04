@@ -4,14 +4,14 @@
     margin: auto;
     text-align: center;
 }
-
 h1 {
     padding-top: 20px;
     text-align: center;
 }
-.view-element {
-    display: block;
+input, select{
+    background-color: white;
 }
+
 .category-div {
     padding-bottom: 20px;
 }
@@ -19,30 +19,12 @@ h1 {
     border: none;
     background: transparent;
 }
-.dropdown {
-    float: left;
-}
-.hidden {
-    display: none;
-}
-.task-basic-div {
-    display: flex;
-    width: 500px;
-}
-.task-detail-div {
-    background-color: lightgray;
-    display: grid !important;
-    grid-template:
-    "a a b b b b"
-    "c d e f g h"
-    "i i j j j j";
-    width: 500px;
-}
 .description-label {
     grid-area: a;
 }
 .dropdown {
     background-color:steelblue;
+    float: left;
     margin-top: 5px;
     padding: 5px 5px 5px 5px;
 }
@@ -54,6 +36,12 @@ h1 {
     padding: 5px 0px 5px 0px;
     width: 100%;
 }
+.form-btn {
+    background-color: white;
+}
+.hidden {
+    display: none;
+}
 .menu-btn {
     background-color: steelblue;
     border: none;
@@ -62,14 +50,27 @@ h1 {
     height: 40px;
     /* vertical-align: middle; */
 }
+.notes-label {
+    grid-area: i;
+}
+.task-basic-div {
+    display: flex;
+    width: 500px;
+}
 .task-description-input {
     grid-area: b;
 }
+.task-detail-div {
+    background-color: lightgray;
+    display: grid !important;
+    grid-template:
+    "a a b b b b"
+    "c d e f g h"
+    "i i j j j j";
+    width: 500px;
+}
 .task-name {
     font-weight: bold;
-}
-.notes-label {
-    grid-area: i;
 }
 .task-notes-input {
     grid-area: j;
@@ -79,6 +80,9 @@ h1 {
 }
 .task-subdiv {
     flex: 1 1 0;
+}
+.view-element {
+    display: block;
 }
 
 #menu-bar {
