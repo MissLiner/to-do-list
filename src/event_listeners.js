@@ -263,25 +263,28 @@ function loadTaskListeners() {
 
     taskSubDivs.forEach(subdiv => {
         subdiv.addEventListener('change', () => {
+            if (subdiv.value == 'Add new') {
+                return;
+            }
             let property = subdiv.dataset.property;
-            updateTask(subdiv, property);
-            
+
             taskBasicDivs.forEach(div => {
                 if (div.classList.contains(currentTask)) {
                     currentBasicDiv = div;
                 }
             })
-            if (property == 'priority') {
-                colorCode(subdiv);
-            }
             taskDateDivs.forEach(div => {
                 if (div.classList.contains(currentTask)) {
                     currentDateDiv = div;
                 }
             })
-            if (subdiv.dataset.property == 'duedate') {
+            if (property == 'priority') {
+                colorCode(subdiv);
+            }
+            if (property == 'duedate') {
                 updateDay(subdiv, currentDateDiv);
             }
+            updateTask(subdiv, property);
         })
     })
 
