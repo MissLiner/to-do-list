@@ -28,7 +28,7 @@ input, select{
 .dropdown {
     background-color:steelblue;
     float: left;
-    margin-top: 5px;
+    /* margin:unset; */
     padding: 5px 5px 5px 5px;
 }
 .dropdown-btn {
@@ -36,6 +36,7 @@ input, select{
     border: none;
     color: white;
     font-size: 16px;
+    /* margin: unset; */
     padding: 5px 0px 5px 0px;
     width: 100%;
 }
@@ -55,12 +56,17 @@ input, select{
 .hidden {
     display: none;
 }
+.menu {
+    background-color: transparent;
+    margin: unset;
+}
 .menu-btn {
     background-color: steelblue;
     border: none;
     color: white;
     font-size: large;
     height: 40px;
+    margin-top: 0px;
 }
 .notes-label {
     grid-area: i;
@@ -99,6 +105,9 @@ input, select{
     display: block;
 }
 
+#content {
+    margin: auto;
+}
 #menu-bar {
     background-color:steelblue;
     color: white;
