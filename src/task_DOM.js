@@ -1,4 +1,4 @@
-import { content , taskList, priorities, categories, projects } from './index.js';
+import { content , taskList, priorities, categories, projects, statuses } from './index.js';
 import { loadTaskListeners } from './event_listeners';
 import  formatRelative  from 'date-fns/formatRelative';
 import parseISO from 'date-fns/parseISO';
@@ -227,18 +227,54 @@ function createDropdown(arr, elementID) {
             mainField.appendChild(option);
         })
     }
-        createOptions(options);
-        createOptions(arr);
-        // let currentIndex;
-        // taskList.forEach((task, i) => {
-        //     if (i == elementID.match(/(\d+)/)) {
-        //         currentIndex = i;
-        //     }
-        // })
-        // mainField.selectedIndex = taskList[currentIndex];
+    createOptions(options);
+    createOptions(arr);
+}
+
+function createEditList(trigger) {
+    const editDiv = document.getElementById('edit-div');
+
+    while (editDiv.firstChild) {
+        editDiv.removeChild(editDiv.firstChild);
+    }
+    const listTitle = document.createElement('h3');
+    listTitle.id = 'list-title';
+    editDiv.appendChild(listTitle);
+
+    const list = document.createElement('ul');
+    list.id = 'list';
+    editDiv.appendChild(list);
+
+    function createList(arr) {
+        listTitle.textContent = arr.title;
+        arr.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.classList.add('list-item');
+            listItem.textContent = item;
+            list.appendChild(listItem);
+        })
+    }
+
+    switch(trigger.id) {
+        case 'edit-cat-btn':
+            createList(categories);
+            break;
+        case 'edit-proj-btn':
+            createList(projects);
+            break;
+        case 'edit-prior-btn':
+            createList(priorities);
+            break;
+        case 'edit-stat-btn':
+            createList(statuses);
+            break;
+        case 'edit-list-btn':
+            break;
+    }
 }
 
 export {
     displayTasks,
     createDropdown,
+    createEditList,
 }

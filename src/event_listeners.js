@@ -1,5 +1,5 @@
 import { addItemToArray, addNewTaskToList, completeTask, deleteTask, updateTask } from './task_logic';
-import { createDropdown, displayTasks } from './task_DOM'
+import { createDropdown, displayTasks, createEditList } from './task_DOM'
 import { categories, projects, taskList } from './index'
 import  formatRelative  from 'date-fns/formatRelative';
 import parseISO from 'date-fns/parseISO';
@@ -28,16 +28,21 @@ function loadBaseListeners() {
     const sortMenu = getEl('sort-menu');
     const helpBtn = getEl('help-btn');
 
-    menuBar.addEventListener('click', () => {
-        if (event.target === editBtn) {
+    menuBar.addEventListener('click', (e) => {
+        if (e.target === editBtn) {
             toggleHidden(editMenu);
         }
-        if (event.target === sortBtn) {
+        if (e.target === sortBtn) {
             toggleHidden(sortMenu);
         }
-        if (event.target === helpBtn) {
+        if (e.target === helpBtn) {
             alert('Help you?!? I\'m barely keeping my own shit together. Sorry buddy!')
         }
+    })
+
+    //EDIT LISTS
+    editMenu.addEventListener('click', (e) => {
+        createEditList(e.target);
     })
 
     //ADD NEW TASK
@@ -50,8 +55,8 @@ function loadBaseListeners() {
         newTaskForm.reset();
     });
 
-    newTaskForm.addEventListener('submit', () => {
-        event.preventDefault();
+    newTaskForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
         addNewTaskToList();
         toggleHidden(newTaskForm);
@@ -119,7 +124,7 @@ function loadBaseListeners() {
                 createDropdown(projects, select.id);
             })
     })
-    
+
     cancelAddProjBtn.addEventListener('click', () => {
         toggleHidden(addProjectForm);
     })

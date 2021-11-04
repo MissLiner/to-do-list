@@ -14,6 +14,8 @@ let projects = ['Update kitchen', 'AB anxiety'];
 projects.title = 'projects';
 let priorities = ['1-High', '2-Medium', '3-Low'];
 priorities.title = 'priorities';
+let statuses = ['Active', 'Complete'];
+statuses.title = 'statuses';
 
 const content = document.getElementById('content-div');
 
@@ -63,4 +65,5 @@ export {
     categories,
     priorities,
     projects,
+    statuses,
 }
