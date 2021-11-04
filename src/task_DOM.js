@@ -250,7 +250,7 @@ function createEditList(trigger) {
 
     function addDeleteBtn(element, item) {
         const deleteBtn = document.createElement('button');
-        deleteBtn.classList.add('delete-btn');
+        deleteBtn.classList.add('delete-btn', 'del-item-btn');
         deleteBtn.setAttribute('data-index', item);
         deleteBtn.title = 'Delete';
         deleteBtn.insertAdjacentHTML('beforeend', '<i class="far fa-trash-alt fa-lg"></i>' );

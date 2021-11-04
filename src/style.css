@@ -18,6 +18,9 @@ input, select{
 .category-div {
     padding-bottom: 10px;
 }
+.del-item-btn {
+    float: right;
+}
 .delete-btn {
     border: none;
     background: transparent;
@@ -59,6 +62,10 @@ input, select{
 .list-child {
     background-color: white;
 }
+.list-item {
+    text-align: left;
+    width: 60%;
+}
 .menu {
     background-color: transparent;
     margin: unset;
@@ -79,7 +86,7 @@ input, select{
     border: solid;
     padding: 20px;
     position: absolute;
-    width:70%;
+    width:30%;
     left: 50%;
     transform: translate(-50%, 0);
 }
