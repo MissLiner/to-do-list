@@ -15,8 +15,6 @@ projects.title = 'projects';
 let priorities = ['1-High', '2-Medium', '3-Low'];
 priorities.title = 'priorities';
 
-
-
 const content = document.getElementById('content-div');
 
 //local storage - retrieve
@@ -41,11 +39,11 @@ const content = document.getElementById('content-div');
 
 loadBaseListeners();
 displayTasks('status');
-createDropdown(categories, 'category-field');
-createDropdown(projects, 'project-field');
+createDropdown(categories, 'category-select');
+createDropdown(projects, 'project-select');
 
 (function setDate() {
-    const newTaskDate = document.getElementById('duedate-field');
+    const newTaskDate = document.getElementById('duedate-select');
     const today = new Date();
     let DD = today.getDate();
     let MM = today.getMonth() + 1;

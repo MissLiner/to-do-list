@@ -55,16 +55,16 @@
       <form id="new-task-form" class="hidden">
         <label>Task Name:<input id="name-field" name="name"></label>
         <label>Description:<input id="desc-field" name="description"></label>
-        <label>Category:<select id="category-field" class="category-field" name="category">
+        <label>Category:<select id="category-select" class="category-select" name="category">
           <option value="None" selected>None</option>
           <option id="add-category" value="Add new">Add new</option>
         </select></label>
-        <label>Project:<select id="project-field" class="project-field" name="project">
+        <label>Project:<select id="project-select" class="project-select" name="project">
           <option value="None" selected>None</option>
           <option id="add-project" value="Add new">Add new</option>
         </select></label>
-        <label>Due:<input id="duedate-field" name="duedate" type="date"></label>
-        <label>Priority Level:<select id="priority-field" name="priority">
+        <label>Due:<input id="duedate-select" name="duedate" type="date"></label>
+        <label>Priority Level:<select id="priority-select" name="priority">
             <option value="1-High">1-High</option>
             <option value="2-Medium">2-Medium</option>
             <option value="3-Low">3-Low</option>
@@ -76,13 +76,13 @@
       </form>
 
       <div id="add-category-form" class="hidden">
-        <label>New category:<input id="add-category-input"></label>
+        <label>New category:<input id="add-category-field"></label>
         <button id="add-category-btn" class="form-btn">Add</button>
         <button id="cancel-add-cat-btn" class="form-btn">Cancel</button>
       </div>
 
       <div id="add-project-form" class="hidden">
-        <label>New project:<input id="add-project-input"></label>
+        <label>New project:<input id="add-project-field"></label>
         <button id="add-project-btn" class="form-btn">Add</button>
         <button id="cancel-add-proj-btn" class="form-btn">Cancel</button>
       </div>
