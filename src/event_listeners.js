@@ -4,6 +4,8 @@ import { categories, projects, taskList } from './index'
 import  formatRelative  from 'date-fns/formatRelative';
 import parseISO from 'date-fns/parseISO';
 
+let currentTask;
+
 function loadBaseListeners() {
     function getEl(id) {
         return document.getElementById(id);
@@ -145,11 +147,14 @@ function loadBaseListeners() {
     const cancelDelBtn = getEl('cancel-del-btn');
     const confirmDelBtn = getEl('confirm-del-btn');
     const deleteDialog = getEl('delete-dialog');
+    //const viewOptions = getEl('view-options');
 
     cancelDelBtn.addEventListener('click', () => {
         toggleHidden(deleteDialog);
     })
     confirmDelBtn.addEventListener('click', () => {
+        deleteTask(currentTask);
+        displayTasks(viewOptions.value);
         toggleHidden(deleteDialog);
     })
 }
@@ -168,8 +173,7 @@ function loadTaskListeners() {
         }
         else (elem.classList.add('hidden'));
     }
-
-    let currentTask;
+    const viewOptions = getEl('view-options');
 
     //ADD CATEGORY
     const categoryInputs = queryAll('.task-category-select');
@@ -248,7 +252,7 @@ function loadTaskListeners() {
     })
 
     //EDIT TASK
-    const viewOptions = getEl('view-options');
+
     const taskBasicDivs = queryAll('.task-basic-div');
     const taskSubDivs = queryAll('.task-subdiv');
     let currentBasicDiv;
@@ -302,24 +306,21 @@ function loadTaskListeners() {
         })
     })
 
-    //DELETE TASK
+    //OPEN DELETE FORM
     const deleteDialog = getEl('delete-dialog');
-    const confirmDelBtn = getEl('confirm-del-btn');
+    const deleteBtns = queryAll('.delete-btn');
 
-    queryAll('.delete-btn').forEach(button => {
+    deleteBtns.forEach(button => {
         button.addEventListener('click', () => {
             toggleHidden(deleteDialog);
             currentTask = button.dataset.index;
         })
     })
 
-    confirmDelBtn.addEventListener('click', () => {
-        deleteTask(currentTask);
-        displayTasks(viewOptions.value);
-    })
-
     //COMPLETE TASK
-    queryAll('.task-checkbox').forEach(box => {
+    const checkboxes = queryAll('.task-checkbox')
+
+    checkboxes.forEach(box => {
         box.addEventListener('change', () => {
             completeTask(box);
             displayTasks(viewOptions.value);

@@ -15,6 +15,8 @@ projects.title = 'projects';
 let priorities = ['1-High', '2-Medium', '3-Low'];
 priorities.title = 'priorities';
 
+
+
 const content = document.getElementById('content-div');
 
 //local storage - retrieve
