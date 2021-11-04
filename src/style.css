@@ -61,7 +61,6 @@ input, select{
     color: white;
     font-size: large;
     height: 40px;
-    /* vertical-align: middle; */
 }
 .notes-label {
     grid-area: i;
@@ -127,10 +126,11 @@ input, select{
     top: 40px;
 }
 #view-label {
-    height: 20px;
     width: 80px;
 }
 #view-options {
     font-size: 14px;
+}
+#view-label #view-options {
     height: 20px;
 }
