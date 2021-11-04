@@ -235,8 +235,8 @@ let currentArr;
 function createEditList(trigger) {
     const editDiv = document.getElementById('edit-div');
 
-    while (editDiv.firstChild) {
-        editDiv.removeChild(editDiv.firstChild);
+    for (let i = 1; i < editDiv.childNodes.length; i++) {
+        editDiv.removeChild(editDiv.lastChild);
     }
     const listTitle = document.createElement('h2');
     listTitle.id = 'list-title';
