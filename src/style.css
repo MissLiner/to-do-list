@@ -13,7 +13,10 @@ input, select{
 }
 
 .category-div {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+}
+.category-title {
+    padding-bottom: 5px;
 }
 .delete-btn {
     border: none;
@@ -38,7 +41,7 @@ input, select{
 }
 .expand-btn {
     border: none;
-    
+    margin-right: 10px;
 }
 .fa-caret-square-down {
     color:steelblue;
@@ -70,6 +73,9 @@ input, select{
 .task-description-input {
     grid-area: b;
 }
+.task-detail-child {
+    color: black !important;
+}
 .task-detail-div {
     display: grid !important;
     grid-template:
@@ -78,14 +84,14 @@ input, select{
     "i i j j j j";
     width: 500px;
 }
+.task-div {
+    margin-bottom: 10px;
+}
 .task-name {
     font-weight: bold;
 }
 .task-notes-input {
     grid-area: j;
-}
-.task-detail-child {
-    color: black !important;
 }
 .task-subdiv {
     flex: 1 1 0;
