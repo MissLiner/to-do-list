@@ -235,7 +235,6 @@ function loadTaskListeners() {
 
     listItems.forEach(field => {
         field.addEventListener('change', () => {
-            //setCurrentList(field);
             updateList(field, currentList);
         })
     })

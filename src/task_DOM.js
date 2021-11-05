@@ -274,6 +274,7 @@ function createEditList(arr) {
             listItemDiv.appendChild(listItem);
             listItem.setAttribute('data-index', item);
             listItem.classList.add('list-item', 'list-child');
+            listItem.maxLength = '20';
             listItem.value = item;
             //listItem.contentEditable = 'true';
         })

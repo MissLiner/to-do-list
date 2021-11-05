@@ -32,8 +32,7 @@ input, select{
 }
 .del-item-btn {
     display: inline-block;
-    left: 20%;
-    position: fixed;
+    width: 10%;
 }
 .delete-btn {
     border: none;
@@ -102,13 +101,13 @@ input, select{
 .list-item {
     background-color: white;
     border:none;
-    display: block;
+    display: inline-block;
     font-family: "Architects Daughter", cursive;
     font-size: x-large;
-    margin-right: 0px !important;
+    /* margin-right: 0px !important; */
     right: 0px;
     text-align: left;
-    width: 77%;
+    width: max-content;
 }
 .list-item-div {
     background-color: white;
@@ -117,7 +116,7 @@ input, select{
     margin: none;
     padding-bottom: 1%;
     padding-top: 1%;
-    width: 90%;
+    width: 80%;
 }
 .list-item::after {
     content: '';
@@ -151,7 +150,7 @@ input, select{
 .pop-up {
     background-color: white;
     border: solid;
-    padding: 3% 3% 8% 3%;
+    padding: 3% 2% 8% 2%;
     position: absolute;
     width:40%;
     left: 50%;

@@ -55,6 +55,7 @@ function updateList(trigger, arr) {
             arr.splice(item.indexOf, 1, trigger.value);
         }
         trigger.dataset.index = trigger.value;
+        storeList(arr);
     })
 }
 function completeTask(trigger) {
