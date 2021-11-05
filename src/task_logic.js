@@ -61,14 +61,14 @@ function completeTask(trigger) {
     })
 }
 
-function deleteTask(value) {
-    taskList.forEach(task => {
-        if (task.index == value) {
-            let a = taskList.findIndex(object => object.index == value);
-            taskList.splice(a, 1);
+function deleteFromArr(value, arr) {
+    arr.forEach(item => {
+        if (item.index == value) {
+            let a = arr.findIndex(object => object.index == value);
+            arr.splice(a, 1);
         }
     })
-    storeList(taskList);
+    storeList(arr);
 }
 
 function editCategories() {
@@ -78,7 +78,7 @@ function editCategories() {
 export {
     addNewTaskToList,
     completeTask,
-    deleteTask,
+    deleteFromArr,
     storeList,
     addItemToArr,
     removeItemFromArr,

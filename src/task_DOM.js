@@ -103,6 +103,7 @@ function displayTasks(property) {
                             const deleteBtn = document.createElement('button');
                             deleteBtn.classList.add('delete-btn');
                             deleteBtn.setAttribute('data-index', taskNumber);
+                            deleteBtn.setAttribute('data-array', 'taskList');
                             deleteBtn.title = 'Delete';
                             deleteBtn.insertAdjacentHTML('beforeend', '<i class="far fa-trash-alt fa-lg"></i>' );
                             taskBasicDiv.appendChild(deleteBtn);
@@ -232,7 +233,21 @@ function createDropdown(arr, elementID) {
 }
 
 let currentArr;
-function createEditList(trigger) {
+function createEditList(arr) {
+    // switch(trigger.id) {
+    //     case 'edit-cat-btn':
+    //         currentArr = categories;
+    //         break;
+    //     case 'edit-proj-btn':
+    //         currentArr = projects;
+    //         break;
+    //     case 'edit-prior-btn':
+    //         currentArr = priorities;
+    //         break;
+    //     case 'edit-stat-btn':
+    //         currentArr = statuses;
+    //         break;}
+
     const editDiv = document.getElementById('edit-div');
 
     for (let i = 1; i < editDiv.childNodes.length; i++) {
@@ -253,9 +268,9 @@ function createEditList(trigger) {
         element.appendChild(deleteBtn);
         deleteBtn.classList.add('delete-btn', 'del-item-btn');
         deleteBtn.setAttribute('data-index', item);
+        deleteBtn.setAttribute('data-array', arr.title);
         deleteBtn.title = 'Delete';
         deleteBtn.insertAdjacentHTML('afterbegin', '<i class="far fa-trash-alt fa-lg"></i>');
-
     }
 
     function createList(arr) {
@@ -263,7 +278,7 @@ function createEditList(trigger) {
         arr.forEach(item => {
             const listItemDiv = document.createElement('div');
             listItemDiv.classList.add('list-item-div');
-            // listItemDiv.contentEditable = 'true';
+            listItemDiv.contentEditable = 'true';
             list.appendChild(listItemDiv);
             addDeleteBtn(listItemDiv, item);
 
@@ -277,24 +292,7 @@ function createEditList(trigger) {
 
         })
     }
-
-    switch(trigger.id) {
-        case 'edit-cat-btn':
-            currentArr = categories;
-            break;
-        case 'edit-proj-btn':
-            currentArr = projects;
-            break;
-        case 'edit-prior-btn':
-            currentArr = priorities;
-            break;
-        case 'edit-stat-btn':
-            currentArr = statuses;
-            break;
-        // case 'edit-list-btn':
-        //     break;
-    }
-    createList(currentArr);
+    createList(arr);
 }
 
 export {

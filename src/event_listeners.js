@@ -1,10 +1,11 @@
-import { addItemToArr, removeItemFromArr, addNewTaskToList, completeTask, deleteTask, updateTask } from './task_logic';
-import { createDropdown, displayTasks, createEditList, currentArr } from './task_DOM'
-import { categories, projects, taskList } from './index'
+import { addItemToArr, addNewTaskToList, completeTask, deleteFromArr, updateTask } from './task_logic';
+import { createDropdown, displayTasks, createEditList } from './task_DOM'
+import { categories, projects, taskList, priorities, statuses } from './index'
 import  formatRelative  from 'date-fns/formatRelative';
 import parseISO from 'date-fns/parseISO';
 
 let currentTask;
+let currentList;
 
 function loadBaseListeners() {
     function getEl(id) {
@@ -58,25 +59,45 @@ function loadBaseListeners() {
     const editDiv = getEl('edit-div');
 
     editMenu.addEventListener('click', (e) => {
-        createEditList(e.target);
+        switch(e.target.id) {
+            case 'edit-cat-btn':
+                currentList = categories;
+                break;
+            case 'edit-proj-btn':
+                currentList = projects;
+                break;
+            case 'edit-prior-btn':
+                currentList = priorities;
+                break;
+            case 'edit-stat-btn':
+                currentList = statuses;
+                break;}
+        createEditList(currentList);
         toggleHidden(editMenu);
         toggleHidden(editDiv);
     })
 
     //DELETE LIST ITEM
-    const listItems = queryAll('.list-item');
+    // const listItems = queryAll('.list-item');
 
-    editDiv.addEventListener('click', (e) =>{
-        let item = e.target.parentNode.dataset.index;
-        removeItemFromArr(item, currentArr);
-        createEditList(currentArr);
-        displayTasks(viewOptions.value);
+    // editDiv.addEventListener('click', (e) =>{
+    //     let item = e.target.parentNode.dataset.index;
+    //     removeItemFromArr(item, currentArr);
+    //     createEditList(currentArr);
+    //     displayTasks(viewOptions.value);
         // if (e.target.classList.contains('delete-btn')) {
         //     removeItemFromArr(e.target.dataset)
             // listItems.forEach(item => {
             //     //if (item.dataset.index == e.target.dataset.index)
             // })
         //}
+   // })
+
+    //CLOSE LIST
+    const exitPopupBtn = getEl('exit-popup-btn');
+
+    exitPopupBtn.addEventListener('click', () => {
+        toggleHidden(editDiv);
     })
 
     //ADD NEW TASK
@@ -189,9 +210,9 @@ function loadBaseListeners() {
     const deleteDialog = getEl('delete-dialog');
     //const viewOptions = getEl('view-options');
 
-    cancelDelBtn.addEventListener('click', () => {
-        toggleHidden(deleteDialog);
-    })
+    // cancelDelBtn.addEventListener('click', () => {
+    //     toggleHidden(deleteDialog);
+    // })
     confirmDelBtn.addEventListener('click', () => {
         deleteTask(currentTask);
         displayTasks(viewOptions.value);
@@ -347,13 +368,31 @@ function loadTaskListeners() {
     })
 
     //OPEN DELETE FORM
-    const deleteDialog = getEl('delete-dialog');
+    //const deleteDialog = getEl('delete-dialog');
     const deleteBtns = queryAll('.delete-btn');
+    
 
     deleteBtns.forEach(button => {
         button.addEventListener('click', () => {
-            toggleHidden(deleteDialog);
             currentTask = button.dataset.index;
+            const allLists = [taskList, categories, priorities, projects, statuses];
+
+            for (let list of allLists) {
+                if (list.title == button.dataset.array) {
+                    currentList = list;
+            }
+            const confirmDelete = confirm('Are you sure you want to delete this item?');
+            if (confirmDelete == false) {
+                return;
+            }
+            else if (confirmDelete == true) {
+                deleteFromArr(currentTask, currentList);
+                if (currentList !== taskList) {
+                    createEditList(currentList);
+                }
+                displayTasks(viewOptions.value);
+            }
+            }
         })
     })
 

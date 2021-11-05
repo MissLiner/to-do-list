@@ -231,6 +231,9 @@ input, select{
 #content {
     margin: auto;
 }
+#exit-popup-btn {
+    border: none;
+}
 #list {
     padding-left: none;
 }
