@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
 * {
-    background-color: #D8EEFE;
+    background-color: #F0E9E9;
+    /* color:#705D5C; */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: auto;
     text-align: center;
@@ -8,10 +11,16 @@
     transition-timing-function: ease;
 }
 h1 {
+    color:#31644D;
+    font-family: "Architects Daughter", cursive;
+    font-size:3em;
     padding-top: 20px;
     text-align: center;
 }
 h2 {
+    color:#46806E;
+    font-family: "Architects Daughter", cursive;
+    font-size: 2em;
     margin-bottom: 20px;
 }
 input, select{
@@ -35,13 +44,13 @@ input, select{
     grid-area: a;
 }
 .dropdown {
-    background-color:steelblue;
+    background-color:#A39886;
     float: left;
     /* margin:unset; */
     padding: 5px 5px 5px 5px;
 }
 .dropdown-btn {
-    background-color:steelblue;
+    background-color:#A39886;
     border: none;
     color: white;
     font-size: 16px;
@@ -79,7 +88,7 @@ input, select{
     display: none;
 }
 .inset-text {
-    background-color: #565656;
+    background-color: #dddcdc;
     color: transparent;
     text-shadow: 2px 2px 3px rgba(255,255,255,0.5);
     -webkit-background-clip: text;
@@ -119,7 +128,7 @@ input, select{
     margin: unset;
 }
 .menu-btn {
-    background-color: steelblue;
+    background-color: #A38786;
     border: none;
     color: white;
     font-size: large;
@@ -225,7 +234,7 @@ input, select{
     padding-left: none;
 }
 #menu-bar {
-    background-color:steelblue;
+    background-color:#A38786;
     color: white;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -237,21 +246,21 @@ input, select{
     z-index: 5;
 }
 #new-task-btn {
-    background-color: rgb(241, 240, 240);
-    border-color:rgb(187, 187, 187);
+    background-color: #A38786;
+    /* border-color:rgb(187, 187, 187);
     border-radius: 50%;
-    border-style: outset;
-    color:rgb(36, 36, 36);
+    border-style: outset; */
+    color:white;
     font-size: larger;
     font-weight: bold;
     width: 90%;
 }
-#new-task-btn::after,
-#new-task-btn::before,
-#view-label::before,
+/* #new-task-btn::after,
+#new-task-btn::before, */
+/* #view-label::before,
 #view-label::after {
     display:none;
-}
+} */
 #view-completed-btn {
     background-color: white;
     right: 60px;
@@ -259,11 +268,14 @@ input, select{
     top: 40px;
 }
 #view-label {
+    margin: auto;
+    text-align: center; 
+    margin-top: 4px;
     width: 80px;
 }
 #view-options {
     font-size: 14px;
 }
-#view-label #view-options {
-    height: 20px;
+#view-label, #view-options {
+    height: 25px;
 }

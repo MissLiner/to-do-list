@@ -174,13 +174,13 @@ function displayTasks(property) {
                         if (taskList[i].status === 'Active') {
                             switch(taskList[i].priority) {
                                 case '1-High':
-                                    taskDiv.style.color = '#BD0034';
+                                    taskDiv.style.color = '#9E3153';
                                     break;
                                 case '2-Medium':
-                                    taskDiv.style.color = '#D68301';
+                                    taskDiv.style.color = '#BD6B37';
                                     break;
                                 case '3-Low':
-                                    taskDiv.style.color = '#75990D';
+                                    taskDiv.style.color = '#5E8A32';
                                     break;
                             }
                         }
