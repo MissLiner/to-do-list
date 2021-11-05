@@ -263,16 +263,16 @@ function createEditList(trigger) {
         arr.forEach(item => {
             const listItemDiv = document.createElement('div');
             listItemDiv.classList.add('list-item-div');
+            // listItemDiv.contentEditable = 'true';
             list.appendChild(listItemDiv);
             addDeleteBtn(listItemDiv, item);
 
-            const listItem = document.createElement('li');
+            const listItem = document.createElement('p');
             listItemDiv.appendChild(listItem);
             listItem.setAttribute('data-index', item);
-            //figure out how to connect delete button to task and list element
             listItem.classList.add('list-item', 'list-child');
-
             listItem.textContent = item;
+            listItem.contentEditable = 'true';
 
 
         })
