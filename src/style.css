@@ -104,7 +104,7 @@ input, select{
     border:none;
     display: block;
     font-family: "Architects Daughter", cursive;
-    font-size: 1em;
+    font-size: x-large;
     margin-right: 0px !important;
     right: 0px;
     text-align: left;
@@ -151,7 +151,7 @@ input, select{
 .pop-up {
     background-color: white;
     border: solid;
-    padding: 3% 3% 4% 3%;
+    padding: 3% 3% 8% 3%;
     position: absolute;
     width:40%;
     left: 50%;
@@ -192,8 +192,15 @@ input, select{
 }
 
 #add-item-btn {
-    bottom: 5%;
+    background: transparent;
+    border: none;
+    bottom: 8%;
+    font-family: "Architects Daughter", cursive;
+    font-size:x-large;
+    left: 50%;
+    margin: auto;
     position:fixed;
+    transform: translateX(-50%);
 }
 #content {
     margin: auto;
