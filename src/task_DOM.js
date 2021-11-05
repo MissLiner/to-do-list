@@ -234,19 +234,6 @@ function createDropdown(arr, elementID) {
 
 let currentArr;
 function createEditList(arr) {
-    // switch(trigger.id) {
-    //     case 'edit-cat-btn':
-    //         currentArr = categories;
-    //         break;
-    //     case 'edit-proj-btn':
-    //         currentArr = projects;
-    //         break;
-    //     case 'edit-prior-btn':
-    //         currentArr = priorities;
-    //         break;
-    //     case 'edit-stat-btn':
-    //         currentArr = statuses;
-    //         break;}
 
     const editDiv = document.getElementById('edit-div');
 
@@ -288,8 +275,6 @@ function createEditList(arr) {
             listItem.classList.add('list-item', 'list-child');
             listItem.textContent = item;
             listItem.contentEditable = 'true';
-
-
         })
     }
     createList(arr);

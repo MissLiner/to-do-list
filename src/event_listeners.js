@@ -28,27 +28,13 @@ function loadBaseListeners() {
     const sortBtn = getEl('sort-btn');
     const sortMenu = getEl('sort-menu');
     const helpBtn = getEl('help-btn');
-    const dropdowns = queryAll('.dropdown');
-
-    // function toggleListener(menu) {
-    //     if (!menu.classList.contains('hidden')) {
-    //         window.addEventListener('click', (e) => {
-    //             if (e.target !== menu) {
-    //                 menu.classList.add('hidden');
-    //                 window.removeEventListener('click', e);
-    //             }
-    //         })
-    //     }
-    // }
 
     menuBar.addEventListener('click', (e) => {
         if (e.target === editBtn) {
             toggleHidden(editMenu);
-            //toggleListener(editMenu);
         }
         if (e.target === sortBtn) {
             toggleHidden(sortMenu);
-            //toggleListener(sortMenu);
         }
         if (e.target === helpBtn) {
             alert('Help you?!? I\'m barely keeping my own shit together. Sorry buddy!')
@@ -75,6 +61,7 @@ function loadBaseListeners() {
         createEditList(currentList);
         toggleHidden(editMenu);
         toggleHidden(editDiv);
+        displayTasks(viewOptions.value);
     })
 
     //DELETE LIST ITEM
@@ -139,7 +126,7 @@ function loadBaseListeners() {
     })
 
     addCategoryBtn.addEventListener('click', () => {
-        const newItem = addCategoryInput.value;
+        const newItem = addCategoryField.value;
         const categorySelects = queryAll('.task-category-select');
 
         addItemToArr(newItem, categories);
@@ -373,7 +360,6 @@ function loadTaskListeners() {
     
     deleteBtns.forEach(button => {
         button.addEventListener('click', () => {
-            console.log('hi');
             currentTask = button.dataset.index;
             const allLists = [taskList, categories, priorities, projects, statuses];
             for (let list of allLists) {
@@ -383,11 +369,14 @@ function loadTaskListeners() {
             }
             const confirmDelete = confirm('Are you sure you want to delete this item?');
             if (confirmDelete == true) {
-                 deleteFromArr(currentTask, currentList);
                 if (currentList !== taskList) {
+                    deleteFromArr(currentTask, currentList);
                     createEditList(currentList);
                 }
-                 displayTasks(viewOptions.value);
+                else {
+                    deleteFromArr(currentTask, currentList);
+                }
+                displayTasks(viewOptions.value);
             }
         })
     })

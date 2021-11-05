@@ -63,7 +63,7 @@ function completeTask(trigger) {
 
 function deleteFromArr(value, arr) {
     arr.forEach(item => {
-        if (item.index == value) {
+        if (item.index == value || item == value) {
             let a = arr.findIndex(object => object.index == value);
             arr.splice(a, 1);
         }
