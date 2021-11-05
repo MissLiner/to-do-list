@@ -52,7 +52,7 @@ function updateTask(trigger, property) {
 function updateList(trigger, arr) {
     arr.forEach(item => {
         if (item == trigger.dataset.index) {
-            item = trigger.value;
+            arr.splice(item.indexOf, 1, trigger.value);
         }
         trigger.dataset.index = trigger.value;
     })
