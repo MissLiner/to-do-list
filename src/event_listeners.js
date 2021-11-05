@@ -371,27 +371,23 @@ function loadTaskListeners() {
     //const deleteDialog = getEl('delete-dialog');
     const deleteBtns = queryAll('.delete-btn');
     
-
     deleteBtns.forEach(button => {
         button.addEventListener('click', () => {
+            console.log('hi');
             currentTask = button.dataset.index;
             const allLists = [taskList, categories, priorities, projects, statuses];
-
             for (let list of allLists) {
                 if (list.title == button.dataset.array) {
                     currentList = list;
+                }
             }
             const confirmDelete = confirm('Are you sure you want to delete this item?');
-            if (confirmDelete == false) {
-                return;
-            }
-            else if (confirmDelete == true) {
-                deleteFromArr(currentTask, currentList);
+            if (confirmDelete == true) {
+                 deleteFromArr(currentTask, currentList);
                 if (currentList !== taskList) {
                     createEditList(currentList);
                 }
-                displayTasks(viewOptions.value);
-            }
+                 displayTasks(viewOptions.value);
             }
         })
     })
