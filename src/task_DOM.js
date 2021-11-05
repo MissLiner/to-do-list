@@ -237,7 +237,7 @@ function createEditList(arr) {
 
     const editDiv = document.getElementById('edit-div');
 
-    for (let i = 1; i < editDiv.childNodes.length; i++) {
+    for (let i = 3; i < editDiv.childNodes.length; i++) {
         editDiv.removeChild(editDiv.lastChild);
     }
     const listTitle = document.createElement('h2');

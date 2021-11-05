@@ -191,6 +191,10 @@ input, select{
     display: block;
 }
 
+#add-item-btn {
+    bottom: 5%;
+    position:fixed;
+}
 #content {
     margin: auto;
 }
