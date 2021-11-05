@@ -43,6 +43,7 @@ function loadBaseListeners() {
 
     //EDIT LISTS
     const editDiv = getEl('edit-div');
+    const addItemBtn = getEl('add-item-btn');
 
     editMenu.addEventListener('click', (e) => {
         switch(e.target.id) {
@@ -63,6 +64,15 @@ function loadBaseListeners() {
         toggleHidden(editDiv);
         displayTasks(viewOptions.value);
     })
+    addItemBtn.addEventListener('click', () => {
+        switch(currentList) {
+            case 'categories':
+                toggleHidden(addCategoryForm);
+            case 'projects':
+                return;
+        }
+    })
+
 
     //CLOSE LIST
     const exitPopupBtn = getEl('exit-popup-btn');
@@ -97,18 +107,19 @@ function loadBaseListeners() {
 
     //ADD NEW CATEGORY
     const categorySelect = getEl('category-select');
-    const addCategoryForm = getEl('add-category-form');
-    const addCategoryBtn = getEl('add-category-btn');
-    const cancelAddCatBtn = getEl('cancel-add-cat-btn');
-    const addCategoryField = getEl('add-category-field');
+    const addItemForm = getEl('add-item-form');
+    const submitItemBtn = getEl('submit-item-btn');
+    const cancelAddBtn = getEl('cancel-add-btn');
+    const addItemField = getEl('add-item-field');
 
     categorySelect.addEventListener('change', () => {
         if (categorySelect.value === 'Add new') {
-            toggleHidden(addCategoryForm);
+            toggleHidden(addItemForm);
+            currentList = categories;
         }
     })
-
-    addCategoryBtn.addEventListener('click', () => {
+//update ad category and add add project forms to be one and attach to list add buttons too!!!!!
+    submitItemBtn.addEventListener('click', () => {
         const newItem = addCategoryField.value;
         const categorySelects = queryAll('.task-category-select');
 
@@ -238,6 +249,8 @@ function loadTaskListeners() {
             updateList(field, currentList);
         })
     })
+
+
 
     //EXPAND/COLLAPSE TASK
     const taskDetailDivs = queryAll('.task-detail-div');
