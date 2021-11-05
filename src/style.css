@@ -139,9 +139,6 @@ input, select{
     text-transform: uppercase;
     text-decoration: none;
 }
-.menu-btn:hover {
-    width:max-content;
-}
 .menu-btn:hover,
 .menu-btn:active {
     letter-spacing: 5px;
@@ -249,16 +246,11 @@ input, select{
     width: 100%;
     z-index: 5;
 }
-#new-task-btn {
-    background-color: #A38786;
-    /* border-color:rgb(187, 187, 187);
-    border-radius: 50%;
-    border-style: outset; */
+/* #new-task-btn {
     color:white;
-    font-size: larger;
-    font-weight: bold;
-    width: 90%;
-}
+    /* font-size: 1.5em; */
+    /* font-weight: bold;
+}  */
 /* #new-task-btn::after,
 #new-task-btn::before, */
 /* #view-label::before,
