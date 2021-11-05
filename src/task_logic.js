@@ -49,9 +49,14 @@ function updateTask(trigger, property) {
     })
 }
 
-// 3. complete-task
-//      2. change text and formatting to show it is completed
-//      5. if task is already completed, toggle back to active task list
+function updateList(trigger, arr) {
+    arr.forEach(item => {
+        if (item == trigger.dataset.index) {
+            item = trigger.value;
+        }
+        trigger.dataset.index = trigger.value;
+    })
+}
 function completeTask(trigger) {
     taskList.forEach(task => {
         if (trigger.dataset.index == task.index) {
@@ -71,10 +76,6 @@ function deleteFromArr(value, arr) {
     storeList(arr);
 }
 
-function editCategories() {
-
-}
-
 export {
     addNewTaskToList,
     completeTask,
@@ -83,4 +84,5 @@ export {
     addItemToArr,
     removeItemFromArr,
     updateTask,
+    updateList,
 }

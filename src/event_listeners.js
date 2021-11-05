@@ -1,4 +1,4 @@
-import { addItemToArr, addNewTaskToList, completeTask, deleteFromArr, updateTask } from './task_logic';
+import { addItemToArr, addNewTaskToList, completeTask, deleteFromArr, updateTask, updateList } from './task_logic';
 import { createDropdown, displayTasks, createEditList } from './task_DOM'
 import { categories, projects, taskList, priorities, statuses } from './index'
 import  formatRelative  from 'date-fns/formatRelative';
@@ -63,22 +63,6 @@ function loadBaseListeners() {
         toggleHidden(editDiv);
         displayTasks(viewOptions.value);
     })
-
-    //DELETE LIST ITEM
-    // const listItems = queryAll('.list-item');
-
-    // editDiv.addEventListener('click', (e) =>{
-    //     let item = e.target.parentNode.dataset.index;
-    //     removeItemFromArr(item, currentArr);
-    //     createEditList(currentArr);
-    //     displayTasks(viewOptions.value);
-        // if (e.target.classList.contains('delete-btn')) {
-        //     removeItemFromArr(e.target.dataset)
-            // listItems.forEach(item => {
-            //     //if (item.dataset.index == e.target.dataset.index)
-            // })
-        //}
-   // })
 
     //CLOSE LIST
     const exitPopupBtn = getEl('exit-popup-btn');
@@ -206,7 +190,15 @@ function loadTaskListeners() {
         }
         else (elem.classList.add('hidden'));
     }
+    function setCurrentList(trigger) {
+        for (let list of allLists) {
+            if (list.title == trigger.dataset.array) {
+                currentList = list;
+            }
+        }
+    }
     const viewOptions = getEl('view-options');
+    const allLists = [taskList, categories, priorities, projects, statuses];
 
     //ADD CATEGORY
     const categoryInputs = queryAll('.task-category-select');
@@ -235,6 +227,16 @@ function loadTaskListeners() {
             else {
                 updateTask(input, 'project');
             }
+        })
+    })
+
+    //EDIT LISTS
+    const listItems = queryAll('.list-items');
+
+    listItems.forEach(field => {
+        field.addEventListener('change', () => {
+            setCurrentList(field);
+            updateList(field, currentList);
         })
     })
 
@@ -345,12 +347,7 @@ function loadTaskListeners() {
     deleteBtns.forEach(button => {
         button.addEventListener('click', () => {
             currentTask = button.dataset.index;
-            const allLists = [taskList, categories, priorities, projects, statuses];
-            for (let list of allLists) {
-                if (list.title == button.dataset.array) {
-                    currentList = list;
-                }
-            }
+            setCurrentList(button);
             const confirmDelete = confirm('Are you sure you want to delete this item?');
             if (confirmDelete == true) {
                 if (currentList !== taskList) {
