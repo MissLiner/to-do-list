@@ -294,13 +294,13 @@ function loadTaskListeners() {
     function colorCode(input) {
         switch(input.value) {
             case '1-High':
-                currentBasicDiv.style.color = 'red';
+                currentBasicDiv.style.color = '#9E3153';
                 break;
             case '2-Medium':
-                currentBasicDiv.style.color = 'orange';
+                currentBasicDiv.style.color = '#BD6B37';
                 break;
             case '3-Low':
-                currentBasicDiv.style.color = 'green';
+                currentBasicDiv.style.color = '#5E8A32';
                 break;
         }
     }
