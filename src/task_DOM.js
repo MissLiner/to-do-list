@@ -269,12 +269,12 @@ function createEditList(arr) {
             list.appendChild(listItemDiv);
             addDeleteBtn(listItemDiv, item);
 
-            const listItem = document.createElement('p');
+            const listItem = document.createElement('input');
             listItemDiv.appendChild(listItem);
             listItem.setAttribute('data-index', item);
             listItem.classList.add('list-item', 'list-child');
-            listItem.textContent = item;
-            listItem.contentEditable = 'true';
+            listItem.value = item;
+            //listItem.contentEditable = 'true';
         })
     }
     createList(arr);

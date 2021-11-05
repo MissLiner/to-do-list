@@ -101,8 +101,10 @@ input, select{
 }
 .list-item {
     background-color: white;
+    border:none;
     display: block;
     font-family: "Architects Daughter", cursive;
+    font-size: 1em;
     margin-right: 0px !important;
     right: 0px;
     text-align: left;

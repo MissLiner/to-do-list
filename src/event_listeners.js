@@ -231,7 +231,7 @@ function loadTaskListeners() {
     })
 
     //EDIT LISTS
-    const listItems = queryAll('.list-items');
+    const listItems = queryAll('.list-item');
 
     listItems.forEach(field => {
         field.addEventListener('change', () => {
