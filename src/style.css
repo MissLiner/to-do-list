@@ -20,11 +20,16 @@ input, select{
 }
 
 .del-item-btn {
-    float: right;
+    display: inline-block;
+    left: 20%;
+    position: fixed;
+    /* width: 5%; */
+    /* float:left; */
 }
 .delete-btn {
     border: none;
     background: transparent;
+ 
 }
 .description-label {
     grid-area: a;
@@ -51,6 +56,20 @@ input, select{
 .fa-caret-square-down {
     color:steelblue;
 }
+.fa-times {
+    background: transparent;
+    float: right;
+    right: 5%;
+    position:fixed;
+    top: 5%;
+    /* display: inline-block; */
+    width: 10%;
+}
+.fa-times::before {
+    float:right;
+    position: fixed;
+    /* width: 100%; */
+}
 .fa-trash-alt {
     color:steelblue;
 }
@@ -62,10 +81,33 @@ input, select{
 }
 .list-child {
     background-color: white;
+    padding-left: 0px;
 }
 .list-item {
+    background-color: white;
+    display: block;
+    margin-right: 0px !important;
+    right: 0px;
+    /* position: fixed; */
     text-align: left;
-    width: 60%;
+    width: 77%;
+}
+.list-item-div {
+    /* border-bottom:groove; */
+    background-color: white;
+    font-size: large;
+    list-style-type: none;
+    margin: none;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    width: 90%;
+}
+.list-item::after {
+    content: '';
+    display: block;
+    margin-left: -5%;
+    width: 90%;
+    border-bottom: ridge;
 }
 .menu {
     background-color: transparent;
@@ -85,9 +127,9 @@ input, select{
 .pop-up {
     background-color: white;
     border: solid;
-    padding: 20px;
+    padding: 3% 3% 4% 3%;
     position: absolute;
-    width:30%;
+    width:40%;
     left: 50%;
     transform: translate(-50%, 0);
 }
@@ -128,6 +170,9 @@ input, select{
 #content {
     margin: auto;
 }
+#list {
+    padding-left: none;
+}
 #menu-bar {
     background-color:steelblue;
     color: white;
@@ -148,14 +193,7 @@ input, select{
     border-radius: 50%;
     width: 100%;
 }
-.fa-times {
-    background: transparent;
-    width: 100%;
-}
-.fa-times::before {
-    float:right;
-    /* width: 100%; */
-}
+
 #view-completed-btn {
     background-color: white;
     right: 60px;

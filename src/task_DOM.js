@@ -250,23 +250,31 @@ function createEditList(trigger) {
 
     function addDeleteBtn(element, item) {
         const deleteBtn = document.createElement('button');
+        element.appendChild(deleteBtn);
         deleteBtn.classList.add('delete-btn', 'del-item-btn');
         deleteBtn.setAttribute('data-index', item);
         deleteBtn.title = 'Delete';
-        deleteBtn.insertAdjacentHTML('beforeend', '<i class="far fa-trash-alt fa-lg"></i>' );
-        element.appendChild(deleteBtn);
+        deleteBtn.insertAdjacentHTML('afterbegin', '<i class="far fa-trash-alt fa-lg"></i>');
+
     }
 
     function createList(arr) {
         listTitle.textContent = arr.title;
         arr.forEach(item => {
+            const listItemDiv = document.createElement('div');
+            listItemDiv.classList.add('list-item-div');
+            list.appendChild(listItemDiv);
+            addDeleteBtn(listItemDiv, item);
+
             const listItem = document.createElement('li');
-            list.appendChild(listItem);
+            listItemDiv.appendChild(listItem);
             listItem.setAttribute('data-index', item);
             //figure out how to connect delete button to task and list element
             listItem.classList.add('list-item', 'list-child');
+
             listItem.textContent = item;
-            addDeleteBtn(listItem, item);
+
+
         })
     }
 
