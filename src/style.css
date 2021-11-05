@@ -143,42 +143,6 @@ input, select{
 .menu-btn:active {
     letter-spacing: 5px;
 }
-/* .menu-btn::after,
-.menu-btn::before, */
-/* #view-options::after, */
-/* #view-options::before {
-    backface-visibility: hidden;
-    border:solid;
-    border-color:transparent;
-    border-width: 1px;
-    bottom: 0px;
-    content: " ";
-    display: block;
-    margin: auto;
-    transition: all 280ms ease-in-out;
-    width: 0px;
-} */
-/* .menu-btn:hover:after,
-.menu-btn:hover:before,
-/* #view-options:hover::after, */
-/* #view-options:hover::before  {
-    letter-spacing: 5px;
-    backface-visibility: hidden;
-    border: 1px solid rgba(#fff, 0);
-    border-color: #fff;
-    margin-left:-10%;
-    text-align:center;
-    transition: width 350ms ease-in-out;
-    width: 120%;
-}
-.menu-btn:hover:before {
-    position:relative;
-    top: -5px;
-}
-.menu-btn:hover:after {
-    position:relative;
-    bottom: -5px;
-} */
 .notes-label {
     grid-area: i;
 }
@@ -240,8 +204,7 @@ input, select{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     height: 50px;
-    margin: 20px 0px 40px 0px;
-    /* padding: 5px 0px 5px 0px; */
+    margin: 10px 0px 10px 0px;
     position: relative;
     width: 100%;
     z-index: 5;
@@ -251,9 +214,6 @@ input, select{
     font-size: 1.25em;
     font-weight: bold;
 } 
-/* #new-task-btn::after,
-#new-task-btn::before, */
-/* #view-label::before,
 #view-label::after {
     display:none;
 } */

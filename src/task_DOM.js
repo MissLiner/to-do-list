@@ -257,7 +257,7 @@ function createEditList(arr) {
         deleteBtn.setAttribute('data-index', item);
         deleteBtn.setAttribute('data-array', arr.title);
         deleteBtn.title = 'Delete';
-        deleteBtn.insertAdjacentHTML('afterbegin', '<i class="far fa-trash-alt fa-lg"></i>');
+        deleteBtn.insertAdjacentHTML('afterbegin', '<i class="far fa-trash-alt fa"></i>');
     }
 
     function createList(arr) {

@@ -118,7 +118,6 @@ function loadBaseListeners() {
     const cancelAddCatBtn = getEl('cancel-add-cat-btn');
     const addCategoryField = getEl('add-category-field');
 
-
     categorySelect.addEventListener('change', () => {
         if (categorySelect.value === 'Add new') {
             toggleHidden(addCategoryForm);
@@ -190,20 +189,6 @@ function loadBaseListeners() {
         completeDivs.forEach(completeDiv => {
             toggleHidden(completeDiv);
         })
-    })
-    //DELETE FORM
-    const cancelDelBtn = getEl('cancel-del-btn');
-    const confirmDelBtn = getEl('confirm-del-btn');
-    const deleteDialog = getEl('delete-dialog');
-    //const viewOptions = getEl('view-options');
-
-    // cancelDelBtn.addEventListener('click', () => {
-    //     toggleHidden(deleteDialog);
-    // })
-    confirmDelBtn.addEventListener('click', () => {
-        deleteTask(currentTask);
-        displayTasks(viewOptions.value);
-        toggleHidden(deleteDialog);
     })
 }
 
@@ -354,8 +339,7 @@ function loadTaskListeners() {
         })
     })
 
-    //OPEN DELETE FORM
-    //const deleteDialog = getEl('delete-dialog');
+    //DELETE ITEMS
     const deleteBtns = queryAll('.delete-btn');
     
     deleteBtns.forEach(button => {
