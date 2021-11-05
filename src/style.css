@@ -78,6 +78,14 @@ input, select{
 .hidden {
     display: none;
 }
+.inset-text {
+    background-color: #565656;
+    color: transparent;
+    text-shadow: 2px 2px 3px rgba(255,255,255,0.5);
+    -webkit-background-clip: text;
+        -moz-background-clip: text;
+            background-clip: text;
+}
 .list-child {
     background-color: white;
     padding-left: 0px;
@@ -108,7 +116,6 @@ input, select{
 }
 .menu {
     background-color: transparent;
-    height:100%;
     margin: unset;
 }
 .menu-btn {
@@ -116,12 +123,11 @@ input, select{
     border: none;
     color: white;
     font-size: large;
-    height: 100%;
-    width:min-content;
+    height: 50px;
+    margin: unset;
     text-align:center;
     text-transform: uppercase;
     text-decoration: none;
-
 }
 .menu-btn:hover {
     width:max-content;
@@ -223,7 +229,7 @@ input, select{
     color: white;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    height: 30%;
+    height: 50px;
     margin: 20px 0px 40px 0px;
     /* padding: 5px 0px 5px 0px; */
     position: relative;
@@ -231,11 +237,13 @@ input, select{
     z-index: 5;
 }
 #new-task-btn {
-    background-color: white;
-    color:slateblue;
+    background-color: rgb(241, 240, 240);
+    border-color:rgb(187, 187, 187);
+    border-radius: 50%;
+    border-style: outset;
+    color:rgb(36, 36, 36);
     font-size: larger;
     font-weight: bold;
-    border-radius: 50%;
     width: 90%;
 }
 #new-task-btn::after,
