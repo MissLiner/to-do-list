@@ -45,7 +45,7 @@ function displayTasks(property) {
 
                     const taskBasicDiv = document.createElement('div');
                     taskBasicDiv.classList.add('task-basic-div');
-                    taskBasicDiv.setAttribute('data-index', taskNumber);;
+                    taskBasicDiv.setAttribute('data-index', taskNumber);
 
                     const taskDetailDiv = document.createElement('div');
                     taskDetailDiv.classList.add('task-detail-div');
@@ -61,6 +61,7 @@ function displayTasks(property) {
                             taskCheckbox.type = 'checkbox';
                             taskCheckbox.classList.add('task-checkbox');
                             taskCheckbox.setAttribute('data-index', taskNumber);
+                            taskCheckbox.setAttribute('data-arr', 'statuses');
                             taskCheckbox.title = 'Complete';
                             if (taskList[i].status == 'Complete') {
                                 taskCheckbox.checked = 'true';
@@ -68,7 +69,15 @@ function displayTasks(property) {
                             taskBasicDiv.appendChild(taskCheckbox);
                         }
                         function createTaskSubDiv(key) {
-                            let taskSubDiv = document.createElement('div');
+                            let taskSubDiv;
+                            if (key == 'name') {
+                                taskSubDiv = document.createElement('input');
+                                taskSubDiv.readOnly = true;
+                                taskSubDiv.value = taskList[i].name;
+                            }
+                            else {
+                                taskSubDiv = document.createElement('div');
+                            }
                             taskSubDiv.setAttribute('data-arr', key);
                             taskSubDiv.setAttribute('data-index', taskNumber);
                             taskSubDiv.classList.add('task-subdiv', `task-${key}`);
@@ -192,9 +201,6 @@ function displayTasks(property) {
                         for (let i = 0; i < taskDiv.children.length; i++) {
                             taskDiv.children[i].classList.add('completed');
                         }
-                        // taskDiv.children.forEach(child => {
-                        //     child.classList.add('complete');
-                        //})
                     }
                 }
             }

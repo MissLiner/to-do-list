@@ -186,6 +186,8 @@ label {
 }
 .task-name {
     font-weight: bold;
+    background-color: transparent;
+    border:none;
 }
 .task-notes-input {
     grid-area: j;
