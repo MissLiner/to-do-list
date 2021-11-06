@@ -5,10 +5,11 @@ import parseISO from 'date-fns/parseISO';
 
 function displayTasks(property) {
     (function clearTaskDisplay() {
-        while (content.firstChild) {
-            content.removeChild(content.firstChild);
-        } 
+        for (let i = 1; i < content.childNodes.length; i++) {
+            content.removeChild(content.lastChild);
+        }
     })()
+
 
     if (taskList) {
         function createCategoryDiv(category) {
@@ -259,7 +260,6 @@ function createEditList(arr) {
         deleteBtn.setAttribute('data-arr', arr.title);
         deleteBtn.title = 'Delete';
         deleteBtn.textContent = 'X';
-        // deleteBtn.insertAdjacentHTML('afterbegin', '<i class="far fa-trash-alt fa"></i>');
     }
 
     function createList(arr) {
