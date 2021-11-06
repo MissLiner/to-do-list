@@ -292,20 +292,22 @@ function loadTaskListeners() {
             }
             let property = subdiv.dataset.arr;
 
-            taskBasicDivs.forEach(div => {
-                if (div.dataset.index == currentTask) {
-                    currentBasicDiv = div;
-                }
-            })
-            taskDateDivs.forEach(div => {
-                if (div.dataset.index == currentTask) {
-                    currentDateDiv = div;
-                }
-            })
-            if (property == 'priority') {
+            if (property == 'priorities') {
+                taskBasicDivs.forEach(div => {
+                    if (div.dataset.index == currentTask) {
+                        currentBasicDiv = div;
+                        return;
+                    }
+                })
                 colorCode(subdiv);
             }
             if (property == 'duedate') {
+                taskDateDivs.forEach(div => {
+                    if (div.dataset.index == currentTask) {
+                        currentDateDiv = div;
+                        return;
+                    }
+                })
                 updateDay(subdiv, currentDateDiv);
             }
             updateTask(subdiv, property);
