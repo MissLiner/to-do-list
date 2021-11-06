@@ -16,13 +16,13 @@ function setCurrentList(trigger) {
     const allLists = [taskList, categories, priorities, projects, statuses];
 
     for (let list of allLists) {
-        if (list.title == trigger.dataset.array) {
+        if (list.title == trigger.dataset.arr) {
             currentList = list;
         }
     }
 }
 function setCurrentSelects(trigger) {
-    switch(trigger.dataset.array) {
+    switch(trigger.dataset.arr) {
         case 'categories':
             currentSelects = queryAll('.task-category-select');
             break;
@@ -358,7 +358,7 @@ function loadTaskListeners() {
             if (subdiv.value == 'Add new') {
                 return;
             }
-            let property = subdiv.dataset.property;
+            let property = subdiv.dataset.arr;
 
             taskBasicDivs.forEach(div => {
                 if (div.dataset.index == currentTask) {

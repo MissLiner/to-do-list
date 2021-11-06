@@ -68,14 +68,14 @@ function displayTasks(property) {
                         }
                         function createTaskSubDiv(key) {
                             let taskSubDiv = document.createElement('div');
-                            taskSubDiv.setAttribute('data-property', key);
+                            taskSubDiv.setAttribute('data-arr', key);
                             taskSubDiv.setAttribute('data-index', taskNumber);
                             taskSubDiv.classList.add('task-subdiv', `task-${key}`);
                             if (key === 'duedate') {
                                 const editDateDiv = document.createElement('input');
                                 editDateDiv.type = 'date';
                                 editDateDiv.value = taskList[i].duedate;
-                                editDateDiv.setAttribute('data-property', key);
+                                editDateDiv.setAttribute('data-arr', key);
                                 editDateDiv.setAttribute('data-index', taskNumber);
                                 editDateDiv.classList.add('task-subdiv', 'edit-date-div', 'hidden');
                                 taskBasicDiv.appendChild(editDateDiv);
@@ -103,7 +103,7 @@ function displayTasks(property) {
                             const deleteBtn = document.createElement('button');
                             deleteBtn.classList.add('delete-btn');
                             deleteBtn.setAttribute('data-index', taskNumber);
-                            deleteBtn.setAttribute('data-array', 'taskList');
+                            deleteBtn.setAttribute('data-arr', 'taskList');
                             deleteBtn.title = 'Delete';
                             deleteBtn.insertAdjacentHTML('beforeend', '<i class="far fa-trash-alt fa-lg"></i>' );
                             taskBasicDiv.appendChild(deleteBtn);
@@ -112,7 +112,7 @@ function displayTasks(property) {
                             function createSubDiv(key) {
                                 let keySubDiv = document.createElement('div');
                                 keySubDiv.id = key;
-                                keySubDiv.setAttribute('data-property', key);
+                                keySubDiv.setAttribute('data-arr', key);
                                 keySubDiv.setAttribute('data-index', taskNumber);
                                 keySubDiv.classList.add('task-subdiv', 'task-detail-child', `${key}-label`, 'hidden');
                                 keySubDiv.textContent = `${key}: `;
@@ -121,9 +121,9 @@ function displayTasks(property) {
                                 function createDetailDropDown(categ, arr) {
                                     let subDiv = document.createElement('select');
                                     subDiv.id = arr.title + i;
-                                    subDiv.setAttribute('data-property', key);
+                                    subDiv.setAttribute('data-arr', key);
                                     subDiv.setAttribute('data-index', taskNumber);
-                                    subDiv.setAttribute('data-array', arr.title);
+                                    subDiv.setAttribute('data-arr', arr.title);
                                     subDiv.classList.add('task-subdiv', `task-${categ}-select`, 'task-detail-child', 'hidden');
                                     taskDetailDiv.appendChild(subDiv);
                                     createDropdown(arr, arr.title + i);
@@ -149,7 +149,7 @@ function displayTasks(property) {
                                 }
                                 else {
                                     let subDiv = document.createElement('div');
-                                    subDiv.setAttribute('data-property', key);
+                                    subDiv.setAttribute('data-arr', key);
                                     subDiv.setAttribute('data-index', taskNumber);
                                     subDiv.classList.add('task-subdiv', 'task-detail-child', `task-${key}-input`, 'hidden');
                                     subDiv.contentEditable = 'true';
@@ -256,7 +256,7 @@ function createEditList(arr) {
         element.appendChild(deleteBtn);
         deleteBtn.classList.add('delete-btn', 'del-item-btn');
         deleteBtn.setAttribute('data-index', item);
-        deleteBtn.setAttribute('data-array', arr.title);
+        deleteBtn.setAttribute('data-arr', arr.title);
         deleteBtn.title = 'Delete';
         deleteBtn.textContent = 'X';
         // deleteBtn.insertAdjacentHTML('afterbegin', '<i class="far fa-trash-alt fa"></i>');
