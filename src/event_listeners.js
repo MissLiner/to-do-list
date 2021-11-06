@@ -314,7 +314,7 @@ function loadTaskListeners() {
 
     //DELETE ITEMS
     const deleteBtns = queryAll('.delete-btn');
-    //fixthis!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  
     deleteBtns.forEach(button => {
         button.addEventListener('click', () => {
             currentTask = button.dataset.index;
