@@ -98,7 +98,19 @@ function displayTasks(property) {
                             else {
                                 taskSubDiv.textContent = taskList[i][key];
                             }
-                            
+                            if (taskList[i].status === 'Active') {
+                                switch(taskList[i].priority) {
+                                    case '1-High':
+                                        taskSubDiv.style.color = '#9E3153';
+                                        break;
+                                    case '2-Medium':
+                                        taskSubDiv.style.color = '#BD6B37';
+                                        break;
+                                    case '3-Low':
+                                        taskSubDiv.style.color = '#5E8A32';
+                                        break;
+                                }
+                            }
                             taskBasicDiv.appendChild(taskSubDiv);
                         }
                         function createExpandBtn() {
@@ -183,19 +195,6 @@ function displayTasks(property) {
 
                         createDetails(taskList[i]);
 
-                        if (taskList[i].status === 'Active') {
-                            switch(taskList[i].priority) {
-                                case '1-High':
-                                    taskDiv.style.color = '#9E3153';
-                                    break;
-                                case '2-Medium':
-                                    taskDiv.style.color = '#BD6B37';
-                                    break;
-                                case '3-Low':
-                                    taskDiv.style.color = '#5E8A32';
-                                    break;
-                            }
-                        }
                     }
                     if (taskList[i].status == 'Complete') {
                         for (let i = 0; i < taskDiv.children.length; i++) {
