@@ -294,7 +294,7 @@ function loadTaskListeners() {
 
             if (property == 'priorities') {
                 taskBasicDivs.forEach(div => {
-                    if (div.dataset.index == currentTask) {
+                    if (div.dataset.index == currentTask && !div.classList.contains('completed')) {
                         currentBasicDiv = div;
                         return;
                     }

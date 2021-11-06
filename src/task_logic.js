@@ -65,6 +65,13 @@ function completeTask(trigger) {
             storeList(taskList);
         }
     })
+    const subDivs = document.querySelectorAll('.task-subdiv');
+    let relatedDivs;
+    subDivs.forEach(div => {
+        if (div.dataset.index == task.index) {
+            div.classList.add('completed');
+        }
+    })
 }
 
 function deleteFromArr(value, arr) {
