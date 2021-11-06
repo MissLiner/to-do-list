@@ -157,11 +157,11 @@ function loadBaseListeners() {
     })
 
     viewCompletedBtn.addEventListener('click', ()=> {
-        if (viewCompletedBtn.textContent == 'Show Completed Tasks') {
-            viewCompletedBtn.textContent = 'Hide Completed Tasks';
+        if (viewCompletedBtn.textContent == 'show all tasks') {
+            viewCompletedBtn.textContent = 'show acive only';
         }
         else {
-            viewCompletedBtn.textContent = 'Show Completed Tasks';
+            viewCompletedBtn.textContent = 'show all tasks';
         }
         const completeDivs = queryAll('.complete');
         completeDivs.forEach(completeDiv => {
