@@ -61,6 +61,7 @@ function loadBaseListeners() {
     const helpBtn = getEl('help-btn');
 
     menuBar.addEventListener('click', (e) => {
+        setCurrentSelects(e.target);
         if (e.target === editBtn) {
             toggleHidden(editMenu);
         }
@@ -128,13 +129,13 @@ function loadBaseListeners() {
     
     submitItemBtn.addEventListener('click', (e) => {
         const newItem = addItemField.value;
-        setCurrentSelects(e.target);
         setCurrentList(e.target);
 
         addItemToArr(newItem, currentList);
         currentSelects.forEach(select => {
             createDropdown(currentList, select.id);
         })
+        createEditList(currentList);
         updateTask(addItemField);
         addItemField.value = '';
         toggleHidden(addItemForm);
