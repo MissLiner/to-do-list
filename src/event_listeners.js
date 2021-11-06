@@ -128,6 +128,8 @@ function loadBaseListeners() {
     const addItemField = getEl('add-item-field');
     
     submitItemBtn.addEventListener('click', (e) => {
+        editDiv.removeChild(addItemForm);
+        toggleHidden(addItemBtn);
         const newItem = addItemField.value;
         setCurrentList(e.target);
 
@@ -199,35 +201,6 @@ function loadTaskListeners() {
             }
         })
     })
-    //ADD CATEGORY
-    // const categoryInputs = queryAll('.task-category-select');
-    // const addCategoryForm = getEl('add-category-form')
-
-    // categoryInputs.forEach(input => {
-    //     input.addEventListener('change', () => {
-    //         if (input.value === 'Add new') {
-    //             toggleHidden(addCategoryForm);
-    //         }
-    //         else {
-    //             updateTask(input, 'category');
-    //         }
-    //     })
-    // })
-
-    //ADD PROJECT
-    // const projectInputs = queryAll('.task-project-select');
-    // const addProjectForm = getEl('add-project-form')
-
-    // projectInputs.forEach(input => {
-    //     input.addEventListener('change', () => {
-    //         if (input.value === 'Add new') {
-    //             toggleHidden(addProjectForm);
-    //         }
-    //         else {
-    //             updateTask(input, 'project');
-    //         }
-    //     })
-    // })
 
     //EDIT LISTS
     const listItems = queryAll('.list-item');
@@ -341,7 +314,7 @@ function loadTaskListeners() {
 
     //DELETE ITEMS
     const deleteBtns = queryAll('.delete-btn');
-    
+    //fixthis!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     deleteBtns.forEach(button => {
         button.addEventListener('click', () => {
             currentTask = button.dataset.index;
