@@ -189,6 +189,10 @@ label {
     background-color: transparent;
     border:none;
 }
+.task-name:focus-visible {
+    /* border: none; */
+    outline: none;
+}
 .task-notes-input {
     grid-area: j;
 }
