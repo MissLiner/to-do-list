@@ -188,6 +188,14 @@ function displayTasks(property) {
                             }
                         }
                     }
+                    if (taskList[i].status == 'Complete') {
+                        for (let i = 0; i < taskDiv.children.length; i++) {
+                            taskDiv.children[i].classList.add('completed');
+                        }
+                        // taskDiv.children.forEach(child => {
+                        //     child.classList.add('complete');
+                        //})
+                    }
                 }
             }
             }

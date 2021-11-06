@@ -66,9 +66,9 @@ function completeTask(trigger) {
         }
     })
     const subDivs = document.querySelectorAll('.task-subdiv');
-    let relatedDivs;
+
     subDivs.forEach(div => {
-        if (div.dataset.index == task.index) {
+        if (div.dataset.index == trigger.dataset.index) {
             div.classList.add('completed');
         }
     })

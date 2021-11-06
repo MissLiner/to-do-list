@@ -296,10 +296,10 @@ function loadTaskListeners() {
                 taskBasicDivs.forEach(div => {
                     if (div.dataset.index == currentTask && !div.classList.contains('completed')) {
                         currentBasicDiv = div;
+                        colorCode(subdiv);
                         return;
                     }
                 })
-                colorCode(subdiv);
             }
             if (property == 'duedate') {
                 taskDateDivs.forEach(div => {
