@@ -26,6 +26,9 @@ h2 {
 input, select{
     background-color: white;
 }
+label {
+    background-color: transparent;
+}
 
 .category-div {
     padding-bottom: 10px;
@@ -116,7 +119,7 @@ input, select{
     margin: none;
     padding-bottom: 1%;
     padding-top: 1%;
-    width: 80%;
+    width: 90%;
 }
 .list-item::after {
     content: '';
@@ -152,7 +155,7 @@ input, select{
     border: solid;
     padding: 3% 2% 8% 2%;
     position: absolute;
-    width:40%;
+    width:380px;
     left: 50%;
     transform: translate(-50%, 0);
 }
@@ -200,6 +203,9 @@ input, select{
     margin: auto;
     position:fixed;
     transform: translateX(-50%);
+}
+#add-item-form {
+    background-color: transparent;
 }
 #content {
     margin: auto;

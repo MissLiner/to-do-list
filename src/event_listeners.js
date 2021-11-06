@@ -77,19 +77,6 @@ function loadBaseListeners() {
     const addItemBtn = getEl('add-item-btn');
 
     editMenu.addEventListener('click', (e) => {
-        // switch(e.target.id) {
-        //     case 'edit-cat-btn':
-        //         currentList = categories;
-        //         break;
-        //     case 'edit-proj-btn':
-        //         currentList = projects;
-        //         break;
-        //     case 'edit-prior-btn':
-        //         currentList = priorities;
-        //         break;
-        //     case 'edit-stat-btn':
-        //         currentList = statuses;
-        //         break;}
         setCurrentList(e.target);
         createEditList(currentList);
         toggleHidden(editMenu);
@@ -97,9 +84,10 @@ function loadBaseListeners() {
         displayTasks(viewOptions.value);
     })
     addItemBtn.addEventListener('click', () => {
+        editDiv.appendChild(addItemForm);
+        toggleHidden(addItemBtn);
         toggleHidden(addItemForm);
     })
-
 
     //CLOSE LIST
     const exitPopupBtn = getEl('exit-popup-btn');
@@ -132,14 +120,12 @@ function loadBaseListeners() {
         newTaskForm.reset();
     })
 
-    //ADD NEW ITEM
-    const categorySelect = getEl('category-select');
+    //ADD NEW ITEM TO LIST
     const addItemForm = getEl('add-item-form');
     const submitItemBtn = getEl('submit-item-btn');
     const cancelAddBtn = getEl('cancel-add-btn');
     const addItemField = getEl('add-item-field');
     
-//update ad category and add add project forms to be one and attach to list add buttons too!!!!!
     submitItemBtn.addEventListener('click', (e) => {
         const newItem = addItemField.value;
         setCurrentSelects(e.target);
@@ -157,34 +143,6 @@ function loadBaseListeners() {
     cancelAddBtn.addEventListener('click', () => {
         addItemField.value = '';
         toggleHidden(addItemForm);
-    })
-
-    //ADD NEW PROJECT
-    const projectSelect = getEl('project-select');
-    const addProjectForm = getEl('add-project-form');
-    const addProjectBtn = getEl('add-project-btn');
-    const cancelAddProjBtn = getEl('cancel-add-proj-btn');
-
-    projectSelect.addEventListener('change', () => {
-        if (projectSelect.value == 'Add new') {
-            toggleHidden(addProjectForm);
-        }
-    })
-
-    addProjectBtn.addEventListener('click', () => {
-            const newItem = getEl('add-project-input').value;
-            const projectSelects = queryAll('.task-project-select');
-
-            addItemToArr(newItem, projects);
-            toggleHidden(addProjectForm);
-            createDropdown(projects, 'project-field');
-            projectSelects.forEach(select => {
-                createDropdown(projects, select.id);
-            })
-    })
-
-    cancelAddProjBtn.addEventListener('click', () => {
-        toggleHidden(addProjectForm);
     })
        
     //CHANGE VIEW
