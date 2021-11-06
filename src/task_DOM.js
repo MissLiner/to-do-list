@@ -123,6 +123,7 @@ function displayTasks(property) {
                                     subDiv.id = arr.title + i;
                                     subDiv.setAttribute('data-property', key);
                                     subDiv.setAttribute('data-index', taskNumber);
+                                    subDiv.setAttribute('data-array', arr.title);
                                     subDiv.classList.add('task-subdiv', `task-${categ}-select`, 'task-detail-child', 'hidden');
                                     taskDetailDiv.appendChild(subDiv);
                                     createDropdown(arr, arr.title + i);

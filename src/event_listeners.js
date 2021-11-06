@@ -6,6 +6,37 @@ import parseISO from 'date-fns/parseISO';
 
 let currentTask;
 let currentList;
+let currentSelects;
+
+function queryAll(selector) {
+    return document.querySelectorAll(selector);
+}
+
+function setCurrentList(trigger) {
+    const allLists = [taskList, categories, priorities, projects, statuses];
+
+    for (let list of allLists) {
+        if (list.title == trigger.dataset.array) {
+            currentList = list;
+        }
+    }
+}
+function setCurrentSelects(trigger) {
+    switch(trigger.dataset.array) {
+        case 'categories':
+            currentSelects = queryAll('.task-category-select');
+            break;
+        case 'priorities':
+            currentSelects = queryAll('.task-priority-select');
+            break;
+        case 'projects':
+            currentSelects = queryAll('.task-project-select');
+            break;
+        case 'statuses':
+            currentSelects = queryAll('.task-status-select');
+            break;
+    }
+}
 
 function loadBaseListeners() {
     function getEl(id) {
@@ -46,31 +77,27 @@ function loadBaseListeners() {
     const addItemBtn = getEl('add-item-btn');
 
     editMenu.addEventListener('click', (e) => {
-        switch(e.target.id) {
-            case 'edit-cat-btn':
-                currentList = categories;
-                break;
-            case 'edit-proj-btn':
-                currentList = projects;
-                break;
-            case 'edit-prior-btn':
-                currentList = priorities;
-                break;
-            case 'edit-stat-btn':
-                currentList = statuses;
-                break;}
+        // switch(e.target.id) {
+        //     case 'edit-cat-btn':
+        //         currentList = categories;
+        //         break;
+        //     case 'edit-proj-btn':
+        //         currentList = projects;
+        //         break;
+        //     case 'edit-prior-btn':
+        //         currentList = priorities;
+        //         break;
+        //     case 'edit-stat-btn':
+        //         currentList = statuses;
+        //         break;}
+        setCurrentList(e.target);
         createEditList(currentList);
         toggleHidden(editMenu);
         toggleHidden(editDiv);
         displayTasks(viewOptions.value);
     })
     addItemBtn.addEventListener('click', () => {
-        switch(currentList) {
-            case 'categories':
-                toggleHidden(addCategoryForm);
-            case 'projects':
-                return;
-        }
+        toggleHidden(addItemForm);
     })
 
 
@@ -105,36 +132,31 @@ function loadBaseListeners() {
         newTaskForm.reset();
     })
 
-    //ADD NEW CATEGORY
+    //ADD NEW ITEM
     const categorySelect = getEl('category-select');
     const addItemForm = getEl('add-item-form');
     const submitItemBtn = getEl('submit-item-btn');
     const cancelAddBtn = getEl('cancel-add-btn');
     const addItemField = getEl('add-item-field');
-
-    categorySelect.addEventListener('change', () => {
-        if (categorySelect.value === 'Add new') {
-            toggleHidden(addItemForm);
-            currentList = categories;
-        }
-    })
+    
 //update ad category and add add project forms to be one and attach to list add buttons too!!!!!
-    submitItemBtn.addEventListener('click', () => {
-        const newItem = addCategoryField.value;
-        const categorySelects = queryAll('.task-category-select');
+    submitItemBtn.addEventListener('click', (e) => {
+        const newItem = addItemField.value;
+        setCurrentSelects(e.target);
+        setCurrentList(e.target);
 
-        addItemToArr(newItem, categories);
-        categorySelects.forEach(select => {
-            createDropdown(categories, select.id);
+        addItemToArr(newItem, currentList);
+        currentSelects.forEach(select => {
+            createDropdown(currentList, select.id);
         })
-        updateTask(addCategoryField);
-        addCategoryField.value = '';
-        toggleHidden(addCategoryForm);
+        updateTask(addItemField);
+        addItemField.value = '';
+        toggleHidden(addItemForm);
     })
 
-    cancelAddCatBtn.addEventListener('click', () => {
-        addCategoryField.value = '';
-        toggleHidden(addCategoryForm);
+    cancelAddBtn.addEventListener('click', () => {
+        addItemField.value = '';
+        toggleHidden(addItemForm);
     })
 
     //ADD NEW PROJECT
@@ -201,45 +223,52 @@ function loadTaskListeners() {
         }
         else (elem.classList.add('hidden'));
     }
-    function setCurrentList(trigger) {
-        for (let list of allLists) {
-            if (list.title == trigger.dataset.array) {
-                currentList = list;
-            }
-        }
-    }
+
+
     const viewOptions = getEl('view-options');
-    const allLists = [taskList, categories, priorities, projects, statuses];
+   
+    //OPEN ADD ITEM FORM
+    const allSelects = queryAll('select');
+    const addItemForm = getEl('add-item-form');
 
-    //ADD CATEGORY
-    const categoryInputs = queryAll('.task-category-select');
-    const addCategoryForm = getEl('add-category-form')
-
-    categoryInputs.forEach(input => {
-        input.addEventListener('change', () => {
-            if (input.value === 'Add new') {
-                toggleHidden(addCategoryForm);
-            }
-            else {
-                updateTask(input, 'category');
+    allSelects.forEach(select => {
+        select.addEventListener('change', (e) => {
+            if (e.target.value === 'Add new') {
+                setCurrentList(e.target);
+                setCurrentSelects(e.target);
+                toggleHidden(addItemForm);
             }
         })
     })
+    //ADD CATEGORY
+    // const categoryInputs = queryAll('.task-category-select');
+    // const addCategoryForm = getEl('add-category-form')
+
+    // categoryInputs.forEach(input => {
+    //     input.addEventListener('change', () => {
+    //         if (input.value === 'Add new') {
+    //             toggleHidden(addCategoryForm);
+    //         }
+    //         else {
+    //             updateTask(input, 'category');
+    //         }
+    //     })
+    // })
 
     //ADD PROJECT
-    const projectInputs = queryAll('.task-project-select');
-    const addProjectForm = getEl('add-project-form')
+    // const projectInputs = queryAll('.task-project-select');
+    // const addProjectForm = getEl('add-project-form')
 
-    projectInputs.forEach(input => {
-        input.addEventListener('change', () => {
-            if (input.value === 'Add new') {
-                toggleHidden(addProjectForm);
-            }
-            else {
-                updateTask(input, 'project');
-            }
-        })
-    })
+    // projectInputs.forEach(input => {
+    //     input.addEventListener('change', () => {
+    //         if (input.value === 'Add new') {
+    //             toggleHidden(addProjectForm);
+    //         }
+    //         else {
+    //             updateTask(input, 'project');
+    //         }
+    //     })
+    // })
 
     //EDIT LISTS
     const listItems = queryAll('.list-item');
@@ -249,8 +278,6 @@ function loadTaskListeners() {
             updateList(field, currentList);
         })
     })
-
-
 
     //EXPAND/COLLAPSE TASK
     const taskDetailDivs = queryAll('.task-detail-div');
