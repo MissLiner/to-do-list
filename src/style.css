@@ -3,12 +3,18 @@
 * {
     background-color: #F0E9E9;
     /* color:#705D5C; */
+    border-color:#A38786;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: auto;
     text-align: center;
     transition-property: all;
     transition-duration: .6s;
     transition-timing-function: ease;
+
+
+}
+div {
+    background: transparent;
 }
 h1 {
     color:#5E4E4D;
@@ -29,9 +35,18 @@ h2 {
 }
 input, select{
     background-color: white;
+
 }
 label {
     background-color: transparent;
+}
+
+.edit-date-div, .task-description-input, .task-categories-select, .task-priorities-select, .task-projects-select, .task-notes-input {
+    border:none;
+    border-radius: 25px;
+    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    box-shadow: 1px 2px 3px rgba(0,0,0,.5);
 }
 
 .category-div {
@@ -63,6 +78,13 @@ label {
     /* margin: unset; */
     padding: 5px 0px 5px 0px;
     width: 100%;
+}
+.edit-date-div {
+    border:none;
+    border-radius: 25px;
+    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    box-shadow: 1px 2px 3px rgba(0,0,0,.5);
 }
 .expand-btn {
     border: none;
@@ -185,9 +207,10 @@ label {
     margin-bottom: 10px;
 }
 .task-name {
-    font-weight: bold;
     background-color: transparent;
     border:none;
+    font-size: large;
+    font-weight: bold;
 }
 .task-name:focus-visible {
     outline: none;
