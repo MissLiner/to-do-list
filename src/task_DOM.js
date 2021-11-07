@@ -2,6 +2,8 @@ import { content , taskList, priorities, categories, projects, statuses } from '
 import { loadTaskListeners } from './event_listeners';
 import  formatRelative  from 'date-fns/formatRelative';
 import parseISO from 'date-fns/parseISO';
+import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
+import isPast from 'date-fns/isPast';
 
 function displayTasks(property) {
     (function clearTaskDisplay() {
@@ -88,9 +90,20 @@ function displayTasks(property) {
                                 taskBasicDiv.appendChild(editDateDiv);
 
                                 let currentDay = new Date();
-                                let dateDue = new Date(parseISO(taskList[i].duedate))
-                                let output = formatRelative(dateDue, currentDay);
-                                taskSubDiv.textContent = output.slice(0, -12);
+                                let dateDue = new Date(parseISO(taskList[i].duedate));
+                                let dateDistance = differenceInCalendarDays(dateDue, currentDay);
+                                
+                                if (dateDistance < -7) {
+                                    let text = dateDistance + ' days ago';
+                                    taskSubDiv.textContent = text.substring(1);
+                                }
+                                else if (dateDistance > 7) {
+                                    taskSubDiv.textContent = 'in ' + dateDistance + ' days';
+                                }
+                                else {
+                                    let output = formatRelative(dateDue, currentDay);
+                                    taskSubDiv.textContent = output.slice(0, -12);
+                                }
                             }
                             else {
                                 taskSubDiv.textContent = taskList[i][key];

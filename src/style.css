@@ -257,7 +257,7 @@ label {
     overflow:visible;
     padding:0px;
 }
-#circle-cat>span[class^=w]:nth-of-type(n+0){
+#circle-cat span[class^=w]:nth-of-type(n+0){
     display:block;
     position:absolute;
     -moz-transform-origin:50% 100%;

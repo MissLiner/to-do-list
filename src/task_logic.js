@@ -1,6 +1,7 @@
 
 import { taskList, categories, projects } from "./index.js"; 
-import { displayTasks } from "./task_DOM.js";
+import compareAsc from 'date-fns/compareAsc';
+import parseISO from 'date-fns/parseISO';
 
 
 const newTaskForm = document.getElementById('new-task-form');
@@ -87,6 +88,30 @@ function deleteFromArr(value, arr) {
         }
     })
     storeList(arr);
+}
+
+//get taskList
+//sort alphabetically
+//sort by date
+    //get date for each task
+//sort by priority
+//re-display tasks
+
+function sortList(trigger) {
+    switch(trigger.dataset.index) {
+        case 'byalpha':
+            taskList.sort();
+            break;
+        case 'bydate':
+            for (let i = 0; i < taskList[i].length; i++) {
+                let date1 = new Date(parseISO(taskList[i].duedate));
+                let date2 = new Date(parseISO(taskList[i+1].duedate));
+                taskList.sort(compareAsc(date1, date2));
+            }
+            break;
+        case 'bypriority':
+            break;
+    }
 }
 
 export {
