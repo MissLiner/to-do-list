@@ -17,11 +17,11 @@ function sortTaskList(trigger) {
             taskList.sort((a, b) => a.name.localeCompare(b.name));
             break;
         case 'bydate':
-            for (let i = 0; i < taskList[i].length; i++) {
-                let date1 = new Date(parseISO(taskList[i].duedate));
-                let date2 = new Date(parseISO(taskList[i+1].duedate));
-                taskList.sort(compareAsc(date1, date2));
-            }
+            taskList.sort((a, b) => a.duedate.localeCompare(b.duedate));
+            // for (let i = 0; i < taskList[i].length; i++) {
+            //     let date1 = new Date(parseISO(taskList[i].duedate));
+            //     let date2 = new Date(parseISO(taskList[i+1].duedate));
+            //     taskList.sort(compareAsc(date1, date2));
             break;
         case 'bypriority':
             break;
