@@ -289,11 +289,11 @@ function loadTaskListeners() {
         let output = formatRelative(dateDue, currentDay);
         div.textContent = output.slice(0, -12);
     }
-    taskNameDivs.forEach(div => {
-        div.addEventListener('change', () => {
-            console.log('hi');
-        })
-    })
+    // taskNameDivs.forEach(div => {
+    //     div.addEventListener('change', () => {
+    //         console.log('hi');
+    //     })
+    // })
 
     taskSubDivs.forEach(subdiv => {
         subdiv.addEventListener('change', () => {
@@ -303,7 +303,7 @@ function loadTaskListeners() {
             let property = subdiv.dataset.arr;
 
             if (property == 'priorities') {
-                taskBasicDivs.forEach(div => {
+                taskSubDivs.forEach(div => {
                     if (div.dataset.index == currentTask && !div.classList.contains('completed')) {
                         currentBasicDiv = div;
                         colorCode(subdiv);
