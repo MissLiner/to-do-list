@@ -1,6 +1,6 @@
-import { addItemToArr, addNewTaskToList, completeTask, deleteFromArr, updateTask, updateList } from './task_logic';
+import { addItemToArr, addNewTaskToList, completeTask, deleteFromArr, updateTask, updateList, sortList } from './task_logic';
 import { createDropdown, displayTasks, createEditList } from './task_DOM'
-import { categories, projects, taskList, priorities, statuses } from './index'
+import { categories, projects, taskList, priorities, statuses, sortTaskList } from './index'
 import  formatRelative  from 'date-fns/formatRelative';
 import parseISO from 'date-fns/parseISO';
 
@@ -168,6 +168,33 @@ function loadBaseListeners() {
             toggleHidden(completeDiv);
         })
     })
+    //SORT TASKS
+    const sortBtns = queryAll('.sort-btn');
+    const categoryDivs = queryAll('.category-div');
+    const taskDivs = queryAll('.task-divs');
+
+    sortBtns.forEach(button => {
+        button.addEventListener('click', (e) => {
+            sortTaskList(e.target);
+            displayTasks(viewOptions.value);
+            // switch(trigger.dataset.index) {
+            //     case 'byalpha':
+            //         categoryDivs.forEach(div => {
+            //             taskDivs
+            //         })
+            //         break;
+            //     case 'bydate':
+            //         for (let i = 0; i < taskList[i].length; i++) {
+            //             let date1 = new Date(parseISO(taskList[i].duedate));
+            //             let date2 = new Date(parseISO(taskList[i+1].duedate));
+            //             //taskList.sort(compareAsc(date1, date2));
+            //         }
+            //         break;
+            //     case 'bypriority':
+            //         break;
+            // }
+        })
+    })
 }
 
 
@@ -313,7 +340,6 @@ function loadTaskListeners() {
                     }
                 })
                 displayTasks(viewOptions.value);
-                //updateDay(subdiv, currentDateDiv);
             }
             updateTask(subdiv, property);
         })

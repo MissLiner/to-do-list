@@ -10,6 +10,23 @@ import { createDropdown } from './task_DOM';
 
 let taskList = [];
 taskList.title = 'taskList';
+
+function sortTaskList(trigger) {
+    switch(trigger.dataset.index) {
+        case 'byalpha':
+            taskList.sort((a, b) => a.name.localeCompare(b.name));
+            break;
+        case 'bydate':
+            for (let i = 0; i < taskList[i].length; i++) {
+                let date1 = new Date(parseISO(taskList[i].duedate));
+                let date2 = new Date(parseISO(taskList[i+1].duedate));
+                taskList.sort(compareAsc(date1, date2));
+            }
+            break;
+        case 'bypriority':
+            break;
+    }
+}
 let categories = ['Home', 'Work', 'Self-Care', 'Pets', 'Kids'];
 categories.title = 'categories';
 let projects = ['Update kitchen', 'AB anxiety'];
@@ -68,4 +85,5 @@ export {
     priorities,
     projects,
     statuses,
+    sortTaskList,
 }

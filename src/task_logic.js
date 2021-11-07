@@ -100,7 +100,6 @@ function deleteFromArr(value, arr) {
 function sortList(trigger) {
     switch(trigger.dataset.index) {
         case 'byalpha':
-            taskList.sort();
             break;
         case 'bydate':
             for (let i = 0; i < taskList[i].length; i++) {
@@ -123,4 +122,5 @@ export {
     removeItemFromArr,
     updateTask,
     updateList,
+    sortList,
 }
