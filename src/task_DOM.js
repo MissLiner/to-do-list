@@ -20,9 +20,9 @@ function displayTasks(property) {
             function addCategoryTitle(category) {
                 const categoryTitle = document.createElement('h2');
                 categoryTitle.classList.add('category-title');
-                if (category == 'Complete') {
-                    categoryTitle.classList.add('complete');
-                }
+                // if (category == 'Complete') {
+                //     categoryTitle.classList.add('complete');
+                // }
                 categoryTitle.textContent = category;
                 categoryDiv.appendChild(categoryTitle);
             }
@@ -36,7 +36,7 @@ function displayTasks(property) {
                     const taskDiv = document.createElement('div');
                     taskDiv.classList.add('task-div');
                     taskDiv.setAttribute('data-index', taskNumber);;
-                    if (taskList[i]['status'] == 'Complete') {
+                    if (taskList[i]['statuses'] == 'Complete') {
                         taskDiv.classList.add('complete');
                         if (document.getElementById('view-completed-btn').textContent == 'Show Completed Tasks') {
                             taskDiv.classList.add('hidden');
@@ -63,7 +63,7 @@ function displayTasks(property) {
                             taskCheckbox.setAttribute('data-index', taskNumber);
                             taskCheckbox.setAttribute('data-arr', 'statuses');
                             taskCheckbox.title = 'Complete';
-                            if (taskList[i].status == 'Complete') {
+                            if (taskList[i].statuses == 'Complete') {
                                 taskCheckbox.checked = 'true';
                             }
                             taskBasicDiv.appendChild(taskCheckbox);
@@ -98,8 +98,8 @@ function displayTasks(property) {
                             else {
                                 taskSubDiv.textContent = taskList[i][key];
                             }
-                            if (taskList[i].status === 'Active') {
-                                switch(taskList[i].priority) {
+                            if (taskList[i].statuses == 'Active') {
+                                switch(taskList[i].priorities) {
                                     case '1-High':
                                         taskSubDiv.style.color = '#9E3153';
                                         break;
@@ -157,15 +157,15 @@ function displayTasks(property) {
                                     })
                                 }
 
-                                if (key === 'priority') {
+                                if (key === 'priorities') {
                                     createDetailDropDown(key, priorities);
                                     return;
                                 }
-                                if (key === 'category') {
+                                if (key === 'categories') {
                                     createDetailDropDown(key, categories);
                                     return;
                                 }
-                                if (key === 'project') {
+                                if (key === 'projects') {
                                     createDetailDropDown(key, projects);
                                     return;
                                 }
@@ -181,9 +181,9 @@ function displayTasks(property) {
                             }
                         
                             createSubDiv('description');
-                            createSubDiv('category');
-                            createSubDiv('priority');
-                            createSubDiv('project');
+                            createSubDiv('categories');
+                            createSubDiv('priorities');
+                            createSubDiv('projects');
                             createSubDiv('notes');
                         }
 
@@ -196,7 +196,7 @@ function displayTasks(property) {
                         createDetails(taskList[i]);
 
                     }
-                    if (taskList[i].status == 'Complete') {
+                    if (taskList[i].statuses == 'Complete') {
                         for (let i = 0; i < taskDiv.children.length; i++) {
                             taskDiv.children[i].classList.add('completed');
                         }

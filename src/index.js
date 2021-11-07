@@ -40,7 +40,7 @@ const content = document.getElementById('content-div');
 })()
 
 loadBaseListeners();
-displayTasks('status');
+displayTasks('statuses');
 createDropdown(categories, 'category-select');
 createDropdown(projects, 'project-select');
 

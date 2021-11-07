@@ -24,13 +24,13 @@ function setCurrentList(trigger) {
 function setCurrentSelects(trigger) {
     switch(trigger.dataset.arr) {
         case 'categories':
-            currentSelects = queryAll('.task-category-select');
+            currentSelects = queryAll('.task-categories-select');
             break;
         case 'priorities':
-            currentSelects = queryAll('.task-priority-select');
+            currentSelects = queryAll('.task-priorities-select');
             break;
         case 'projects':
-            currentSelects = queryAll('.task-project-select');
+            currentSelects = queryAll('.task-projects-select');
             break;
         case 'statuses':
             currentSelects = queryAll('.task-status-select');

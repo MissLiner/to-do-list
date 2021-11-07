@@ -15,10 +15,11 @@ function addNewTaskToList() {
     let newTask = {};
     let taskFormData = new FormData(newTaskForm);
     for (let key of taskFormData.keys()) {
+        console.log(key);
         newTask[key] = taskFormData.get(key);
     }
     newTask.index = Date.now();
-    newTask.status = 'Active';
+    newTask.statuses = 'Active';
     taskList.unshift(newTask);
     //taskList.sort();
     storeList(taskList);
@@ -61,7 +62,7 @@ function updateList(trigger, arr) {
 function completeTask(trigger) {
     taskList.forEach(task => {
         if (trigger.dataset.index == task.index) {
-            task.status = 'Complete';
+            task.statuses = 'Complete';
             storeList(taskList);
         }
     })
