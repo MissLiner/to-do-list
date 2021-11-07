@@ -182,6 +182,15 @@ label {
     left: 50%;
     transform: translate(-50%, 0);
 }
+.side-btn {
+    background-color:transparent;
+    border: solid;
+    border-color: #705D5C;
+    border-radius: 50%;
+    color: #63364E;
+    width: 60px;
+    height: 60px;
+}
 .task-basic-div {
     display: flex;
     width: 500px;
@@ -258,23 +267,15 @@ label {
     font-size: 1.25em;
     font-weight: bold;
 } 
+#view-categories-btn {
+    position:absolute;
+    right: 2%;
+    top: 30%;
+}
 #view-completed-btn {
-    background-color:transparent;
-    border: solid;
-    border-color: #705D5C;
-    border-radius: 50%;
-    color: #63364E;
-    /* display:inline-block; */
-    /* float:right; */
-    /* margin: 2% 4% 2% 0; */
     position:absolute;
     right: 2%;
     top: 21%;
-    width: 60px;
-    height: 60px;
-    /* right: 10%; */
-    /* position: absolute; */
-    /* top: 40px; */
 }
 #view-label::after {
     display:none;

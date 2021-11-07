@@ -5,7 +5,7 @@ import parseISO from 'date-fns/parseISO';
 
 function displayTasks(property) {
     (function clearTaskDisplay() {
-        for (let i = 1; i < content.childNodes.length; i++) {
+        for (let i = 3; i < content.childNodes.length; i++) {
             content.removeChild(content.lastChild);
         }
     })()
@@ -20,9 +20,6 @@ function displayTasks(property) {
             function addCategoryTitle(category) {
                 const categoryTitle = document.createElement('h2');
                 categoryTitle.classList.add('category-title');
-                // if (category == 'Complete') {
-                //     categoryTitle.classList.add('complete');
-                // }
                 categoryTitle.textContent = category;
                 categoryDiv.appendChild(categoryTitle);
             }
