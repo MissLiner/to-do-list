@@ -298,7 +298,6 @@ function createEditList(arr) {
         arr.forEach(item => {
             const listItemDiv = document.createElement('div');
             listItemDiv.classList.add('list-item-div');
-            listItemDiv.contentEditable = 'true';
             list.appendChild(listItemDiv);
             addDeleteBtn(listItemDiv, item);
 
@@ -308,7 +307,6 @@ function createEditList(arr) {
             listItem.classList.add('list-item', 'list-child');
             listItem.maxLength = '20';
             listItem.value = item;
-            //listItem.contentEditable = 'true';
         })
     }
     createList(arr);
