@@ -38,7 +38,7 @@ label {
     background-color: transparent;
 }
 
-.edit-date-div, .task-description-input, .task-categories-select, .task-priorities-select, .task-projects-select, .task-notes-input {
+.edit-date-div, .task-description-input, .task-categories-select, .task-priorities-select, .task-projects-select, .task-notes-input, .task-form-input {
     border:none;
     border-radius: 25px;
     -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);

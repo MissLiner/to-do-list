@@ -11,7 +11,6 @@ import { createDropdown } from './task_DOM';
 //consider different layout for when duedate view is selected
 //format circle buttons
 //add content to help menu
-//format new task form inputs
 //format check boxes
 //adjust colors
 //add media queries / make more responsive

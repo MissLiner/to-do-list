@@ -52,52 +52,40 @@
     <div id="content-div">
       <button id="view-completed-btn" class="side-btn">show active only</button>
       <button id="view-categories-btn" class="side-btn">show all cats
-        <!-- <div id="circle-cat" class="circle-text">
-          <span class="w0">c</span>
-          <span class="w1">a</span>
-          <span class="w2">t</span>
-          <span class="w3">e</span>
-          <span class="w4">g</span>
-          <span class="w5">o</span>
-          <span class="w6">r</span>
-          <span class="w7">i</span>
-          <span class="w8">e</span>
-          <span class="w9">s</span>
-        </div> -->
       </button>
     </div>
     
     <form id="new-task-form" class="hidden">
       <label>Task Name:
-        <input id="name-field" name="name">
+        <input id="name-field" class="task-form-input" name="name">
       </label>
       <label>Description:
-        <input id="desc-field" name="description">
+        <input id="desc-field" class="task-form-input" name="description">
       </label>
       <label>Category:
-          <select id="category-select" class="category-select" name="categories">
+          <select id="category-select" class="category-select task-form-input" name="categories">
             <option value="None" selected>None</option>
             <option id="add-category" value="Add new">Add new</option>
           </select>
       </label>
       <label>Project:
-        <select id="project-select" class="project-select" name="projects">
+        <select id="project-select" class="project-select task-form-input" name="projects">
           <option value="None" selected>None</option>
           <option id="add-project" value="Add new">Add new</option>
         </select>
       </label>
       <label>Due:
-        <input id="duedate-select" name="duedate" type="date">
+        <input id="duedate-select" class="task-form-input" name="duedate" type="date">
       </label>
       <label>Priority Level:
-        <select id="priority-select" name="priorities">
+        <select id="priority-select" class="task-form-input" name="priorities">
           <option value="1-High">1-High</option>
           <option value="2-Medium">2-Medium</option>
           <option value="3-Low">3-Low</option>
         </select>
       </label>
       <label>Notes:
-        <input id="notes-field" name="notes">
+        <input id="notes-field" class="task-form-input" name="notes">
       </label>
       <input id="submit-task-btn" class="form-btn" type="submit" value="Add Task">
       <input id="cancel-new-task-btn" class="form-btn" type="button" value="Cancel">
