@@ -170,12 +170,12 @@ function displayTasks(property) {
                                     return;
                                 }
                                 else {
-                                    let subDiv = document.createElement('div');
+                                    let subDiv = document.createElement('input');
                                     subDiv.setAttribute('data-arr', key);
                                     subDiv.setAttribute('data-index', taskNumber);
                                     subDiv.classList.add('task-subdiv', 'task-detail-child', `task-${key}-input`, 'hidden');
                                     subDiv.contentEditable = 'true';
-                                    subDiv.textContent = taskList[i][key];
+                                    subDiv.value = taskList[i][key];
                                     taskDetailDiv.appendChild(subDiv);
                                 }
                             }
