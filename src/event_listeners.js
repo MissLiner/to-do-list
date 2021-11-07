@@ -288,14 +288,9 @@ function loadTaskListeners() {
         let output = formatRelative(dateDue, currentDay);
         div.textContent = output.slice(0, -12);
     }
-    // taskNameDivs.forEach(div => {
-    //     div.addEventListener('change', () => {
-    //         console.log('hi');
-    //     })
-    // })
 
     taskSubDivs.forEach(subdiv => {
-        subdiv.addEventListener('change', () => {
+        subdiv.addEventListener('input', () => {
             if (subdiv.value == 'Add new') {
                 return;
             }

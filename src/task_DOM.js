@@ -175,7 +175,7 @@ function displayTasks(property) {
                                     subDiv.setAttribute('data-index', taskNumber);
                                     subDiv.classList.add('task-subdiv', 'task-detail-child', `task-${key}-input`, 'hidden');
                                     subDiv.contentEditable = 'true';
-                                    subDiv.textContent = 'hello' + taskList[i][key];
+                                    subDiv.textContent = taskList[i][key];
                                     taskDetailDiv.appendChild(subDiv);
                                 }
                             }
