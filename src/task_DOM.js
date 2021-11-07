@@ -24,6 +24,10 @@ function displayTasks(property) {
                 categoryTitle.classList.add('category-title');
                 categoryTitle.textContent = category;
                 categoryDiv.appendChild(categoryTitle);
+                
+                if (category == 'Complete') {
+                    categoryTitle.classList.add('completed');
+                }
             }
 
             addCategoryTitle(category);
@@ -33,21 +37,19 @@ function displayTasks(property) {
                     if (taskList[i][property] == category) {
                     const taskNumber = taskList[i].index;
                     const taskDiv = document.createElement('div');
-                    taskDiv.classList.add('task-div');
+                    taskDiv.classList.add('task-div', 'task');
                     taskDiv.setAttribute('data-index', taskNumber);;
-                    if (taskList[i]['statuses'] == 'Complete') {
-                        taskDiv.classList.add('complete');
-                        if (document.getElementById('view-completed-btn').textContent == 'Show Completed Tasks') {
-                            taskDiv.classList.add('hidden');
-                        }
-                    }
+                    // if (taskList[i]['statuses'] == 'Complete') {
+                    //     taskDiv.classList.add('completed');
+
+                    // }
 
                     const taskBasicDiv = document.createElement('div');
-                    taskBasicDiv.classList.add('task-basic-div');
+                    taskBasicDiv.classList.add('task-basic-div', 'task');
                     taskBasicDiv.setAttribute('data-index', taskNumber);
 
                     const taskDetailDiv = document.createElement('div');
-                    taskDetailDiv.classList.add('task-detail-div');
+                    taskDetailDiv.classList.add('task-detail-div', 'task');
                     taskDetailDiv.setAttribute('data-index', taskNumber);
                                         
                     categoryDiv.appendChild(taskDiv);
@@ -58,7 +60,7 @@ function displayTasks(property) {
                         function createCheckbox() {
                             const taskCheckbox = document.createElement('input');
                             taskCheckbox.type = 'checkbox';
-                            taskCheckbox.classList.add('task-checkbox');
+                            taskCheckbox.classList.add('task-checkbox', 'task');
                             taskCheckbox.setAttribute('data-index', taskNumber);
                             taskCheckbox.setAttribute('data-arr', 'statuses');
                             taskCheckbox.title = 'Complete';
@@ -79,14 +81,14 @@ function displayTasks(property) {
                             }
                             taskSubDiv.setAttribute('data-arr', key);
                             taskSubDiv.setAttribute('data-index', taskNumber);
-                            taskSubDiv.classList.add('task-subdiv', `task-${key}`);
+                            taskSubDiv.classList.add('task-subdiv', `task-${key}`, 'task');
                             if (key === 'duedate') {
                                 const editDateDiv = document.createElement('input');
                                 editDateDiv.type = 'date';
                                 editDateDiv.value = taskList[i].duedate;
                                 editDateDiv.setAttribute('data-arr', key);
                                 editDateDiv.setAttribute('data-index', taskNumber);
-                                editDateDiv.classList.add('task-subdiv', 'edit-date-div', 'hidden');
+                                editDateDiv.classList.add('task-subdiv', 'edit-date-div', 'task', 'hidden');
                                 taskBasicDiv.appendChild(editDateDiv);
 
                                 (function dateToText() {
@@ -127,7 +129,7 @@ function displayTasks(property) {
                         }
                         function createExpandBtn() {
                             const expandBtn = document.createElement('button');
-                            expandBtn.classList.add('expand-btn');
+                            expandBtn.classList.add('expand-btn', 'task');
                             expandBtn.setAttribute('data-index', taskNumber);
                             expandBtn.title = 'Expand';
                             expandBtn.insertAdjacentHTML('beforeend', '<i class="fas fa-caret-square-down fa-lg"></i>');
@@ -135,7 +137,7 @@ function displayTasks(property) {
                         }
                         function createDeleteBtn() {
                             const deleteBtn = document.createElement('button');
-                            deleteBtn.classList.add('delete-btn');
+                            deleteBtn.classList.add('delete-btn', 'task');
                             deleteBtn.setAttribute('data-index', taskNumber);
                             deleteBtn.setAttribute('data-arr', 'taskList');
                             deleteBtn.title = 'Delete';
@@ -148,7 +150,7 @@ function displayTasks(property) {
                                 keySubDiv.id = key;
                                 keySubDiv.setAttribute('data-arr', key);
                                 keySubDiv.setAttribute('data-index', taskNumber);
-                                keySubDiv.classList.add('task-subdiv', 'task-detail-child', `${key}-label`, 'hidden');
+                                keySubDiv.classList.add('task-subdiv', 'task-detail-child', `${key}-label`, 'task', 'hidden');
                                 keySubDiv.textContent = `${key}: `;
                                 taskDetailDiv.appendChild(keySubDiv);
 
@@ -158,7 +160,7 @@ function displayTasks(property) {
                                     subDiv.setAttribute('data-arr', key);
                                     subDiv.setAttribute('data-index', taskNumber);
                                     subDiv.setAttribute('data-arr', arr.title);
-                                    subDiv.classList.add('task-subdiv', `task-${categ}-select`, 'task-detail-child', 'hidden');
+                                    subDiv.classList.add('task-subdiv', `task-${categ}-select`, 'task-detail-child', 'task', 'hidden');
                                     taskDetailDiv.appendChild(subDiv);
                                     createDropdown(arr, arr.title + i);
                                     
@@ -185,7 +187,7 @@ function displayTasks(property) {
                                     let subDiv = document.createElement('input');
                                     subDiv.setAttribute('data-arr', key);
                                     subDiv.setAttribute('data-index', taskNumber);
-                                    subDiv.classList.add('task-subdiv', 'task-detail-child', `task-${key}-input`, 'hidden');
+                                    subDiv.classList.add('task-subdiv', 'task-detail-child', `task-${key}-input`, 'task', 'hidden');
                                     subDiv.contentEditable = 'true';
                                     subDiv.value = taskList[i][key];
                                     taskDetailDiv.appendChild(subDiv);
@@ -209,8 +211,12 @@ function displayTasks(property) {
 
                     }
                     if (taskList[i].statuses == 'Complete') {
-                        for (let i = 0; i < taskDiv.children.length; i++) {
-                            taskDiv.children[i].classList.add('completed');
+                        const allTaskDivs = document.querySelectorAll('.task');
+                    
+                        for (let i = 0; i < allTaskDivs.length; i++) {
+                            if (allTaskDivs[i].dataset.index == taskNumber) {
+                                allTaskDivs[i].classList.add('completed');
+                            }
                         }
                     }
                 }

@@ -19,9 +19,9 @@ div {
 h1 {
     color:#5E4E4D;
     font-family: "Architects Daughter", cursive;
-    font-size:3em;
+    font-size:3.5em;
     float: left;
-    margin: 2% 0 0% 8%;
+    margin: 0% 0 0% 8%;
     width:max-content;
 }
 h2 {
@@ -48,6 +48,9 @@ label {
 
 .category-div {
     padding-bottom: 10px;
+}
+.completed {
+    color: #63364E;
 }
 .del-item-btn {
     display: inline-block;
@@ -88,7 +91,7 @@ label {
     margin-right: 10px;
 }
 .fa-caret-square-down {
-    color:steelblue;
+    color:#9E8382;
 }
 .fa-times {
     background: transparent;
@@ -104,7 +107,7 @@ label {
     top: 5%;
 }
 .fa-trash-alt {
-    color:steelblue;
+    color:#574847;
 }
 .form-btn {
     background-color: white;

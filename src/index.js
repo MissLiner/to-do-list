@@ -7,9 +7,22 @@ import { displayTasks } from './task_DOM';
 import { createDropdown } from './task_DOM';
 
 //refactor so that viewoptions.value is contained in displayTasks
+//figure out what to do about sortTaskList being in index.js
+//consider different layout for when duedate view is selected
+//format circle buttons
+//add content to help menu
+//format new task form inputs
+//format check boxes
+//adjust colors
+//add media queries / make more responsive
+//allow users to change order of edit lists
 
 let taskList = [];
 taskList.title = 'taskList';
+
+// function sortList(arr, key) {
+//     arr.sort((a, b) => a.key.localeCompare(b.key));
+// }
 
 function sortTaskList(trigger) {
     switch(trigger.dataset.index) {
@@ -18,12 +31,9 @@ function sortTaskList(trigger) {
             break;
         case 'bydate':
             taskList.sort((a, b) => a.duedate.localeCompare(b.duedate));
-            // for (let i = 0; i < taskList[i].length; i++) {
-            //     let date1 = new Date(parseISO(taskList[i].duedate));
-            //     let date2 = new Date(parseISO(taskList[i+1].duedate));
-            //     taskList.sort(compareAsc(date1, date2));
             break;
         case 'bypriority':
+            taskList.sort((a, b) => a.priorities.localeCompare(b.priorities));
             break;
     }
 }
