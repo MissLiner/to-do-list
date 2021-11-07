@@ -6,6 +6,8 @@ import './style.css';
 import { displayTasks } from './task_DOM';
 import { createDropdown } from './task_DOM';
 
+//refactor so that viewoptions.value is contained in displayTasks
+
 let taskList = [];
 taskList.title = 'taskList';
 let categories = ['Home', 'Work', 'Self-Care', 'Pets', 'Kids'];

@@ -312,10 +312,12 @@ function loadTaskListeners() {
                         return;
                     }
                 })
-                updateDay(subdiv, currentDateDiv);
+                displayTasks(viewOptions.value);
+                //updateDay(subdiv, currentDateDiv);
             }
             updateTask(subdiv, property);
         })
+        
     })
 
     //DELETE ITEMS

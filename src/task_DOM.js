@@ -89,21 +89,23 @@ function displayTasks(property) {
                                 editDateDiv.classList.add('task-subdiv', 'edit-date-div', 'hidden');
                                 taskBasicDiv.appendChild(editDateDiv);
 
-                                let currentDay = new Date();
-                                let dateDue = new Date(parseISO(taskList[i].duedate));
-                                let dateDistance = differenceInCalendarDays(dateDue, currentDay);
-                                
-                                if (dateDistance < -7) {
-                                    let text = dateDistance + ' days ago';
-                                    taskSubDiv.textContent = text.substring(1);
-                                }
-                                else if (dateDistance > 7) {
-                                    taskSubDiv.textContent = 'in ' + dateDistance + ' days';
-                                }
-                                else {
-                                    let output = formatRelative(dateDue, currentDay);
-                                    taskSubDiv.textContent = output.slice(0, -12);
-                                }
+                                // (function dateToText() {
+                                //    let currentDay = new Date();
+                                //     let dateDue = new Date(parseISO(taskList[i].duedate));
+                                //     let dateDistance = differenceInCalendarDays(dateDue, currentDay);
+                                    
+                                //     if (dateDistance < -7) {
+                                //         let text = dateDistance + ' days ago';
+                                //         taskSubDiv.textContent = text.substring(1);
+                                //     }
+                                //     else if (dateDistance > 7) {
+                                //         taskSubDiv.textContent = 'in ' + dateDistance + ' days';
+                                //     }
+                                //     else { 
+                                //         let output = formatRelative(dateDue, currentDay);
+                                //         taskSubDiv.textContent = output.slice(0, -12);
+                                //     }
+                                // })()
                             }
                             else {
                                 taskSubDiv.textContent = taskList[i][key];
