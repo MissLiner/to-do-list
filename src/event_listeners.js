@@ -264,7 +264,6 @@ function loadTaskListeners() {
 
     //EDIT TASK
 
-    const taskBasicDivs = queryAll('.task-basic-div');
     const taskSubDivs = queryAll('.task-subdiv');
     let currentBasicDiv;
     let currentDateDiv;
@@ -304,7 +303,7 @@ function loadTaskListeners() {
 
             if (property == 'priorities') {
                 taskSubDivs.forEach(div => {
-                    if (div.dataset.index == currentTask && !div.classList.contains('completed')) {
+                    if (div.dataset.index == currentTask && !div.classList.contains('completed')  && !div.classList.contains('edit-date-div')) {
                         currentBasicDiv = div;
                         colorCode(subdiv);
                         return;
