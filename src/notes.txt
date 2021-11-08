@@ -1,0 +1,5 @@
+too many classes?
+modules share too many imports and exports
+DOM code is too nested
+task logic has so many separate functions
+my naming is confusing - too much similar stuff

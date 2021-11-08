@@ -18,6 +18,7 @@ function setCurrentList(trigger) {
     for (let list of allLists) {
         if (list.title == trigger.dataset.arr) {
             currentList = list;
+            return;
         }
     }
 }
@@ -146,7 +147,6 @@ function loadBaseListeners() {
         currentSelects.forEach(select => {
             createDropdown(currentList, select.id);
         })
-        //get newtaskform selects to update with new item added, get additemform to pop up after having added one already
         createEditList(currentList);
         updateTask(addItemField);
         addItemField.value = '';

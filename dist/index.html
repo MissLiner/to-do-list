@@ -1,3 +1,4 @@
+<!-- <a href="https://www.vecteezy.com/free-vector/hand-drawn-lines">Hand Drawn Lines Vectors by Vecteezy</a> -->
 <!DOCTYPE html>
 
 <html>
@@ -11,7 +12,6 @@
 
   <body>
     <h1>Can-Do List</h1>
-
     <div id="menu-bar">
       <label id="view-label" class="menu-btn">View: 
         <select id="view-options" class="menu-btn">
@@ -22,7 +22,6 @@
           <option value="duedate">Due Date</option>
         </select>
       </label>
-      
       <div id="menu-bar-edit" class="menu">
         <button id="edit-btn" class="menu-btn">Edit</button>
         <div id="edit-menu" class="dropdown hidden">
@@ -32,9 +31,7 @@
           <button id="edit-stat-btn" class="dropdown-btn" data-arr="statuses">Statuses</button>
         </div>
       </div>
-
       <button id="new-task-btn" class="menu-btn">New Task</button>
-
       <div id="menu-bar-sort" class="menu">
         <button id="sort-btn" class="menu-btn">Sort</button>
         <div id="sort-menu" class="dropdown hidden">
@@ -46,12 +43,10 @@
       </div>
       <button id="help-btn" class="menu-btn">Help</button>
     </div>
-
     <div id="edit-div" class="pop-up hidden">
       <button id="exit-popup-btn" class="fas fa-times"></button>
       <button id="add-item-btn">+ Add New</button>
     </div>
-
     <div id="content-div">
       <button id="view-completed-btn" class="side-btn">show active only</button>
       <button id="view-categories-btn" class="side-btn">show all cats
@@ -65,29 +60,30 @@
       </div>
       <div id="border-div"></div>
       <label for="duedate-select">Due:</label>
-      <input id="duedate-select" class="task-form-input" name="duedate" type="date">
+      <input id="duedate-select" class="task-select" name="duedate" type="date">
 
       <label for="priority-select">Priority:</label>
-      <select id="priority-select" class="task-form-input" name="priorities">
+      <select id="priority-select" class="task-select" name="priorities">
         <option value="1: High">1: High</option>
         <option value="2: Medium">2: Medium</option>
         <option value="3: Low">3: Low</option>
       </select>
-
-      <label for="category-select">Category:</label>
-      <select id="category-select" class="category-select task-form-input" data-arr="categories" name="categories">
-        <option value="None" selected>None</option>
-        <option id="add-category" value="Add new">Add new</option>
-      </select>
-      
-      <label for="project-select">Project:</label>
-      <select id="project-select" class="project-select task-form-input" data-arr="projects" name="projects">
-        <option value="None" selected>None</option>
-        <option id="add-project" value="Add new">Add new</option>
-      </select>
- 
-      <label for="desc-field" id="notes-field">Description:</label>
-      <input id="desc-field" class="task-form-input" name="description">
+      <div>
+        <label for="category-select">Category:</label>
+        <select id="category-select" class="task-select" data-arr="categories" name="categories">
+          <option value="None" selected>None</option>
+          <option id="add-category" value="Add new">Add new</option>
+        </select>
+        <label for="project-select">Project:</label>
+        <select id="project-select" class="task-select" data-arr="projects" name="projects">
+          <option value="None" selected>None</option>
+          <option id="add-project" value="Add new">Add new</option>
+        </select>
+      </div>
+      <div id="desc-div">
+        <label for="desc-field" id="notes-field">Description:</label>
+        <input id="desc-field" class="task-form-input" name="description">
+      </div>
       <div>
         <label for="notes-field" id="notes-label">- NOTES -</label>
         <input id="notes-field" class="task-form-input" name="notes">

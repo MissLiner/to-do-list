@@ -15,9 +15,11 @@ import borderRef from './form_border_1.svg';
 //adjust colors
 //add media queries / make more responsive
 //allow users to change order of edit lists
-//add sort by reverse duedate
-//change priority levels 
 //refactor to use less passing variables between modules
+//get select menus to land on new item after adding
+//have categories disappear when no items are in them
+//add navigation into specific categories
+//style new task form and task edit form
 
 (function addFormBorder() {
     const borderDiv = document.getElementById('border-div');

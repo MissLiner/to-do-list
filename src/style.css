@@ -50,7 +50,7 @@ label {
     font-size: 18px;
 }
 
-.edit-date-div, .task-description-input, .task-categories-select, .task-priorities-select, .task-projects-select, .task-notes-input, .task-form-input {
+.edit-date-div, .task-select, .task-notes-input, .task-form-input {
     border:none;
     border-radius: 25px;
     -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
@@ -126,10 +126,6 @@ label {
     color:#574847;
 }
 .form {
-    /* background-color:#CADBDA; */
-    /* background-color:#A18192; */
-    /* background-color:#D4BCBA; */
-    /* background-color:#AFCCBD; */
     background-color: #B6D4C4;
     padding: 1% 1% 1% 1%;
     position:absolute;
@@ -263,6 +259,9 @@ label {
 .task-notes-input {
     grid-area: j;
 }
+.task-select {
+    width: 100px;
+}
 .task-subdiv {
     flex: 1 1 0;
 }
@@ -314,6 +313,9 @@ label {
 }
 #desc-field {
     width:70%;
+}
+#duedate-select {
+    width:initial;
 }
 #filter {
     background-color: black;
