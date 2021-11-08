@@ -24,13 +24,13 @@ function setCurrentList(trigger) {
 function setCurrentSelects(trigger) {
     switch(trigger.dataset.arr) {
         case 'categories':
-            currentSelects = queryAll('.task-categories-select');
+            currentSelects = queryAll('.task-categories-select, .category-select');
             break;
         case 'priorities':
             currentSelects = queryAll('.task-priorities-select');
             break;
         case 'projects':
-            currentSelects = queryAll('.task-projects-select');
+            currentSelects = queryAll('.task-projects-select, .project-select');
             break;
         case 'statuses':
             currentSelects = queryAll('.task-status-select');
@@ -104,6 +104,7 @@ function loadBaseListeners() {
     const filter = getEl('filter');
 
     newTaskBtn.addEventListener('click', () => {
+        currentList = taskList;
         toggleHidden(newTaskForm);
         toggleHidden(filter);
         newTaskForm.reset();
@@ -132,8 +133,12 @@ function loadBaseListeners() {
     const addItemField = getEl('add-item-field');
     
     submitItemBtn.addEventListener('click', (e) => {
-        editDiv.removeChild(addItemForm);
-        toggleHidden(addItemBtn);
+        const parentNode = addItemForm.parentNode;
+        parentNode.removeChild(addItemForm);
+        toggleHidden(addItemForm);
+        if (addItemBtn.classList.contains('hidden')) { //testthis
+            toggleHidden(addItemBtn);
+        }
         const newItem = addItemField.value;
         setCurrentList(e.target);
 
@@ -141,6 +146,7 @@ function loadBaseListeners() {
         currentSelects.forEach(select => {
             createDropdown(currentList, select.id);
         })
+        //get newtaskform selects to update with new item added, get additemform to pop up after having added one already
         createEditList(currentList);
         updateTask(addItemField);
         addItemField.value = '';
@@ -149,6 +155,8 @@ function loadBaseListeners() {
 
     cancelAddBtn.addEventListener('click', () => {
         addItemField.value = '';
+        let parentNode = addItemForm.parentNode;
+        parentNode.removeChild(addItemForm);
         toggleHidden(addItemForm);
     })
        
@@ -212,6 +220,9 @@ function loadTaskListeners() {
                 setCurrentList(e.target);
                 setCurrentSelects(e.target);
                 toggleHidden(addItemForm);
+
+                const parentNode = e.target.parentNode;
+                parentNode.appendChild(addItemForm);
             }
         })
     })
@@ -284,13 +295,13 @@ function loadTaskListeners() {
 
     function colorCode(input) {
         switch(input.value) {
-            case '1-High':
+            case '1: High':
                 currentBasicDiv.style.color = '#9E3153';
                 break;
-            case '2-Medium':
+            case '2: Medium':
                 currentBasicDiv.style.color = '#BD6B37';
                 break;
-            case '3-Low':
+            case '3: Low':
                 currentBasicDiv.style.color = '#5E8A32';
                 break;
         }
