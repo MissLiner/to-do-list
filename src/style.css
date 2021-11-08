@@ -141,6 +141,9 @@ label {
     font-family: "Architects Daughter", cursive;
     margin: 2% 0% 1% 0%;
 }
+.form-section {
+    margin-top: 20px;
+}
 .hidden {
     display: none;
 }
