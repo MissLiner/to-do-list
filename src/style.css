@@ -124,7 +124,7 @@ label {
     left: 50%;
     top: 30%;
     transform: translate(-50%, 0);
-    width: 80%;
+    width: 60%;
     z-index: 1001;
 }
 .form-btn {
@@ -290,6 +290,13 @@ label {
 }
 #content {
     margin: auto;
+}
+#description-field, #notes-field {
+    width:90%;
+}
+#description-label, #notes-label {
+    margin-left: 0px;
+    text-align:left;
 }
 #filter {
     background-color: black;
