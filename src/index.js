@@ -12,7 +12,6 @@ import borderRef from './form_border_1.svg';
 //consider different layout for when duedate view is selected
 //format circle buttons
 //add content to help menu
-//format check boxes
 //adjust colors
 //add media queries / make more responsive
 //allow users to change order of edit lists
@@ -32,16 +31,15 @@ import borderRef from './form_border_1.svg';
 let taskList = [];
 taskList.title = 'taskList';
 
-// function sortList(arr, key) {
-//     arr.sort((a, b) => a.key.localeCompare(b.key));
-// }
-
 function sortTaskList(trigger) {
     switch(trigger.dataset.index) {
         case 'byalpha':
             taskList.sort((a, b) => a.name.localeCompare(b.name));
             break;
-        case 'bydate':
+        case 'bydate-earliest':
+            taskList.sort((a, b) => b.duedate.localeCompare(a.duedate));
+            break;
+        case 'bydate-latest':
             taskList.sort((a, b) => a.duedate.localeCompare(b.duedate));
             break;
         case 'bypriority':

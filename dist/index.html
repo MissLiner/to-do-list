@@ -23,7 +23,7 @@
         </select>
       </label>
       
-      <div class="menu">
+      <div id="menu-bar-edit" class="menu">
         <button id="edit-btn" class="menu-btn">Edit</button>
         <div id="edit-menu" class="dropdown hidden">
           <button id="edit-cat-btn" class="dropdown-btn" data-arr="categories">Categories</button>
@@ -32,13 +32,16 @@
           <button id="edit-stat-btn" class="dropdown-btn" data-arr="statuses">Statuses</button>
         </div>
       </div>
+
       <button id="new-task-btn" class="menu-btn">New Task</button>
-      <div class="menu">
+
+      <div id="menu-bar-sort" class="menu">
         <button id="sort-btn" class="menu-btn">Sort</button>
         <div id="sort-menu" class="dropdown hidden">
-          <button class="dropdown-btn sort-btn" data-index="bydate">by Duedate</button>
-          <button class="dropdown-btn sort-btn" data-index="bypriority">by Priority Level</button>
-          <button class="dropdown-btn sort-btn" data-index="byalpha">A to Z</button>
+          <button class="dropdown-btn sort-btn" data-index="bydate-earliest">by earliest duedate</button>
+          <button class="dropdown-btn sort-btn" data-index="bydate-latest">by latest duedate </button>
+          <button class="dropdown-btn sort-btn" data-index="bypriority">by priority level</button>
+          <button class="dropdown-btn sort-btn" data-index="byalpha">a to z</button>
         </div>
       </div>
       <button id="help-btn" class="menu-btn">Help</button>

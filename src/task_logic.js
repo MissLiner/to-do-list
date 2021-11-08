@@ -1,12 +1,7 @@
 
 import { taskList, categories, projects } from "./index.js"; 
-import compareAsc from 'date-fns/compareAsc';
-import parseISO from 'date-fns/parseISO';
-
 
 const newTaskForm = document.getElementById('new-task-form');
-
-//local storage - store
 
 function storeList(item) {
     window.localStorage.setItem(item.title, JSON.stringify(item));
@@ -22,7 +17,6 @@ function addNewTaskToList() {
     newTask.index = Date.now();
     newTask.statuses = 'Active';
     taskList.unshift(newTask);
-    //taskList.sort();
     storeList(taskList);
 }
 
