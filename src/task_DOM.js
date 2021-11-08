@@ -3,8 +3,8 @@ import { loadTaskListeners } from './event_listeners';
 import  formatRelative  from 'date-fns/formatRelative';
 import parseISO from 'date-fns/parseISO';
 import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
-import uncheckedBoxRef from './empty_checkbox.svg';
-import checkedBoxRef from './checked_box.svg';
+import uncheckedBoxRef from './box_unchecked.svg';
+import checkedBoxRef from './box_checked.svg';
 
 function displayTasks(property) {
     (function clearTaskDisplay() {
