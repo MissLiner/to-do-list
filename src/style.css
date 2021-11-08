@@ -77,13 +77,13 @@ label {
     grid-area: a;
 }
 .dropdown {
-    background-color:#A39886;
+    background-color:#806969;
     float: left;
     /* margin:unset; */
     padding: 5px 5px 5px 5px;
 }
 .dropdown-btn {
-    background-color:#A39886;
+    background-color:#806969;
     border: none;
     color: white;
     font-size: 16px;
