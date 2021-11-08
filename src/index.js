@@ -5,6 +5,7 @@ import { loadBaseListeners } from './event_listeners';
 import './style.css'; 
 import { displayTasks } from './task_DOM';
 import { createDropdown } from './task_DOM';
+import borderRef from './form_border_1.svg';
 
 //refactor so that viewoptions.value is contained in displayTasks
 //figure out what to do about sortTaskList being in index.js
@@ -16,6 +17,17 @@ import { createDropdown } from './task_DOM';
 //add media queries / make more responsive
 //allow users to change order of edit lists
 //add sort by reverse duedate
+//change priority levels 
+//refactor to use less passing variables between modules
+
+(function addFormBorder() {
+    const borderDiv = document.getElementById('border-div');
+    const border = new Image();
+
+    border.src = borderRef;
+    border.id = 'border';
+    borderDiv.appendChild(border);
+})()
 
 let taskList = [];
 taskList.title = 'taskList';

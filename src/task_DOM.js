@@ -3,7 +3,8 @@ import { loadTaskListeners } from './event_listeners';
 import  formatRelative  from 'date-fns/formatRelative';
 import parseISO from 'date-fns/parseISO';
 import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
-import isPast from 'date-fns/isPast';
+import uncheckedBoxRef from './empty_checkbox.svg';
+import checkedBoxRef from './checked_box.svg';
 
 function displayTasks(property) {
     (function clearTaskDisplay() {
@@ -11,7 +12,6 @@ function displayTasks(property) {
             content.removeChild(content.lastChild);
         }
     })()
-
 
     if (taskList) {
         function createCategoryDiv(category) {
@@ -39,10 +39,6 @@ function displayTasks(property) {
                     const taskDiv = document.createElement('div');
                     taskDiv.classList.add('task-div', 'task');
                     taskDiv.setAttribute('data-index', taskNumber);;
-                    // if (taskList[i]['statuses'] == 'Complete') {
-                    //     taskDiv.classList.add('completed');
-
-                    // }
 
                     const taskBasicDiv = document.createElement('div');
                     taskBasicDiv.classList.add('task-basic-div', 'task');
@@ -58,15 +54,20 @@ function displayTasks(property) {
 
                     if (taskList[i][property] === category) {
                         function createCheckbox() {
-                            const taskCheckbox = document.createElement('input');
-                            taskCheckbox.type = 'checkbox';
+                            const checkbox = new Image();
+                            if (taskList[i].statuses == 'Active') {
+                                checkbox.src = uncheckedBoxRef;
+                            }
+                            else {
+                                checkbox.src = checkedBoxRef;
+                            }
+                            const taskCheckbox = document.createElement('div');
+                            taskCheckbox.appendChild(checkbox);
                             taskCheckbox.classList.add('task-checkbox', 'task');
                             taskCheckbox.setAttribute('data-index', taskNumber);
                             taskCheckbox.setAttribute('data-arr', 'statuses');
                             taskCheckbox.title = 'Complete';
-                            if (taskList[i].statuses == 'Complete') {
-                                taskCheckbox.checked = 'true';
-                            }
+
                             taskBasicDiv.appendChild(taskCheckbox);
                         }
                         function createTaskSubDiv(key) {

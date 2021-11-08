@@ -60,10 +60,15 @@ function updateList(trigger, arr) {
         storeList(arr);
     })
 }
-function completeTask(trigger) {
+function toggleComplete(trigger) {
     taskList.forEach(task => {
         if (trigger.dataset.index == task.index) {
-            task.statuses = 'Complete';
+            if (task.statuses == 'Active') {
+                task.statuses = 'Complete';
+            }
+            else {
+                task.statuses = 'Active';
+            }
             storeList(taskList);
         }
     })
@@ -92,7 +97,7 @@ function deleteFromArr(value, arr) {
 
 export {
     addNewTaskToList,
-    completeTask,
+    toggleComplete,
     deleteFromArr,
     storeList,
     addItemToArr,

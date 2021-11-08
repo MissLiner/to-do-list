@@ -1,4 +1,4 @@
-import { addItemToArr, addNewTaskToList, completeTask, deleteFromArr, updateTask, updateList } from './task_logic';
+import { addItemToArr, addNewTaskToList, toggleComplete, deleteFromArr, updateTask, updateList } from './task_logic';
 import { createDropdown, displayTasks, createEditList } from './task_DOM'
 import { categories, projects, taskList, priorities, statuses, sortTaskList } from './index'
 import  formatRelative  from 'date-fns/formatRelative';
@@ -358,8 +358,8 @@ function loadTaskListeners() {
     const checkboxes = queryAll('.task-checkbox')
 
     checkboxes.forEach(box => {
-        box.addEventListener('change', () => {
-            completeTask(box);
+        box.addEventListener('click', () => {
+            toggleComplete(box);
             displayTasks(viewOptions.value);
         })
     })

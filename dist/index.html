@@ -56,14 +56,13 @@
     </div>
     
     <form id="new-task-form" class="form hidden">
-      <h3>New Task</h3>
       <div>
-        <label for="name-field">Task Name:</label>
+        <label id="name-label" for="name-field">New Task:</label>
         <input id="name-field" class="task-form-input" name="name">
-        
-        <label for="duedate-select">Due:</label>
-        <input id="duedate-select" class="task-form-input" name="duedate" type="date">
       </div>
+      <div id="border-div"></div>
+      <label for="duedate-select">Due:</label>
+      <input id="duedate-select" class="task-form-input" name="duedate" type="date">
 
       <label for="priority-select">Priority:</label>
       <select id="priority-select" class="task-form-input" name="priorities">
@@ -84,10 +83,10 @@
         <option id="add-project" value="Add new">Add new</option>
       </select>
  
-      <label for="desc-field">Description:</label>
+      <label for="desc-field" id="notes-field">Description:</label>
       <input id="desc-field" class="task-form-input" name="description">
       <div>
-        <label for="notes-field" id="notes-label">Notes:</label>
+        <label for="notes-field" id="notes-label">- NOTES -</label>
         <input id="notes-field" class="task-form-input" name="notes">
       </div>
 

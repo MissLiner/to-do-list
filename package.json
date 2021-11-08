@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/MissLiner/to-do-list#readme",
   "devDependencies": {
+    "babel-loader": "^8.2.3",
     "css-loader": "^6.4.0",
     "date-fns": "^2.25.0",
     "style-loader": "^3.3.0",

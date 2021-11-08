@@ -1,24 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Fredericka+the+Great&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 * {
     background-color: #F0E9E9;
-    /* color:#705D5C; */
     border-color:#A38786;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight:500;
     margin: auto;
     text-align: center;
     transition-property: all;
     transition-duration: .6s;
     transition-timing-function: ease;
-
-
+}
+button {
+    color:#63364E;
+    font-family: "Architects Daughter", cursive;
 }
 div {
     background: transparent;
 }
 h1 {
     color:#5E4E4D;
-    font-family: "Architects Daughter", cursive;
+    font-family: "Fredericka the Great", cursive;
     font-size:3.5em;
     float: left;
     margin: 0% 0 0% 8%;
@@ -26,12 +28,14 @@ h1 {
 }
 h2 {
     color:#63364E;
-    font-family: "Architects Daughter", cursive;
+    font-family: "Fredericka the Great", cursive;
     font-size: 2em;
     margin-bottom: 20px;
 }
 h3 {
+    color:#63364E;
     font-family:"Architects Daughter", cursive;
+    font-size: 1.5em;
     background-color: transparent;
     margin: 0% 0% 1% 0%;
 }
@@ -41,6 +45,9 @@ input, select{
 }
 label {
     background-color: transparent;
+    color:#63364E;
+    font-family: "Architects Daughter", cursive;
+    font-size: 18px;
 }
 
 .edit-date-div, .task-description-input, .task-categories-select, .task-priorities-select, .task-projects-select, .task-notes-input, .task-form-input {
@@ -91,6 +98,10 @@ label {
     -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
     box-shadow: 1px 2px 3px rgba(0,0,0,.5);
 }
+.empty-box {
+    height: 50px;
+    width:50px;
+}
 .expand-btn {
     border: none;
     margin-right: 10px;
@@ -118,17 +129,20 @@ label {
     /* background-color:#CADBDA; */
     /* background-color:#A18192; */
     /* background-color:#D4BCBA; */
-    background-color:#AFCCBD;
+    /* background-color:#AFCCBD; */
+    background-color: #B6D4C4;
     padding: 1% 1% 1% 1%;
     position:absolute;
     left: 50%;
-    top: 30%;
+    top: 20%;
     transform: translate(-50%, 0);
-    width: 60%;
+    width: 70%;
     z-index: 1001;
 }
 .form-btn {
     background-color: white;
+    color:#63364E;
+    font-family: "Architects Daughter", cursive;
     margin: 2% 0% 1% 0%;
 }
 .hidden {
@@ -217,6 +231,9 @@ label {
     display: flex;
     width: 500px;
 }
+.task-checkbox {
+    width:30px;
+}
 .task-description-input {
     grid-area: b;
 }
@@ -238,7 +255,7 @@ label {
     background-color: transparent;
     border:none;
     font-size: large;
-    font-weight: bold;
+    font-weight:600;
 }
 .task-name:focus-visible {
     outline: none;
@@ -263,6 +280,10 @@ label {
 }
 #add-item-form {
     background-color: transparent;
+}
+#border { 
+    background-color:transparent;
+    color:#63364E;
 }
 #circle-cat {
     display: block;
@@ -291,15 +312,13 @@ label {
 #content {
     margin: auto;
 }
-#description-field, #notes-field {
-    width:90%;
-}
-#description-label, #notes-label {
-    margin-left: 0px;
-    text-align:left;
+#desc-field {
+    width:70%;
 }
 #filter {
     background-color: black;
+    /* filter:alpha(30%); */
+    filter:blur(40%);
     height: 100%;
     opacity: 0.2;
     position:absolute;
@@ -324,11 +343,28 @@ label {
     width: 100%;
     z-index: 5;
 }
+#name-field {
+    border: none;
+    border-radius: 10%;
+    box-shadow: none;
+}
+#name-label {
+    color:#63364E;
+    font-family:"Architects Daughter", cursive;
+    font-size: 1.5em;
+}
 #new-task-btn {
     color:white;
     font-size: 1.25em;
     font-weight: bold;
 } 
+#notes-field  {
+    width:90%;
+}
+#notes-label {
+    font-weight:bolder;
+    padding-top: 3%;
+}
 #view-categories-btn {
     position:absolute;
     right: 2%;
@@ -349,8 +385,11 @@ label {
     width: 80px;
 }
 #view-options {
-    font-size: 14px;
+    display:block;
+    font-size: 12px;
+    height:auto;
+    margin-left: 20px;
 }
-#view-label, #view-options {
+#view-label {
     height: 25px;
 }
