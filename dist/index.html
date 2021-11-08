@@ -55,12 +55,20 @@
       </button>
     </div>
     
-    <form id="new-task-form" class="hidden">
+    <form id="new-task-form" class="form hidden">
+      <h3>New Task</h3>
       <label>Task Name:
         <input id="name-field" class="task-form-input" name="name">
       </label>
-      <label>Description:
-        <input id="desc-field" class="task-form-input" name="description">
+      <label>Due:
+        <input id="duedate-select" class="task-form-input" name="duedate" type="date">
+      </label>
+      <label>Priority Level:
+        <select id="priority-select" class="task-form-input" name="priorities">
+          <option value="1-High">1-High</option>
+          <option value="2-Medium">2-Medium</option>
+          <option value="3-Low">3-Low</option>
+        </select>
       </label>
       <label>Category:
           <select id="category-select" class="category-select task-form-input" name="categories">
@@ -74,21 +82,16 @@
           <option id="add-project" value="Add new">Add new</option>
         </select>
       </label>
-      <label>Due:
-        <input id="duedate-select" class="task-form-input" name="duedate" type="date">
-      </label>
-      <label>Priority Level:
-        <select id="priority-select" class="task-form-input" name="priorities">
-          <option value="1-High">1-High</option>
-          <option value="2-Medium">2-Medium</option>
-          <option value="3-Low">3-Low</option>
-        </select>
+      <label>Description:
+        <input id="desc-field" class="task-form-input" name="description">
       </label>
       <label>Notes:
         <input id="notes-field" class="task-form-input" name="notes">
       </label>
+      <div id="task-btn-div">
       <input id="submit-task-btn" class="form-btn" type="submit" value="Add Task">
       <input id="cancel-new-task-btn" class="form-btn" type="button" value="Cancel">
+    </div>
     </form>
 
     <div id="add-item-form" class="hidden">
@@ -98,5 +101,7 @@
       <button id="submit-item-btn" class="form-btn">Add</button>
       <button id="cancel-add-btn" class="form-btn">Cancel</button>
     </div>
+
+    <div id="filter" class="hidden"></div>
   </body>
 </html>

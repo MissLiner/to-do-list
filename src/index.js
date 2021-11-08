@@ -15,6 +15,7 @@ import { createDropdown } from './task_DOM';
 //adjust colors
 //add media queries / make more responsive
 //allow users to change order of edit lists
+//add sort by reverse duedate
 
 let taskList = [];
 taskList.title = 'taskList';

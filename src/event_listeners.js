@@ -101,9 +101,11 @@ function loadBaseListeners() {
     const newTaskBtn = getEl('new-task-btn');
     const newTaskForm = getEl('new-task-form');
     const cancelNewTaskBtn = getEl('cancel-new-task-btn');
+    const filter = getEl('filter');
 
     newTaskBtn.addEventListener('click', () => {
         toggleHidden(newTaskForm);
+        toggleHidden(filter);
         newTaskForm.reset();
     });
 
@@ -112,12 +114,14 @@ function loadBaseListeners() {
 
         addNewTaskToList();
         toggleHidden(newTaskForm);
+        toggleHidden(filter);
         newTaskForm.reset();
         displayTasks(viewOptions.value);
     })
 
     cancelNewTaskBtn.addEventListener('click', () => {
         toggleHidden(newTaskForm);
+        toggleHidden(filter);
         newTaskForm.reset();
     })
 

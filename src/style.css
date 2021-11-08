@@ -30,9 +30,14 @@ h2 {
     font-size: 2em;
     margin-bottom: 20px;
 }
+h3 {
+    font-family:"Architects Daughter", cursive;
+    background-color: transparent;
+    margin: 0% 0% 1% 0%;
+}
 input, select{
     background-color: white;
-
+    margin: 0% 0% 1% 0%;
 }
 label {
     background-color: transparent;
@@ -109,8 +114,22 @@ label {
 .fa-trash-alt {
     color:#574847;
 }
+.form {
+    /* background-color:#CADBDA; */
+    /* background-color:#A18192; */
+    /* background-color:#D4BCBA; */
+    background-color:#AFCCBD;
+    padding: 1% 1% 1% 1%;
+    position:absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, 0);
+    width: 80%;
+    z-index: 1001;
+}
 .form-btn {
     background-color: white;
+    margin: 2% 0% 1% 0%;
 }
 .hidden {
     display: none;
@@ -271,6 +290,15 @@ label {
 }
 #content {
     margin: auto;
+}
+#filter {
+    background-color: black;
+    height: 100%;
+    opacity: 0.2;
+    position:absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 #exit-popup-btn {
     border: none;
