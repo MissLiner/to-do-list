@@ -57,41 +57,44 @@
     
     <form id="new-task-form" class="form hidden">
       <h3>New Task</h3>
-      <label>Task Name:
+      <div>
+        <label for="name-field">Task Name:</label>
         <input id="name-field" class="task-form-input" name="name">
-      </label>
-      <label>Due:
+        
+        <label for="duedate-select">Due:</label>
         <input id="duedate-select" class="task-form-input" name="duedate" type="date">
-      </label>
-      <label>Priority Level:
-        <select id="priority-select" class="task-form-input" name="priorities">
-          <option value="1-High">1-High</option>
-          <option value="2-Medium">2-Medium</option>
-          <option value="3-Low">3-Low</option>
-        </select>
-      </label>
-      <label>Category:
-          <select id="category-select" class="category-select task-form-input" name="categories">
-            <option value="None" selected>None</option>
-            <option id="add-category" value="Add new">Add new</option>
-          </select>
-      </label>
-      <label>Project:
-        <select id="project-select" class="project-select task-form-input" name="projects">
-          <option value="None" selected>None</option>
-          <option id="add-project" value="Add new">Add new</option>
-        </select>
-      </label>
-      <label>Description:
-        <input id="desc-field" class="task-form-input" name="description">
-      </label>
-      <label>Notes:
+      </div>
+
+      <label for="priority-select">Priority:</label>
+      <select id="priority-select" class="task-form-input" name="priorities">
+        <option value="1-High">1-High</option>
+        <option value="2-Medium">2-Medium</option>
+        <option value="3-Low">3-Low</option>
+      </select>
+
+      <label for="category-select">Category:</label>
+      <select id="category-select" class="category-select task-form-input" name="categories">
+        <option value="None" selected>None</option>
+        <option id="add-category" value="Add new">Add new</option>
+      </select>
+      
+      <label for="project-select">Project:</label>
+      <select id="project-select" class="project-select task-form-input" name="projects">
+        <option value="None" selected>None</option>
+        <option id="add-project" value="Add new">Add new</option>
+      </select>
+ 
+      <label for="desc-field">Description:</label>
+      <input id="desc-field" class="task-form-input" name="description">
+      <div>
+        <label for="notes-field" id="notes-label">Notes:</label>
         <input id="notes-field" class="task-form-input" name="notes">
-      </label>
+      </div>
+
       <div id="task-btn-div">
-      <input id="submit-task-btn" class="form-btn" type="submit" value="Add Task">
-      <input id="cancel-new-task-btn" class="form-btn" type="button" value="Cancel">
-    </div>
+        <input id="submit-task-btn" class="form-btn" type="submit" value="Add Task">
+        <input id="cancel-new-task-btn" class="form-btn" type="button" value="Cancel">
+      </div>
     </form>
 
     <div id="add-item-form" class="hidden">
