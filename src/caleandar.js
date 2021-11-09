@@ -1,5 +1,3 @@
-import { taskList } from './index.js';
-
 let settings = {
   Color: '',
   LinkColor: '',
