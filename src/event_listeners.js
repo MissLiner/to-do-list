@@ -65,7 +65,6 @@ function loadBaseListeners() {
         } else {
             toggleHidden(e.target.nextElementSibling);
             window.addEventListener('click', () => {
-                console.log('hi');
                 toggleHidden(e.target.nextElementSibling);
             }, {
                 once: true
@@ -148,7 +147,10 @@ function loadBaseListeners() {
             createDropdown(currentList, select.id);
         })
         createEditList(currentList);
-        updateTask(addItemField);
+        updateTask(addItemField);//add current task to avoid for loop
+
+        const currentSelect = getEl(currentList.title + currentTask);
+        currentSelect.value = newItem;
         addItemField.value = '';
         toggleHidden(addItemForm);
     })

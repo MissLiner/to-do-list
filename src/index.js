@@ -10,11 +10,13 @@ import { displayTasks } from './task_DOM';
 import { createDropdown } from './task_DOM';
 import borderRef from './form_border_1.svg';
 
-//use onblur to close menus when clicking elsewhere QUICK
+//update add task form dropdowns when item is added
 //get select menus to land on new item after adding
 //style task edit form
 //change display btns to toggles?
 //program show all cats btn
+//hide menu after selection menubar
+//!!!!!eventlistener fire once thing doesn't remove if it wasn't fired!!
 
 //figure out what to do about sortTaskList being in index.js
 //format circle buttons

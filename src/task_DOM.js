@@ -181,13 +181,14 @@ function displayTasks() {
 
                                 function createDetailDropDown(categ, arr) {
                                     let subDiv = document.createElement('select');
-                                    subDiv.id = arr.title + i;
+                                    //subDiv.id = arr.title + i;
+                                    subDiv.id = arr.title + taskList[i].index;
                                     subDiv.setAttribute('data-arr', key);
                                     subDiv.setAttribute('data-index', taskNumber);
                                     subDiv.setAttribute('data-arr', arr.title);
                                     subDiv.classList.add('task-subdiv', `task-select`, 'task-detail-child', 'task', `${key}-select`, 'hidden');
                                     taskDetailDiv.appendChild(subDiv);
-                                    createDropdown(arr, arr.title + i);
+                                    createDropdown(arr, arr.title + taskList[i].index);
                                     
                                     Array.from(subDiv.options).forEach(option => {
                                         if (option.value == taskList[i][categ]) {
