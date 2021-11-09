@@ -12,7 +12,6 @@ import borderRef from './form_border_1.svg';
 
 //refactor so that viewoptions.value is contained in displayTasks
 //figure out what to do about sortTaskList being in index.js
-//consider different layout for when duedate view is selected
 //format circle buttons
 //add content to help menu
 //adjust colors
@@ -24,6 +23,8 @@ import borderRef from './form_border_1.svg';
 //add navigation into specific categories
 //style new task form and task edit form
 //make sure 'add new' isn't saved to the task
+//add edit links to calendar to edit tasks form there
+//use onblur to close menus when clicking elsewhere QUICK
 
 (function addFormBorder() {
     const borderDiv = document.getElementById('border-div');
