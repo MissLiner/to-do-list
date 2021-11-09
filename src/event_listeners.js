@@ -173,10 +173,7 @@ function loadBaseListeners() {
         else {
             viewCompletedBtn.textContent = 'show all tasks';
         }
-        const completeDivs = queryAll('.completed');
-        completeDivs.forEach(completeDiv => {
-            toggleHidden(completeDiv);
-        })
+        displayTasks(viewOptions.value);
     })
     //SORT TASKS
     const sortBtns = queryAll('.sort-btn');

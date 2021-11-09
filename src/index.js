@@ -25,6 +25,7 @@ import borderRef from './form_border_1.svg';
 //make sure 'add new' isn't saved to the task
 //add edit links to calendar to edit tasks form there
 //use onblur to close menus when clicking elsewhere QUICK
+//remove viewoptions.value from all displaytasks()
 
 (function addFormBorder() {
     const borderDiv = document.getElementById('border-div');
