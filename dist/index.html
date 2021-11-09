@@ -54,20 +54,22 @@
     </div>
     
     <form id="new-task-form" class="form hidden">
-      <div>
+      <div id="title-div" class="form-section">
         <label id="name-label" for="name-field">New Task:</label>
         <input id="name-field" class="task-form-input" name="name">
       </div>
       <div id="border-div"></div>
-      <label for="duedate-select">Due:</label>
-      <input id="duedate-select" class="task-select" name="duedate" type="date">
+        <div class="form-section">
+        <label for="duedate-select">Due:</label>
+        <input id="duedate-select" class="task-select" name="duedate" type="date">
 
-      <label for="priority-select">Priority:</label>
-      <select id="priority-select" class="task-select" name="priorities">
-        <option value="1: High">1: High</option>
-        <option value="2: Medium">2: Medium</option>
-        <option value="3: Low">3: Low</option>
-      </select>
+        <label for="priority-select">Priority:</label>
+        <select id="priority-select" class="task-select" name="priorities">
+          <option value="1: High">1: High</option>
+          <option value="2: Medium">2: Medium</option>
+          <option value="3: Low">3: Low</option>
+        </select>
+      </div>
 
       <div class="form-section">
         <label for="category-select">Category:</label>
@@ -85,9 +87,9 @@
         <label for="desc-field" id="notes-field">Description:</label>
         <input id="desc-field" class="task-form-input" name="description">
       </div>
-      <div>
+      <div class="form-section">
         <label for="notes-field" id="notes-label">- NOTES -</label>
-        <input id="notes-field" class="task-form-input" name="notes">
+        <textarea id="notes-field" class="task-form-input" name="notes"></textarea>
       </div>
 
       <div id="task-btn-div" class="form-section">

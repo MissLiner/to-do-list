@@ -130,9 +130,9 @@ label {
     padding: 1% 1% 1% 1%;
     position:absolute;
     left: 50%;
-    top: 20%;
+    top: 10%;
     transform: translate(-50%, 0);
-    width: 70%;
+    width: 60%;
     z-index: 1001;
 }
 .form-btn {
@@ -352,11 +352,13 @@ label {
     border: none;
     border-radius: 10%;
     box-shadow: none;
+    font-size:18px;
 }
 #name-label {
     color:#63364E;
     font-family:"Architects Daughter", cursive;
-    font-size: 1.5em;
+    font-size: 2em;
+    margin-bottom: 20px;
 }
 #new-task-btn {
     color:white;
@@ -364,11 +366,17 @@ label {
     font-weight: bold;
 } 
 #notes-field  {
+    border-radius: 0;
+    height: 150px;
+    text-align:left;
     width:90%;
 }
 #notes-label {
     font-weight:bolder;
     padding-top: 3%;
+}
+#title-div {
+    margin-bottom: 10px;
 }
 #view-categories-btn {
     position:absolute;
