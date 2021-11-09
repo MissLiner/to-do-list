@@ -61,16 +61,21 @@ function loadBaseListeners() {
 
     menuBar.addEventListener('click', (e) => {
         setCurrentSelects(e.target);
-        if (e.target === editBtn) {
-            toggleHidden(editMenu);
-        }
-        if (e.target === sortBtn) {
-            toggleHidden(sortMenu);
-        }
+
         if (e.target === helpBtn) {
             alert('Help you?!? I\'m barely keeping my own shit together. Sorry buddy!')
+        } else {
+            toggleHidden(e.target.nextElementSibling);
+            window.addEventListener('click', () => {
+                console.log('hi');
+                toggleHidden(e.target.nextElementSibling);
+            }, {
+                once: true
+            })
+            e.stopPropagation();
         }
     })
+
 
     //EDIT LISTS
     const editDiv = getEl('edit-div');

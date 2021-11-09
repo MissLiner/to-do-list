@@ -10,7 +10,6 @@ import { displayTasks } from './task_DOM';
 import { createDropdown } from './task_DOM';
 import borderRef from './form_border_1.svg';
 
-//refactor so that viewoptions.value is contained in displayTasks
 //use onblur to close menus when clicking elsewhere QUICK
 //get select menus to land on new item after adding
 //style task edit form
