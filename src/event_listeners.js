@@ -237,40 +237,25 @@ function loadTaskListeners() {
     })
 
     //EXPAND/COLLAPSE TASK
-    const taskDetailDivs = queryAll('.task-detail-div');
-    const taskNameDivs = queryAll('.task-name');
-    const taskDateDivs = queryAll('.task-duedate');
-    const editDateDivs = queryAll('.edit-date-div');
 
     function toggleTask() {
-        taskNameDivs.forEach(div => {
-            if (div.dataset.index == currentTask) {
-                if (div.readOnly == true) {
-                    div.readOnly = false;
-                }
-                else {
-                    div.readOnly = true;
-                }
-            }
+        const details = getEl(`details${currentTask}`);
+        const name = getEl(`name${currentTask}`);
+        const date = getEl(`duedate${currentTask}`);
+        const editDate = getEl(`edit-date${currentTask}`);
+        const children = details.childNodes;
+
+        children.forEach(child => {
+            toggleHidden(child);
         })
-        taskDateDivs.forEach(div => {
-            if (div.dataset.index == currentTask) {
-                toggleHidden(div);
-            } 
-        })
-        editDateDivs.forEach(div => {
-            if (div.dataset.index == currentTask) {
-                toggleHidden(div);
-            }
-        })
-        taskDetailDivs.forEach(div => {
-            if (div.dataset.index == currentTask) {
-                const children = div.childNodes;
-                children.forEach(child => {
-                    toggleHidden(child);
-                })
-            }
-        })
+        if (name.readOnly == true) {
+            name.readOnly = false;
+        }
+        else {
+            name.readOnly = true;
+        }
+        toggleHidden(date);
+        toggleHidden(editDate);
     }
 
     queryAll('.expand-btn').forEach(button => {
@@ -280,7 +265,6 @@ function loadTaskListeners() {
                 currentTask = 'none';
             }
             else {
-                toggleTask();
                 currentTask = button.dataset.index;
                 toggleTask();
             }
@@ -288,7 +272,7 @@ function loadTaskListeners() {
     })
 
     //EDIT TASK
-
+    const taskDateDivs = queryAll('.task-duedate');
     const taskSubDivs = queryAll('.task-subdiv');
     let currentBasicDiv;
 

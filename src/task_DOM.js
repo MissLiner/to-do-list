@@ -74,6 +74,7 @@ function displayTasks(property) {
 
                     const taskDetailDiv = document.createElement('div');
                     taskDetailDiv.classList.add('task-detail-div', 'task');
+                    taskDetailDiv.id='details' + taskNumber;
                     taskDetailDiv.setAttribute('data-index', taskNumber);
                                         
                     categoryDiv.appendChild(taskDiv);
@@ -108,11 +109,13 @@ function displayTasks(property) {
                             else {
                                 taskSubDiv = document.createElement('div');
                             }
+                            taskSubDiv.id = key + taskNumber;
                             taskSubDiv.setAttribute('data-arr', key);
                             taskSubDiv.setAttribute('data-index', taskNumber);
                             taskSubDiv.classList.add('task-subdiv', `task-${key}`, 'task');
                             if (key === 'duedate') {
                                 const editDateDiv = document.createElement('input');
+                                editDateDiv.id = 'edit-date' + taskNumber;
                                 editDateDiv.type = 'date';
                                 editDateDiv.value = taskList[i].duedate;
                                 editDateDiv.setAttribute('data-arr', key);
@@ -176,7 +179,7 @@ function displayTasks(property) {
                         function createDetails() {
                             function createSubDiv(key) {
                                 let keySubDiv = document.createElement('div');
-                                keySubDiv.id = key;
+                                //keySubDiv.id = key;
                                 keySubDiv.setAttribute('data-arr', key);
                                 keySubDiv.setAttribute('data-index', taskNumber);
                                 keySubDiv.classList.add('task-subdiv', 'task-detail-child', `${key}-label`, 'task', 'hidden');
