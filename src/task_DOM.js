@@ -8,8 +8,8 @@ import checkedBoxRef from './box_checked.svg';
 
 function displayTasks(property) {
     (function clearTaskDisplay() {
-        for (let i = 3; i < content.childNodes.length; i++) {
-            content.removeChild(content.lastChild);
+        while (content.firstChild) {
+            content.removeChild(content.firstChild);
         }
     })()
 

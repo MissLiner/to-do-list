@@ -3,3 +3,6 @@ modules share too many imports and exports
 DOM code is too nested
 task logic has so many separate functions
 my naming is confusing - too much similar stuff
+too many loops, how to avoid?
+is it okay to rely heavily on data attributes in this instance, or was there an easier way?
+does dom manipulation always look so messy, with all of this class and attribute adding? should I be adding that stiff in a more efficient way?

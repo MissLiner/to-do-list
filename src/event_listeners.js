@@ -291,7 +291,6 @@ function loadTaskListeners() {
 
     const taskSubDivs = queryAll('.task-subdiv');
     let currentBasicDiv;
-    let currentDateDiv;
 
     function colorCode(input) {
         switch(input.value) {
@@ -307,12 +306,12 @@ function loadTaskListeners() {
         }
     }
 
-    function updateDay(input, div) {
-        let currentDay = new Date();
-        let dateDue = new Date(parseISO(input.value))
-        let output = formatRelative(dateDue, currentDay);
-        div.textContent = output.slice(0, -12);
-    }
+    // function updateDay(input, div) {
+    //     let currentDay = new Date();
+    //     let dateDue = new Date(parseISO(input.value))
+    //     let output = formatRelative(dateDue, currentDay);
+    //     div.textContent = output.slice(0, -12);
+    // }
 
     taskSubDivs.forEach(subdiv => {
         subdiv.addEventListener('input', () => {

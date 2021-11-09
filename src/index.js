@@ -20,6 +20,7 @@ import borderRef from './form_border_1.svg';
 //have categories disappear when no items are in them
 //add navigation into specific categories
 //style new task form and task edit form
+//make sure 'add new' isn't saved to the task
 
 (function addFormBorder() {
     const borderDiv = document.getElementById('border-div');
