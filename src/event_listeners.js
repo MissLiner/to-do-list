@@ -1,8 +1,6 @@
 import { addItemToArr, addNewTaskToList, toggleComplete, deleteFromArr, updateTask, updateList } from './task_logic';
 import { createDropdown, displayTasks, createEditList } from './task_DOM'
 import { categories, projects, taskList, priorities, statuses, sortTaskList } from './index'
-import  formatRelative  from 'date-fns/formatRelative';
-import parseISO from 'date-fns/parseISO';
 
 let currentTask = 'none';
 let currentList;
