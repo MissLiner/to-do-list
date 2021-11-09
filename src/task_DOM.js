@@ -5,6 +5,7 @@ import parseISO from 'date-fns/parseISO';
 import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
 import uncheckedBoxRef from './box_unchecked.svg';
 import checkedBoxRef from './box_checked.svg';
+import { caleandar, settings} from './caleandar.js';
 
 function displayTasks(property) {
     (function clearTaskDisplay() {
@@ -13,7 +14,34 @@ function displayTasks(property) {
         }
     })()
 
+    // function createCalendar() {
+    //     const calendarDiv = document.createElement('div');
+    //     content.appendChild(calendarDiv);
+    //     for (let i = 0; i < taskList.length; i++) {
+    //         let taskDate = parseISO(taskList[i].duedate, new Date());
+
+
+    //     }
+    // }
+    const viewOptions = document.getElementById('view-options');
     if (taskList) {
+        if (viewOptions.value == 'duedate') {
+            let events = [];
+            (function createCalendarArr() {
+                for (let i = 0; i < taskList.length; i++) {
+                  let taskDate = parseISO(taskList[i].duedate, new Date());
+                  let name = taskList[i].name;
+                  let calObject = {
+                    'Date': taskDate,
+                    'Title': name,
+                  }
+                  events.push(calObject);
+                }
+              })()
+            const calendarDiv = document.createElement('div');
+            content.appendChild(calendarDiv);
+            caleandar(calendarDiv, events, settings);
+        } else {
         function createCategoryDiv(category) {
             const categoryDiv = document.createElement('div');
             categoryDiv.classList.add('category-div');
@@ -226,6 +254,7 @@ function displayTasks(property) {
             addTasksToCategory(property);
         
         }
+        
 
         //create category lists for different views
         let propertyValues = [];
@@ -243,6 +272,7 @@ function displayTasks(property) {
         propertyValues.forEach(value => createCategoryDiv(value));
     }
     loadTaskListeners();
+    }
 }
 
 function createDropdown(arr, elementID) {
