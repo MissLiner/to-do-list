@@ -4,7 +4,7 @@ import { categories, projects, taskList, priorities, statuses, sortTaskList } fr
 import  formatRelative  from 'date-fns/formatRelative';
 import parseISO from 'date-fns/parseISO';
 
-let currentTask;
+let currentTask = 'none';
 let currentList;
 let currentSelects;
 
@@ -260,11 +260,16 @@ function loadTaskListeners() {
 
     queryAll('.expand-btn').forEach(button => {
         button.addEventListener('click', () => {
-            if (button.dataset.index == currentTask) {
+            if (currentTask == 'none') {
+                currentTask = button.dataset.index;
+                toggleTask();
+            }
+            else if (button.dataset.index == currentTask) {
                 toggleTask();
                 currentTask = 'none';
             }
             else {
+                toggleTask();
                 currentTask = button.dataset.index;
                 toggleTask();
             }
