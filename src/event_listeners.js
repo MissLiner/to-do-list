@@ -53,9 +53,7 @@ function loadBaseListeners() {
 
     //MENU BAR
     const menuBar = getEl('menu-bar');
-    const editBtn = getEl('edit-btn');
     const editMenu = getEl('edit-menu');
-    const sortBtn = getEl('sort-btn');
     const sortMenu = getEl('sort-menu');
     const helpBtn = getEl('help-btn');
 
@@ -75,7 +73,6 @@ function loadBaseListeners() {
             e.stopPropagation();
         }
     })
-
 
     //EDIT LISTS
     const editDiv = getEl('edit-div');
