@@ -7,7 +7,8 @@ import uncheckedBoxRef from './box_unchecked.svg';
 import checkedBoxRef from './box_checked.svg';
 import { caleandar, settings} from './caleandar.js';
 
-function displayTasks(property) {
+function displayTasks() {
+
     (function clearTaskDisplay() {
         while (content.firstChild) {
             content.removeChild(content.firstChild);
@@ -15,8 +16,10 @@ function displayTasks(property) {
     })()
 
     const viewOptions = document.getElementById('view-options');
+    const property = viewOptions.value;
+
     if (taskList) {
-        if (viewOptions.value == 'duedate') {
+        if (property == 'duedate') {
             let events = [];
             (function createCalendarArr() {
                 for (let i = 0; i < taskList.length; i++) {

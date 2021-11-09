@@ -81,7 +81,7 @@ function loadBaseListeners() {
         createEditList(currentList);
         toggleHidden(editMenu);
         toggleHidden(editDiv);
-        displayTasks(viewOptions.value);
+        displayTasks();
     })
     addItemBtn.addEventListener('click', () => {
         editDiv.appendChild(addItemForm);
@@ -116,7 +116,7 @@ function loadBaseListeners() {
         toggleHidden(newTaskForm);
         toggleHidden(filter);
         newTaskForm.reset();
-        displayTasks(viewOptions.value);
+        displayTasks();
     })
 
     cancelNewTaskBtn.addEventListener('click', () => {
@@ -163,7 +163,7 @@ function loadBaseListeners() {
     const viewCompletedBtn = getEl('view-completed-btn');
     
     viewOptions.addEventListener('change', () => {
-        displayTasks(viewOptions.value);
+        displayTasks();
     })
 
     viewCompletedBtn.addEventListener('click', ()=> {
@@ -173,7 +173,7 @@ function loadBaseListeners() {
         else {
             viewCompletedBtn.textContent = 'show all tasks';
         }
-        displayTasks(viewOptions.value);
+        displayTasks();
     })
     //SORT TASKS
     const sortBtns = queryAll('.sort-btn');
@@ -181,7 +181,7 @@ function loadBaseListeners() {
     sortBtns.forEach(button => {
         button.addEventListener('click', (e) => {
             sortTaskList(e.target);
-            displayTasks(viewOptions.value);
+            displayTasks();
             toggleHidden(sortMenu);
         })
     })
@@ -320,7 +320,7 @@ function loadTaskListeners() {
                         return;
                     }
                 })
-                displayTasks(viewOptions.value);
+                displayTasks();
             }
             updateTask(subdiv, property);
         })
@@ -343,7 +343,7 @@ function loadTaskListeners() {
                 else {
                     deleteFromArr(currentTask, currentList);
                 }
-                displayTasks(viewOptions.value);
+                displayTasks();
             }
         })
     })
@@ -354,7 +354,7 @@ function loadTaskListeners() {
     checkboxes.forEach(box => {
         box.addEventListener('click', () => {
             toggleComplete(box);
-            displayTasks(viewOptions.value);
+            displayTasks();
         })
     })
 }

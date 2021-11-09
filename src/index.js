@@ -11,6 +11,12 @@ import { createDropdown } from './task_DOM';
 import borderRef from './form_border_1.svg';
 
 //refactor so that viewoptions.value is contained in displayTasks
+//use onblur to close menus when clicking elsewhere QUICK
+//get select menus to land on new item after adding
+//style task edit form
+//change display btns to toggles?
+//program show all cats btn
+
 //figure out what to do about sortTaskList being in index.js
 //format circle buttons
 //add content to help menu
@@ -18,14 +24,9 @@ import borderRef from './form_border_1.svg';
 //add media queries / make more responsive
 //allow users to change order of edit lists
 //refactor to use less passing variables between modules
-//get select menus to land on new item after adding
-//have categories disappear when no items are in them
 //add navigation into specific categories
-//style new task form and task edit form
-//make sure 'add new' isn't saved to the task
 //add edit links to calendar to edit tasks form there
-//use onblur to close menus when clicking elsewhere QUICK
-//remove viewoptions.value from all displaytasks()
+
 
 (function addFormBorder() {
     const borderDiv = document.getElementById('border-div');
