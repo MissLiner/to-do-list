@@ -168,7 +168,7 @@ function loadBaseListeners() {
 
     viewCompletedBtn.addEventListener('click', ()=> {
         if (viewCompletedBtn.textContent == 'show all tasks') {
-            viewCompletedBtn.textContent = 'show acive only';
+            viewCompletedBtn.textContent = 'show active only';
         }
         else {
             viewCompletedBtn.textContent = 'show all tasks';

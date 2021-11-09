@@ -14,15 +14,6 @@ function displayTasks(property) {
         }
     })()
 
-    // function createCalendar() {
-    //     const calendarDiv = document.createElement('div');
-    //     content.appendChild(calendarDiv);
-    //     for (let i = 0; i < taskList.length; i++) {
-    //         let taskDate = parseISO(taskList[i].duedate, new Date());
-
-
-    //     }
-    // }
     const viewOptions = document.getElementById('view-options');
     if (taskList) {
         if (viewOptions.value == 'duedate') {
@@ -179,7 +170,6 @@ function displayTasks(property) {
                         function createDetails() {
                             function createSubDiv(key) {
                                 let keySubDiv = document.createElement('div');
-                                //keySubDiv.id = key;
                                 keySubDiv.setAttribute('data-arr', key);
                                 keySubDiv.setAttribute('data-index', taskNumber);
                                 keySubDiv.classList.add('task-subdiv', 'task-detail-child', `${key}-label`, 'task', 'hidden');
@@ -258,21 +248,34 @@ function displayTasks(property) {
         
         }
         
-
         //create category lists for different views
-        let propertyValues = [];
+        const viewCompletedBtn = document.getElementById('view-completed-btn');
+        let allKeyValues = [];
+        let activeKeyValues = [];
 
         function getUniqueValues(arr, prop) {
             const allValues = [];
+            const activeValues = [];
             for (let i = 0; i < arr.length; i++) {
                 allValues.push(arr[i][prop]);
+                if (arr[i].statuses == 'Active') {
+                    activeValues.push(arr[i][prop]);
+                }
             }
-            propertyValues = [...new Set(allValues)];
-            propertyValues = propertyValues.sort();
+            allKeyValues = [...new Set(allValues)];
+            activeKeyValues = [...new Set(activeValues)];
+
+            allKeyValues = allKeyValues.sort();
+            activeKeyValues = activeKeyValues.sort();
         }
         getUniqueValues(taskList, property);
 
-        propertyValues.forEach(value => createCategoryDiv(value));
+        if (viewCompletedBtn.textContent == 'show active only') {
+            allKeyValues.forEach(value => createCategoryDiv(value));
+        } else {
+            activeKeyValues.forEach(value => createCategoryDiv(value));
+        }
+        
     }
     loadTaskListeners();
     }
