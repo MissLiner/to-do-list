@@ -190,7 +190,6 @@ function displayTasks() {
 
                                 function createDetailDropDown(categ, arr) {
                                     let subDiv = document.createElement('select');
-                                    //subDiv.id = arr.title + i;
                                     subDiv.id = arr.title + taskList[i].index;
                                     subDiv.setAttribute('data-arr', key);
                                     subDiv.setAttribute('data-index', taskNumber);
@@ -219,7 +218,7 @@ function displayTasks() {
                                     return;
                                 }
                                 else {
-                                    let subDiv = document.createElement('input');
+                                    let subDiv = document.createElement('textarea');
                                     subDiv.setAttribute('data-arr', key);
                                     subDiv.setAttribute('data-index', taskNumber);
                                     subDiv.classList.add('task-subdiv', 'task-detail-child', `task-${key}-input`, 'task', 'hidden');

@@ -264,7 +264,7 @@ label {
     "i i i i i i"
     "j j j j j j";
     grid-row-gap: 10px;
-    width: 600px;
+    width: 550px;
 }
 .task-div {
     margin-bottom: 10px;
@@ -282,6 +282,7 @@ label {
     border-radius: 3px;
     grid-area: j;
     height: 40px;
+    overflow-wrap: break-word;
     width: 400px;
 }
 .task-select {
