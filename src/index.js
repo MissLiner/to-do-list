@@ -17,6 +17,7 @@ import borderRef from './form_border_1.svg';
 //program show all cats btn
 //hide menu after selection menubar
 //!!!!!eventlistener fire once thing doesn't remove if it wasn't fired!!
+//is there a way to not repeat addEl, toggleHidden, etc
 
 //figure out what to do about sortTaskList being in index.js
 //format circle buttons

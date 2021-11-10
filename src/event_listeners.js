@@ -44,11 +44,13 @@ function loadBaseListeners() {
     function queryAll(selector) {
         return document.querySelectorAll(selector);
     }
-    function toggleHidden(elem) {
-        if (elem.classList.contains('hidden')) {
-            elem.classList.remove('hidden');
-        }
-        else (elem.classList.add('hidden'));
+    function toggleHidden(...args) {
+        args.forEach(arg => {
+            if (arg.classList.contains('hidden')) {
+                arg.classList.remove('hidden');
+            }
+            else (arg.classList.add('hidden'));
+        })
     }
 
     //MENU BAR
@@ -99,8 +101,7 @@ function loadBaseListeners() {
     })
     addItemBtn.addEventListener('click', () => {
         editDiv.appendChild(addItemForm);
-        toggleHidden(addItemBtn);
-        toggleHidden(addItemForm);
+        toggleHidden(addItemBtn, addItemForm);
     })
 
     //CLOSE LIST
@@ -118,8 +119,7 @@ function loadBaseListeners() {
 
     newTaskBtn.addEventListener('click', () => {
         currentList = taskList;
-        toggleHidden(newTaskForm);
-        toggleHidden(filter);
+        toggleHidden(newTaskForm, filter);
         newTaskForm.reset();
     });
 
@@ -127,15 +127,13 @@ function loadBaseListeners() {
         e.preventDefault();
 
         addNewTaskToList();
-        toggleHidden(newTaskForm);
-        toggleHidden(filter);
+        toggleHidden(newTaskForm, filter);
         newTaskForm.reset();
         displayTasks();
     })
 
     cancelNewTaskBtn.addEventListener('click', () => {
-        toggleHidden(newTaskForm);
-        toggleHidden(filter);
+        toggleHidden(newTaskForm, filter);
         newTaskForm.reset();
     })
 
@@ -153,6 +151,8 @@ function loadBaseListeners() {
         //additem button diappears the second time you try to add
         //menubar dropdown eventlistener - remove when hidden
         //editList exit btn deletes the help button on menubar after opening additem form
+        //exit btn disappeared
+        //add new btn not coming back after cancel
 
         if (addItemBtn.classList.contains('hidden')) { //testthis dothis
             toggleHidden(addItemBtn);
@@ -218,11 +218,13 @@ function loadTaskListeners() {
     function queryAll(selector) {
         return document.querySelectorAll(selector);
     }
-    function toggleHidden(elem) {
-        if (elem.classList.contains('hidden')) {
-            elem.classList.remove('hidden');
-        }
-        else (elem.classList.add('hidden'));
+    function toggleHidden(...args) {
+        args.forEach(arg => {
+            if (arg.classList.contains('hidden')) {
+                arg.classList.remove('hidden');
+            }
+            else (arg.classList.add('hidden'));
+        })
     }
    
     //OPEN ADD ITEM FORM
@@ -263,8 +265,7 @@ function loadTaskListeners() {
 
         name.readOnly ? name.readOnly = false : name.readOnly = true;
 
-        toggleHidden(date);
-        toggleHidden(editDate);
+        toggleHidden(date, editDate);
 
         children.forEach(child => {
             toggleHidden(child);
