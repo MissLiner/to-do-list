@@ -266,7 +266,6 @@ function loadTaskListeners() {
         name.readOnly ? name.readOnly = false : name.readOnly = true;
 
         toggleHidden(date, editDate);
-
         children.forEach(child => {
             toggleHidden(child);
         })
@@ -323,6 +322,7 @@ function loadTaskListeners() {
                 else {
                     deleteFromArr(currentTask, currentList);
                 }
+                currentTask = 'none';
                 displayTasks();
             }
         })
