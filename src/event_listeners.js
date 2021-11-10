@@ -145,7 +145,6 @@ function loadBaseListeners() {
     const addItemField = getEl('add-item-field');
 
         //categories pops up twice when reopened after add new item
-        //delete-btns also don't work after adding
     
     submitItemBtn.addEventListener('click', (e) => {
         toggleHidden(addItemForm);

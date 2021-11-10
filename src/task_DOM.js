@@ -323,21 +323,20 @@ function createDropdown(arr, elementID) {
 
 let currentArr;
 function createEditList(arr) {
+    const editContentDiv = document.getElementById('edit-content-div');
 
-    const editDiv = document.getElementById('edit-div');
-
-    for (let i = 3; i < editDiv.childNodes.length; i++) {
-        editDiv.removeChild(editDiv.lastChild);
+    while (editContentDiv.firstChild) {
+        editContentDiv.removeChild(editContentDiv.firstChild);
     }
     const listTitle = document.createElement('h2');
     listTitle.id = 'list-title';
     listTitle.classList.add('list-child');
-    editDiv.appendChild(listTitle);
+    editContentDiv.appendChild(listTitle);
 
     const list = document.createElement('ul');
     list.id = 'list';
     list.classList.add('list-child');
-    editDiv.appendChild(list);
+    editContentDiv.appendChild(list);
 
     function addDeleteBtn(element, item) {
         const deleteBtn = document.createElement('button');
