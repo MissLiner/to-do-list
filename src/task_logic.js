@@ -36,12 +36,13 @@ function removeItemFromArr(item, arr) {
     storeList(arr);
 }
 
-function updateTask(trigger, property) {
+function updateTask(taskID, property) {
     taskList.forEach(task => {
-        if (trigger.dataset.index == task.index) {
+        if (taskID == task.index) {
             task[property] = trigger.value;
-            storeList(taskList);
+            return;
         }
+        storeList(taskList);
     })
 }
 

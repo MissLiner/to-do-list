@@ -147,7 +147,7 @@ function loadBaseListeners() {
             createDropdown(currentList, select.id);
         })
         createEditList(currentList);
-        updateTask(addItemField);//add current task to avoid for loop
+        updateTask(currentTask);//add current task to avoid for loop
 
         const currentSelect = getEl(currentList.title + currentTask);
         currentSelect.value = newItem;
