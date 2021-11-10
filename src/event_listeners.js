@@ -255,6 +255,7 @@ function loadTaskListeners() {
     })
 
     //EXPAND/COLLAPSE TASK
+    const expandBtns = queryAll('.expand-btn');
 
     function toggleTask() {
         const taskDiv = getEl(`task${currentTask}`)
@@ -264,7 +265,8 @@ function loadTaskListeners() {
         const editDate = getEl(`edit-date${currentTask}`);
         const children = details.childNodes;
 
-        taskDiv.classList.add('expanded');
+        taskDiv.classList.contains('expanded') ? 
+            taskDiv.classList.remove('expanded') : taskDiv.classList.add('expanded');
 
         name.readOnly ? name.readOnly = false : name.readOnly = true;
 
@@ -273,8 +275,8 @@ function loadTaskListeners() {
             toggleHidden(child);
         })
     }
-
-    queryAll('.expand-btn').forEach(button => {
+    
+    expandBtns.forEach(button => {
         button.addEventListener('click', () => {
             if (currentTask == 'none') {
                 currentTask = button.dataset.index;

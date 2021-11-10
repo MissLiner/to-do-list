@@ -246,7 +246,10 @@ label {
     width:30px;
 }
 .task-description-input {
+    border: none;
+    border-radius:3px;
     grid-area: b;
+    width: 60%;
 }
 .task-detail-child {
     color: black !important;
@@ -256,9 +259,10 @@ label {
     grid-column-gap: 10px;
     grid-template:
     "k k k k k k"
-    "a a b b b b"
+    "a b b b b b"
     "c d e f g h"
-    "i i j j j j";
+    "i i i i i i"
+    "j j j j j j";
     grid-row-gap: 10px;
     width: 600px;
 }
@@ -275,7 +279,10 @@ label {
     outline: none;
 }
 .task-notes-input {
+    border-radius: 3px;
     grid-area: j;
+    height: 40px;
+    width: 400px;
 }
 .task-select {
     width: 100px;
