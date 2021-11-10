@@ -136,7 +136,8 @@ function loadBaseListeners() {
         const parentNode = addItemForm.parentNode;
         parentNode.removeChild(addItemForm);
         toggleHidden(addItemForm);
-        if (addItemBtn.classList.contains('hidden')) { //testthis
+
+        if (addItemBtn.classList.contains('hidden')) { //testthis dothis
             toggleHidden(addItemBtn);
         }
         const newItem = addItemField.value;
@@ -191,7 +192,6 @@ function loadBaseListeners() {
     })
 }
 
-
 function loadTaskListeners() {
     function getEl(id) {
         return document.getElementById(id);
@@ -205,9 +205,6 @@ function loadTaskListeners() {
         }
         else (elem.classList.add('hidden'));
     }
-
-
-    const viewOptions = getEl('view-options');
    
     //OPEN ADD ITEM FORM
     const allSelects = queryAll('select');
@@ -216,12 +213,13 @@ function loadTaskListeners() {
     allSelects.forEach(select => {
         select.addEventListener('change', (e) => {
             if (e.target.value === 'Add new') {
-                setCurrentList(e.target);
-                setCurrentSelects(e.target);
+                const parentNode = e.target.parentNode;
+
+                parentNode.appendChild(addItemForm);
                 toggleHidden(addItemForm);
 
-                const parentNode = e.target.parentNode;
-                parentNode.appendChild(addItemForm);
+                setCurrentList(e.target);
+                setCurrentSelects(e.target);
             }
         })
     })
@@ -244,18 +242,14 @@ function loadTaskListeners() {
         const editDate = getEl(`edit-date${currentTask}`);
         const children = details.childNodes;
 
+        name.readOnly ? name.readOnly = false : name.readOnly = true;
+
+        toggleHidden(date);
+        toggleHidden(editDate);
+
         children.forEach(child => {
             toggleHidden(child);
         })
-        name.readOnly ? name.readOnly = false : name.readOnly = true;
-        // if (name.readOnly == true) {
-        //     name.readOnly = false;
-        // }
-        // else {
-        //     name.readOnly = true;
-        // }
-        toggleHidden(date);
-        toggleHidden(editDate);
     }
 
     queryAll('.expand-btn').forEach(button => {
