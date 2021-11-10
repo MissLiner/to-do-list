@@ -65,15 +65,36 @@ function loadBaseListeners() {
         switch(e.target) {
             case editBtn:
                 toggleHidden(editMenu);
+                addClickOutListener(editMenu);
+                e.stopPropagation();
                 break;
             case sortBtn:
                 toggleHidden(sortMenu);
+                addClickOutListener(sortMenu);
+                e.stopPropagation();
                 break;
             case helpBtn:
                 alert('Help you?!? I\'m barely keeping my own shit together. Sorry buddy!');
                 break;
         }
     })
+
+ function addClickOutListener(element) {
+    window.addEventListener('click', function hideElement() {
+        console.log('hi');
+        toggleHidden(element);
+        }, {
+            once: true
+        })
+ }
+    //     window.addEventListener('click', () => {
+    //         console.log('hi');
+    //         toggleHidden(e.target.nextElementSibling);
+    //     }, {
+    //         once: true
+    //     })
+    //     e.stopPropagation();
+    // }
 
     //EDIT LISTS
     const editDiv = getEl('edit-div');
