@@ -276,33 +276,10 @@ function loadTaskListeners() {
     })
 
     //EDIT TASK
-    const taskDateDivs = queryAll('.task-duedate');
     const taskSubDivs = queryAll('.task-subdiv');
-    let currentBasicDiv;
-
-    function colorCode(input) {
-        switch(input.value) {
-            case '1: High':
-                currentBasicDiv.style.color = '#9E3153';
-                break;
-            case '2: Medium':
-                currentBasicDiv.style.color = '#BD6B37';
-                break;
-            case '3: Low':
-                currentBasicDiv.style.color = '#5E8A32';
-                break;
-        }
-    }
-
-    // function updateDay(input, div) {
-    //     let currentDay = new Date();
-    //     let dateDue = new Date(parseISO(input.value))
-    //     let output = formatRelative(dateDue, currentDay);
-    //     div.textContent = output.slice(0, -12);
-    // }
 
     taskSubDivs.forEach(subdiv => {
-        subdiv.addEventListener('input', () => {
+        subdiv.addEventListener('change', () => {
             let property = subdiv.dataset.arr;
             if (subdiv.value == 'Add new') {
                 return;
@@ -310,28 +287,8 @@ function loadTaskListeners() {
             else {
                 updateTask(subdiv, property);
                 displayTasks();
+                toggleTask();
             }
-
-            // else if (property == 'priorities') {
-            //     taskSubDivs.forEach(div => {
-            //         if (div.dataset.index == currentTask && !div.classList.contains('completed')  && !div.classList.contains('edit-date-div')) {
-            //             currentBasicDiv = div;
-            //             colorCode(subdiv);
-            //             updateTask(subdiv, property)
-            //             return;
-            //         }
-            //     })
-            // }
-            // if (property == 'duedate') {
-            //     taskDateDivs.forEach(div => {
-            //         if (div.dataset.index == currentTask) {
-            //             currentDateDiv = div;
-            //             return;
-            //         }
-            //     })
-            //     displayTasks();
-            // }
-            //updateTask(subdiv, property);
         })
     })
 
