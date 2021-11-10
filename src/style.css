@@ -52,6 +52,10 @@ label {
     font-family: "Architects Daughter", cursive;
     font-size: 18px;
 }
+textarea {
+    resize: none;
+    /* overflow: hidden; */
+}
 
 .edit-date-div, .task-select, .task-notes-input, .task-form-input {
     border:none;
@@ -281,7 +285,7 @@ label {
 .task-notes-input {
     border-radius: 3px;
     grid-area: j;
-    height: 40px;
+    height: 60px;
     overflow-wrap: break-word;
     width: 400px;
 }

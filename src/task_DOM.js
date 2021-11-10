@@ -219,6 +219,13 @@ function displayTasks() {
                                 }
                                 else {
                                     let subDiv = document.createElement('textarea');
+                                    if (property == 'notes') {
+                                        subDiv.rows = '4';
+                                        // subDiv.maxLength = '10';
+                                    } else {
+                                        subDiv.rows = '1';
+                                    }
+                            
                                     subDiv.setAttribute('data-arr', key);
                                     subDiv.setAttribute('data-index', taskNumber);
                                     subDiv.classList.add('task-subdiv', 'task-detail-child', `task-${key}-input`, 'task', 'hidden');

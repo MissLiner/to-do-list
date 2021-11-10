@@ -19,7 +19,7 @@ import borderRef from './form_border_1.svg';
 //!!!!!eventlistener fire once thing doesn't remove if it wasn't fired!!
 //is there a way to not repeat addEl, toggleHidden, etc
 //have categories populate new columns when list gets longer
-//wrap input text
+//CAN'T WRAP with input, can't lock maxlength with textarea!
 
 //figure out what to do about sortTaskList being in index.js
 //format circle buttons

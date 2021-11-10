@@ -101,7 +101,8 @@ function loadBaseListeners() {
     })
     addItemBtn.addEventListener('click', () => {
         editDiv.appendChild(addItemForm);
-        toggleHidden(addItemBtn, addItemForm);
+        toggleHidden(addItemBtn);
+        toggleHidden(addItemForm);
     })
 
     //CLOSE LIST
@@ -142,19 +143,14 @@ function loadBaseListeners() {
     const submitItemBtn = getEl('submit-item-btn');
     const cancelAddBtn = getEl('cancel-add-btn');
     const addItemField = getEl('add-item-field');
+
+        //categories pops up twice when reopened after add new item
+        //delete-btns also don't work after adding
     
     submitItemBtn.addEventListener('click', (e) => {
-        const parentNode = addItemForm.parentNode;
-        parentNode.removeChild(addItemForm);
         toggleHidden(addItemForm);
 
-        //additem button diappears the second time you try to add
-        //menubar dropdown eventlistener - remove when hidden
-        //editList exit btn deletes the help button on menubar after opening additem form
-        //exit btn disappeared
-        //add new btn not coming back after cancel
-
-        if (addItemBtn.classList.contains('hidden')) { //testthis dothis
+        if (addItemBtn.classList.contains('hidden')) {
             toggleHidden(addItemBtn);
         }
         const newItem = addItemField.value;
@@ -172,14 +168,16 @@ function loadBaseListeners() {
             currentSelect.value = newItem; //dothis - dropdown value after addnewitem
         }
         addItemField.value = '';
-        toggleHidden(addItemForm);
     })
 
     cancelAddBtn.addEventListener('click', () => {
         addItemField.value = '';
         let parentNode = addItemForm.parentNode;
         parentNode.removeChild(addItemForm);
-        toggleHidden(addItemForm);
+        toggleHidden(addItemForm)
+        if (addItemBtn.classList.contains('hidden')) {
+            toggleHidden(addItemBtn);
+        };
     })
        
     //CHANGE VIEW
