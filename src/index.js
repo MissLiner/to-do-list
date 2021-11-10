@@ -36,7 +36,8 @@ import borderRef from './form_border_1.svg';
     const border = new Image();
 
     border.src = borderRef;
-    border.id = 'border';
+    border.id = 'border-new-task';
+    border.classList.add('border');
     borderDiv.appendChild(border);
 })()
 

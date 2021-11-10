@@ -5,6 +5,7 @@ import parseISO from 'date-fns/parseISO';
 import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
 import uncheckedBoxRef from './box_unchecked.svg';
 import checkedBoxRef from './box_checked.svg';
+import borderRef from './form_border_1.svg';
 import { caleandar, settings} from './caleandar.js';
 
 function displayTasks() {
@@ -59,10 +60,12 @@ function displayTasks() {
                     if (taskList[i][property] == category) {
                     const taskNumber = taskList[i].index;
                     const taskDiv = document.createElement('div');
+                    taskDiv.id = `task${taskNumber}`;
                     taskDiv.classList.add('task-div', 'task');
                     taskDiv.setAttribute('data-index', taskNumber);;
 
                     const taskBasicDiv = document.createElement('div');
+                    taskBasicDiv.id = 'basic' + taskNumber;
                     taskBasicDiv.classList.add('task-basic-div', 'task');
                     taskBasicDiv.setAttribute('data-index', taskNumber);
 
@@ -70,6 +73,12 @@ function displayTasks() {
                     taskDetailDiv.classList.add('task-detail-div', 'task');
                     taskDetailDiv.id='details' + taskNumber;
                     taskDetailDiv.setAttribute('data-index', taskNumber);
+
+                    const border = new Image();
+                    border.src = borderRef;
+                    border.id = 'border-task-detail';
+                    border.classList.add('hidden');
+                    taskDetailDiv.appendChild(border);
                                         
                     categoryDiv.appendChild(taskDiv);
                     taskDiv.appendChild(taskBasicDiv);

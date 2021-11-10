@@ -39,9 +39,12 @@ h3 {
     background-color: transparent;
     margin: 0% 0% 1% 0%;
 }
+img {
+    background-color: transparent;
+}
 input, select{
     background-color: white;
-    margin: 0% 0% 1% 0%;
+    /* margin: 0% 0% 1% 0%; */
 }
 label {
     background-color: transparent;
@@ -103,8 +106,16 @@ label {
     width:50px;
 }
 .expand-btn {
+    background-color:transparent;
     border: none;
     margin-right: 10px;
+}
+.expanded {
+    background-color: #B6D4C4;
+    border:double;
+    border-color:#806969;
+    padding: 1% 0% 1% 0%;
+    width:650px;
 }
 .fa-caret-square-down {
     color:#9E8382;
@@ -231,6 +242,7 @@ label {
     width: 500px;
 }
 .task-checkbox {
+    background-color: transparent;
     width:30px;
 }
 .task-description-input {
@@ -241,11 +253,14 @@ label {
 }
 .task-detail-div {
     display: grid !important;
+    grid-column-gap: 10px;
     grid-template:
+    "k k k k k k"
     "a a b b b b"
     "c d e f g h"
     "i i j j j j";
-    width: 500px;
+    grid-row-gap: 10px;
+    width: 600px;
 }
 .task-div {
     margin-bottom: 10px;
@@ -283,9 +298,12 @@ label {
 #add-item-form {
     background-color: transparent;
 }
-#border { 
+#border-new-task { 
     background-color:transparent;
-    color:#63364E;
+    width: 90%;
+}
+#border-task-detail {
+    grid-area: k;
 }
 #circle-cat {
     display: block;

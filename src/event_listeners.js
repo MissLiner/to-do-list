@@ -257,11 +257,14 @@ function loadTaskListeners() {
     //EXPAND/COLLAPSE TASK
 
     function toggleTask() {
+        const taskDiv = getEl(`task${currentTask}`)
         const details = getEl(`details${currentTask}`);
         const name = getEl(`name${currentTask}`);
         const date = getEl(`duedate${currentTask}`);
         const editDate = getEl(`edit-date${currentTask}`);
         const children = details.childNodes;
+
+        taskDiv.classList.add('expanded');
 
         name.readOnly ? name.readOnly = false : name.readOnly = true;
 
