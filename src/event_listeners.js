@@ -147,7 +147,7 @@ function loadBaseListeners() {
             createDropdown(currentList, select.id);
         })
         createEditList(currentList);
-        updateTask(e.target);//add current task to avoid for loop
+        updateTask(e.target);
 
         const currentSelect = getEl(currentList.title + currentTask);
         currentSelect.value = newItem;
@@ -303,32 +303,36 @@ function loadTaskListeners() {
 
     taskSubDivs.forEach(subdiv => {
         subdiv.addEventListener('input', () => {
+            let property = subdiv.dataset.arr;
             if (subdiv.value == 'Add new') {
                 return;
-            }
-            let property = subdiv.dataset.arr;
-
-            if (property == 'priorities') {
-                taskSubDivs.forEach(div => {
-                    if (div.dataset.index == currentTask && !div.classList.contains('completed')  && !div.classList.contains('edit-date-div')) {
-                        currentBasicDiv = div;
-                        colorCode(subdiv);
-                        return;
-                    }
-                })
-            }
-            if (property == 'duedate') {
-                taskDateDivs.forEach(div => {
-                    if (div.dataset.index == currentTask) {
-                        currentDateDiv = div;
-                        return;
-                    }
-                })
+            } 
+            else {
+                updateTask(subdiv, property);
                 displayTasks();
             }
-            updateTask(subdiv, property);
+
+            // else if (property == 'priorities') {
+            //     taskSubDivs.forEach(div => {
+            //         if (div.dataset.index == currentTask && !div.classList.contains('completed')  && !div.classList.contains('edit-date-div')) {
+            //             currentBasicDiv = div;
+            //             colorCode(subdiv);
+            //             updateTask(subdiv, property)
+            //             return;
+            //         }
+            //     })
+            // }
+            // if (property == 'duedate') {
+            //     taskDateDivs.forEach(div => {
+            //         if (div.dataset.index == currentTask) {
+            //             currentDateDiv = div;
+            //             return;
+            //         }
+            //     })
+            //     displayTasks();
+            // }
+            //updateTask(subdiv, property);
         })
-        
     })
 
     //DELETE ITEMS

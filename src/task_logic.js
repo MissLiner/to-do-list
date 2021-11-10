@@ -40,9 +40,9 @@ function updateTask(trigger, property) {
     taskList.forEach(task => {
         if (trigger.dataset.index == task.index) {
             task[property] = trigger.value;
+            storeList(taskList);
             return;
         }
-        storeList(taskList);
     })
 }
 
