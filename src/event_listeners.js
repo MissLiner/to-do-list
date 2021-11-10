@@ -168,6 +168,7 @@ function loadBaseListeners() {
             currentSelect.value = newItem; //dothis - dropdown value after addnewitem
         }
         addItemField.value = '';
+        displayTasks();
     })
 
     cancelAddBtn.addEventListener('click', () => {
