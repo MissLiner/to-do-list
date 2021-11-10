@@ -247,12 +247,13 @@ function loadTaskListeners() {
         children.forEach(child => {
             toggleHidden(child);
         })
-        if (name.readOnly == true) {
-            name.readOnly = false;
-        }
-        else {
-            name.readOnly = true;
-        }
+        name.readOnly ? name.readOnly = false : name.readOnly = true;
+        // if (name.readOnly == true) {
+        //     name.readOnly = false;
+        // }
+        // else {
+        //     name.readOnly = true;
+        // }
         toggleHidden(date);
         toggleHidden(editDate);
     }
