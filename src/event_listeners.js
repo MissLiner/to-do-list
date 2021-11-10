@@ -59,6 +59,14 @@ function loadBaseListeners() {
     const sortBtn = getEl('sort-btn');
     const helpBtn = getEl('help-btn');
 
+    function addClickOutListener(element) {
+        window.addEventListener('click', function hideElement(e) {
+                toggleHidden(element);
+        }, {
+        once: true
+        })
+    }   
+
     menuBar.addEventListener('click', (e) => {
         setCurrentSelects(e.target);
 
@@ -79,23 +87,6 @@ function loadBaseListeners() {
         }
     })
 
- function addClickOutListener(element) {
-    window.addEventListener('click', function hideElement() {
-        console.log('hi');
-        toggleHidden(element);
-        }, {
-            once: true
-        })
- }
-    //     window.addEventListener('click', () => {
-    //         console.log('hi');
-    //         toggleHidden(e.target.nextElementSibling);
-    //     }, {
-    //         once: true
-    //     })
-    //     e.stopPropagation();
-    // }
-
     //EDIT LISTS
     const editDiv = getEl('edit-div');
     const addItemBtn = getEl('add-item-btn');
@@ -103,7 +94,6 @@ function loadBaseListeners() {
     editMenu.addEventListener('click', (e) => {
         setCurrentList(e.target);
         createEditList(currentList);
-        toggleHidden(editMenu);
         toggleHidden(editDiv);
         displayTasks();
     })
