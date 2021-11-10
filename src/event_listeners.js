@@ -55,21 +55,23 @@ function loadBaseListeners() {
     const menuBar = getEl('menu-bar');
     const editMenu = getEl('edit-menu');
     const sortMenu = getEl('sort-menu');
+    const editBtn = getEl('edit-btn');
+    const sortBtn = getEl('sort-btn');
     const helpBtn = getEl('help-btn');
 
     menuBar.addEventListener('click', (e) => {
         setCurrentSelects(e.target);
 
-        if (e.target === helpBtn) {
-            alert('Help you?!? I\'m barely keeping my own shit together. Sorry buddy!')
-        } else {
-            toggleHidden(e.target.nextElementSibling);
-            window.addEventListener('click', () => {
-                toggleHidden(e.target.nextElementSibling);
-            }, {
-                once: true
-            })
-            e.stopPropagation();
+        switch(e.target) {
+            case editBtn:
+                toggleHidden(editMenu);
+                break;
+            case sortBtn:
+                toggleHidden(sortMenu);
+                break;
+            case helpBtn:
+                alert('Help you?!? I\'m barely keeping my own shit together. Sorry buddy!');
+                break;
         }
     })
 
@@ -137,6 +139,10 @@ function loadBaseListeners() {
         parentNode.removeChild(addItemForm);
         toggleHidden(addItemForm);
 
+        //additem button diappears the second time you try to add
+        //menubar dropdown eventlistener - remove when hidden
+        //editList exit btn deletes the help button on menubar after opening additem form
+
         if (addItemBtn.classList.contains('hidden')) { //testthis dothis
             toggleHidden(addItemBtn);
         }
@@ -150,8 +156,10 @@ function loadBaseListeners() {
         createEditList(currentList);
         updateTask(e.target);
 
-        const currentSelect = getEl(currentList.title + currentTask);
-        currentSelect.value = newItem;
+        if (currentList == 'taskList') {
+            const currentSelect = getEl(currentList.title + currentTask);
+            currentSelect.value = newItem; //dothis - dropdown value after addnewitem
+        }
         addItemField.value = '';
         toggleHidden(addItemForm);
     })
