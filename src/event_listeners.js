@@ -64,7 +64,7 @@ function toggleTask() {
 
     name.readOnly ? name.readOnly = false : name.readOnly = true;
 
-    toggleHidden(date, editDate);
+    toggleHidden(date, editDate, details);
     children.forEach(child => {
         toggleHidden(child);
     })

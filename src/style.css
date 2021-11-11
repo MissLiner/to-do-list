@@ -160,7 +160,7 @@ textarea {
     margin-top: 20px;
 }
 .hidden {
-    display: none;
+    display: none !important;
 }
 .inset-text {
     background-color: #dddcdc;
@@ -259,7 +259,7 @@ textarea {
     color: black !important;
 }
 .task-detail-div {
-    display: grid !important;
+    display: grid;
     grid-column-gap: 10px;
     grid-template:
     "k k k k k k"

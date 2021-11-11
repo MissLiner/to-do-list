@@ -70,8 +70,8 @@ function displayTasks() {
                     taskBasicDiv.setAttribute('data-index', taskNumber);
 
                     const taskDetailDiv = document.createElement('div');
-                    taskDetailDiv.classList.add('task-detail-div', 'task');
                     taskDetailDiv.id='details' + taskNumber;
+                    taskDetailDiv.classList.add('task-detail-div', 'task', 'hidden');
                     taskDetailDiv.setAttribute('data-index', taskNumber);
 
                     const border = new Image();

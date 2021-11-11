@@ -10,10 +10,8 @@ import { displayTasks } from './task_DOM';
 import { createDropdown } from './task_DOM';
 import borderRef from './form_border_1.svg';
 
-//fix expand toggle when opening edit list
 //make sure empty itam not added 
 //update add task form dropdowns when item is added
-//get select menus to land on new item after adding
 //change display btns to toggles?
 //program show all cats btn
 //CAN'T WRAP with input, can't lock maxlength with textarea!
