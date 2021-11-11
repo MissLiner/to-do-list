@@ -29,8 +29,8 @@ h1 {
 h2 {
     color:#63364E;
     font-family: "Fredericka the Great", cursive;
-    font-size: 2em;
-    margin-bottom: 20px;
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 h3 {
     color:#63364E;
@@ -247,7 +247,8 @@ textarea {
 }
 .task-checkbox {
     background-color: transparent;
-    width:30px;
+    height: 24px;
+    width:24px;
 }
 .task-description-input {
     border: none;
@@ -272,7 +273,7 @@ textarea {
     width: 550px;
 }
 .task-div {
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 .task-name {
     background-color: transparent;
@@ -343,8 +344,9 @@ textarea {
     -ms-transform-origin:50% 100%;
     transform-origin:50% 100%;
 }
-#content {
+#content-div {
     margin: auto;
+    margin-top: 20px;
 }
 #desc-field {
     width:70%;
