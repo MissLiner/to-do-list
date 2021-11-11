@@ -235,6 +235,12 @@ textarea {
     left: 50%;
     transform: translate(-50%, 0);
 }
+.priorities-label {
+    grid-area: e;
+}
+.priorities-select {
+    grid-area: f;
+}
 .projects-label {
     grid-area: g;
 }
