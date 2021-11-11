@@ -116,10 +116,19 @@ function loadBaseListeners() {
         setCurrentList(e.target);
         createEditList(currentList);
         toggleHidden(editDiv);
+        if (!editDiv.contains(addItemForm)) {
+            editDiv.appendChild(addItemForm);
+            if (!addItemForm.classList.contains('hidden')) {
+                toggleHidden(addItemForm);
+            }
+        }
         displayTasks();
+        if (currentTask !== 'none') { toggleTask() };
     })
-    addItemBtn.addEventListener('click', () => {
+    addItemBtn.addEventListener('click', (e) => {
+        if (!e.target.parentNode.contains(addItemForm)) {
         editDiv.appendChild(addItemForm);
+        }
         toggleHidden(addItemBtn);
         toggleHidden(addItemForm);
     })
@@ -129,6 +138,10 @@ function loadBaseListeners() {
 
     exitPopupBtn.addEventListener('click', () => {
         toggleHidden(editDiv);
+        if (!addItemForm.classList.contains('hidden')) {
+            toggleHidden(addItemForm);
+            toggleHidden(addItemBtn);
+        }
     })
 
     //ADD NEW TASK
@@ -150,6 +163,8 @@ function loadBaseListeners() {
         toggleHidden(newTaskForm, filter);
         newTaskForm.reset();
         displayTasks();
+        if (currentTask !== 'none') { toggleTask() };
+        
     })
 
     cancelNewTaskBtn.addEventListener('click', () => {
@@ -165,30 +180,29 @@ function loadBaseListeners() {
     
     submitItemBtn.addEventListener('click', (e) => {
         toggleHidden(addItemForm);
-
+        if (!editDiv.contains(addItemForm)) {
+            editDiv.appendChild(addItemForm);
+        }
         if (addItemBtn.classList.contains('hidden')) {
             toggleHidden(addItemBtn);
         }
         const newItem = addItemField.value;
+        addItemField.value = '';
         setCurrentList(e.target);
         addItemToArr(newItem, currentList);
         createEditList(currentList);
         updateTask(currentTask, currentProperty, newItem);
         console.table(taskList);
 
-        if (currentList == 'taskList') {
-            const currentSelect = getEl(currentList.title + currentTask);
-            currentSelect.value = newItem; //dothis - check if needed
-        }
-        addItemField.value = '';
         displayTasks();
-        toggleTask();
+        if (currentTask !== 'none') { toggleTask() };
     })
 
     cancelAddBtn.addEventListener('click', () => {
         addItemField.value = '';
-        let parentNode = addItemForm.parentNode;
-        parentNode.removeChild(addItemForm);
+        if (!editDiv.contains(addItemForm)) {
+            editDiv.appendChild(addItemForm);
+        }
         toggleHidden(addItemForm)
         if (addItemBtn.classList.contains('hidden')) {
             toggleHidden(addItemBtn);
@@ -212,6 +226,7 @@ function loadBaseListeners() {
             viewCompletedBtn.textContent = 'show all tasks';
         }
         displayTasks();
+        if (currentTask !== 'none') { toggleTask() };
     })
     //SORT TASKS
     const sortBtns = queryAll('.sort-btn');
@@ -236,7 +251,9 @@ function loadTaskListeners() {
             if (e.target.value === 'Add new') {
                 const parentNode = e.target.parentNode;
 
+                //if (!parentNode.contains(addItemForm)) {
                 parentNode.appendChild(addItemForm);
+                //}
                 toggleHidden(addItemForm);
                 currentProperty = e.target.dataset.array;
                 setCurrentList(e.target);
@@ -297,6 +314,7 @@ function loadTaskListeners() {
   
     deleteBtns.forEach(button => {
         button.addEventListener('click', () => {
+            let lastTask = currentTask;
             currentTask = button.dataset.index;
             setCurrentList(button);
             const confirmDelete = confirm('Are you sure you want to delete this item?');
@@ -308,8 +326,11 @@ function loadTaskListeners() {
                 else {
                     deleteFromArr(currentTask, currentList);
                 }
-                currentTask = 'none';
+                currentTask = lastTask;
                 displayTasks();
+                toggleTask();
+                currentTask = 'none';
+                
             }
         })
     })
