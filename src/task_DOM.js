@@ -185,10 +185,11 @@ function displayTasks() {
                                 keySubDiv.setAttribute('data-arr', key);
                                 keySubDiv.setAttribute('data-index', taskNumber);
                                 keySubDiv.classList.add('task-subdiv', 'task-detail-child', `${key}-label`, 'task', 'hidden');
-                                keySubDiv.textContent = `${key}: `;
+                                keySubDiv.textContent = `${key}`;
                                 taskDetailDiv.appendChild(keySubDiv);
 
-                                function createDetailDropDown(categ, arr) {
+                                function createDetailDropDown(categ, arr, label) {
+                                    keySubDiv.textContent = label;
                                     let subDiv = document.createElement('select');
                                     subDiv.id = arr.title + taskList[i].index;
                                     subDiv.setAttribute('data-arr', key);
@@ -206,22 +207,21 @@ function displayTasks() {
                                 }
 
                                 if (key === 'priorities') {
-                                    createDetailDropDown(key, priorities);
+                                    createDetailDropDown(key, priorities, 'Priority:');
                                     return;
                                 }
                                 if (key === 'categories') {
-                                    createDetailDropDown(key, categories);
+                                    createDetailDropDown(key, categories, 'Category:');
                                     return;
                                 }
                                 if (key === 'projects') {
-                                    createDetailDropDown(key, projects);
+                                    createDetailDropDown(key, projects, 'Project:');
                                     return;
                                 }
                                 else {
                                     let subDiv = document.createElement('textarea');
                                     if (property == 'notes') {
                                         subDiv.rows = '4';
-                                        // subDiv.maxLength = '10';
                                     } else {
                                         subDiv.rows = '1';
                                     }

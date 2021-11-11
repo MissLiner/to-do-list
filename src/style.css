@@ -65,6 +65,13 @@ textarea {
     box-shadow: 1px 2px 3px rgba(0,0,0,.5);
 }
 
+/* .categories-label, .priorities-label, .projects-label  */
+.task-select {
+    margin-left: 10px !important;
+}
+.categories-label {
+    grid-area: c;
+}
 .categories-select {
     grid-area: d;
 }
@@ -107,6 +114,7 @@ textarea {
     -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
     -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
     box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    width: 100px;
 }
 .empty-box {
     height: 50px;
@@ -121,7 +129,7 @@ textarea {
     background-color: #B6D4C4;
     border:double;
     border-color:#806969;
-    padding: 1% 0% 1% 0%;
+    padding: 1% 0% 2% 0%;
     width:650px;
 }
 .fa-caret-square-down {
@@ -259,6 +267,7 @@ textarea {
 }
 .task-basic-div {
     display: flex;
+    margin-bottom: 10px;
     width: 500px;
 }
 .task-checkbox {
@@ -270,10 +279,11 @@ textarea {
     border: none;
     border-radius:3px;
     grid-area: b;
-    width: 400px;
+    width: 360px;
 }
 .task-detail-child {
     color: black !important;
+    margin-left: 0;
 }
 .task-detail-div {
     align-content:start;
@@ -282,12 +292,15 @@ textarea {
     grid-column-gap: 10px;
     grid-template:
     "k k k k k k"
-    "c a . . e f"
-    "d b b b b b"
-    "g i . . . ."
+    "e a . . . ."
+    "f b b b b b"
+    "c i . . . ."
+    "d j j j j j"
+    "g j j j j j"
     "h j j j j j"
     "l l l l l l";
     grid-row-gap: 2px;
+    margin-left: 75px;
     width: 550px;
 }
 .task-name {
@@ -304,7 +317,7 @@ textarea {
     grid-area: j;
     height: 60px;
     overflow-wrap: break-word;
-    width: 400px;
+    width: 360px;
 }
 .task-select {
     width: 100px;
@@ -334,6 +347,7 @@ textarea {
 }
 #border-task-detail {
     grid-area: k;
+    margin-left: -40px !important;
 }
 #circle-cat {
     display: block;
@@ -365,9 +379,6 @@ textarea {
 }
 #desc-field {
     width:70%;
-}
-#duedate-select {
-    width:initial;
 }
 #filter {
     background-color: black;
