@@ -65,6 +65,9 @@ textarea {
     box-shadow: 1px 2px 3px rgba(0,0,0,.5);
 }
 
+.categories-select {
+    grid-area: d;
+}
 .category-div {
     padding-bottom: 10px;
 }
@@ -232,6 +235,13 @@ textarea {
     left: 50%;
     transform: translate(-50%, 0);
 }
+.projects-label {
+    grid-area: g;
+}
+.projects-select {
+    margin-top: 0;
+    grid-area: h;
+}
 .side-btn {
     background-color:transparent;
     border: solid;
@@ -260,20 +270,19 @@ textarea {
     color: black !important;
 }
 .task-detail-div {
+    align-content:start;
+    align-items:start;
     display: grid;
     grid-column-gap: 10px;
     grid-template:
     "k k k k k k"
-    "a b b b b b"
-    "c d e f g h"
-    "i i i i i i"
-    ". j j j j j"
+    "c a . . e f"
+    "d b b b b b"
+    "g i . . . ."
+    "h j j j j j"
     "l l l l l l";
     grid-row-gap: 2px;
     width: 550px;
-}
-.task-div {
-    /* margin-bottom: 10px; */
 }
 .task-name {
     background-color: transparent;
