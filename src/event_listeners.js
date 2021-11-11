@@ -143,8 +143,6 @@ function loadBaseListeners() {
     const submitItemBtn = getEl('submit-item-btn');
     const cancelAddBtn = getEl('cancel-add-btn');
     const addItemField = getEl('add-item-field');
-
-        //categories pops up twice when reopened after add new item
     
     submitItemBtn.addEventListener('click', (e) => {
         toggleHidden(addItemForm);
@@ -186,6 +184,7 @@ function loadBaseListeners() {
     
     viewOptions.addEventListener('change', () => {
         displayTasks();
+        currentTask = 'none';
     })
 
     viewCompletedBtn.addEventListener('click', ()=> {

@@ -10,17 +10,15 @@ import { displayTasks } from './task_DOM';
 import { createDropdown } from './task_DOM';
 import borderRef from './form_border_1.svg';
 
+//!!expand task btns all wonky
 //update add task form dropdowns when item is added
 //get select menus to land on new item after adding
-//style task edit form
 //change display btns to toggles?
 //program show all cats btn
-//hide menu after selection menubar
-//!!!!!eventlistener fire once thing doesn't remove if it wasn't fired!!
-//is there a way to not repeat addEl, toggleHidden, etc
-//have categories populate new columns when list gets longer
 //CAN'T WRAP with input, can't lock maxlength with textarea!
 
+//have categories populate new columns when list gets longer
+//is there a way to not repeat addEl, toggleHidden, etc
 //figure out what to do about sortTaskList being in index.js
 //format circle buttons
 //add content to help menu
