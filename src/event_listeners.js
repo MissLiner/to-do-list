@@ -10,6 +10,19 @@ function queryAll(selector) {
     return document.querySelectorAll(selector);
 }
 
+function getEl(id) {
+    return document.getElementById(id);
+}
+
+function toggleHidden(...args) {
+    args.forEach(arg => {
+        if (arg.classList.contains('hidden')) {
+            arg.classList.remove('hidden');
+        }
+        else (arg.classList.add('hidden'));
+    })
+}
+
 function setCurrentList(trigger) {
     const allLists = [taskList, categories, priorities, projects, statuses];
 
@@ -37,21 +50,40 @@ function setCurrentSelects(trigger) {
     }
 }
 
+function toggleTask() {
+    const taskDiv = getEl(`task${currentTask}`)
+    const details = getEl(`details${currentTask}`);
+    const name = getEl(`name${currentTask}`);
+    const date = getEl(`duedate${currentTask}`);
+    const editDate = getEl(`edit-date${currentTask}`);
+    const children = details.childNodes;
+
+    taskDiv.classList.contains('expanded') ? 
+        taskDiv.classList.remove('expanded') : taskDiv.classList.add('expanded');
+
+    name.readOnly ? name.readOnly = false : name.readOnly = true;
+
+    toggleHidden(date, editDate);
+    children.forEach(child => {
+        toggleHidden(child);
+    })
+}
+
 function loadBaseListeners() {
-    function getEl(id) {
-        return document.getElementById(id);
-    }
-    function queryAll(selector) {
-        return document.querySelectorAll(selector);
-    }
-    function toggleHidden(...args) {
-        args.forEach(arg => {
-            if (arg.classList.contains('hidden')) {
-                arg.classList.remove('hidden');
-            }
-            else (arg.classList.add('hidden'));
-        })
-    }
+    // function getEl(id) {
+    //     return document.getElementById(id);
+    // }
+    // function queryAll(selector) {
+    //     return document.querySelectorAll(selector);
+    // }
+    // function toggleHidden(...args) {
+    //     args.forEach(arg => {
+    //         if (arg.classList.contains('hidden')) {
+    //             arg.classList.remove('hidden');
+    //         }
+    //         else (arg.classList.add('hidden'));
+    //     })
+    // }
 
     //MENU BAR
     const menuBar = getEl('menu-bar');
@@ -154,9 +186,9 @@ function loadBaseListeners() {
         setCurrentList(e.target);
 
         addItemToArr(newItem, currentList);
-        currentSelects.forEach(select => {
-            createDropdown(currentList, select.id);
-        })
+        // currentSelects.forEach(select => {
+        //     createDropdown(currentList, select.id);
+        // })
         createEditList(currentList);
         updateTask(e.target);
 
@@ -166,6 +198,7 @@ function loadBaseListeners() {
         }
         addItemField.value = '';
         displayTasks();
+        toggleTask();
     })
 
     cancelAddBtn.addEventListener('click', () => {
@@ -209,20 +242,20 @@ function loadBaseListeners() {
 }
 
 function loadTaskListeners() {
-    function getEl(id) {
-        return document.getElementById(id);
-    }
-    function queryAll(selector) {
-        return document.querySelectorAll(selector);
-    }
-    function toggleHidden(...args) {
-        args.forEach(arg => {
-            if (arg.classList.contains('hidden')) {
-                arg.classList.remove('hidden');
-            }
-            else (arg.classList.add('hidden'));
-        })
-    }
+    // function getEl(id) {
+    //     return document.getElementById(id);
+    // }
+    // function queryAll(selector) {
+    //     return document.querySelectorAll(selector);
+    // }
+    // function toggleHidden(...args) {
+    //     args.forEach(arg => {
+    //         if (arg.classList.contains('hidden')) {
+    //             arg.classList.remove('hidden');
+    //         }
+    //         else (arg.classList.add('hidden'));
+    //     })
+    // }
    
     //OPEN ADD ITEM FORM
     const allSelects = queryAll('select');
@@ -254,24 +287,24 @@ function loadTaskListeners() {
     //EXPAND/COLLAPSE TASK
     const expandBtns = queryAll('.expand-btn');
 
-    function toggleTask() {
-        const taskDiv = getEl(`task${currentTask}`)
-        const details = getEl(`details${currentTask}`);
-        const name = getEl(`name${currentTask}`);
-        const date = getEl(`duedate${currentTask}`);
-        const editDate = getEl(`edit-date${currentTask}`);
-        const children = details.childNodes;
+    // function toggleTask() {
+    //     const taskDiv = getEl(`task${currentTask}`)
+    //     const details = getEl(`details${currentTask}`);
+    //     const name = getEl(`name${currentTask}`);
+    //     const date = getEl(`duedate${currentTask}`);
+    //     const editDate = getEl(`edit-date${currentTask}`);
+    //     const children = details.childNodes;
 
-        taskDiv.classList.contains('expanded') ? 
-            taskDiv.classList.remove('expanded') : taskDiv.classList.add('expanded');
+    //     taskDiv.classList.contains('expanded') ? 
+    //         taskDiv.classList.remove('expanded') : taskDiv.classList.add('expanded');
 
-        name.readOnly ? name.readOnly = false : name.readOnly = true;
+    //     name.readOnly ? name.readOnly = false : name.readOnly = true;
 
-        toggleHidden(date, editDate);
-        children.forEach(child => {
-            toggleHidden(child);
-        })
-    }
+    //     toggleHidden(date, editDate);
+    //     children.forEach(child => {
+    //         toggleHidden(child);
+    //     })
+    // }
     
     expandBtns.forEach(button => {
         button.addEventListener('click', () => {

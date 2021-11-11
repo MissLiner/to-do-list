@@ -266,7 +266,8 @@ textarea {
     "a b b b b b"
     "c d e f g h"
     "i i i i i i"
-    "j j j j j j";
+    "j j j j j j"
+    "l l l l l l";
     grid-row-gap: 10px;
     width: 550px;
 }
@@ -309,6 +310,7 @@ textarea {
 }
 #add-item-form {
     background-color: transparent;
+    grid-area: l;
 }
 #border-new-task { 
     background-color:transparent;
