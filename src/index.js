@@ -10,6 +10,7 @@ import { displayTasks } from './task_DOM';
 import { createDropdown } from './task_DOM';
 import borderRef from './form_border_1.svg';
 
+//fix name of selects on edit task form
 //make sure empty itam not added 
 //update add task form dropdowns when item is added
 //change display btns to toggles?
