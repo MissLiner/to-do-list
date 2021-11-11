@@ -10,7 +10,7 @@ import { displayTasks } from './task_DOM';
 import { createDropdown } from './task_DOM';
 import borderRef from './form_border_1.svg';
 
-//fix formatting on addNdwBtn when it is on editTaskForm
+//fix expand toggle when opening edit list
 //make sure empty itam not added 
 //update add task form dropdowns when item is added
 //get select menus to land on new item after adding

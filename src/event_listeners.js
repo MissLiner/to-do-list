@@ -5,6 +5,7 @@ import { categories, projects, taskList, priorities, statuses, sortTaskList } fr
 let currentTask = 'none';
 let currentList;
 let currentSelects;
+let currentProperty;
 
 function queryAll(selector) {
     return document.querySelectorAll(selector);
@@ -70,20 +71,6 @@ function toggleTask() {
 }
 
 function loadBaseListeners() {
-    // function getEl(id) {
-    //     return document.getElementById(id);
-    // }
-    // function queryAll(selector) {
-    //     return document.querySelectorAll(selector);
-    // }
-    // function toggleHidden(...args) {
-    //     args.forEach(arg => {
-    //         if (arg.classList.contains('hidden')) {
-    //             arg.classList.remove('hidden');
-    //         }
-    //         else (arg.classList.add('hidden'));
-    //     })
-    // }
 
     //MENU BAR
     const menuBar = getEl('menu-bar');
@@ -184,17 +171,14 @@ function loadBaseListeners() {
         }
         const newItem = addItemField.value;
         setCurrentList(e.target);
-
         addItemToArr(newItem, currentList);
-        // currentSelects.forEach(select => {
-        //     createDropdown(currentList, select.id);
-        // })
         createEditList(currentList);
-        updateTask(e.target);
+        updateTask(currentTask, currentProperty, newItem);
+        console.table(taskList);
 
         if (currentList == 'taskList') {
             const currentSelect = getEl(currentList.title + currentTask);
-            currentSelect.value = newItem; //dothis - dropdown value after addnewitem
+            currentSelect.value = newItem; //dothis - check if needed
         }
         addItemField.value = '';
         displayTasks();
@@ -242,20 +226,6 @@ function loadBaseListeners() {
 }
 
 function loadTaskListeners() {
-    // function getEl(id) {
-    //     return document.getElementById(id);
-    // }
-    // function queryAll(selector) {
-    //     return document.querySelectorAll(selector);
-    // }
-    // function toggleHidden(...args) {
-    //     args.forEach(arg => {
-    //         if (arg.classList.contains('hidden')) {
-    //             arg.classList.remove('hidden');
-    //         }
-    //         else (arg.classList.add('hidden'));
-    //     })
-    // }
    
     //OPEN ADD ITEM FORM
     const allSelects = queryAll('select');
@@ -268,7 +238,7 @@ function loadTaskListeners() {
 
                 parentNode.appendChild(addItemForm);
                 toggleHidden(addItemForm);
-
+                currentProperty = e.target.dataset.array;
                 setCurrentList(e.target);
                 setCurrentSelects(e.target);
             }
@@ -286,25 +256,6 @@ function loadTaskListeners() {
 
     //EXPAND/COLLAPSE TASK
     const expandBtns = queryAll('.expand-btn');
-
-    // function toggleTask() {
-    //     const taskDiv = getEl(`task${currentTask}`)
-    //     const details = getEl(`details${currentTask}`);
-    //     const name = getEl(`name${currentTask}`);
-    //     const date = getEl(`duedate${currentTask}`);
-    //     const editDate = getEl(`edit-date${currentTask}`);
-    //     const children = details.childNodes;
-
-    //     taskDiv.classList.contains('expanded') ? 
-    //         taskDiv.classList.remove('expanded') : taskDiv.classList.add('expanded');
-
-    //     name.readOnly ? name.readOnly = false : name.readOnly = true;
-
-    //     toggleHidden(date, editDate);
-    //     children.forEach(child => {
-    //         toggleHidden(child);
-    //     })
-    // }
     
     expandBtns.forEach(button => {
         button.addEventListener('click', () => {
@@ -328,13 +279,13 @@ function loadTaskListeners() {
     const taskSubDivs = queryAll('.task-subdiv');
 
     taskSubDivs.forEach(subdiv => {
-        subdiv.addEventListener('change', () => {
-            let property = subdiv.dataset.arr;
+        subdiv.addEventListener('change', (e) => {
+            currentProperty = subdiv.dataset.arr;
             if (subdiv.value == 'Add new') {
                 return;
             } 
             else {
-                updateTask(subdiv, property);
+                updateTask(currentTask, currentProperty, e.target.value);
                 displayTasks();
                 toggleTask();
             }
