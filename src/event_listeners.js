@@ -207,6 +207,8 @@ function loadBaseListeners() {
         if (addItemBtn.classList.contains('hidden')) {
             toggleHidden(addItemBtn);
         };
+        displayTasks();
+        toggleTask();
     })
        
     //CHANGE VIEW

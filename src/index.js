@@ -13,6 +13,8 @@ import borderRef from './form_border_1.svg';
 
 //make sure empty itam not added 
 //update add task form dropdowns when item is added
+
+//set selects to task value after cancel
 //change display btns to toggles?
 //program show all cats btn
 //CAN'T WRAP with input, can't lock maxlength with textarea!
