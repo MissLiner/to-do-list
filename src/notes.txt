@@ -7,3 +7,5 @@ too many loops, how to avoid?
 is it okay to rely heavily on data attributes in this instance, or was there an easier way?
 does dom manipulation always look so messy, with all of this class and attribute adding? should I be adding that stiff in a more efficient way?
 going down an event listener spiral
+
+best way to add/remove event listeners in complex interactivity?

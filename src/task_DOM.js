@@ -290,11 +290,10 @@ function displayTasks() {
         getUniqueValues(taskList, property);
 
         if (completedToggle.checked) {
-            allKeyValues.forEach(value => createCategoryDiv(value));
-        } else {
             activeKeyValues.forEach(value => createCategoryDiv(value));
+        } else {
+            allKeyValues.forEach(value => createCategoryDiv(value));
         }
-        
     }
     loadTaskListeners();
     }
