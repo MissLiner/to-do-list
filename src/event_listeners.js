@@ -52,22 +52,24 @@ function setCurrentSelects(trigger) {
 }
 
 function toggleTask() {
-    const taskDiv = getEl(`task${currentTask}`)
-    const details = getEl(`details${currentTask}`);
-    const name = getEl(`name${currentTask}`);
-    const date = getEl(`duedate${currentTask}`);
-    const editDate = getEl(`edit-date${currentTask}`);
-    const children = details.childNodes;
+    if (!currentTask == 'none') {
+        const taskDiv = getEl(`task${currentTask}`)
+        const details = getEl(`details${currentTask}`);
+        const name = getEl(`name${currentTask}`);
+        const date = getEl(`duedate${currentTask}`);
+        const editDate = getEl(`edit-date${currentTask}`);
+        const children = details.childNodes;
 
-    taskDiv.classList.contains('expanded') ? 
+        taskDiv.classList.contains('expanded') ? //dothis - proper use of ternary?
         taskDiv.classList.remove('expanded') : taskDiv.classList.add('expanded');
 
-    name.readOnly ? name.readOnly = false : name.readOnly = true;
+        name.readOnly ? name.readOnly = false : name.readOnly = true;
 
-    toggleHidden(date, editDate, details);
-    children.forEach(child => {
-        toggleHidden(child);
-    })
+        toggleHidden(date, editDate, details);
+        children.forEach(child => {
+            toggleHidden(child);
+        })
+    }
 }
 
 function loadBaseListeners() {
@@ -183,7 +185,7 @@ function loadBaseListeners() {
         const categorySelect = getEl('category-select');
         const projectSelect = getEl('project-select');
         toggleHidden(addItemForm);
-        if (!editDiv.contains(addItemForm)) {//dothis - change to ternary operators
+        if (!editDiv.contains(addItemForm)) {
             editDiv.appendChild(addItemForm);
         }
         if (addItemBtn.classList.contains('hidden')) {
@@ -212,9 +214,9 @@ function loadBaseListeners() {
             toggleHidden(addItemBtn);
         };
         displayTasks();
-        if (newTaskForm.classList.contains('hidden')) {
+        //if (newTaskForm.classList.contains('hidden')) {
             toggleTask();
-        }
+        //}
     })
        
     //CHANGE VIEW
@@ -321,26 +323,28 @@ function loadTaskListeners() {
     const deleteBtns = queryAll('.delete-btn');
   
     deleteBtns.forEach(button => {
-        button.addEventListener('click', () => {
-            let lastTask = currentTask;
-            currentTask = button.dataset.index;
-            setCurrentList(button);
-            const confirmDelete = confirm('Are you sure you want to delete this item?');
-            if (confirmDelete == true) {
-                if (currentList !== taskList) {
-                    deleteFromArr(currentTask, currentList);
-                    createEditList(currentList);
+        if (!button.classList.contains('has-listener')) {
+            button.classList.add('has-listener');
+            button.addEventListener('click', () => {
+                let lastTask = currentTask;
+                currentTask = button.dataset.index;
+                setCurrentList(button);
+                const confirmDelete = confirm('Are you sure you want to delete this item?');
+                if (confirmDelete == true) {
+                    if (currentList !== taskList) {
+                        deleteFromArr(currentTask, currentList);
+                        createEditList(currentList);
+                    }
+                    else {
+                        deleteFromArr(currentTask, currentList);
+                    }
+                    currentTask = lastTask;
+                    displayTasks();
+                    toggleTask();
+                    currentTask = 'none';
                 }
-                else {
-                    deleteFromArr(currentTask, currentList);
-                }
-                currentTask = lastTask;
-                displayTasks();
-                toggleTask();
-                currentTask = 'none';
-                
-            }
-        })
+            })
+        }
     })
 
     //COMPLETE TASK
