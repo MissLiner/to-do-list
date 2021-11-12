@@ -267,8 +267,6 @@ function displayTasks() {
             }
             }
             addTasksToCategory(property);
-
-        
         }
         
         //create category lists for different views GLOBALNAMESPACE BELOW!!
@@ -294,7 +292,7 @@ function displayTasks() {
         }
         getUniqueValues(taskList, property);
 
-        if (completedToggle.checked && !categoryToggle.checked) {
+        if (completedToggle.checked && categoryToggle.checked) {
             activeKeyValues.forEach(value => createCategoryDiv(value));
         } else {
             allKeyValues.forEach(value => createCategoryDiv(value));
