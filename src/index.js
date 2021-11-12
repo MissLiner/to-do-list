@@ -10,7 +10,7 @@ import { displayTasks } from './task_DOM';
 import { createDropdown } from './task_DOM';
 import borderRef from './form_border_1.svg';
 
-//change display btns to toggles?
+//add new listener not working on new task form after one use
 //program show all cats btn
 //CAN'T WRAP with input, can't lock maxlength with textarea!
 

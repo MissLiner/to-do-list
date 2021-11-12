@@ -51,20 +51,20 @@
     </div>
     <div id="content-div">
     </div>
+
     <div id="toggle-div">
+      <h3 id="toggle-heading">SHOW ACTIVE ONLY</h3>
     <label class="toggle">
       <input id="toggle-completed" type="checkbox">
       <span class="slider round"></span>
     </label>
+    <h4>tasks</h4>
     <label class="toggle">
       <input id="toggle-category" type="checkbox">
       <span class="slider round"></span>
     </label>
+    <h4>categories</h4>
   </div>
-  
-    <!-- <button id="view-completed-btn" class="side-btn">show active only</button> -->
-    <!-- <button id="view-categories-btn" class="side-btn">show all cats
-    </button> -->
     
     <form id="new-task-form" class="form hidden">
       <div id="title-div" class="form-section">
@@ -91,7 +91,7 @@
           <option id="add-category" value="Add new">Add new</option>
         </select>
         <label for="project-select">Project:</label>
-        <select id="project-select" class="task-select categories-select" data-arr="projects" name="projects">
+        <select id="project-select" class="task-select projects-select" data-arr="projects" name="projects">
           <option value="None" selected>None</option>
           <option id="add-project" value="Add new">Add new</option>
         </select>

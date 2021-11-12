@@ -126,7 +126,8 @@ function loadBaseListeners() {
         if (currentTask !== 'none') { toggleTask() };
     })
     addItemBtn.addEventListener('click', (e) => {
-        if (!e.target.parentNode.contains(addItemForm)) {
+        if (!e.target.parentNode.contains(addItemForm)) { 
+            //dothis - does this make sense / is neccessary?
         editDiv.appendChild(addItemForm);
         }
         toggleHidden(addItemBtn);
@@ -179,8 +180,10 @@ function loadBaseListeners() {
     const addItemField = getEl('add-item-field');
     
     submitItemBtn.addEventListener('click', (e) => {
+        const categorySelect = getEl('category-select');
+        const projectSelect = getEl('project-select');
         toggleHidden(addItemForm);
-        if (!editDiv.contains(addItemForm)) {
+        if (!editDiv.contains(addItemForm)) {//dothis - change to ternary operators
             editDiv.appendChild(addItemForm);
         }
         if (addItemBtn.classList.contains('hidden')) {
@@ -192,9 +195,10 @@ function loadBaseListeners() {
         addItemToArr(newItem, currentList);
         createEditList(currentList);
         updateTask(currentTask, currentProperty, newItem);
-        console.table(taskList);
-
+        currentList == projects ? 
+            createDropdown(projects, projectSelect.id) : createDropdown(categories, categorySelect.id);
         displayTasks();
+
         if (currentTask !== 'none') { toggleTask() };
     })
 
