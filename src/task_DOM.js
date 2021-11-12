@@ -314,6 +314,9 @@ function displayTasks() {
                     fullList = priorities;
                     break;
             }
+            if (property !== 'statuses') {
+                createCategoryDiv('None');
+            }
             fullList.forEach(value => createCategoryDiv(value));
         }
     }
