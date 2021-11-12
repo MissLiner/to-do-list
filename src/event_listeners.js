@@ -207,12 +207,14 @@ function loadBaseListeners() {
         if (!editDiv.contains(addItemForm)) {
             editDiv.appendChild(addItemForm);
         }
-        toggleHidden(addItemForm)
+        toggleHidden(addItemForm);
         if (addItemBtn.classList.contains('hidden')) {
             toggleHidden(addItemBtn);
         };
         displayTasks();
-        toggleTask();
+        if (newTaskForm.classList.contains('hidden')) {
+            toggleTask();
+        }
     })
        
     //CHANGE VIEW
@@ -253,19 +255,19 @@ function loadTaskListeners() {
     const addItemForm = getEl('add-item-form');
 
     allSelects.forEach(select => {
-        select.addEventListener('change', (e) => {
-            if (e.target.value === 'Add new') {
-                const parentNode = e.target.parentNode;
-
-                //if (!parentNode.contains(addItemForm)) {
-                parentNode.appendChild(addItemForm);
-                //}
-                toggleHidden(addItemForm);
-                currentProperty = e.target.dataset.array;
-                setCurrentList(e.target);
-                setCurrentSelects(e.target);
-            }
-        })
+        if (!select.classList.contains('has-listener')) {
+            select.addEventListener('change', (e) => {
+                if (e.target.value === 'Add new') {
+                    const parentNode = e.target.parentNode;
+                    select.classList.add('has-listener');
+                    parentNode.appendChild(addItemForm);
+                    toggleHidden(addItemForm);
+                    currentProperty = e.target.dataset.array;
+                    setCurrentList(e.target);
+                    setCurrentSelects(e.target);
+                }
+            })
+        }
     })
 
     //EDIT LISTS
