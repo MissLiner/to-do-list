@@ -222,6 +222,7 @@ function loadBaseListeners() {
     //CHANGE VIEW
     const viewOptions = getEl('view-options');
     const completedToggle = getEl('toggle-completed');
+    const categoryToggle = getEl('toggle-category');
     
     viewOptions.addEventListener('change', () => {
         displayTasks();
@@ -229,14 +230,12 @@ function loadBaseListeners() {
     })
 
     completedToggle.addEventListener('click', ()=> {
-        // if (completedToggle.textContent == 'show all tasks') {
-        //     completedToggle.textContent = 'show active only';
-        // }
-        // else {
-        //     completedToggle.textContent = 'show all tasks';
-        // }
         displayTasks();
         if (currentTask !== 'none') { toggleTask() };
+    })
+    categoryToggle.addEventListener('click', () => {
+        displayTasks();
+        if (currentTask != 'none') { toggleTask() };
     })
     //SORT TASKS
     const sortBtns = queryAll('.sort-btn');

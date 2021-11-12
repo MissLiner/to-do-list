@@ -10,9 +10,12 @@ import { displayTasks } from './task_DOM';
 import { createDropdown } from './task_DOM';
 import borderRef from './form_border_1.svg';
 
-//program show all cats btn
 //lock width of screen so elements don't overlap
 //CAN'T WRAP with input, can't lock maxlength with textarea!
+//style toggles
+
+//add README
+//basic media queries
 
 //have categories populate new columns when list gets longer
 //is there a way to not repeat addEl, toggleHidden, etc

@@ -257,6 +257,9 @@ function displayTasks() {
                         for (let i = 0; i < allTaskDivs.length; i++) {
                             if (allTaskDivs[i].dataset.index == taskNumber) {
                                 allTaskDivs[i].classList.add('completed');
+                                if (completedToggle.checked) {
+                                    allTaskDivs[i].classList.add('hidden');
+                                }
                             }
                         }
                     }
@@ -264,11 +267,13 @@ function displayTasks() {
             }
             }
             addTasksToCategory(property);
+
         
         }
         
-        //create category lists for different views
+        //create category lists for different views GLOBALNAMESPACE BELOW!!
         const completedToggle = document.getElementById('toggle-completed');
+        const categoryToggle = document.getElementById('toggle-category');
         let allKeyValues = [];
         let activeKeyValues = [];
 
@@ -289,7 +294,7 @@ function displayTasks() {
         }
         getUniqueValues(taskList, property);
 
-        if (completedToggle.checked) {
+        if (completedToggle.checked && !categoryToggle.checked) {
             activeKeyValues.forEach(value => createCategoryDiv(value));
         } else {
             allKeyValues.forEach(value => createCategoryDiv(value));
