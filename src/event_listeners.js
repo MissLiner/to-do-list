@@ -52,7 +52,7 @@ function setCurrentSelects(trigger) {
 }
 
 function toggleTask() {
-    if (!currentTask == 'none') {
+    if (currentTask !== 'none') {
         const taskDiv = getEl(`task${currentTask}`)
         const details = getEl(`details${currentTask}`);
         const name = getEl(`name${currentTask}`);
