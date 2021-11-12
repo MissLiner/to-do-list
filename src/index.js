@@ -13,6 +13,7 @@ import borderRef from './form_border_1.svg';
 //lock width of screen so elements don't overlap
 //CAN'T WRAP with input, can't lock maxlength with textarea!
 //style toggles
+//populate newTaskForm dropdowns after addNewItem
 
 //add README
 //basic media queries

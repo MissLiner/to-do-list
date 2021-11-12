@@ -269,7 +269,7 @@ function displayTasks() {
             addTasksToCategory(property);
         }
         
-        //create category lists for different views GLOBALNAMESPACE BELOW!!
+        //create category lists for different views
         const completedToggle = document.getElementById('toggle-completed');
         const categoryToggle = document.getElementById('toggle-category');
         let allKeyValues = [];
@@ -292,10 +292,29 @@ function displayTasks() {
         }
         getUniqueValues(taskList, property);
 
-        if (completedToggle.checked && categoryToggle.checked) {
+        if (categoryToggle.checked && completedToggle.checked) {
             activeKeyValues.forEach(value => createCategoryDiv(value));
-        } else {
+        } 
+        else if (categoryToggle.checked) {
             allKeyValues.forEach(value => createCategoryDiv(value));
+        }
+        else {
+            let fullList;
+            switch(property) {
+                case 'categories':
+                    fullList = categories;
+                    break;
+                case 'projects':
+                    fullList = projects;
+                    break;
+                case 'statuses':
+                    fullList = statuses;
+                    break;
+                case 'priorities':
+                    fullList = priorities;
+                    break;
+            }
+            fullList.forEach(value => createCategoryDiv(value));
         }
     }
     loadTaskListeners();
