@@ -213,20 +213,20 @@ function loadBaseListeners() {
        
     //CHANGE VIEW
     const viewOptions = getEl('view-options');
-    const viewCompletedBtn = getEl('view-completed-btn');
+    const completedToggle = getEl('toggle-completed');
     
     viewOptions.addEventListener('change', () => {
         displayTasks();
         currentTask = 'none';
     })
 
-    viewCompletedBtn.addEventListener('click', ()=> {
-        if (viewCompletedBtn.textContent == 'show all tasks') {
-            viewCompletedBtn.textContent = 'show active only';
-        }
-        else {
-            viewCompletedBtn.textContent = 'show all tasks';
-        }
+    completedToggle.addEventListener('click', ()=> {
+        // if (completedToggle.textContent == 'show all tasks') {
+        //     completedToggle.textContent = 'show active only';
+        // }
+        // else {
+        //     completedToggle.textContent = 'show all tasks';
+        // }
         displayTasks();
         if (currentTask !== 'none') { toggleTask() };
     })

@@ -268,7 +268,7 @@ function displayTasks() {
         }
         
         //create category lists for different views
-        const viewCompletedBtn = document.getElementById('view-completed-btn');
+        const completedToggle = document.getElementById('toggle-completed');
         let allKeyValues = [];
         let activeKeyValues = [];
 
@@ -289,7 +289,7 @@ function displayTasks() {
         }
         getUniqueValues(taskList, property);
 
-        if (viewCompletedBtn.textContent == 'show active only') {
+        if (completedToggle.checked) {
             allKeyValues.forEach(value => createCategoryDiv(value));
         } else {
             activeKeyValues.forEach(value => createCategoryDiv(value));
