@@ -435,7 +435,7 @@ textarea {
 }
 #content-div {
     margin: auto;
-    margin-top: 20px;
+    margin-top: 150px;
 }
 #desc-field {
     width:70%;
@@ -463,8 +463,9 @@ textarea {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     height: 50px;
-    margin: 10px 0px 10px 0px;
-    position: relative;
+    /* margin: 10px 0px 10px 0px; */
+    position: fixed;
+    top: 75px;
     width: 100%;
     z-index: 5;
 }
@@ -495,12 +496,18 @@ textarea {
     font-weight:bolder;
     padding-top: 3%;
 }
+#page-heading {
+    text-align: left;
+    position: fixed;
+    top: 5px;
+    width: 100%;
+}
 #title-div {
     margin-bottom: 10px;
 }
 #toggle-div {
     /* display:block; */
-    position:absolute;
+    position:fixed;
     right: 2%;
     top: 21%;
 }
