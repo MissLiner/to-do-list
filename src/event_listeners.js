@@ -270,7 +270,7 @@ function loadTaskListeners() {
                     toggleHidden(addItemForm);
                     currentProperty = e.target.dataset.array;
                     setCurrentList(e.target);
-                    setCurrentSelects(e.target);
+                    // setCurrentSelects(e.target);
                 }
             })
         }
@@ -318,7 +318,7 @@ function loadTaskListeners() {
             else {
                 updateTask(currentTask, currentProperty, e.target.value);
                 displayTasks();
-                // toggleTask();
+                toggleTask();
             }
         })
     })
