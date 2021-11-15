@@ -318,7 +318,7 @@ function loadTaskListeners() {
             else {
                 updateTask(currentTask, currentProperty, e.target.value);
                 displayTasks();
-                toggleTask();
+                // toggleTask();
             }
         })
     })
