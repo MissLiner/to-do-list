@@ -18,8 +18,9 @@ function displayTasks() {
 
     const viewOptions = document.getElementById('view-options');
     const property = viewOptions.value;
-
-    if (taskList) {
+    if (!taskList[0]) { 
+        content.textContent = 'Click on Add Task above to get started!'
+    } else {
         if (property == 'duedate') {
             let events = [];
             (function createCalendarArr() {
