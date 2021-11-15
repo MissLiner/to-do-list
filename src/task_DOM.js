@@ -24,13 +24,15 @@ function displayTasks() {
             let events = [];
             (function createCalendarArr() {
                 for (let i = 0; i < taskList.length; i++) {
-                  let taskDate = parseISO(taskList[i].duedate, new Date());
-                  let name = taskList[i].name;
-                  let calObject = {
-                    'Date': taskDate,
-                    'Title': name,
-                  }
-                  events.push(calObject);
+                    if (taskList[i].statuses == 'Active') {
+                        let taskDate = parseISO(taskList[i].duedate, new Date());
+                        let name = taskList[i].name;
+                        let calObject = {
+                        'Date': taskDate,
+                        'Title': name,
+                        }
+                    events.push(calObject);
+                    }
                 }
               })()
             const calendarDiv = document.createElement('div');

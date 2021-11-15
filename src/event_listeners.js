@@ -137,9 +137,9 @@ function loadBaseListeners() {
     })
 
     //CLOSE LIST
-    const exitPopupBtn = getEl('exit-popup-btn');
+    const editDivExitBtn = getEl('edit-div-exit-btn');
 
-    exitPopupBtn.addEventListener('click', () => {
+    editDivExitBtn.addEventListener('click', () => {
         toggleHidden(editDiv);
         if (!addItemForm.classList.contains('hidden')) {
             toggleHidden(addItemForm);
@@ -223,9 +223,17 @@ function loadBaseListeners() {
     const viewOptions = getEl('view-options');
     const completedToggle = getEl('toggle-completed');
     const categoryToggle = getEl('toggle-category');
+    const toggleDiv = getEl('toggle-div');
     
     viewOptions.addEventListener('change', () => {
         displayTasks();
+
+        if (viewOptions.value == 'duedate') {
+            toggleHidden(toggleDiv);
+        }
+        else if (toggleDiv.classList.contains('hidden')) {
+            toggleHidden(toggleDiv);
+        }
         currentTask = 'none';
     })
 

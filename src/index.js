@@ -18,16 +18,16 @@ import borderRef from './form_border_1.svg';
 //add README
 //basic media queries
 
+//add navigation into specific categories
+
+//create custom alerts for delete and help
 //have categories populate new columns when list gets longer
 //is there a way to not repeat addEl, toggleHidden, etc
 //figure out what to do about sortTaskList being in index.js
-//format circle buttons
 //add content to help menu
-//adjust colors
-//add media queries / make more responsive
 //allow users to change order of edit lists
 //refactor to use less passing variables between modules
-//add navigation into specific categories
+
 //add edit links to calendar to edit tasks form there
 
 
