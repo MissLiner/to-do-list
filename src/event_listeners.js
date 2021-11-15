@@ -129,7 +129,6 @@ function loadBaseListeners() {
     })
     addItemBtn.addEventListener('click', (e) => {
         if (!e.target.parentNode.contains(addItemForm)) { 
-            //dothis - does this make sense / is neccessary?
         editDiv.appendChild(addItemForm);
         }
         toggleHidden(addItemBtn);
@@ -214,9 +213,7 @@ function loadBaseListeners() {
             toggleHidden(addItemBtn);
         };
         displayTasks();
-        //if (newTaskForm.classList.contains('hidden')) {
             toggleTask();
-        //}
     })
        
     //CHANGE VIEW

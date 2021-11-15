@@ -1,46 +1,11 @@
-//use factories to create list items   
-//use date-fns to format dates and times
-
 import { loadBaseListeners } from './event_listeners';
 import './style.css'; 
 import './caleandar_theme3.css';
-// import './caleandar_theme2.css';
-// import './caleandar_theme3.css';
 import { displayTasks } from './task_DOM';
 import { createDropdown } from './task_DOM';
 import borderRef from './form_border_1.svg';
 
-//lock width of screen so elements don't overlap
-//CAN'T WRAP with input, can't lock maxlength with textarea!
-//style toggles
-//populate newTaskForm dropdowns after addNewItem
-
-//add README
-//basic media queries
-
-//add navigation into specific categories
-
-//create custom alerts for delete and help
-//have categories populate new columns when list gets longer
-//is there a way to not repeat addEl, toggleHidden, etc
-//figure out what to do about sortTaskList being in index.js
-//add content to help menu
-//allow users to change order of edit lists
-//refactor to use less passing variables between modules
-
-//add edit links to calendar to edit tasks form there
-
-
-(function addFormBorder() {
-    const borderDiv = document.getElementById('border-div');
-    const border = new Image();
-
-    border.src = borderRef;
-    border.id = 'border-new-task';
-    border.classList.add('border');
-    borderDiv.appendChild(border);
-})()
-
+//BASIC RESOURCES FOR ALL MODULES
 let taskList = [];
 taskList.title = 'taskList';
 
@@ -71,7 +36,32 @@ statuses.title = 'statuses';
 
 const content = document.getElementById('content-div');
 
-//local storage - retrieve
+(function setDate() {
+    const newTaskDate = document.getElementById('duedate-select');
+    const today = new Date();
+    let DD = today.getDate();
+    let MM = today.getMonth() + 1;
+
+    if (DD <10) {
+        DD = '0' + DD;
+    }
+    if (MM < 10) {
+        MM = '0' + MM;
+    }
+    newTaskDate.defaultValue = today.getFullYear() + '-' + MM + '-' + DD;
+})()
+
+(function addFormBorder() {
+    const borderDiv = document.getElementById('border-div');
+    const border = new Image();
+
+    border.src = borderRef;
+    border.id = 'border-new-task';
+    border.classList.add('border');
+    borderDiv.appendChild(border);
+})()
+
+//RETRIEVE LISTS FROM LOCAL STORAGE
 (function getListFromStorage() {
     if (localStorage.getItem('taskList')) {
         let storedTasks = JSON.parse(window.localStorage.getItem('taskList'));
@@ -91,25 +81,11 @@ const content = document.getElementById('content-div');
     }
 })()
 
+//LOAD SITE
 loadBaseListeners();
 displayTasks('statuses');
 createDropdown(categories, 'category-select');
 createDropdown(projects, 'project-select');
-
-(function setDate() {
-    const newTaskDate = document.getElementById('duedate-select');
-    const today = new Date();
-    let DD = today.getDate();
-    let MM = today.getMonth() + 1;
-
-    if (DD <10) {
-        DD = '0' + DD;
-    }
-    if (MM < 10) {
-        MM = '0' + MM;
-    }
-    newTaskDate.defaultValue = today.getFullYear() + '-' + MM + '-' + DD;
-})()
 
 export {
     taskList,
