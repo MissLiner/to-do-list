@@ -5,6 +5,18 @@ import { displayTasks } from './task_DOM';
 import { createDropdown } from './task_DOM';
 import borderRef from './form_border_1.svg';
 
+
+
+(function addFormBorder() {
+    const borderDiv = document.getElementById('border-div');
+    const border = new Image();
+
+    border.src = borderRef;
+    border.id = 'border-new-task';
+    border.classList.add('border');
+    borderDiv.appendChild(border);
+})()
+
 //BASIC RESOURCES FOR ALL MODULES
 let taskList = [];
 taskList.title = 'taskList';
@@ -36,30 +48,9 @@ statuses.title = 'statuses';
 
 const content = document.getElementById('content-div');
 
-(function setDate() {
-    const newTaskDate = document.getElementById('duedate-select');
-    const today = new Date();
-    let DD = today.getDate();
-    let MM = today.getMonth() + 1;
 
-    if (DD <10) {
-        DD = '0' + DD;
-    }
-    if (MM < 10) {
-        MM = '0' + MM;
-    }
-    newTaskDate.defaultValue = today.getFullYear() + '-' + MM + '-' + DD;
-})()
 
-(function addFormBorder() {
-    const borderDiv = document.getElementById('border-div');
-    const border = new Image();
 
-    border.src = borderRef;
-    border.id = 'border-new-task';
-    border.classList.add('border');
-    borderDiv.appendChild(border);
-})()
 
 //RETRIEVE LISTS FROM LOCAL STORAGE
 (function getListFromStorage() {
@@ -86,6 +77,21 @@ loadBaseListeners();
 displayTasks('statuses');
 createDropdown(categories, 'category-select');
 createDropdown(projects, 'project-select');
+
+(function setDate() {
+    const newTaskDate = document.getElementById('duedate-select');
+    const today = new Date();
+    let DD = today.getDate();
+    let MM = today.getMonth() + 1;
+
+    if (DD <10) {
+        DD = '0' + DD;
+    }
+    if (MM < 10) {
+        MM = '0' + MM;
+    }
+    newTaskDate.defaultValue = today.getFullYear() + '-' + MM + '-' + DD;
+})()
 
 export {
     taskList,

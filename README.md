@@ -1,6 +1,7 @@
-//lock width of screen so elements don't overlap
-//CAN'T WRAP with input, can't lock maxlength with textarea!
-//style toggles
+Stuff I still have to do:
+
+-lock width of screen so elements don't overlap
+-CAN'T WRAP with input, can't lock maxlength with textarea!
 //populate newTaskForm dropdowns after addNewItem
 //lock task name field at 25 characters
 
