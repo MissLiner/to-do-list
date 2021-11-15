@@ -84,6 +84,9 @@ textarea {
 .category-div {
     padding-bottom: 10px;
 }
+.category-tasks-div {
+    width: max-content;
+}
 .completed {
     color: #63364E;
 }
@@ -265,7 +268,7 @@ textarea {
 .task-basic-div {
     display: flex;
     margin-bottom: 10px;
-    width: 500px;
+    width: 100%;
 }
 .task-checkbox {
     background-color: transparent;
@@ -438,8 +441,10 @@ textarea {
     transform-origin:50% 100%;
 }
 #content-div {
+    display: flex;
     margin: auto;
     margin-top: 150px;
+    width: 80%;
 }
 #desc-field {
     width:70%;
@@ -468,6 +473,12 @@ textarea {
 #edit-div-exit-btn {
     border: none;
 }
+#header-div {
+    /* height: max-content; */
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
 #list {
     padding-left: none;
 }
@@ -477,8 +488,8 @@ textarea {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     height: 50px;
-    position: fixed;
-    top: 75px;
+    /* position: fixed;
+    top: 75px; */
     width: 100%;
     z-index: 5;
 }
@@ -511,7 +522,7 @@ textarea {
 }
 #page-heading {
     text-align: left;
-    position: fixed;
+    /* position: fixed; */
     top: 5px;
     width: 100%;
 }
@@ -524,6 +535,7 @@ textarea {
     border-width: 2px;
     border-color:#806969;
     padding: 10px;
+    /* position: inline-block; */
     position:fixed;
     right: 40px;
     top: 180px;

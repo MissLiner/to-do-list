@@ -11,46 +11,45 @@
   </head>
 
   <body>
-    <h1 id="page-heading">Can-Do List</h1>
-    <div id="menu-bar">
-      <label id="view-label" class="menu-btn">View: 
-        <select id="view-options" class="menu-btn">
-          <option value="statuses">Status</option>
-          <option value="priorities">Priority</option>
-          <option value="categories">Category</option>
-          <option value="projects">Project</option>
-          <option value="duedate">Due Date</option>
-        </select>
-      </label>
-      <div id="menu-bar-edit" class="menu">
-        <button id="edit-btn" class="menu-btn">Edit</button>
-        <div id="edit-menu" class="dropdown hidden">
-          <button id="edit-cat-btn" class="dropdown-btn" data-arr="categories">Categories</button>
-          <button id="edit-proj-btn" class="dropdown-btn" data-arr="projects">Projects</button>
-          <button id="edit-prior-btn" class="dropdown-btn" data-arr="priorities">Priority Levels</button>
-          <button id="edit-stat-btn" class="dropdown-btn" data-arr="statuses">Statuses</button>
+    <div id="header-div">
+      <h1 id="page-heading">Can-Do List</h1>
+      <div id="menu-bar">
+        <label id="view-label" class="menu-btn">View: 
+          <select id="view-options" class="menu-btn">
+            <option value="statuses">Status</option>
+            <option value="priorities">Priority</option>
+            <option value="categories">Category</option>
+            <option value="projects">Project</option>
+            <option value="duedate">Due Date</option>
+          </select>
+        </label>
+        <div id="menu-bar-edit" class="menu">
+          <button id="edit-btn" class="menu-btn">Edit</button>
+          <div id="edit-menu" class="dropdown hidden">
+            <button id="edit-cat-btn" class="dropdown-btn" data-arr="categories">Categories</button>
+            <button id="edit-proj-btn" class="dropdown-btn" data-arr="projects">Projects</button>
+            <button id="edit-prior-btn" class="dropdown-btn" data-arr="priorities">Priority Levels</button>
+            <button id="edit-stat-btn" class="dropdown-btn" data-arr="statuses">Statuses</button>
+          </div>
         </div>
-      </div>
-      <button id="new-task-btn" class="menu-btn">New Task</button>
-      <div id="menu-bar-sort" class="menu">
-        <button id="sort-btn" class="menu-btn">Sort</button>
-        <div id="sort-menu" class="dropdown hidden">
-          <button class="dropdown-btn sort-btn" data-index="bydate-earliest">by earliest duedate</button>
-          <button class="dropdown-btn sort-btn" data-index="bydate-latest">by latest duedate </button>
-          <button class="dropdown-btn sort-btn" data-index="bypriority">by priority level</button>
-          <button class="dropdown-btn sort-btn" data-index="byalpha">a to z</button>
+        <button id="new-task-btn" class="menu-btn">New Task</button>
+        <div id="menu-bar-sort" class="menu">
+          <button id="sort-btn" class="menu-btn">Sort</button>
+          <div id="sort-menu" class="dropdown hidden">
+            <button class="dropdown-btn sort-btn" data-index="bydate-earliest">by earliest duedate</button>
+            <button class="dropdown-btn sort-btn" data-index="bydate-latest">by latest duedate </button>
+            <button class="dropdown-btn sort-btn" data-index="bypriority">by priority level</button>
+            <button class="dropdown-btn sort-btn" data-index="byalpha">a to z</button>
+          </div>
         </div>
+        <button id="help-btn" class="menu-btn">Help</button>
       </div>
-      <button id="help-btn" class="menu-btn">Help</button>
     </div>
 
     <div id="edit-div" class="hidden">
       <button id="edit-div-exit-btn" class="fas fa-times"></button>
       <div id="edit-content-div"></div>
       <button id="add-item-btn">+ Add New</button>
-    </div>
-    
-    <div id="content-div">
     </div>
 
     <div id="toggle-div">
@@ -66,7 +65,9 @@
     </label>
     <h4 class="toggle-label">empty lists</h4>
   </div>
-    
+
+    <div id="content-div">
+    </div>
     <form id="new-task-form" class="form hidden">
       <div id="title-div" class="form-section">
         <label id="name-label" for="name-field">New Task:</label>
