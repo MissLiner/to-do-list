@@ -82,7 +82,10 @@ textarea {
     grid-area: d;
 }
 .category-div {
+    margin:initial;
+    margin-top: 10px;
     padding-bottom: 10px;
+    width: max-content;
 }
 .category-tasks-div {
     width: max-content;
@@ -442,9 +445,10 @@ textarea {
 }
 #content-div {
     display: flex;
-    margin: auto;
+    flex-wrap: wrap;
+    margin-left: 20%;
     margin-top: 150px;
-    width: 80%;
+    width: 70%;
 }
 #desc-field {
     width:70%;
@@ -535,11 +539,18 @@ textarea {
     border-width: 2px;
     border-color:#806969;
     padding: 10px;
-    /* position: inline-block; */
-    position:fixed;
-    right: 40px;
+    /* position:fixed; */
+    left: 40px;
     top: 180px;
     width: min-content;
+}
+#toggle-pane {
+    height: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    position: fixed;
+    text-align: left;
+    width: 200px;   
 }
 @media screen and (max-width: 770px) {
     #toggle-div {
