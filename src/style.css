@@ -517,7 +517,8 @@ textarea {
 }
 #toggle-div {
     background-color:#B6D4C4;
-    border: solid;
+    border:dotted;
+    border-width: 2px;
     border-color:#806969;
     padding: 10px;
     position:fixed;
@@ -555,3 +556,24 @@ textarea {
 #view-label {
     height: 25px;
 }
+@media (max-aspect-ratio: 3/4) {
+    h1 {
+    background-color: white;
+    }
+}
+  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1) {
+    h1 {
+        background-color: lightgray;
+    }
+  }
+  @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 6/3) {
+    h1 {
+        background-color: darkgray;
+    }
+  }
+  @media (min-aspect-ratio: 6/3) {
+    h1 {
+        background-color: black;
+    }
+  }
+ 
