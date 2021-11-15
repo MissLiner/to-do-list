@@ -91,7 +91,7 @@ function loadBaseListeners() {
     }   
 
     menuBar.addEventListener('click', (e) => {
-        setCurrentSelects(e.target);
+        // setCurrentSelects(e.target);
 
         switch(e.target) {
             case editBtn:
