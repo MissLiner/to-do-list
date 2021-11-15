@@ -4,7 +4,7 @@ import { categories, projects, taskList, priorities, statuses, sortTaskList } fr
 
 let currentTask = 'none';
 let currentList;
-let currentSelects;
+// let currentSelects;
 let currentProperty;
 
 function queryAll(selector) {
@@ -34,22 +34,22 @@ function setCurrentList(trigger) {
         }
     }
 }
-function setCurrentSelects(trigger) {
-    switch(trigger.dataset.arr) {
-        case 'categories':
-            currentSelects = queryAll('.task-categories-select, .category-select');
-            break;
-        case 'priorities':
-            currentSelects = queryAll('.task-priorities-select');
-            break;
-        case 'projects':
-            currentSelects = queryAll('.task-projects-select, .project-select');
-            break;
-        case 'statuses':
-            currentSelects = queryAll('.task-status-select');
-            break;
-    }
-}
+// function setCurrentSelects(trigger) {
+//     switch(trigger.dataset.arr) {
+//         case 'categories':
+//             currentSelects = queryAll('.task-categories-select, .category-select');
+//             break;
+//         case 'priorities':
+//             currentSelects = queryAll('.task-priorities-select');
+//             break;
+//         case 'projects':
+//             currentSelects = queryAll('.task-projects-select, .project-select');
+//             break;
+//         case 'statuses':
+//             currentSelects = queryAll('.task-status-select');
+//             break;
+//     }
+// }
 
 function toggleTask() {
     if (currentTask !== 'none') {
