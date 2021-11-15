@@ -127,6 +127,7 @@ textarea {
     background-color: #B6D4C4;
     border:double;
     border-color:#806969;
+    margin-left: -100px;
     padding: 1% 0% 2% 0%;
     width:650px;
 }
@@ -433,7 +434,6 @@ textarea {
     column-gap: 20px;
     display: flex;
     flex-wrap: wrap;
-    margin-left: 20%;
     margin-top: 150px;
     width: 70%;
 }
@@ -521,8 +521,8 @@ textarea {
     border-width: 2px;
     border-color:#806969;
     padding: 10px;
-    left: 40px;
-    top: 180px;
+    margin-left: 40%;
+    margin-top: 25%;
     width: min-content;
 }
 #toggle-pane {

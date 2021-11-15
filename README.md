@@ -5,6 +5,8 @@ BASIC FORMATTING:
 -can't lock maxlength with textarea
 -populate newTaskForm dropdowns after addNewItem
 -lock task name field at 25 characters
+-stop filter menu and content-div form overlapping with smaller width viewport
+    -chnge format of filter options completely?
 
 IMPORTANT FEATURES:
 -write proper README file
