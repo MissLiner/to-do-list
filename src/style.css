@@ -305,6 +305,9 @@ textarea {
     border:none;
     font-size: large;
     font-weight:600;
+    margin-left: 10px;
+    text-align: left;
+    width: max-content;
 }
 .task-name:focus-visible {
     outline: none;
@@ -474,7 +477,6 @@ textarea {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     height: 50px;
-    /* margin: 10px 0px 10px 0px; */
     position: fixed;
     top: 75px;
     width: 100%;

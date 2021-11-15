@@ -58,6 +58,10 @@ function displayTasks() {
             addCategoryTitle(category);
 
             function addTasksToCategory(property) {
+                const categoryTasksDiv = document.createElement('div');
+                categoryDiv.appendChild(categoryTasksDiv);
+                categoryTasksDiv.classList.add('category-tasks-div');
+
                 for (let i = 0; i < taskList.length; i++) {
                     if (taskList[i][property] == category) {
                     const taskNumber = taskList[i].index;
@@ -82,7 +86,7 @@ function displayTasks() {
                     border.classList.add('hidden');
                     taskDetailDiv.appendChild(border);
                                         
-                    categoryDiv.appendChild(taskDiv);
+                    categoryTasksDiv.appendChild(taskDiv);
                     taskDiv.appendChild(taskBasicDiv);
                     taskDiv.appendChild(taskDetailDiv);
 
