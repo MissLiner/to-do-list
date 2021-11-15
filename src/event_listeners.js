@@ -257,7 +257,7 @@ function loadBaseListeners() {
 function loadTaskListeners() {
    
     //OPEN ADD ITEM FORM
-    const allSelects = queryAll('select');
+    const allSelects = queryAll('.task-select', );
     const addItemForm = getEl('add-item-form');
 
     allSelects.forEach(select => {

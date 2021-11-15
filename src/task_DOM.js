@@ -19,7 +19,10 @@ function displayTasks() {
     const viewOptions = document.getElementById('view-options');
     const property = viewOptions.value;
     if (!taskList[0]) { 
-        content.textContent = 'Click on Add Task above to get started!'
+        const introMessage = document.createElement('div');
+        introMessage.id = 'intro-message';
+        introMessage.textContent = 'Click on "New Task" above to get started!'
+        document.body.appendChild(introMessage);
     } else {
         if (property == 'duedate') {
             let events = [];

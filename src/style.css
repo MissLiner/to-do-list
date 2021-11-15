@@ -51,6 +51,8 @@ label {
     color:#63364E;
     font-family: "Architects Daughter", cursive;
     font-size: 18px;
+    padding-left: 20px;
+    text-decoration: underline;
 }
 textarea {
     resize: none;
@@ -88,7 +90,6 @@ textarea {
 .delete-btn {
     border: none;
     background: transparent;
- 
 }
 .description-label {
     grid-area: a;
@@ -97,6 +98,7 @@ textarea {
     background-color:#806969;
     float: left;
     padding: 5px 5px 5px 5px;
+    z-index: 999;
 }
 .dropdown-btn {
     background-color:#806969;
@@ -106,6 +108,7 @@ textarea {
     padding: 5px 0px 5px 0px;
     width: 100%;
 }
+
 .edit-date-div {
     border:none;
     border-radius: 25px;
@@ -164,6 +167,7 @@ textarea {
     background-color: white;
     color:#63364E;
     font-family: "Architects Daughter", cursive;
+    font-size: 18px;
     margin: 2% 0% 1% 0%;
 }
 .form-section {
@@ -440,6 +444,9 @@ textarea {
 #desc-field {
     width:70%;
 }
+#duedate-select {
+    width: min-content;
+}
 #edit-div {
     background-color: white;
     border: solid;
@@ -468,6 +475,16 @@ textarea {
     top: 0;
     width: 100%;
 }
+#intro-message {
+    color:darkgreen;
+    font-size: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: absolute;
+    text-decoration: underline;
+    top: 30%;
+    z-index: -1;
+}
 #list {
     padding-left: none;
 }
@@ -491,6 +508,9 @@ textarea {
     font-family:"Architects Daughter", cursive;
     font-size: 2em;
     margin-bottom: 20px;
+}
+#new-item-label {
+    text-decoration: none;
 }
 #new-task-btn {
     color:white;
@@ -532,6 +552,7 @@ textarea {
     position: fixed;
     text-align: left;
     width: 200px;   
+    z-index:900;
 }
 #toggle-heading {
     font-size: 16px;
