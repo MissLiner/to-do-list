@@ -266,6 +266,7 @@ textarea {
 .task-checkbox {
     background-color: transparent;
     height: 24px;
+    margin-left: 10px;
     width:24px;
 }
 .task-description-input {
@@ -541,7 +542,7 @@ textarea {
     border-width: 2px;
     border-color:#806969;
     padding: 10px;
-    margin-left: 40%;
+    margin-left: 10%;
     margin-top: 25%;
     width: min-content;
 }
