@@ -172,14 +172,6 @@ function displayTasks() {
                             }
                             taskBasicDiv.appendChild(taskSubDiv);
                         }
-                        function createExpandBtn() {
-                            const expandBtn = document.createElement('button');
-                            expandBtn.classList.add('expand-btn', 'task');
-                            expandBtn.setAttribute('data-index', taskNumber);
-                            expandBtn.title = 'Expand';
-                            expandBtn.insertAdjacentHTML('beforeend', '<i class="fas fa-caret-square-down fa-lg"></i>');
-                            taskBasicDiv.appendChild(expandBtn);
-                        }
                         function createDeleteBtn() {
                             const deleteBtn = document.createElement('button');
                             deleteBtn.classList.add('delete-btn', 'task');
@@ -188,6 +180,14 @@ function displayTasks() {
                             deleteBtn.title = 'Delete';
                             deleteBtn.insertAdjacentHTML('beforeend', '<i class="far fa-trash-alt fa-lg"></i>' );
                             taskBasicDiv.appendChild(deleteBtn);
+                        }
+                        function createExpandBtn() {
+                            const expandBtn = document.createElement('button');
+                            expandBtn.classList.add('expand-btn', 'task');
+                            expandBtn.setAttribute('data-index', taskNumber);
+                            expandBtn.title = 'Expand';
+                            expandBtn.insertAdjacentHTML('beforeend', '<i class="fas fa-caret-square-down fa-lg"></i>');
+                            taskBasicDiv.appendChild(expandBtn);
                         }
                         function createDetails() {
                             function createSubDiv(key) {
@@ -255,9 +255,8 @@ function displayTasks() {
                         createCheckbox();
                         createTaskSubDiv('name');
                         createTaskSubDiv('duedate');
-                        createExpandBtn();
                         createDeleteBtn();
-
+                        createExpandBtn();
                         createDetails(taskList[i]);
 
                     }
