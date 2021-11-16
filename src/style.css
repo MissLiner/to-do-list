@@ -130,7 +130,6 @@ textarea {
     background-color: #B6D4C4;
     border:double;
     border-color:#806969;
-    /* margin-left: -100px; */
     padding: 1% 0% 2% 0%;
     position: absolute;
     left: 50%;
@@ -330,9 +329,6 @@ textarea {
 .toggle {
     position: relative;
     display: block;
-    /* margin-top: 10px; */
-    /* margin-right: 0px; */
-    /* width: 60px; */
     height: 10px;
     margin-right: 0px;
 }
@@ -527,14 +523,9 @@ textarea {
     border-color:#806969;
     display: grid;
     grid-template-columns: 2fr 1.2fr 3fr 1.2fr 2.2fr;
-    /* height: 35px; */
     margin-right: 18px;
     margin-top: 18px;
     padding: 5px;
-    /* position: fixed;
-    top: 150px; */
-    /* margin-left: 15%;
-    margin-top: 25%; */
     width: max-content;
 }
 #toggle-pane {
@@ -548,7 +539,6 @@ textarea {
 }
 #toggle-heading {
     font-size: 16px;
-    /* margin-top: -5px; */
     text-decoration: underline;
     width: 100%;
 }
