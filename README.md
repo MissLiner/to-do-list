@@ -7,9 +7,11 @@ RESOURCES:
 
 
 Stuff I still have to do:
+-fix date sort
+-why doesn't sort menu close when i hit a sort btn?
 
 BASIC FORMATTING:
-
+-alphabetize categories
 -fix add new fields not to cancel each other out
 -return select to previous value with cancel add new item button
 

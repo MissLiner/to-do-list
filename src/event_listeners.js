@@ -83,7 +83,7 @@ function loadBaseListeners() {
     const helpBtn = getEl('help-btn');
 
     function addClickOutListener(element) {
-        window.addEventListener('click', function hideElement(e) {
+        window.addEventListener('click', () => {
                 toggleHidden(element);
         }, {
         once: true
@@ -249,7 +249,6 @@ function loadBaseListeners() {
         button.addEventListener('click', (e) => {
             sortTaskList(e.target);
             displayTasks();
-            toggleHidden(sortMenu);
         })
     })
 }
