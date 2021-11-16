@@ -376,7 +376,7 @@ function createEditList(arr) {
     listTitle.classList.add('list-child');
     editContentDiv.appendChild(listTitle);
 
-    const list = document.createElement('ul');
+    const list = document.createElement('div');
     list.id = 'list';
     list.classList.add('list-child');
     editContentDiv.appendChild(list);
