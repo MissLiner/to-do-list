@@ -1,5 +1,5 @@
 
-import { taskList } from "./index"; 
+import { taskList, sortListByAlpha } from "./index"; 
 
 const newTaskForm = document.getElementById('new-task-form');
 
@@ -22,7 +22,7 @@ function addNewTaskToList() {
 
 function addItemToArr(item, arr) {
     arr.push(item);
-    arr.sort();
+    sortListByAlpha(arr);
     storeList(arr);
 }
 

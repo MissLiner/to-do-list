@@ -6,7 +6,6 @@ RESOURCES:
 5. Leaf Border: ??
 
 BASIC FORMATTING:
--alphabetize categories
 -fix add new fields not to cancel each other out
 -return select to previous value with cancel add new item button
 

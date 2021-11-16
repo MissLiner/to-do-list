@@ -37,6 +37,9 @@ function sortTaskList(trigger) {
             break;
     }
 }
+function sortListByAlpha (list) {
+    list = list.sort((a, b) => a.localeCompare(b));
+}
 let categories = ['Home', 'Work', 'Self-Care', 'Pets', 'Kids'];
 categories.title = 'categories';
 let projects = ['Update kitchen', 'AB anxiety'];
@@ -47,10 +50,6 @@ let statuses = ['Active', 'Complete'];
 statuses.title = 'statuses';
 
 const content = document.getElementById('content-div');
-
-
-
-
 
 //RETRIEVE LISTS FROM LOCAL STORAGE
 (function getListFromStorage() {
@@ -101,4 +100,5 @@ export {
     projects,
     statuses,
     sortTaskList,
+    sortListByAlpha,
 }
