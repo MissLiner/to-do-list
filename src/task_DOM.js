@@ -126,6 +126,7 @@ function displayTasks() {
                             if (key == 'name') {
                                 taskSubDiv = document.createElement('input');
                                 taskSubDiv.readOnly = true;
+                                taskSubDiv.maxLength = '22';
                                 taskSubDiv.value = taskList[i].name;
                             }
                             else {

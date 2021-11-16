@@ -77,7 +77,7 @@ function toggleTask() {
         const editDate = getEl(`edit-date${currentTask}`);
         const children = details.childNodes;
 
-        taskDiv.classList.contains('expanded') ? //dothis - proper use of ternary?
+        taskDiv.classList.contains('expanded') ? //dothis - improper use of ternary?
         taskDiv.classList.remove('expanded') : taskDiv.classList.add('expanded');
 
         name.readOnly ? name.readOnly = false : name.readOnly = true;

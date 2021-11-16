@@ -6,9 +6,8 @@ RESOURCES:
 5. Leaf Border: ??
 
 BASIC FORMATTING:
--fix add new fields not to cancel each other out
--return select to previous value with cancel add new item button
 -lock width of screen so elements don't overlap
+-lock maxlength of task name
 
 -can't lock maxlength with textarea
 -populate newTaskForm dropdowns after addNewItem

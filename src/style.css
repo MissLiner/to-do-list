@@ -78,7 +78,7 @@ textarea {
     width: max-content;
 }
 .category-tasks-div {
-    width: 425px;
+    width: 450px;
 }
 .completed {
     color: #63364E;
@@ -330,9 +330,11 @@ textarea {
 .toggle {
     position: relative;
     display: block;
-    margin-top: 10px;
-    width: 60px;
+    /* margin-top: 10px; */
+    /* margin-right: 0px; */
+    /* width: 60px; */
     height: 10px;
+    margin-right: 0px;
 }
 .toggle input {
     opacity: 0;
@@ -343,7 +345,7 @@ textarea {
     background: transparent;
     color:#5E4E4D;
     font-weight:600;
-    margin-top: 5px;
+    margin-left: 5px;
     width: max-content;
 }
 .slider {
@@ -372,6 +374,7 @@ textarea {
   }
   .slider.round {
     border-radius: 34px;
+    margin-right: 0px;
     width: 30px;
   }
   .slider.round:before {
@@ -420,7 +423,7 @@ textarea {
     display: flex;
     flex-wrap: wrap;
     margin-top: 150px;
-    width: 70%;
+    width: 80%;
 }
 #desc-field {
     width:70%;
@@ -453,6 +456,7 @@ textarea {
 }
 #header-div {
     position: fixed;
+    display: block;
     top: 0;
     width: 100%;
 }
@@ -511,7 +515,7 @@ textarea {
 #page-heading {
     text-align: left;
     top: 5px;
-    width: 100%;
+    width: max-content;
 }
 #title-div {
     margin-bottom: 10px;
@@ -521,23 +525,30 @@ textarea {
     border:dotted;
     border-width: 2px;
     border-color:#806969;
-    padding: 10px;
-    margin-left: 15%;
-    margin-top: 25%;
-    width: min-content;
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 3fr 1.2fr 2.2fr;
+    /* height: 35px; */
+    margin-right: 18px;
+    margin-top: 18px;
+    padding: 5px;
+    /* position: fixed;
+    top: 150px; */
+    /* margin-left: 15%;
+    margin-top: 25%; */
+    width: max-content;
 }
 #toggle-pane {
     height: 100%;
     margin-left: 0px;
     margin-right: 0px;
-    position: fixed;
+
     text-align: left;
-    width: 200px;   
+    width: 175px;   
     z-index:900;
 }
 #toggle-heading {
     font-size: 16px;
-    margin-top: -5px;
+    /* margin-top: -5px; */
     text-decoration: underline;
     width: 100%;
 }
