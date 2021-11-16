@@ -27,10 +27,10 @@ function sortTaskList(trigger) {
             taskList.sort((a, b) => a.name.localeCompare(b.name));
             break;
         case 'bydate-earliest':
-            taskList.sort((a, b) => b.duedate.localeCompare(a.duedate));
+            taskList.sort((a, b) => a.duedate.localeCompare(b.duedate));
             break;
         case 'bydate-latest':
-            taskList.sort((a, b) => a.duedate.localeCompare(b.duedate));
+            taskList.sort((a, b) => b.duedate.localeCompare(a.duedate));
             break;
         case 'bypriority':
             taskList.sort((a, b) => a.priorities.localeCompare(b.priorities));
