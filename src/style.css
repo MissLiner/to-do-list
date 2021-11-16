@@ -411,7 +411,7 @@ textarea {
     background-color: white;
     block-size: fit-content;
     border: solid;
-    padding: 3% 2% 3% 2%;
+    padding: 3% 0% 3% 0%;
     position: relative;
     height:fit-content;
     width:fit-content;
@@ -462,7 +462,11 @@ textarea {
     max-height: 350px;
     position:relative;
     width: fit-content;
-    padding-left: none;
+    margin-left: 60px;
+    margin-top: 20px;
+}
+#list-title {
+    margin-left: 60px;
 }
 #menu-bar {
     background-color:#A38786;
