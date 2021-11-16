@@ -1,10 +1,26 @@
-import { addItemToArr, addNewTaskToList, toggleComplete, deleteFromArr, updateTask, updateList } from './task_logic';
-import { createDropdown, displayTasks, createEditList } from './task_DOM'
-import { categories, projects, taskList, priorities, statuses, sortTaskList } from './index'
+import {
+    addItemToArr, 
+    addNewTaskToList, 
+    toggleComplete, 
+    deleteFromArr, 
+    updateTask, 
+    updateList 
+} from './task_logic';
+import { 
+    createDropdown, 
+    displayTasks, 
+    createEditList 
+} from './task_DOM'
+import { 
+    categories, 
+    projects, 
+    taskList, 
+    priorities, 
+    statuses, 
+    sortTaskList } from './index'
 
 let currentTask = 'none';
 let currentList;
-// let currentSelects;
 let currentProperty;
 
 function queryAll(selector) {
@@ -74,7 +90,7 @@ function toggleTask() {
 
 function loadBaseListeners() {
 
-    //MENU BAR
+    //MENU BAR (dothis - ask for feedback on this part)
     const menuBar = getEl('menu-bar');
     const editMenu = getEl('edit-menu');
     const sortMenu = getEl('sort-menu');

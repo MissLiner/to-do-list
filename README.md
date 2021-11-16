@@ -5,11 +5,6 @@ RESOURCES:
 4. Checks & Checkboxes: created with Adobe Illustrator
 5. Leaf Border: ??
 
-
-Stuff I still have to do:
--fix date sort
--why doesn't sort menu close when i hit a sort btn?
-
 BASIC FORMATTING:
 -alphabetize categories
 -fix add new fields not to cancel each other out
@@ -30,7 +25,7 @@ IMPORTANT FEATURES:
 
 
 NICE-TO-HAVE FUNCTIONALITY:
-
+-filter projects or categories with "None"
 -add navigation into specific categories
 -create custom alerts for delete and help
 -add content to help menu

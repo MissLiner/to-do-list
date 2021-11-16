@@ -1,12 +1,21 @@
-import { content , taskList, priorities, categories, projects, statuses } from './index.js';
+import { 
+    content, 
+    taskList, 
+    priorities, 
+    categories, 
+    projects, 
+    statuses 
+} from './index';
 import { loadTaskListeners } from './event_listeners';
+import { caleandar, settings} from './caleandar';
+
 import  formatRelative  from 'date-fns/formatRelative';
 import parseISO from 'date-fns/parseISO';
 import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
 import uncheckedBoxRef from './box_unchecked.svg';
 import checkedBoxRef from './box_checked.svg';
 import borderRef from './form_border_1.svg';
-import { caleandar, settings} from './caleandar.js';
+
 
 function displayTasks() {
 

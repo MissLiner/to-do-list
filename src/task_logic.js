@@ -1,5 +1,5 @@
 
-import { taskList, categories, projects } from "./index.js"; 
+import { taskList } from "./index"; 
 
 const newTaskForm = document.getElementById('new-task-form');
 
