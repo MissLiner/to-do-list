@@ -22,6 +22,7 @@ import {
 let currentTask = 'none';
 let currentList;
 let currentProperty;
+let currentSelect;
 
 function queryAll(selector) {
     return document.querySelectorAll(selector);
@@ -284,15 +285,31 @@ function loadTaskListeners() {
 
     allSelects.forEach(select => {
         if (!select.classList.contains('has-listener')) {
+            select.classList.add('has-listener');
             select.addEventListener('change', (e) => {
                 if (e.target.value === 'Add new') {
-                    const parentNode = e.target.parentNode;
-                    select.classList.add('has-listener');
-                    parentNode.appendChild(addItemForm);
-                    toggleHidden(addItemForm);
+                    if (addItemForm.classList.contains('hidden')) {
+                        const parentNode = e.target.parentNode;
+                        parentNode.appendChild(addItemForm);
+                        toggleHidden(addItemForm);
+                    } else {
+                        //reset original select to task value
+                        taskList.forEach(task => {
+                            if (task.index == currentTask) {
+                                const options = Array.from(currentSelect.options);
+                                options.forEach(option => {
+                                    if (option.value == task[currentProperty]) {
+                                        currentSelect.selectedIndex = option.index;
+                                        return;
+                                    }
+                                })
+                                return;
+                            }
+                        })
+                    }
                     currentProperty = e.target.dataset.array;
+                    currentSelect = e.target;
                     setCurrentList(e.target);
-                    // setCurrentSelects(e.target);
                 }
             })
         }

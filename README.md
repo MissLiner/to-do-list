@@ -8,9 +8,8 @@ RESOURCES:
 BASIC FORMATTING:
 -fix add new fields not to cancel each other out
 -return select to previous value with cancel add new item button
-
-
 -lock width of screen so elements don't overlap
+
 -can't lock maxlength with textarea
 -populate newTaskForm dropdowns after addNewItem
 -lock task name field at 25 characters
