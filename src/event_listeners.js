@@ -82,33 +82,40 @@ function loadBaseListeners() {
     const sortBtn = getEl('sort-btn');
     const helpBtn = getEl('help-btn');
 
-    function addClickOutListener(element) {
-        window.addEventListener('click', () => {
+    function addClickOutListener(element, target) {
+        document.addEventListener('click', (e) => {
                 toggleHidden(element);
+                if (e.target === target) {
+                    e.stopPropagation();
+                }
         }, {
-        once: true
+        once: true,
+        capture: true
         })
     }   
-
-    menuBar.addEventListener('click', (e) => {
-        // setCurrentSelects(e.target);
-
-        switch(e.target) {
+    function toggleMenu(menu, event) {
+        if (!menu.classList.contains('hidden')) {
+            return;
+        } else {
+            toggleHidden(menu);
+            addClickOutListener(menu, event.target);
+            event.stopPropagation();
+        }
+    }
+    function controlMenuBar(event) {
+        switch(event.target) {
             case editBtn:
-                toggleHidden(editMenu);
-                addClickOutListener(editMenu);
-                e.stopPropagation();
+                toggleMenu(editMenu, event);
                 break;
             case sortBtn:
-                toggleHidden(sortMenu);
-                addClickOutListener(sortMenu);
-                e.stopPropagation();
+                toggleMenu(sortMenu, event);
                 break;
             case helpBtn:
                 alert('Help you?!? I\'m barely keeping my own shit together. Sorry buddy!');
                 break;
         }
-    })
+    }
+    menuBar.addEventListener('click', (e) => controlMenuBar(e));
 
     //EDIT LISTS
     const editDiv = getEl('edit-div');
