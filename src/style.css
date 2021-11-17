@@ -7,6 +7,9 @@
     font-weight:500;
     margin: auto;
     text-align: center;
+    transition-property: all;
+    transition-duration: .6s;
+    transition-timing-function: ease;
 }
 button {
     color:#63364E;
