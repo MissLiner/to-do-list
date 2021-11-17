@@ -4,6 +4,7 @@ RESOURCES:
 3. Custom Palette: created with Adobe Colorwheel
 4. Checks & Checkboxes: created with Adobe Illustrator
 5. Leaf Border: ??
+6. Menu bar hover letter-spacing effect: https://www.sliderrevolution.com/resources/css-button-hover-effects/
 
 BASIC FORMATTING:
 -lock width of screen so elements don't overlap
