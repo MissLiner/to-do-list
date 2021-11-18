@@ -81,7 +81,7 @@ function displayTasks() {
                     const taskDiv = document.createElement('div');
                     taskDiv.id = `task${taskNumber}`;
                     taskDiv.classList.add('task-div', 'task');
-                    taskDiv.setAttribute('data-index', taskNumber);;
+                    taskDiv.setAttribute('data-index', taskNumber);
 
                     const taskBasicDiv = document.createElement('div');
                     taskBasicDiv.id = 'basic' + taskNumber;
