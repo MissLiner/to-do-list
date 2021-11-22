@@ -11,7 +11,6 @@ function addNewTaskToList() {
     let newTask = {};
     let taskFormData = new FormData(newTaskForm);
     for (let key of taskFormData.keys()) {
-        console.log(key);
         newTask[key] = taskFormData.get(key);
     }
     newTask.index = Date.now();
